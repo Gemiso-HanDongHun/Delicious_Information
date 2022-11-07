@@ -4,7 +4,7 @@
 
 view
 
-index.jsp
+index.jsp //kim
 - 비동기, 밑에 검색 정보 출력
 
 detail.jsp
