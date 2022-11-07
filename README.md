@@ -5,6 +5,7 @@
 view
 
 index.jsp //kimasda
+index.jsp //kim ㄴㅇ
 - 비동기, 밑에 검색 정보 출력
 
 detail.jsp
