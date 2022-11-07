@@ -1,4 +1,4 @@
-Application Scenario
+~~Application Scenario
 =========================
 # Version 1.0
 ## Admin 
@@ -39,25 +39,33 @@ DB 설계
 
 ### function
 1. 이용자가 우리 페이지 접속 
- + MainController getmapping ("/") 
- + index.jsp 페이지 보여주기 
+   + MainController getmapping ("/") 
+   + index.jsp 페이지 보여주기 
     
 2. 찾고싶은 음식 검색
-    + jsp에서 RestController (restcontroller) (/food) getmapping
-    + service -> mapper 연동 데이터베이스에서 값 가져오기 jsp로 json 보내기
-    + index.jsp 검색결과 비동기 출력
+   + jsp에서 RestController (restcontroller) (/food) getmapping
+   + service -> mapper 연동 데이터베이스에서 값 가져오기 jsp로 json 보내기
+   + index.jsp 검색결과 비동기 출력
    
 3. 음식의 상세 정보 출력
-    + 클릭 FoodController (/food/detail) getmapping
-    + service -> mapper food dto 가져와서 jsp 로 setattribute
-    + food-detail.jsp 정보 출력 
+   + 클릭 FoodController (/food/detail) getmapping
+   + service -> mapper food dto 가져와서 jsp 로 setattribute
+   + food-detail.jsp 정보 출력 
 
 4. adminLTE 에서 
-    + 음식 정보 등록 
-    + 
-    + admin-index.jsp adminController ("/") 
-    + login.jsp  
+   + 음식 정보 등록 
+   + admin-index.jsp adminController ("/") 
+   + login.jsp  
     
+
+### 맡은 부분
+lemoncoat   : adminController 
+
+
+Goill       : mainController restController
+
+
+LUYCIN      : foodController 
 
 
 
