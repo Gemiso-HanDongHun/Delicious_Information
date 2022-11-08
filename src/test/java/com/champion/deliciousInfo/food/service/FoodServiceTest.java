@@ -15,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class FoodServiceTest {
 
 
-
-
     @Autowired
     FoodMapper mapper;
 

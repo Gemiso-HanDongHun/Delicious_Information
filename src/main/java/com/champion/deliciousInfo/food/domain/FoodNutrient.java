@@ -10,6 +10,7 @@ import java.sql.SQLException;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class FoodNutrient {
  private Integer nutrientNo;
  private float carbohydrate;

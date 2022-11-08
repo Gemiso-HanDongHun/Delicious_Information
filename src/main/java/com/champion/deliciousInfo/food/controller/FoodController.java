@@ -15,11 +15,11 @@ public class FoodController {
 
     private final FoodService service;
 
-    @GetMapping("/")
+    @GetMapping("/list")
     public String list(Model model) {
         List<Food> foodList = service.getList();
         model.addAttribute("fList", foodList);
-        return "index";
+        return "food/index";
     }
 
 

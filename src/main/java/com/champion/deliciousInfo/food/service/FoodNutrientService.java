@@ -1,6 +1,5 @@
-package com.champion.deliciousInfo.food.Service;
+package com.champion.deliciousInfo.food.service;
 
-import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.repository.FoodNutrientMapper;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ import java.util.List;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public abstract class FoodNutrientService {
+public class FoodNutrientService {
 
     private final FoodNutrientMapper foodNutrientMapper;
 

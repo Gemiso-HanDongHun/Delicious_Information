@@ -16,7 +16,6 @@ public class FoodService {
     
     //전체 조회
     public List<Food> getList() {
-        System.out.println("서비스 실행중");
         List<Food> foodList = mapper.findAll();
         return foodList;
     }

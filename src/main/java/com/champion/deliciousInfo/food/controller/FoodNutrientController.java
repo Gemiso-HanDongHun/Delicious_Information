@@ -1,20 +1,14 @@
 package com.champion.deliciousInfo.food.controller;
 
-import com.champion.deliciousInfo.food.Service.FoodNutrientService;
-import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.food.service.FoodNutrientService;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @Log4j2

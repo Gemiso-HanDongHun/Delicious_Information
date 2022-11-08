@@ -13,5 +13,10 @@
         select * from food
     </select>
 
+    <select id="findOne" resultMap="foodMap">
+        select * from food where name=#{name}
+    </select>
+
+
 
 </mapper>

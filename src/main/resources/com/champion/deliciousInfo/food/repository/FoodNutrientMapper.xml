@@ -8,30 +8,27 @@
     <resultMap id="foodNutrientMap" type="com.champion.deliciousInfo.food.domain.FoodNutrient">
 
         <id column="nutrient_no" property="nutrientNo" />
-        <association property="nutrientNo" column="nutrient_no"/>
-        <association property="carbohydrate" column="carbohydrate"/>
-        <association property="protein" column="protein"/>
-        <association property="fat" column="fat"/>
-        <association property="vitaminA" column="vitamin_a"/>
-        <association property="vitaminC" column="vitamin_c"/>
-        <association property="vitaminE" column="vitamin_e"/>
-        <association property="calcium" column="calcium"/>
-        <association property="iron" column="iron"/>
-        <association property="magnesium" column="magnesium"/>
-        <association property="sodium" column="sodium"/>
-        <association property="omega" column="omega"/>
+        <result property="carbohydrate" column="carbohydrate"/>
+        <result property="protein" column="protein"/>
+        <result property="fat" column="fat"/>
+        <result property="vitaminA" column="vitamin_a"/>
+        <result property="vitaminC" column="vitamin_c"/>
+        <result property="vitaminE" column="vitamin_e"/>
+        <result property="calcium" column="calcium"/>
+        <result property="iron" column="iron"/>
+        <result property="magnesium" column="magnesium"/>
+        <result property="sodium" column="sodium"/>
+        <result property="omega" column="omega"/>
+        <association property="food"
+                     column="food_no" javaType="com.champion.deliciousInfo.food.domain.Food"
+                     select="com.champion.deliciousInfo.food.repository.FoodMapper.findOne" />
 
     </resultMap>
 
     <!-- 회원 조회 기능   -->
-    <select id="findUser" resultMap="adminMap">
+    <select id="findAll" resultMap="foodNutrientMap">
         select * from food,food_nutrient
         where food.food_no=food_nutrient.food_no;
     </select>
-
-    <!-- 회원 가입 -->
-    <insert id="regist">
-        insert into admin(account, password) values (#{account},#{password})
-    </insert>
 
 </mapper>

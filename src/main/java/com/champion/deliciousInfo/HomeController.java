@@ -13,7 +13,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model, HttpSession session) {
         System.out.println("홈 컨트롤러 실행중");
-        return "index";
+        return "food/index";
 
     }
 }

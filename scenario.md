@@ -1,4 +1,4 @@
-~~Application Scenario
+Application Scenario
 =========================
 # Version 1.0
 ## Admin 
@@ -22,20 +22,18 @@ DB 설계
 
 ## food_nutrient table
 * nutrient_no int auto increment primary key
-* food_no foreign key 
-* tansu 
-* danbaek
-* jibang
+* carbohydrate
+* protein
+* fat
 * vitamin a
-* vitamin d
-* vitamin e
-* vitamin k
 * vitamin c
+* vitamin e
 * 칼슘
 * 철
 * 마그네슘
 * 나트륨
 * 오메가3 (양)
+* food_no reference(food.food_no) 
 
 ### function
 1. 이용자가 우리 페이지 접속 
@@ -45,7 +43,7 @@ DB 설계
 2. 찾고싶은 음식 검색
    + jsp에서 RestController (restcontroller) (/food) getmapping
    + service -> mapper 연동 데이터베이스에서 값 가져오기 jsp로 json 보내기
-   + index.jsp 검색결과 비동기 출력
+   + index.jsp list.jsp로 이동
    
 3. 음식의 상세 정보 출력
    + 클릭 FoodController (/food/detail) getmapping
@@ -68,6 +66,16 @@ Goill       : mainController restController
 LUYCIN      : foodController 
 
 
+###
 
+lemoncoat : 11.07 - 
+
+
+
+goill : 
+
+
+
+luycin : 
 
 
