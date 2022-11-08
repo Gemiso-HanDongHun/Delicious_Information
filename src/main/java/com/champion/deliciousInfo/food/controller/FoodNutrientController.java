@@ -21,12 +21,11 @@ public class FoodNutrientController {
     // 영양분 정보 상세 조회
     @GetMapping("/food-detail")
     public String list(Model model) {
-        log.info("controller request /board/list GET!");
+
         List<FoodNutrient> foodNutrientList = foodNutrientService.findAllService();
 
-        log.info("return data - {}", foodNutrientList);
 
-        model.addAttribute("fList", foodNutrientList);
+        model.addAttribute("fnList", foodNutrientList);
         return "food/food-detail";
 
     }

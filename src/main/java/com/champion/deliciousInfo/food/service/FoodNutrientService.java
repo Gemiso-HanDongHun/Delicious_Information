@@ -16,17 +16,12 @@ public class FoodNutrientService {
     private final FoodNutrientMapper foodNutrientMapper;
 
     public List<FoodNutrient> findAllService() {
-        log.info("findAll service start");
 
         List<FoodNutrient> foodNutrientList = foodNutrientMapper.findAll();
 
 
         return foodNutrientList;
     }
-
-
-
-
 }
 
 
