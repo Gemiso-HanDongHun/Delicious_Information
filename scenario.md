@@ -72,9 +72,10 @@ lemoncoat : 11.07 -
 
 
 
-goill : 
+goill : 11.08 : index.jsp, food-list.jsp, include, 
+                HomeController, FoodController, Food, FoodMapper, FoodService, FoodMapper.xml
 
-
+ 
 
 luycin : 11.08 - 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 
                   추후 메인 페이지를 시작으로 디자인 예정

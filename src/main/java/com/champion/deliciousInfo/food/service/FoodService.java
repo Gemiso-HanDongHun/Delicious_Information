@@ -21,5 +21,9 @@ public class FoodService {
     }
 
     // 한건 조회
+    public Food getListOne(int foodNo) {
+        Food food = mapper.findOne(foodNo);
+        return food;
+    }
 
 }
