@@ -27,6 +27,7 @@
 <div class="wrap">
 
     <table class="nutrient">
+
         <tr>
             <th>번호</th>
             <th>탄수화물</th>
@@ -41,7 +42,6 @@
             <th>나트륨</th>
             <th>오메가3</th>
         </tr>
-
 
             <c:forEach var="fn" items="${fnList}">
                 <tr>
@@ -59,7 +59,6 @@
                     <td>${fn.omega}</td>
                 </tr>
             </c:forEach>
-
 
     </table>
 
