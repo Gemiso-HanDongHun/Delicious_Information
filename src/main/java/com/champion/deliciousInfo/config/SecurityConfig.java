@@ -24,7 +24,7 @@ public class SecurityConfig {
         http.csrf().disable() // csrf공격 방어토큰 자동 생성 해제
                 .authorizeRequests() //권한요청 범위 설정
                 .antMatchers("/admin/**")
-                .permitAll() // /member로 시작하는 요청은 따로 권한 검증하지 말아라
+                .permitAll() // /admin 시작하는 요청은 따로 권한 검증하지 말아라
                 ;
 
         return http.build();

@@ -68,8 +68,9 @@ LUYCIN      : foodController
 
 ###
 
-lemoncoat : 11.07 - 
-
+lemoncoat : 11.08 - index.jsp login-form.jsp  food-list.jsp 작성
+admincontroller service mapper 생성 및 로그인 기능 구현 
+admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인을 해야지 들어갈수 있음
 
 
 goill : 11.08 : index.jsp, food-list.jsp, include, 
