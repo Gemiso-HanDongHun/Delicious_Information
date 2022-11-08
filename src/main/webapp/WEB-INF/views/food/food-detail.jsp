@@ -55,7 +55,7 @@
                 <th>오메가3</th>
             </tr>
 
-            <c:forEach var="fn" items="${fnList}">
+            <c:forEach var="fn" items="${fList}">
                 <tr>
                     <td>${fn.nutrientNo}</td>
                     <td>${fn.carbohydrate}</td>

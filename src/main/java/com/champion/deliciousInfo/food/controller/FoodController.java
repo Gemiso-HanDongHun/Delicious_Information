@@ -19,7 +19,7 @@ public class FoodController {
     public String list(Model model) {
         List<Food> foodList = service.getList();
         model.addAttribute("fList", foodList);
-        return "food/index";
+        return "food/food-list";
     }
 
 
