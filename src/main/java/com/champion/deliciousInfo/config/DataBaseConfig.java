@@ -26,7 +26,6 @@ public class DataBaseConfig {
         config.setPassword(password);
         config.setJdbcUrl(url);
         config.setDriverClassName("org.mariadb.jdbc.Driver");
-
         return new HikariDataSource(config);
     }
 }
