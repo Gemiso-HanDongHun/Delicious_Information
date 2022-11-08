@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.food.repository.FoodMapper">
+    
+    <resultMap id="foodMap" type="com.champion.deliciousInfo.food.domain.Food">
+        <id column="food_no" property="foodNo"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="foodMap">
+        select * from food
+    </select>
+
+
+</mapper>
