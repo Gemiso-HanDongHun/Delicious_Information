@@ -1,4 +1,5 @@
 /src/main/resources/data_info.properties
+/src/main/resources/static/adminLTE
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar

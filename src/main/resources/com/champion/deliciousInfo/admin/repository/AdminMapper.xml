@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.admin.repository.AdminMapper">
+
+    <resultMap id="adminMap" type="com.champion.deliciousInfo.admin.domain.Admin">
+        <id column="admin_no" property="adminNo" />
+    </resultMap>
+
+    <!-- 회원 조회 기능   -->
+    <select id="findUser" resultMap="adminMap">
+        select * from admin
+        where account = #{account};
+    </select>
+
+    <!-- 회원 가입 -->
+    <insert id="regist">
+        insert into admin(account, password) values (#{account},#{password})
+    </insert>
+
+</mapper>
