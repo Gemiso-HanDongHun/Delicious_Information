@@ -16,6 +16,8 @@ public class FoodController {
 
     private final FoodService service;
 
+
+    // 전체 목록 가져오기
     @GetMapping("/list")
     public String list(Model model) {
         List<Food> foodList = service.getList();
@@ -23,6 +25,14 @@ public class FoodController {
         return "food/food-list";
     }
 
+
+    // 한개 상세정보 가져오기
+    /*@GetMapping("/listOne")
+    public String listOne(Model model, int foodNo) {
+        Food food = service.getListOne(foodNo);
+        model.addAttribute("fOne", food);
+        return null;
+    }*/
 
 
 

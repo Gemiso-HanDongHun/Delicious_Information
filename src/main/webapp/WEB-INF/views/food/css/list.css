@@ -1,0 +1,56 @@
+table {
+    width: 60%;
+    border: 1px solid #444444;
+    box-sizing: border-box;
+    margin:auto;
+    border-collapse: separate;
+    border-radius: 2em;
+    padding: 10px;
+}
+th, td {
+    border: 1px solid #444444;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+div.boxed-page table th {
+    text-align: center;
+}
+
+div.boxed-page table td:first-child {
+    text-align: center;
+}
+
+div.boxed-page table td:nth-child(2):hover {
+    color: #ffffff;
+    background: #cccccc;
+    cursor: pointer;
+}
+
+div.boxed-page table td:nth-child(3) {
+    text-align: right;
+}
+
+div.div_search {
+    margin: 70px auto 50px;
+    width: 60%;
+    overflow: hidden;
+}
+
+div.div_search input[type=text] {
+    width: 80%;
+    float: left;
+    border-radius: 1em;
+    border:2px solid #000000;
+}
+div.div_search button[type=button] {
+    width: 15%;
+    float: right;
+    border-radius: 2em;
+}
+
+div.div_search button[type=button]:hover {
+    background: #4e555b;
+    color: #ffff;
+    cursor: pointer;
+}

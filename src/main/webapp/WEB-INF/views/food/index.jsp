@@ -6,44 +6,16 @@
 
 <head>
 
-    <%@include file="../include/header_css.jsp"%>
+    <%@include file="./include/header_css.jsp"%>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-<div id="side-nav" class="sidenav">
-    <a href="javascript:void(0)" id="side-nav-close">&times;</a>
 
-    <div class="sidenav-content">
-        <p>
-            Kuncen WB1, Wirobrajan 10010, DIY
-        </p>
-        <p>
-            <span class="fs-16 primary-color">(+68) 120034509</span>
-        </p>
-        <p>info@yourdomain.com</p>
-    </div>
-</div>	<div id="side-search" class="sidenav">
-    <a href="javascript:void(0)" id="side-search-close">&times;</a>
-    <div class="sidenav-content">
-        <form action="">
+<%@include file="./include/side_nav.jsp"%>
 
-            <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="input-group-text red lighten-3" id="basic-text1">
-                        <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-
-        </form>
-    </div>
-
-
-</div>	<div id="canvas-overlay"></div>
 <div class="boxed-page">
     
-    <%@include file="../include/header_nav.jsp"%>
+    <%@include file="./include/header_nav.jsp"%>
     
     <div class="hero">
     <div class="container">
@@ -581,9 +553,9 @@
 
         </div>
     </section>
-    <%@include file="../include/footer.jsp"%>
+    <%@include file="./include/footer.jsp"%>
 </div>
 </div>
-    <%@include file="../include/footer_js.jsp"%>
+    <%@include file="./include/footer_js.jsp"%>
 </body>
 </html>
