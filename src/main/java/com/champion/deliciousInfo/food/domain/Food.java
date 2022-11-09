@@ -12,4 +12,5 @@ public class Food {
     private String name;
     private int kcal;
     private String img;
+
 }

@@ -72,7 +72,7 @@
                                        <c:forEach var="food" items="${foodList}">
                                        <tr>
                                            <td>${food.foodNo}</td>
-                                            <a href="/admin/food/${foodNo}"><td>${food.name}</td></a>
+                                           <td> <a href="/admin/detail/${food.foodNo}">${food.name}</a></td>
                                            <td>${food.kcal}</td>
                                        </tr>
                                        </c:forEach>
@@ -88,6 +88,9 @@
                                    </table>
                                </div>
                                <!-- /.card-body -->
+                               <div class="card-footer">
+                                   <button type="button" class="btn btn-primary">등록</button>
+                               </div>
                            </div>
                            <!-- /.card -->
                        </div>
@@ -106,5 +109,18 @@
     <!--/footer-->
 </div>
 <%@ include file="include/food-list/food-list-js.jsp"%>
+<script>
+    const msg = '${msg}';
+    console.log(msg);
+    if (msg !== '') {
+        alert(msg);
+    }
+
+    const $button = document.querySelector("button");
+    $button.onclick = function(){
+        location.href="/admin/write"
+    };
+
+</script>
 </body>
 </html>

@@ -14,4 +14,11 @@ public interface FoodMapper {
     // 목록 단일 조회
     Food findOne(int foodNo);
 
+    boolean save(Food food);
+
+    boolean modify(Food food);
+    boolean modifyFile(Food food);
+
+    boolean remove(int foodNo);
+
 }

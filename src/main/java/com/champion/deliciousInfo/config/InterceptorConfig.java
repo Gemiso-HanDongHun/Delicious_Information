@@ -18,7 +18,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 게시판 인터셉터 설정
         registry.addInterceptor(adminInterceptor)
-                .addPathPatterns("/admin/*")
+                .addPathPatterns("/asdfasdf/*")
                 .excludePathPatterns("/admin/login");
 
 

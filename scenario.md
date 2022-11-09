@@ -68,13 +68,18 @@ LUYCIN      : foodController
 
 ###
 
-lemoncoat : 11.08 - index.jsp login-form.jsp  food-list.jsp 작성
+lemoncoat : 
+11.08 - index.jsp login-form.jsp  food-list.jsp 작성
 admincontroller service mapper 생성 및 로그인 기능 구현 
 admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인을 해야지 들어갈수 있음
 
+11.09 음식 정보 테이블에 insert modify delete 생성 이미지파일 업로드 및 수정 가능
+      그에 따른 foodmapper에 메서드 추가
+
+
 
 goill : 11.08 : index.jsp, food-list.jsp, include, 
-                HomeController, FoodController, Food, FoodMapper, FoodService, FoodMapper.xml
+                HomeController, FoodController, **Food, FoodMapper, FoodService, FoodMapper.xml**
         11.09 : food-list.jsp css 수정, include에 side_nav 추가 작성, list.css 생성
 
 luycin : 11.08 - 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 

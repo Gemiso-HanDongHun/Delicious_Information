@@ -17,6 +17,27 @@
         select * from food where food_no=#{foodNo}
     </select>
 
+    <insert id="save">
+        INSERT INTO food
+            (name, kcal, img)
+        values
+            (#{name},#{kcal},#{img})
+    </insert>
+
+    <update id="modify">
+        update food set name=#{name},kcal=#{kcal}
+        where food_no=#{foodNo}
+    </update>
+
+    <update id="modifyFile">
+        update food set name=#{name},kcal=#{kcal},img=#{img}
+        where food_no=#{foodNo}
+    </update>
+
+    <delete id="remove">
+        delete from food where food_no=#{foodNo}
+    </delete>
+
 
 
 </mapper>
