@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="footer-widget pr-lg-5 pr-0">
-          <img src="resto/img/logo.png" class="img-fluid footer-logo mb-3" alt="">
+          <img src="/resto/img/logo.png" class="img-fluid footer-logo mb-3" alt="">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni, et voluptatum dolorem.</p>
           <nav class="nav nav-mastfoot justify-content-start">
             <a class="nav-link" href="#">

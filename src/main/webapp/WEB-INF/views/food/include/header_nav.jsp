@@ -5,7 +5,7 @@
 <nav id="navbar-header" class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
-      <img src="resto/img/logo.png" alt="">
+      <img src="/resto/img/logo.png" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="lnr lnr-menu"></span>
@@ -23,7 +23,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resto/about.html">About</a>
+            <a class="nav-link" href="/resto/about.html">About</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -31,15 +31,15 @@
               Special Dishes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="resto/special-dishes.html">Beef Steak Sauce</a>
-              <a class="dropdown-item" href="resto/special-dishes.html">Salmon Zucchini</a>
+              <a class="dropdown-item" href="/resto/special-dishes.html">Beef Steak Sauce</a>
+              <a class="dropdown-item" href="/resto/special-dishes.html">Salmon Zucchini</a>
             </div>
           </li>
         </div>
       </ul>
 
       <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">
-        <img src="resto/img/logo.png" alt="">
+        <img src="/resto/img/logo.png" alt="">
       </a>
       <ul class="navbar-nav d-flex justify-content-between">
         <div class="d-flex flex-lg-row flex-column">
@@ -47,11 +47,11 @@
             <a class="nav-link" href="/list">List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resto/team.html">Team</a>
+            <a class="nav-link" href="/resto/team.html">Team</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link" href="resto/reservation.html">Reservation</a>
+            <a class="nav-link" href="/resto/reservation.html">Reservation</a>
           </li>
         </div>
         <li class="nav-item">
