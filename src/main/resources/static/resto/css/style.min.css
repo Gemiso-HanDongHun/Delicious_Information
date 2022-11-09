@@ -42,10 +42,12 @@ a:hover {
 
 .btn-icon {
   display: inline-flex;
-  align-items: center; }
+  align-items: center;
+  }
   .btn-icon .lnr {
     font-size: 30px;
-    margin-right: 10px; }
+    margin-right: 10px;
+  }
 
 .boxed-page {
   position: relative;
@@ -90,7 +92,11 @@ a:hover {
     border: none;
     border-bottom: 2px solid #f34949;
     border-radius: 0 !important;
-    box-shadow: -5px 8px 20px 0px rgba(229, 16, 2, 0.15); }
+    box-shadow: -5px 8px 20px 0px rgba(229, 16, 2, 0.15);
+  border-bottom-color:
+    z-index:1000;
+
+  }
 
 @media (min-width: 1024px) {
   #navbar-header .navbar-nav {
@@ -135,7 +141,7 @@ a:hover {
   position: relative; }
   @media (min-width: 992px) {
     .hero {
-      height: calc(100vh - 130px); } }
+      height: 760px; } }
 
 .hero-info {
   padding-top: 60px; }
@@ -152,30 +158,35 @@ a:hover {
 
 .hero-carousel .owl-prev, .hero-carousel .owl-next {
   width: 110px;
-  height: 110px; }
+  height: 110px;
+  opacity: 1;
+  overflow: hidden;
+}
 
 .hero-carousel .owl-prev, .hero-carousel .owl-next {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff; }
+}
 
 .hero-carousel .owl-prev {
-  border-right: 1px solid #f7f8f9; }
+  /*border-right: 1px solid #f7f8f9;*/
+}
 
 .hero-carousel .owl-nav {
   display: flex;
   position: absolute;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  overflow: hidden;}
 
 .hero-carousel .owl-item img {
   height: 600px;
   object-fit: cover;
   max-width: 100%; }
-  @media (min-width: 992px) {
-    .hero-carousel .owl-item img {
-      height: calc(100vh - 130px); } }
+  /*@media (min-width: 992px) {*/
+  /*  .hero-carousel .owl-item img {*/
+  /*    height: calc(100vh - 130px); } }*/
 
 .thumb-menu img {
   height: 150px;
@@ -194,30 +205,33 @@ a:hover {
 .menus:hover img {
   transform: scale(1.1, 1.1); }
 
-.menu-img {
-  overflow: hidden;
-  height: 80px;
-  width: 80px; }
-  .menu-img img {
-    transition: all .5s ease;
-    height: 100%;
-    object-fit: cover; }
+/*.menu-img {*/
+/*  overflow: hidden;*/
+/*  height: 80px;*/
+/*  width: 80px; }*/
+/*  .menu-img img {*/
+/*    transition: all .5s ease;*/
+/*    height: 100%;*/
+/*    object-fit: cover; }*/
 
 .menu-price {
-  text-align: right; }
+  text-align: right;
+}
 
 .menus {
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px dashed #ccc; }
   .menus p, .menus h3 {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+  margin-right: 30px;}
   .menus .text-wrap {
     width: calc(100% - 95px);
     margin-left: 15px; }
     .menus .text-wrap h4 {
-      font-weight: 300; }
-
+      font-weight: 200;
+      font-size: 17px;
+    }
 /*=====  End of MENU  ======*/
 /*=================================
 =            TESTIMONY            =
@@ -462,7 +476,8 @@ a:hover {
 
 @media (max-width: 992px) {
   .hero {
-    height: 100%; }
+    height: 100%;
+  }
   .boxed-page {
     padding-top: 100px; }
   #navbar-header {
@@ -473,7 +488,10 @@ a:hover {
     background-color: #fff;
     z-index: 11;
     padding-top: 15px;
-    padding-bottom: 15px; }
+    padding-bottom: 15px;
+    border-bottom-color: lightgray;
+
+  }
     #navbar-header .dropdown-menu {
       box-shadow: none !important; }
     #navbar-header .navbar-collapse {

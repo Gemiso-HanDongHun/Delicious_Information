@@ -19,15 +19,13 @@ public class FoodNutrientController {
     private final FoodNutrientService foodNutrientService;
 
     // 영양분 정보 상세 조회
-    @GetMapping("/food-detail")
+    @GetMapping("/food-nutrient")
     public String list(Model model) {
 
         List<FoodNutrient> foodNutrientList = foodNutrientService.findAllService();
 
-
         model.addAttribute("fnList", foodNutrientList);
-        return "food/food-detail";
-
+        return "/food/food-nutrient";
     }
 
 }

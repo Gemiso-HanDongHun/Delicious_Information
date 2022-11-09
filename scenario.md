@@ -76,9 +76,9 @@ admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인
 goill : 11.08 : index.jsp, food-list.jsp, include, 
                 HomeController, FoodController, Food, FoodMapper, FoodService, FoodMapper.xml
 
- 
 
 luycin : 11.08 - 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 
                   추후 메인 페이지를 시작으로 디자인 예정
 
-
+luycin : 11.09 - 메인페이지에서 음식 영양성분 검색버튼을 누르면 영양성분 상세 페이지로 접속하도록 구현,
+                  해당 영양 정보 페이지에서도 상세 정보가 보여진다. 추후 페이지 통합 및 다른 페이지들 구현할 예정
