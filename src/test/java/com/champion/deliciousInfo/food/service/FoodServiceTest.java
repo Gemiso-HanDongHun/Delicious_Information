@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.food.service;
 
+import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.repository.FoodMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -24,13 +25,13 @@ class FoodServiceTest {
     FoodService foodService;
 
     @Test
-    @DisplayName("전체 게시물을 조회하고 반환된 리스트의 사이즈는 1이어야 한다.")
+    @DisplayName("전체 게시물을 조회하고 반환된 리스트의 사이즈는 34이어야 한다.")
     void findAllTest() {
 
         List<Food> foodList =mapper.findAll();
         foodList.forEach(b -> System.out.println(b));
 
-        assertEquals(1, foodList.size());
+        assertEquals(34, foodList.size());
     }
 
     @Test
@@ -87,4 +88,15 @@ class FoodServiceTest {
         //then
         assertTrue(flag);
     }
+
+    @Test
+    @DisplayName("원하는 페이지수와 게시물양에 따라 게시물 목록을 조회해야 한다.")
+    void pagingTest() {
+        Page page = new Page(1, 10);
+
+        mapper.findAll(page).forEach(System.out::println);
+    }
+
+
+
 }

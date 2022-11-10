@@ -9,12 +9,25 @@
         <id column="food_no" property="foodNo"/>
     </resultMap>
 
-    <select id="findAll" resultMap="foodMap">
+    <!--<select id="findAll" resultMap="foodMap">
         select * from food
+    </select>-->
+
+    <select id="findAll" resultMap="foodMap">
+        SELECT  *
+        FROM food
+        ORDER BY food_no DESC
+        LIMIT #{start}, #{amount}
     </select>
+
 
     <select id="findOne" resultMap="foodMap">
         select * from food where food_no=#{foodNo}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM food
     </select>
 
     <insert id="save">

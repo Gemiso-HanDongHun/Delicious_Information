@@ -63,7 +63,7 @@ public class AdminController {
     @GetMapping("/food")
     public String getFoodList(Model model){
         log.info("GetMapping admin/food forwarding to foodList.jsp ");
-        List<Food> foodList = foodService.getList();
+        List<Food> foodList = foodService.findAll();
         model.addAttribute("foodList",foodList);
         return "admin/food-table";
     }

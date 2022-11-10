@@ -1,5 +1,7 @@
 package com.champion.deliciousInfo.food.controller;
 
+import com.champion.deliciousInfo.common.paging.Page;
+import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.service.FoodService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,9 +23,15 @@ public class FoodController {
 
     // 전체 목록 가져오기
     @GetMapping("/list")
-    public String list(Model model) {
-        List<Food> foodList = service.getList();
-        model.addAttribute("fList", foodList);
+    public String list(Model model, Page page) {
+        Map<String, Object> foodMap = service.findAll(page);
+
+        PageMaker pm = new PageMaker(page, (Integer) foodMap.get("tc"));
+
+        model.addAttribute("fList",foodMap.get("fList") );
+        model.addAttribute("pm", pm);
+
+
         return "food/food-list";
     }
 

@@ -12,7 +12,7 @@
     <style>
         table {
             width: 60%;
-            border: 1px solid #444444;
+            border: 2px solid #444444;
             box-sizing: border-box;
             margin:auto;
             border-collapse: separate;
@@ -66,6 +66,32 @@
             color: #ffff;
             cursor: pointer;
         }
+
+        div.bottom_section nav.bottom_nav ul {
+            width: 70%;
+            list-style:none;
+            margin: 40px auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        div.bottom_section nav.bottom_nav ul li {
+            width: 6%;
+            float: left;
+        }
+
+        div.bottom_section nav.bottom_nav ul li a.page-link {
+            width: 100%;
+            text-align: center;
+            color: #3d85c6;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            border: 1px solid #3d85c6;
+        }
+
+
     </style>
 
 </head>
@@ -95,37 +121,69 @@
             <c:forEach var="f" items="${fList}">
                 <tr>
                     <td>${f.foodNo}번</td>
-                    <td onclick="location.href='/food/nutrient'">${f.name}</td>
+                    <td onclick="location.href='/food/food-nutrient'">${f.name}</td>
                     <td>${f.kcal}(kcal)</td>
                     <td>${f.img}</td>
                 </tr>
             </c:forEach>
         </table>
 
-<%--    <%@include file="./include/footer.jsp"%>--%>
+        <div class="bottom_section">
+            <nav class="bottom_nav">
+                <ul class="bottom_ul">
+                    <c:if test="${pm.prev}">
+                        <li><a class="page-link"
+                               href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}">prev</a></li>
+                    </c:if>
+
+                    <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
+                        <li data-page-num="${n}" class="page-item">
+                            <a class="page-link" href="/food/list?pageNum=${n}&amount=${pm.page.amount}">${n}</a>
+                        </li>
+                    </c:forEach>
+
+                    <c:if test="${pm.next}">
+                        <li ><a class="page-link"
+                                href="/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount} ">next</a></li>
+                    </c:if>
+                </ul>
+            </nav>
+        </div>
+
+
+
+
+
+
+    <%@include file="./include/footer.jsp"%>
 </div>
-<%--<%@include file="./include/footer_js.jsp"%>--%>
+<%@include file="./include/footer_js.jsp"%>
 
 <script>
 
-    //상세보기 요청 이벤트
-    /*function detailEvent() {
-        const $table = document.querySelector(".test");
+    function appendPageActive() {
 
-        $table.addEventListener('click', e => {
+        // 현재 내가 보고 있는 페이지 넘버
+        const curPageNum = '${pm.page.pageNum}';
+        // console.log("현재페이지: ", curPageNum);
 
+        // 페이지 li태그들을 전부 확인해서
+        // 현재 위치한 페이지 넘버와 텍스트컨텐츠가 일치하는
+        // li를 찾아서 class active 부여
+        const $ul = document.querySelector('.bottom_ul');
 
-            if (!e.target.matches('.test td')) return;
+        for (let $li of [...$ul.children]) {
+            if (curPageNum === $li.dataset.pageNum) {
+                $li.classList.add('active');
+                break;
+            }
+        }
 
-            let bn = e.target.parentElement.firstElementChild.textContent;
-
-
-            location.href = '/food/food-detail/' + bn
-                + "?foodNo=${pm.page.pageNum}"
-                + "&name=${pm.page.amount}";
-        });
     }
-*/
+
+    (function () {
+        appendPageActive();
+    })();
 
 </script>
 

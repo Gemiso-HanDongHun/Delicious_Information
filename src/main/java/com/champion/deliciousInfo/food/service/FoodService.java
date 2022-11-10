@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.food.service;
 
 
+import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.repository.FoodMapper;
 import com.champion.deliciousInfo.util.FileUtils;
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +22,7 @@ public class FoodService {
     private final FoodMapper mapper;
     
     //전체 조회
-    public List<Food> getList() {
+    public List<Food> findAll() {
         List<Food> foodList = mapper.findAll();
         return foodList;
     }
@@ -28,6 +31,18 @@ public class FoodService {
 
 
 
+
+
+    public Map<String, Object> findAllService(Page page) {
+
+        Map<String, Object> findDataMap = new HashMap<>();
+        List<Food> foodList= mapper.findAll(page);
+
+        findDataMap.put("fList", foodList);
+        findDataMap.put("tc", mapper.getTotalCount());
+
+        return findDataMap;
+    }
 
 
     // 한건 조회
