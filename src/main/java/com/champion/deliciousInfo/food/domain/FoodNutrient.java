@@ -2,27 +2,24 @@ package com.champion.deliciousInfo.food.domain;
 
 import lombok.*;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-@Setter
-@Getter
-@ToString
-@NoArgsConstructor
+@Getter @Setter @ToString
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 public class FoodNutrient {
  private Integer nutrientNo;
- private float carbohydrate;
- private float protein;
- private float fat;
- private float vitaminA;
- private float vitaminC;
- private float vitaminE;
- private float calcium;
- private float iron;
- private float magnesium;
- private float sodium;
- private float omega;
+ private Float carbohydrate;
+ private Float protein;
+ private Float fat;
+ private Float vitaminA;
+ private Float vitaminC;
+ private Float vitaminE;
+ private Float calcium;
+ private Float iron;
+ private Float magnesium;
+ private Float sodium;
+ private Float omega;
  private Food food;
+
+
 }

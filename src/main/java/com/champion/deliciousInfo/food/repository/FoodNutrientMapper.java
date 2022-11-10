@@ -10,6 +10,10 @@ import java.util.List;
 public interface FoodNutrientMapper {
 
     List<FoodNutrient> findAll();
+    FoodNutrient  findOne(int foodNo);
+    boolean save(FoodNutrient fn);
+    boolean modify(@Param("fn") FoodNutrient foodNutrient, @Param("fno") int fno);
+
 
 
 

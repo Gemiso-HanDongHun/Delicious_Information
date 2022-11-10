@@ -13,10 +13,10 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-   <%-- <!-- Preloader -->
+    <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
         <img class="animation__shake" src="/adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>--%>
+    </div>
 
     <!-- header -->
     <%@include file="./include/header.jsp"%>
@@ -86,10 +86,22 @@
                                        </tr>
                                        </tfoot>
                                    </table>
+                                   <form>
+                                       <div class="form-group">
+                                           <label for="excel">Food Image</label>
+                                           <div class="input-group">
+                                               <div class="custom-file">
+                                                   <input type="file" class="custom-file-input" id="excel" name="excel">
+                                                   <label class="custom-file-label" for="excel">Choose file</label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </form>
                                </div>
                                <!-- /.card-body -->
                                <div class="card-footer">
                                    <button type="button" class="btn btn-primary">등록</button>
+                                   <button type="button" class="btn btn-primary">엑셀등록</button>
                                </div>
                            </div>
                            <!-- /.card -->
@@ -109,6 +121,7 @@
     <!--/footer-->
 </div>
 <%@ include file="include/food-list/food-list-js.jsp"%>
+<script src="/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
     const msg = '${msg}';
     console.log(msg);
@@ -116,11 +129,20 @@
         alert(msg);
     }
 
-    const $button = document.querySelector("button");
-    $button.onclick = function(){
+    const $button = document.querySelectorAll("button");
+    $button[0].onclick = function(){
         location.href="/admin/write"
     };
-
+    $button[1].onclick = function(){
+        const $form =document.querySelector("form");
+        $form.method="post";
+        $form.action="/admin/write/excel"
+        $form.encoding = "multipart/form-data";
+        $form.submit();
+    };
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>

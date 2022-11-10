@@ -73,8 +73,10 @@ lemoncoat :
 admincontroller service mapper 생성 및 로그인 기능 구현 
 admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인을 해야지 들어갈수 있음
 
-11.09 음식 정보 테이블에 insert modify delete 생성 이미지파일 업로드 및 수정 가능
+11.09 - 음식 정보 테이블에 insert modify delete 생성 이미지파일 업로드 및 수정 가능
       그에 따른 foodmapper에 메서드 추가
+
+11.10 - insert modify가 영양소도 들어가고 modify 할수 있게 바꿈 엑셀 부분 아직 미완성
 
 
 

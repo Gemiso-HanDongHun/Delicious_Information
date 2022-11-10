@@ -2,6 +2,7 @@ package com.champion.deliciousInfo.food.service;
 
 import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.repository.FoodMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,8 +56,10 @@ class FoodServiceTest {
         food.setName("라면");
         food.setImg("33.jpg");
         food.setKcal(323);
+        FoodNutrient fn = new FoodNutrient();
+
         //when
-        /*boolean flag = foodService.insert(food);*/
+//        boolean flag = foodService.insert(food,fn);
         //then
 //        assertTrue(flag);
     }
@@ -67,11 +70,14 @@ class FoodServiceTest {
     void modifyTest(){
         //given
         Food food = new Food();
-        food.setFoodNo(1);
         food.setName("김치2");
         food.setKcal(22);
+        food.setImg("DFd");
+        food.setFoodNo(1);
+        FoodNutrient foodNutrient = new FoodNutrient();
+        int fno=1;
         //when
-        boolean flag = foodService.modify(food);
+        boolean flag = foodService.modify(food,foodNutrient,fno);
         //then
         assertTrue(flag);
     }

@@ -4,6 +4,8 @@ import com.champion.deliciousInfo.admin.domain.Admin;
 import com.champion.deliciousInfo.admin.service.AdminService;
 import com.champion.deliciousInfo.admin.service.LoginFlag;
 import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.food.domain.FoodNutrient;
+import com.champion.deliciousInfo.food.service.FoodNutrientService;
 import com.champion.deliciousInfo.food.service.FoodService;
 import com.champion.deliciousInfo.util.FileUtils;
 import lombok.RequiredArgsConstructor;
@@ -33,25 +35,27 @@ import static com.champion.deliciousInfo.util.FileUtils.UPLOAD_PATH;
 @Log4j2
 @RequiredArgsConstructor
 public class AdminController {
-    
+
     private final AdminService adminService;
     private final FoodService foodService;
-    
+
+    private final FoodNutrientService foodNutrientService;
+
     @GetMapping("")
-    public String getMain(){
+    public String getMain() {
         log.info("GetMapping admin/index  forwarding to food-main.jsp");
         return "admin/index";
     }
 
     @GetMapping("/login")
-    public String getLoginForm(@ModelAttribute("message") String message){
+    public String getLoginForm(@ModelAttribute("message") String message) {
         log.info("GetMapping admin/login-form forwarding to login-form.jsp - {}", message);
         return "admin/login-form";
     }
 
     @PostMapping("/login")
-    public String login(Admin admin, HttpSession session, Model model){
-        log.info("PostMapping login -{}",admin);
+    public String login(Admin admin, HttpSession session, Model model) {
+        log.info("PostMapping login -{}", admin);
         LoginFlag flag = adminService.findAdmin(admin, session);
         if (flag == LoginFlag.SUCCESS) {
             log.info("login success!!");
@@ -60,69 +64,87 @@ public class AdminController {
         model.addAttribute("loginMsg", flag);
         return "admin/login-form";
     }
+
     @GetMapping("/food")
-    public String getFoodList(Model model){
+    public String getFoodList(Model model) {
         log.info("GetMapping admin/food forwarding to foodList.jsp ");
         List<Food> foodList = foodService.findAll();
-        model.addAttribute("foodList",foodList);
+        model.addAttribute("foodList", foodList);
         return "admin/food-table";
     }
 
     @GetMapping("/write")
-    public String getWriteForm(){
+    public String getWriteForm() {
         log.info("GetMapping admin/write forwarding to food-Write.jsp");
         return "admin/food-write";
     }
-    @PostMapping("/write")
-    public String foodInsert(Food food, RedirectAttributes ra,
-                             @RequestParam("file") MultipartFile file
-    ){
-        log.info("PostMapping admin/write forwarding to food-table.jsp-{}",food);
-        log.info("file - {}",file.getOriginalFilename());
 
-        boolean flag = foodService.insert(food,file);
-        ra= flag?
-            ra.addFlashAttribute("msg", "등록성공")
+    @PostMapping("/write")
+    public String write(Food food, FoodNutrient fn, RedirectAttributes ra,
+                             @RequestParam("file") MultipartFile file
+    ) {
+        log.info("PostMapping admin/write forwarding to food-table.jsp-{} -{}", food, fn);
+        log.info("file - {}", file.getOriginalFilename());
+
+        boolean flag = foodService.insert(food, fn, file);
+        ra = flag ?
+                ra.addFlashAttribute("msg", "등록성공")
                 : ra.addFlashAttribute("msg", "등록실패");
-        return  "redirect:/admin/food";
+        return "redirect:/admin/food";
+    }
+
+    @PostMapping("/write/excel")
+    public String writeByExcel(RedirectAttributes ra,
+                             @RequestParam("excel") MultipartFile excel
+    ) {
+        log.info("PostMapping admin/writebyExcel {} ", excel);
+        log.info("file - {}", excel.getOriginalFilename());
+
+        boolean flag = foodService.insertByExcel(excel);
+        ra = flag ?
+                ra.addFlashAttribute("msg", "등록성공")
+                : ra.addFlashAttribute("msg", "등록실패");
+        return "redirect:/admin/food";
     }
 
     @GetMapping("/detail/{foodNo}")
-    public String getFoodList(@PathVariable int foodNo,Model model){
-        log.info("GetMapping admin/food{foodNo} forwarding to foodDetail -{} ",foodNo);
-        Food foundFood = foodService.findOne(foodNo);
-        model.addAttribute("food",foundFood);
+    public String getFoodList(@PathVariable int foodNo, Model model) {
+        log.info("GetMapping admin/food{foodNo} forwarding to foodDetail -{} ", foodNo);
+        FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
+        model.addAttribute("fn", foodNutrient);
         return "admin/food-detail";
     }
 
     @PostMapping("/food/modify/{foodNo}")
-    public String modify(Food food, @PathVariable int foodNo,RedirectAttributes ra,
-                         @RequestParam("file") MultipartFile file){
-        log.info("PostMapping admin/food/modify/{foodNo} modify -{},{} ",food,file);
+    public String modify(Food food, FoodNutrient fn,
+                         @PathVariable int foodNo,
+                         RedirectAttributes ra,
+                         @RequestParam("file") MultipartFile file) {
+        log.info("PostMapping admin/food/modify/{foodNo} modify -{},{},{} ", food,fn, file);
         food.setFoodNo(foodNo);
-        boolean flag=false;
-        if(file.getOriginalFilename().equals("")){
-            flag = foodService.modify(food);
+        boolean flag = false;
+        if (file.getOriginalFilename().equals("")) {
+            flag = foodService.modify(food,fn,foodNo);
             log.info("modify 실행 -{}");
 
-        }else{
-            flag=foodService.modify(food,file);
+        } else {
+            flag = foodService.modify(food, fn, file,foodNo);
             log.info("modifyfile 실행 -{}");
 
         }
-        ra=  flag? ra.addFlashAttribute("msg","수정성공")
-                : ra.addFlashAttribute("msg","수정실패");
-        log.info("flag value -{}",flag);
-        return  "redirect:/admin/food";
+        ra = flag ? ra.addFlashAttribute("msg", "수정성공")
+                : ra.addFlashAttribute("msg", "수정실패");
+        log.info("flag value -{}", flag);
+        return "redirect:/admin/food";
     }
 
     @PostMapping("/food/delete/{foodNo}")
-    public String delete(@PathVariable int foodNo,RedirectAttributes ra){
-        log.info("PostMapping admin/food/delete/{foodNo} modify -{} ",foodNo);
+    public String delete(@PathVariable int foodNo, RedirectAttributes ra) {
+        log.info("PostMapping admin/food/delete/{foodNo} modify -{} ", foodNo);
         boolean flag = foodService.remove(foodNo);
-        ra=  flag? ra.addFlashAttribute("msg","삭제성공")
-                : ra.addFlashAttribute("msg","삭제실패");
-        return  "redirect:/admin/food";
+        ra = flag ? ra.addFlashAttribute("msg", "삭제성공")
+                : ra.addFlashAttribute("msg", "삭제실패");
+        return "redirect:/admin/food";
     }
 
     @GetMapping("/loadFile")
@@ -134,7 +156,7 @@ public class AdminController {
 
         // 클라이언트가 요청하는 파일의 진짜 바이트 데이터를 갖다줘야 함.
         Food foundFood = foodService.findOne(foodNo);
-        String fileName=foundFood.getImg();
+        String fileName = foundFood.getImg();
         // 1. 요청 파일 찾아서 file객체로 포장
         File f = new File(UPLOAD_PATH + fileName);
 
@@ -183,7 +205,6 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
 
 
 }

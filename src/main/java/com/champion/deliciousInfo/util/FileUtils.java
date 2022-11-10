@@ -17,6 +17,7 @@ public class FileUtils {
     // MIME TYPE 설정을 위한 맵 만들기
     private static final Map<String, MediaType> mediaMap;
     public static final String UPLOAD_PATH = "D:\\sl_kss\\upload";
+    public static final String UPLOAD_EXCEL_PATH = "D:\\sl_kss\\upload\\excel";
 
     static {
         mediaMap = new HashMap<>();
@@ -120,5 +121,29 @@ public class FileUtils {
     // 파일명을 받아서 확장자를 반환하는 메서드
     public static String getFileExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf(".") + 1);
+    }
+    public static String uploadName(String file,String uploadPath) {
+
+        // 중복이 없는 파일명으로 변경하기
+        // ex) 상어.png -> 3dfsfjkdsfds-djksfaqwerij-dsjkfdkj_상어.png
+        String newFileName = UUID.randomUUID().toString() + "_" + file;
+
+        // 업로드 경로를 변경
+        // E:/sl_dev/upload  ->  E:/sl_dev/upload/2022/08/01
+        String newUploadPath = getNewUploadPath(uploadPath);
+
+        // 파일 업로드 수행
+
+
+        // 파일의 풀 경로 (디렉토리경로 + 파일명)
+        String fileFullPath = newUploadPath + File.separator + newFileName;
+
+        // 풀 경로 - 루트 경로 문자열 생성
+        // full-path => E:/sl_dev/upload/2022/08/01/dfsdjfksfdkjs_상어.jpg
+        // res-path =>  /2022/08/01/dfsdjfksfdkjs_상어.jpg
+        // uploadPath => E:/sl_dev/upload
+        String responseFilePath = fileFullPath.substring(uploadPath.length());
+
+        return responseFilePath.replace("\\", "/");
     }
 }
