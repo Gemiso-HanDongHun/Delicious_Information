@@ -121,7 +121,7 @@
             <c:forEach var="f" items="${fList}">
                 <tr>
                     <td>${f.foodNo}번</td>
-                    <td onclick="location.href='/food/food-nutrient'">${f.name}</td>
+                    <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                     <td>${f.kcal}(kcal)</td>
                     <td>${f.img}</td>
                 </tr>

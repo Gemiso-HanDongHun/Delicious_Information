@@ -33,18 +33,13 @@ public class FoodService {
     }
 
 
-
-
-
-
-
     public Map<String, Object> findAllService(Page page) {
 
         Map<String, Object> findDataMap = new HashMap<>();
-        List<Food> foodList= mapper.findAll(page);
+        List<Food> foodList= foodMapper.findAll(page);
 
         findDataMap.put("fList", foodList);
-        findDataMap.put("tc", mapper.getTotalCount());
+        findDataMap.put("tc", foodMapper.getTotalCount());
 
         return findDataMap;
     }

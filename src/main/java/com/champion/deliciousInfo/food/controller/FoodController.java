@@ -24,12 +24,13 @@ public class FoodController {
     // 전체 목록 가져오기
     @GetMapping("/list")
     public String list(Model model, Page page) {
-        Map<String, Object> foodMap = service.findAll(page);
+//        Map<String, Object> foodMap = service.findAll(page);
+        List<Food> foodList = service.findAll();
+//        PageMaker pm = new PageMaker(page, (Integer) foodMap.get("tc"));
 
-        PageMaker pm = new PageMaker(page, (Integer) foodMap.get("tc"));
-
-        model.addAttribute("fList",foodMap.get("fList") );
-        model.addAttribute("pm", pm);
+//        model.addAttribute("fList",foodMap.get("fList") );
+        model.addAttribute("fList", foodList);
+//        model.addAttribute("pm", pm);
 
 
         return "food/food-list";

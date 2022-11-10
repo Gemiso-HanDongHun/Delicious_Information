@@ -18,6 +18,7 @@ URL: https://gettemplates.co
     <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/resto/vendor/bootstrap/bootstrap.min.css">
@@ -252,7 +253,7 @@ URL: https://gettemplates.co
                 </div>
 
 
-                <c:forEach var="fn" items="${fnList}">
+                <%--<c:forEach var="fn" items="${fnList}">--%>
 
                 <div class="boxed-page">
                     <table class="test">
@@ -261,12 +262,11 @@ URL: https://gettemplates.co
                         </tr>
 
 
-<%--                        <c:forEach var="f" items="${fList}">--%>
+                     <c:forEach var="f" items="${fl}">
                             <tr>
-                                <td>${fn.food.name}</td>
+                                <td>${f.name}</td>
                             </tr>
-
-<%--                        </c:forEach>--%>
+                   </c:forEach>
                     </table>
                 </div>
 
@@ -688,7 +688,7 @@ URL: https://gettemplates.co
                 <%--    ==============================================================================================================--%>
                 <%--    ==============================================================================================================--%>
 
-                                </c:forEach>
+                           <%--     </c:forEach>--%>
             </div>
         </div>
     </section>

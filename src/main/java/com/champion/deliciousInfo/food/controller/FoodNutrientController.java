@@ -23,15 +23,15 @@ public class FoodNutrientController {
     private final FoodService foodService;
 
     // 영양분 정보 상세 조회
-    @GetMapping("/nutrient")
-    public String list(Model model) {
+    @GetMapping("/nutrient/{foodNo}")
+    public String list(@PathVariable int foodNo, Model model) {
 
-        List<FoodNutrient> foodNutrientList = foodNutrientService.findAllService();
-        List<Food> foodList = foodService.getList();
+        FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
+        List<Food> foodList = foodService.findAll();
 
-        model.addAttribute("fnList", foodNutrientList);
+        model.addAttribute("fn", foodNutrient);
         model.addAttribute("fl", foodList);
-
+        log.info("foodnutrient - {}",foodNutrient);
         return "/food/food-nutrient";
 
     }
