@@ -39,7 +39,7 @@ public class AdminController {
     
     @GetMapping("")
     public String getMain(){
-        log.info("GetMapping admin/index  forwarding to index.jsp");
+        log.info("GetMapping admin/index  forwarding to food-main.jsp");
         return "admin/index";
     }
 

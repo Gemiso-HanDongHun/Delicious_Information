@@ -28,7 +28,6 @@
     <!-- 회원 조회 기능   -->
     <select id="findAll" resultMap="foodNutrientMap">
         select * from food_nutrient
-        where food_no=#{foodNo};
     </select>
 
 

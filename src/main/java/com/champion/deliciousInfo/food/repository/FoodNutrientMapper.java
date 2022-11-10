@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface FoodNutrientMapper {
 
-    List<FoodNutrient> findAll(int foodNo);
+    List<FoodNutrient> findAll();
 
 
 

@@ -203,7 +203,9 @@ a:hover {
 =            MENU            =
 ============================*/
 .menus:hover img {
-  transform: scale(1.1, 1.1); }
+  transform: scale(1.1, 1.1);
+
+}
 
 /*.menu-img {*/
 /*  overflow: hidden;*/
@@ -221,17 +223,23 @@ a:hover {
 .menus {
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px dashed #ccc; }
+  border-bottom: 1px dashed #ccc;
+
+}
   .menus p, .menus h3 {
     margin-bottom: 0;
-  margin-right: 30px;}
+  margin-right: -10px;
+    position: absolute;
+  }
   .menus .text-wrap {
     width: calc(100% - 95px);
     margin-left: 15px; }
-    .menus .text-wrap h4 {
+
+    .menus .text-wrap  h4 {
       font-weight: 200;
       font-size: 17px;
     }
+
 /*=====  End of MENU  ======*/
 /*=================================
 =            TESTIMONY            =
@@ -240,7 +248,7 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  color: #fff; }
+  color: #fff;}
 
 .testi-content {
   text-align: center; }

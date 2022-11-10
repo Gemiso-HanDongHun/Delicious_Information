@@ -10,10 +10,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/food-main")
     public String home(Model model, HttpSession session) {
-        System.out.println("홈 컨트롤러 실행중");
-        return "food/index";
+//        System.out.println("홈 컨트롤러 실행중");
+        return "food/food-main";
 
     }
 }

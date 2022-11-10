@@ -17,7 +17,7 @@ public class FoodNutrientService {
 
     public List<FoodNutrient> findAllService() {
 
-        List<FoodNutrient> foodNutrientList = foodNutrientMapper.findAll(1);
+        List<FoodNutrient> foodNutrientList = foodNutrientMapper.findAll();
 
 
         return foodNutrientList;

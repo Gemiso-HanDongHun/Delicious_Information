@@ -95,16 +95,16 @@
             <c:forEach var="f" items="${fList}">
                 <tr>
                     <td>${f.foodNo}번</td>
-                    <td onclick="location.href='/food/food-nutrient'">${f.name}</td>
+                    <td onclick="location.href='/food/nutrient'">${f.name}</td>
                     <td>${f.kcal}(kcal)</td>
                     <td>${f.img}</td>
                 </tr>
             </c:forEach>
         </table>
 
-    <%@include file="./include/footer.jsp"%>
+<%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
-<%@include file="./include/footer_js.jsp"%>
+<%--<%@include file="./include/footer_js.jsp"%>--%>
 
 <script>
 
