@@ -64,7 +64,7 @@
 
         div.div_search button[type=button]:hover {
             background: #4e555b;
-            color: #ffff;
+            color: #ffffff;
             cursor: pointer;
         }
 
@@ -90,14 +90,22 @@
             border-collapse: separate;
             box-sizing: border-box;
             border: 1px solid #000000;
+            background: #ffffff;
+            z-index: 3;
         }
 
-        div.bottom_section nav.bottom_nav ul li.active a.page-link,
-        div.bottom_section nav.bottom_nav ul li.active a.page-link:hover,
-        div.bottom_section nav.bottom_nav ul li.active a.page-link:active{
-            color: #ffffff !important;
-            background: #cccccc !important;
+        div.bottom_section nav.bottom_nav ul li a.page-link:focus{
+            outline: 0;
+            box-shadow: none;
         }
+
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover
+        {
+            background: #4e555b;
+            color: #ffff;
+            font-weight: 700;
+        }
+
 
     </style>
 
