@@ -37,6 +37,50 @@ URL: https://gettemplates.co
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+    <style>
+        div.boxed-page {
+            /*background-color: pink;*/
+            height: 960px;
+        }
+
+        div.container {
+            /*background-color: pink;*/
+            margin-top: 65px;
+        }
+
+
+        div.anima h1{
+            /*background-color: pink;*/
+            position: relative;
+            animation: uprise 3s;
+        }
+
+
+        @keyframes uprise {
+
+            from {
+                opacity: 0;
+                top: 60%;
+            }
+
+            to {
+                opacity: 1;
+                top: 50%;
+            }
+        }
+
+        div a.btn-lg{
+            margin-top: 20px;
+        }
+
+        div.flex-column li a{
+            margin: 20px;
+            margin-left: 10px;
+        }
+
+    </style>
+
+
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 <div id="side-nav" class="sidenav">
@@ -72,7 +116,6 @@ URL: https://gettemplates.co
 </div>
 <div id="canvas-overlay">
 
-
 </div>
 
 <div class="boxed-page">
@@ -88,11 +131,11 @@ URL: https://gettemplates.co
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
-                    <li class="nav-item only-desktop">
-                        <a class="nav-link" id="side-nav-open" href="#">
-                            <span class="lnr lnr-menu"></span>
-                        </a>
-                    </li>
+<%--                    <li class="nav-item only-desktop">--%>
+<%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
+<%--                            <span class="lnr lnr-menu"></span>--%>
+<%--                        </a>--%>
+<%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
                             <a class="nav-link" href="/resto/index.html">Home <span class="sr-only">(current)</span></a>
@@ -139,13 +182,15 @@ URL: https://gettemplates.co
             </div>
         </div>
 
-
     </nav>
     <div class="hero">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6 hero-left">
-                    <h1 class="display-4 mb-5">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼<br>⠀𝓝𝓾𝓽𝓻𝓲𝓽𝓲𝓸𝓷<br>𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</h1>
+
+                    <div class="anima">
+                        <h1 class="display-4 mb-5">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼<br>⠀𝓝𝓾𝓽𝓻𝓲𝓽𝓲𝓸𝓷<br>𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</h1>
+                    </div>
                     <div class="mb-2">
                         <a class="btn btn-primary btn-shadow btn-lg" href="/food/list" role="button">음식 영양성분 검색</a>
                         <!--                        <a class="btn btn-icon btn-lg" href="https://player.vimeo.com/video/33110953"-->
@@ -175,18 +220,17 @@ URL: https://gettemplates.co
                             </h5>
                         </li>
                     </ul>
-
                 </div>
                 <div class="col-lg-6 hero-right">
                     <div class="owl-carousel owl-theme hero-carousel">
                         <div class="item">
-                            <img class="img-fluid" src="/resto/img/hero-1.jpg" >
+                            <img class="img-fluid" src="/resto/img/hero-1.jpg">
                         </div>
                         <div class="item">
-                            <img class="img-fluid" src="/resto/img/hero-2.jpg" >
+                            <img class="img-fluid" src="/resto/img/hero-2.jpg">
                         </div>
                         <div class="item">
-                            <img class="img-fluid" src="/resto/img/hero-3.jpg" >
+                            <img class="img-fluid" src="/resto/img/hero-3.jpg">
                         </div>
                     </div>
                 </div>

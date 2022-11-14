@@ -16,4 +16,9 @@ public class HomeController {
         return "food/food-main";
 
     }
+
+    @GetMapping("/food-about")
+    public String about(){
+        return "food/food-about";
+    }
 }

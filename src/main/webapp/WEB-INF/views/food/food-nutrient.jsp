@@ -44,19 +44,29 @@ URL: https://gettemplates.co
 
     <style>
 
-        table {
-            background-color: lightgray;
+        div.flex-column li {
+            margin: 50px;
 
-            width: 600px;
+        }
+
+        #nene {
+            margin-left: 270px;
+        }
+
+        table {
+            background-color: #f4ede5;
+            width: 500px;
             border: 1px solid #444444;
             box-sizing: border-box;
             margin: auto;
-            /*border-collapse: separate;*/
             border-radius: 1em;
             padding-top: 10px;
-            margin-left: 750px;
+            margin-left: 700px;
             position: absolute;
+            height: 400px;
+            overflow: hidden;
         }
+
 
         th, td {
             /*border: 1px solid #444444;*/
@@ -84,16 +94,12 @@ URL: https://gettemplates.co
             text-align: right;
         }
 
-
         /* 검색한 음식 영양성분 조회 */
 
         div.nt_row {
             position: relative;
             height: 900px;
             width: 800px;
-
-            /*background-color: pink;*/
-
         }
 
         div.nt_row #nt_row1 {
@@ -101,7 +107,6 @@ URL: https://gettemplates.co
         }
 
         div.col-lg-4 {
-            /*background-color: skyblue;*/
             border: 1px solid lightgray;
             border-radius: 2em;
             padding: 5px;
@@ -110,21 +115,68 @@ URL: https://gettemplates.co
         }
 
         div.col-4 h4.menu-price {
-            /*background-color: pink;*/
             margin-left: 33px;
         }
-
 
         div.col-md-12 h2 {
             text-align: center;
             padding-bottom: 30px;
+            margin-left: 70px;
         }
 
         div.menu-wrap {
-            /*background-color: pink;*/
             float: left;
             margin: 20px;
-            /*margin-right: 30px;*/
+        }
+
+        div p1 {
+            position: absolute;
+            /*margin-left: 40px;*/
+            /*padding-bottom: -50px;*/
+            border-radius: 2em;
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+            top: 300px;
+            left: 330px;
+        }
+
+        div p2 {
+            position: absolute;
+            /*margin-left: 21px;*/
+            color: dodgerblue;
+            border-radius: 2em;
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+            font-size: 18px;
+            font-weight: 100;
+            top: 345px;
+            left: 310px;
+        }
+
+        div p3 {
+            position: absolute;
+            /*margin-left: 64px;*/
+            border-radius: 2em;
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+            top: 345px;
+            left: 635px;
+        }
+
+        /*div li a{*/
+        /*    border-radius: 2em;*/
+        /*    border: 1px solid #f4ede5;*/
+        /*    padding: 5px;*/
+        /*    !*background-color: lightgray;*!*/
+        /*    padding: 15px;*/
+        /*}*/
+
+        div.col-md-12 h2 {
+            position: relative;
+            text-align: center;
         }
 
 
@@ -178,99 +230,103 @@ URL: https://gettemplates.co
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
-                    <li class="nav-item only-desktop">
-                        <a class="nav-link" id="side-nav-open" href="#">
-                            <span class="lnr lnr-menu"></span>
-                        </a>
-                    </li>
+                    <%--                    <li class="nav-item only-desktop">--%>
+                    <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
+                    <%--                            <span class="lnr lnr-menu"></span>--%>
+                    <%--                        </a>--%>
+                    <%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/food-main">Home <span
+                            <a class="nav-link" href="/food-main">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/food/food-about.jsp">About</a>
+                            <a class="nav-link" href="/food-about">About</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Special Dishes
+                                성별
                             </a>
+
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>
-                                <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>
+                                <a class="dropdown-item" href="special-dishes.html">남자</a>
+                                <a class="dropdown-item" href="special-dishes.html">여자</a>
                             </div>
+
                         </li>
                     </div>
                 </ul>
 
-                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                    <img src="/resto/img/logo.png" alt="">
-                </a>
+                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">--%>
+                <%--                    <img src="/resto/img/logo.png" alt="">--%>
+                <%--                </a>--%>
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="menu.jsp">음식</a>
-                        </li>
+                        <%--                        <li class="nav-item active">--%>
+                        <%--                            <a class="nav-link" href="menu.jsp">음식</a>--%>
+                        <%--                        </li>--%>
                         <li class="nav-item">
-                            <a class="nav-link" href="team.html">영양소 효능</a>
+                            <a class="nav-link" href="team.html" id="nene">영양소 효능</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="reservation.html">Reservation</a>
-                        </li>
+                        <%--                        <li class="nav-item dropdown">--%>
+                        <%--                            <a class="nav-link" href="reservation.html">Reservation</a>--%>
+                        <%--                        </li>--%>
                     </div>
-                    <li class="nav-item">
-                        <a id="side-search-open" class="nav-link" href="#">
-                            <span class="lnr lnr-magnifier"></span>
-                        </a>
-                    </li>
+
+                    <%--                    <li class="nav-item">--%>
+                    <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
+                    <%--                            <span class="lnr lnr-magnifier">⠀음식 검색</span>--%>
+
+                    <%--                        </a>--%>
+                    <%--                    </li>--%>
                 </ul>
             </div>
         </div>
     </nav>
 
-
     <!-- Menu Section -->
-
 
     <section id="gtco-menu" class="section-padding">
         <div class="container">
             <div class="section-content">
                 <div class="row mb-5">
                     <div class="col-md-12">
-
                         <h2>
                             영양 정보
                         </h2>
-
                         <div class="heading-section text-center">
-                            <!--                        <span class="subheading">-->
-                            <!--                        </span>-->
+                            <%--                            <p>검색한 음식의 영양 정보</p>--%>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <p1>${fn.food.name}의 영양정보</p1>
+                    <p2>${fn.food.kcal}kcal</p2>
+                    <p3>부족한 영양분(하루권장량 - 섭취음식)</p3>
                 </div>
 
 
                 <%--<c:forEach var="fn" items="${fnList}">--%>
 
-                <div class="boxed-page">
-                    <table class="test">
+                <div class="recomend">
+
+                    <table class="reco">
                         <tr>
                             <th>𝑅𝑒𝒸𝑜𝓂𝓂𝑒𝓃𝒹𝒶𝓉𝒾𝑜𝓃</th>
                         </tr>
 
-
-                     <c:forEach var="f" items="${fl}">
+                        <c:forEach var="f" begin="1" end="20" items="${fl}">
                             <tr>
                                 <td>${f.name}</td>
                             </tr>
-                   </c:forEach>
+                        </c:forEach>
+
                     </table>
                 </div>
-
-
 
                 <div class="nt_row">
                     <div class="nt_rowinner">
@@ -288,7 +344,7 @@ URL: https://gettemplates.co
                                         <div class="col-8">
                                             <h4>⠀⠀탄수화물</h4>
                                         </div>
-                                        <div class="col-4" id="intinfo">
+                                        <div class="col-4">
                                             <h4 class="text-muted menu-price">${fn.carbohydrate}g</h4>
                                         </div>
                                     </div>
@@ -362,8 +418,8 @@ URL: https://gettemplates.co
                                         <div class="col-8">
                                             <h4>⠀⠀탄수화물</h4>
                                         </div>
-                                        <div class="col-4" id="intinfo">
-                                            <h4 style="color: orangered">⠀⠀${fn.carbohydrate}g</h4>
+                                        <div class="col-4">
+                                            <h4 style="color: orangered">⠀⠀${(2700*0.5)-fn.carbohydrate}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -688,7 +744,7 @@ URL: https://gettemplates.co
                 <%--    ==============================================================================================================--%>
                 <%--    ==============================================================================================================--%>
 
-                           <%--     </c:forEach>--%>
+                <%--     </c:forEach>--%>
             </div>
         </div>
     </section>

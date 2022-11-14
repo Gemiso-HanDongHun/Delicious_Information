@@ -171,7 +171,7 @@ URL: https://gettemplates.co
                                         <div class="col-8">
                                             <h4>탄수화물</h4>
                                         </div>
-                                        <div class="col-4" id="intinfo">
+                                        <div class="col-4"  >
                                             <h4 class="text-muted menu-price">${fn.carbohydrate}g</h4>
                                         </div>
                                     </div>

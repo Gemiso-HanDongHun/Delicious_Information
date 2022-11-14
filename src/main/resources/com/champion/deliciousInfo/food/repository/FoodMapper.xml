@@ -20,7 +20,6 @@
         LIMIT #{start}, #{amount}
     </select>-->
 
-
     <select id="findOne" resultMap="foodMap">
         select * from food where food_no=#{foodNo}
     </select>
