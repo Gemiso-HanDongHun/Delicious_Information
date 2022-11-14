@@ -78,6 +78,8 @@ admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인
 
 11.10 - insert modify가 영양소도 들어가고 modify 할수 있게 바꿈 엑셀 부분 아직 미완성
 
+11.14 - admin 엑셀로 데이터베이스 입력 완성 delete기능 fix food부분 search 제작중
+
 
 
 goill : 11.08 : index.jsp, food-list.jsp, include, 

@@ -119,10 +119,11 @@
     <%@include file="./include/header_nav.jsp"%>
 
         <div class="div_search">
-            <form>
-                <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="" value="">
+            <form id="searchForm">
+                <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
+                value="${s.keyword}">
             </form>
-            <button type="button">검색</button>
+            <button type="button" id="search">검색</button>
         </div>
 
         <table class="test">
@@ -175,7 +176,13 @@
 <%@include file="./include/footer_js.jsp"%>
 
 <script>
-
+    const $searchButton = document.querySelector("#search");
+    const $input =document.querySelector("#inputName");
+    $searchButton.onclick = function(){
+        $form =document.querySelector("form");
+        $form.action="/food/list";
+        $form.submit();
+    };
     function appendPageActive() {
 
         // 현재 내가 보고 있는 페이지 넘버
@@ -195,6 +202,7 @@
         }
 
     }
+
 
     (function () {
         appendPageActive();
