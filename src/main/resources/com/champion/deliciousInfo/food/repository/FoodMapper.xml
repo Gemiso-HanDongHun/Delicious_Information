@@ -9,9 +9,9 @@
         <id property="foodNo" column="food_no"/>
     </resultMap>
 
-    <!--<select id="findAll2" resultMap="foodMap">
+    <select id="findAll2" resultMap="foodMap">
         select * from food
-    </select>-->
+    </select>
 
     <select id="findAll" resultMap="foodMap">
         SELECT  *

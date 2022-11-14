@@ -10,7 +10,7 @@ import java.util.List;
 public interface FoodMapper {
 
     // 목록 전체 조회
-    List<Food> findAll();
+    List<Food> findAll2();
 
     // 목록 전체 조회 Paging 처리
     List<Food> findAll(Page page);

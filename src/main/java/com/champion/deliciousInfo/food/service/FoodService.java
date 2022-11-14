@@ -30,7 +30,7 @@ public class FoodService {
 
     //전체 조회
     public List<Food> findAllService() {
-        List<Food> foodList = foodMapper.findAll();
+        List<Food> foodList = foodMapper.findAll2();
         return foodList;
     }
 
