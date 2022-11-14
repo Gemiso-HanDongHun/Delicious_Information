@@ -29,8 +29,12 @@ public class FoodNutrientController {
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
         List<Food> foodList = foodService.findAllService();
 
+        FoodNutrient foodNutrient1 = new FoodNutrient();
+        foodNutrient1 = foodNutrient;
+
         model.addAttribute("fn", foodNutrient);
         model.addAttribute("fl", foodList);
+//        model.addAttribute()
         log.info("foodnutrient - {}",foodNutrient);
         return "/food/food-nutrient";
 

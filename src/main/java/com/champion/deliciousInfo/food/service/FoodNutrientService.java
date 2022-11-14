@@ -25,9 +25,16 @@ public class FoodNutrientService {
     public FoodNutrient findOne(int foodNo) {
 
         FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
+        Float protein = foodNutrient.getProtein();
+        double newProtein = 55 - Math.round(protein * 100) / 100.0;
+        foodNutrient.setProtein((float) newProtein);
 
         return foodNutrient;
     }
+
+
+
+
 
 }
 

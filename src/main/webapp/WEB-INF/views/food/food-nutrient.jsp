@@ -46,11 +46,13 @@ URL: https://gettemplates.co
 
         div.flex-column li {
             margin: 50px;
+            padding-top: 25px;
 
         }
 
         #nene {
-            margin-left: 270px;
+            margin-left: 280px;
+            margin-bottom: 10px;
         }
 
         table {
@@ -104,6 +106,8 @@ URL: https://gettemplates.co
 
         div.nt_row #nt_row1 {
             padding-top: 20px;
+            /*background-color: pink;*/
+            margin-top: 19px;
         }
 
         div.col-lg-4 {
@@ -119,9 +123,10 @@ URL: https://gettemplates.co
         }
 
         div.col-md-12 h2 {
+            position: absolute;
             text-align: center;
-            padding-bottom: 30px;
-            margin-left: 70px;
+            padding-bottom: 50px;
+            margin-top: 30px;
         }
 
         div.menu-wrap {
@@ -130,20 +135,22 @@ URL: https://gettemplates.co
         }
 
         div p1 {
-            position: absolute;
-            /*margin-left: 40px;*/
-            /*padding-bottom: -50px;*/
+            position: relative;
+            margin-left: 40px;
+            margin-top: 10px;
+            padding-top: 30px;
             border-radius: 2em;
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            top: 300px;
-            left: 330px;
+            /*top: 300px;*/
+            /*left: 333px;*/
         }
 
         div p2 {
-            position: absolute;
-            /*margin-left: 21px;*/
+            /*position: relative;*/
+            margin-left: 32px;
+            margin-top: 100px;
             color: dodgerblue;
             border-radius: 2em;
             border: 1px solid #f4ede5;
@@ -151,19 +158,36 @@ URL: https://gettemplates.co
             background-color: #f4ede5;
             font-size: 18px;
             font-weight: 100;
-            top: 345px;
-            left: 310px;
+            /*top: 345px;*/
+            opacity: 0;
+            /*left: 333px;*/
         }
 
-        div p3 {
-            position: absolute;
-            /*margin-left: 64px;*/
+        div p4 {
+            /*position: relative;*/
+            margin-left: 40px;
+            margin-top: 100px;
+            color: dodgerblue;
             border-radius: 2em;
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            top: 345px;
-            left: 635px;
+            font-size: 18px;
+            font-weight: 100;
+            /*top: 345px;*/
+            /*left: 333px;*/
+
+        }
+
+        div p3 {
+            position: relative;
+            margin-left: 190px;
+            border-radius: 2em;
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+            /*top: 345px;*/
+            /*left: 618px;*/
         }
 
         /*div li a{*/
@@ -177,6 +201,13 @@ URL: https://gettemplates.co
         div.col-md-12 h2 {
             position: relative;
             text-align: center;
+            margin-top: 35px;
+        }
+
+        div nav.navbar-expand-lg{
+            position: absolute;
+            margin-left: 450px;
+            /*background-color: pink;*/
         }
 
 
@@ -220,13 +251,13 @@ URL: https://gettemplates.co
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
-                <img src="/resto/img/logo.png" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="lnr lnr-menu"></span>
-            </button>
+<%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
+<%--                <img src="/resto/img/logo.png" alt="">--%>
+<%--            </a>--%>
+<%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--%>
+<%--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+<%--                <span class="lnr lnr-menu"></span>--%>
+<%--            </button>--%>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
@@ -295,7 +326,7 @@ URL: https://gettemplates.co
                 <div class="row mb-5">
                     <div class="col-md-12">
                         <h2>
-                            영양 정보
+                            ${fn.food.name}의 영양 정보
                         </h2>
                         <div class="heading-section text-center">
                             <%--                            <p>검색한 음식의 영양 정보</p>--%>
@@ -303,9 +334,9 @@ URL: https://gettemplates.co
                     </div>
                 </div>
 
+
                 <div>
-                    <p1>${fn.food.name}의 영양정보</p1>
-                    <p2>${fn.food.kcal}kcal</p2>
+                    <p4>⠀${fn.food.kcal}kcal⠀</p4>
                     <p3>부족한 영양분(하루권장량 - 섭취음식)</p3>
                 </div>
 
@@ -435,7 +466,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀단백질</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${55-fn.protein}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${fn.protein}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
