@@ -86,6 +86,8 @@ goill : 11.08 : index.jsp, food-list.jsp, include,
 
         11.10 : food-list 개선 및 paging 처리, mapper.xml 수정
 
+        11.14 : paging 완성, css 수정중
+
 
 luycin : 11.08 - 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 
                   추후 메인 페이지를 시작으로 디자인 예정

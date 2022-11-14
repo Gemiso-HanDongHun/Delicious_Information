@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter @Setter @ToString
 public class PageMaker {
     private static final int PAGE_COUNT = 10;
-    private int beginPage, endPage;
+    private int beginPage, endPage, finalPage;
     private boolean prev, next;
     private Page page;
     private int totalCount;
@@ -27,6 +27,8 @@ public class PageMaker {
         this.beginPage = endPage - PAGE_COUNT + 1;
 
         int realEnd = (int)Math.ceil((double) totalCount / page.getAmount());
+
+        this.finalPage = realEnd;
 
         if (realEnd < endPage) {
             this.endPage = realEnd;

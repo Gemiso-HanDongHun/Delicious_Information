@@ -6,19 +6,19 @@
 <mapper namespace="com.champion.deliciousInfo.food.repository.FoodMapper">
     
     <resultMap id="foodMap" type="com.champion.deliciousInfo.food.domain.Food">
-        <id column="food_no" property="foodNo"/>
+        <id property="foodNo" column="food_no"/>
     </resultMap>
 
-    <select id="findAll" resultMap="foodMap">
+    <!--<select id="findAll2" resultMap="foodMap">
         select * from food
-    </select>
-<!--
+    </select>-->
+
     <select id="findAll" resultMap="foodMap">
         SELECT  *
         FROM food
         ORDER BY food_no DESC
         LIMIT #{start}, #{amount}
-    </select>-->
+    </select>
 
     <select id="findOne" resultMap="foodMap">
         select * from food where food_no=#{foodNo}

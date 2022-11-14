@@ -27,7 +27,7 @@ public class FoodNutrientController {
     public String list(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
-        List<Food> foodList = foodService.findAll();
+        List<Food> foodList = foodService.findAllService();
 
         model.addAttribute("fn", foodNutrient);
         model.addAttribute("fl", foodList);

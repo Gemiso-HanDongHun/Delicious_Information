@@ -37,6 +37,7 @@
             color: #ffffff;
             background: #cccccc;
             cursor: pointer;
+            font-weight: 700;
         }
 
         div.boxed-page table td:nth-child(3) {
@@ -85,12 +86,18 @@
         div.bottom_section nav.bottom_nav ul li a.page-link {
             width: 100%;
             text-align: center;
-            color: #3d85c6;
-            border-collapse: collapse;
+            color: #000000;
+            border-collapse: separate;
             box-sizing: border-box;
-            border: 1px solid #3d85c6;
+            border: 1px solid #000000;
         }
 
+        div.bottom_section nav.bottom_nav ul li.active a.page-link,
+        div.bottom_section nav.bottom_nav ul li.active a.page-link:hover,
+        div.bottom_section nav.bottom_nav ul li.active a.page-link:active{
+            color: #ffffff !important;
+            background: #cccccc !important;
+        }
 
     </style>
 
@@ -130,9 +137,9 @@
 
         <div class="bottom_section">
             <nav class="bottom_nav">
-                <ul class="bottom_ul">
+                <ul class="pagination pagination-lg pagination-custom">
                     <c:if test="${pm.prev}">
-                        <li><a class="page-link"
+                        <li class="page-item"><a class="page-link"
                                href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}">prev</a></li>
                     </c:if>
 
@@ -143,7 +150,7 @@
                     </c:forEach>
 
                     <c:if test="${pm.next}">
-                        <li ><a class="page-link"
+                        <li class="page-item"><a class="page-link"
                                 href="/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount} ">next</a></li>
                     </c:if>
                 </ul>
@@ -170,7 +177,7 @@
         // 페이지 li태그들을 전부 확인해서
         // 현재 위치한 페이지 넘버와 텍스트컨텐츠가 일치하는
         // li를 찾아서 class active 부여
-        const $ul = document.querySelector('.bottom_ul');
+        const $ul = document.querySelector('.pagination');
 
         for (let $li of [...$ul.children]) {
             if (curPageNum === $li.dataset.pageNum) {

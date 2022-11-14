@@ -27,7 +27,7 @@ public class FoodService {
     private final FoodNutrientMapper foodNutrientMapper;
 
     //전체 조회
-    public List<Food> findAll() {
+    public List<Food> findAllService() {
         List<Food> foodList = foodMapper.findAll();
         return foodList;
     }

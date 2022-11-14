@@ -14,7 +14,7 @@ public class Page {
 
     public Page() {
         this.pageNum = 1;
-        this.amount = 10;
+        this.amount = 15;
     }
 
     public int getStart() {
@@ -30,8 +30,8 @@ public class Page {
     }
 
     public void setAmount(int amount) {
-        if (amount < 10 || amount > 100) {
-            this.amount = 10;
+        if (amount < 15 || amount > 100) {
+            this.amount = 15;
             return;
         }
         this.amount = amount;

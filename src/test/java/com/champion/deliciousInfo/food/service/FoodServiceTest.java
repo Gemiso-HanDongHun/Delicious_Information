@@ -19,11 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class FoodServiceTest {
 
 
-    @Autowired
-    FoodMapper mapper;
+    @Autowired FoodMapper mapper;
 
-    @Autowired
-    FoodService foodService;
+    @Autowired FoodService foodService;
 
     @Test
     @DisplayName("전체 게시물을 조회하고 반환된 리스트의 사이즈는 34이어야 한다.")
