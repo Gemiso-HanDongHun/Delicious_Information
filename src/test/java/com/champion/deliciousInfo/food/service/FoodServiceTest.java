@@ -75,20 +75,20 @@ class FoodServiceTest {
         FoodNutrient foodNutrient = new FoodNutrient();
         int fno=1;
         //when
-        boolean flag = foodService.modify(food,foodNutrient,fno);
+        boolean flag = foodService.modify(food,foodNutrient);
         //then
         assertTrue(flag);
     }
 
     @Test
-    @DisplayName("46번을 수정하면 삭제 되어야 한다.")
+    @DisplayName("46번을 삭제하면 트루가나와야 한다.")
     @Transactional
     @Rollback
     void removeTest(){
         //given
         int foodNo =46;
         //when
-        boolean flag = foodService.remove(foodNo);
+        boolean flag = foodService.remove(foodNo,3);
         //then
         assertTrue(flag);
     }

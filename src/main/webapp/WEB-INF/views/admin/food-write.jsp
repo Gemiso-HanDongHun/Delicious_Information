@@ -195,29 +195,46 @@
         }
         return true;
     }
+    function isImage(){
+        const pattern = /jpg$|gif$|png$/i;
+        return $file.value.match(pattern);
+
+    }
     $button.onclick = function () {
-        if(isValidate()){
-            const $form = document.querySelector("form");
-            $form.method = "post";
-            $form.action = "/admin/write";
-            $form.encoding = "multipart/form-data";
-            $form.submit();
+        if(isImage()){
+            if(isValidate()){
+                const $form = document.querySelector("form");
+                $form.method = "post";
+                $form.action = "/admin/write";
+                $form.encoding = "multipart/form-data";
+                $form.submit();
+            }
+        }else{
+            alert("jpg,gif,png파일만 등록 할 수 있어요.");
         }
+
     };
     $file.onchange = function (e) {
-        const reader = new FileReader();
+        if(isImage()){
+            const reader = new FileReader();
 
-        reader.onload = function (e) {
+            reader.onload = function (e) {
 
-            img.setAttribute("src", e.target.result);
-            img.setAttribute("class", "card-img-top");
-            if (check) {
-                document.querySelector("#img").appendChild(img);
-                check = false;
-            }
-        };
+                img.setAttribute("src", e.target.result);
+                img.setAttribute("class", "card-img-top");
+                if (check) {
+                    document.querySelector("#img").appendChild(img);
+                    check = false;
+                }
+            };
 
-        reader.readAsDataURL(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        }else{
+            alert("jpg,gif,png파일만 등록 할 수 있어요.");
+            $file.value="";
+            document.querySelector("#img").removeChild(img);
+            check=true;
+        }
     };
     $(function () {
         bsCustomFileInput.init();

@@ -49,10 +49,14 @@
     </insert>
 
     <update id="modify">
-        UPDATE food_nutrient SET carbohydrate=#{fn.carbohydrate},protein=#{fn.protein}, fat=#{fn.fat},
-                                 vitamin_a=#{fn.vitaminA},vitamin_c=#{fn.vitaminC},
-                                 vitamin_e=#{fn.vitaminE}, calcium=#{fn.calcium},iron=#{fn.iron},
-                                 magnesium=#{fn.magnesium},sodium=#{fn.sodium},omega=#{fn.omega}
-        WHERE nutrient_no=#{nutreintNo}
+        UPDATE food_nutrient SET carbohydrate=#{carbohydrate},protein=#{protein}, fat=#{fat},
+                                 vitamin_a=#{vitaminA},vitamin_c=#{vitaminC},
+                                 vitamin_e=#{vitaminE}, calcium=#{calcium},iron=#{iron},
+                                 magnesium=#{magnesium},sodium=#{sodium},omega=#{omega}
+        WHERE nutrient_no=#{nutrientNo}
     </update>
+
+    <delete id="remove">
+        delete from food_nutrient where nutrient_no=#{nutrientNo}
+    </delete>
 </mapper>

@@ -1,10 +1,10 @@
 package com.champion.deliciousInfo.util;
 
+import com.champion.deliciousInfo.food.domain.Food;
 import org.springframework.http.MediaType;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -48,6 +48,7 @@ public class FileUtils {
      * @return - 업로드가 완료된 새로운 파일의 full path
      */
     public static String uploadFile(MultipartFile file, String uploadPath) {
+
 
         // 중복이 없는 파일명으로 변경하기
         // ex) 상어.png -> 3dfsfjkdsfds-djksfaqwerij-dsjkfdkj_상어.png
@@ -122,12 +123,13 @@ public class FileUtils {
     public static String getFileExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf(".") + 1);
     }
-    public static String uploadName(String file,String uploadPath) {
+    public static String uploadName(String file, String uploadPath) {
 
         // 중복이 없는 파일명으로 변경하기
+        //file 이름 변경
+        file =getFileName(file);
         // ex) 상어.png -> 3dfsfjkdsfds-djksfaqwerij-dsjkfdkj_상어.png
         String newFileName = UUID.randomUUID().toString() + "_" + file;
-
         // 업로드 경로를 변경
         // E:/sl_dev/upload  ->  E:/sl_dev/upload/2022/08/01
         String newUploadPath = getNewUploadPath(uploadPath);
@@ -146,4 +148,31 @@ public class FileUtils {
 
         return responseFilePath.replace("\\", "/");
     }
+    public static String getFileName(String file) {
+            file = file.substring(file.lastIndexOf("\\")+1);
+            return file;
+    }
+
+    public static void fileCopy(String filePath, String uploadDest){
+        try(FileInputStream fis = new FileInputStream(filePath);
+            FileOutputStream fos = new FileOutputStream(FileUtils.UPLOAD_PATH+File.separator+uploadDest);
+            BufferedInputStream br = new BufferedInputStream(fis);
+            BufferedOutputStream bw = new BufferedOutputStream(fos)
+        ) {
+            //DB에 저장할 이름 세팅
+            // 파일을 대상으로 한 출력 스트림
+
+            //개발자가 파일명을 생성해야함;
+            int i =0;
+            while((i=br.read())!=-1) {
+                bw.write(i);//파일 복사
+            }
+            //복사완료
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

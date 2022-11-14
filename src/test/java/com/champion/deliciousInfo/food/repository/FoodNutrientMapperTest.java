@@ -26,7 +26,7 @@ class FoodNutrientMapperTest {
         foodNutrient.setFat(23.0f);
         int fno=1;
         //when
-        boolean flag = foodNutrientMapper.modify(foodNutrient, fno);
+        boolean flag = foodNutrientMapper.modify(foodNutrient);
         //then
         assertTrue(flag);
     }

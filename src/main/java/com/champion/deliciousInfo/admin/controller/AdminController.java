@@ -124,11 +124,11 @@ public class AdminController {
         food.setFoodNo(foodNo);
         boolean flag = false;
         if (file.getOriginalFilename().equals("")) {
-            flag = foodService.modify(food,fn,foodNo);
+            flag = foodService.modify(food,fn);
             log.info("modify 실행 -{}");
 
         } else {
-            flag = foodService.modify(food, fn, file,foodNo);
+            flag = foodService.modify(food, fn, file);
             log.info("modifyfile 실행 -{}");
 
         }
@@ -139,9 +139,9 @@ public class AdminController {
     }
 
     @PostMapping("/food/delete/{foodNo}")
-    public String delete(@PathVariable int foodNo, RedirectAttributes ra) {
-        log.info("PostMapping admin/food/delete/{foodNo} modify -{} ", foodNo);
-        boolean flag = foodService.remove(foodNo);
+    public String delete(@PathVariable int foodNo, int nutrientNo, RedirectAttributes ra) {
+        log.info("PostMapping admin/food/delete/{foodNo} modify -{},{} ", foodNo,nutrientNo);
+        boolean flag = foodService.remove(foodNo,nutrientNo);
         ra = flag ? ra.addFlashAttribute("msg", "삭제성공")
                 : ra.addFlashAttribute("msg", "삭제실패");
         return "redirect:/admin/food";
