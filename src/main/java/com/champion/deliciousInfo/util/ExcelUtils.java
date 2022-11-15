@@ -28,6 +28,7 @@ public class ExcelUtils {
 			XSSFSheet sheet = workbook.getSheetAt(0);
 			int totalRow =sheet.getPhysicalNumberOfRows(); //실제 사용자가 입력한 row 수
 			log.info("현재 사용중인 row수는 -{}",totalRow);
+
 			for(int a=1; a<totalRow; a++) {
 				XSSFRow row = sheet.getRow(a);
 				int totalCell =row.getPhysicalNumberOfCells();
@@ -36,8 +37,9 @@ public class ExcelUtils {
 				//하나의 row에 소속된 각셀을 접근하자
 				for(int i=0; i<totalCell; i++) {
 					XSSFCell cell = row.getCell(i);
+					log.info("현재 case는 -{},{}",a,i);
 					switch(i) {
-					case 0: food.setName(cell.getStringCellValue());break;
+					case 0: ;food.setName(cell.getStringCellValue());break;
 					case 1:	food.setKcal((int)cell.getNumericCellValue());break;
 					case 2:	foodNutrient.setCarbohydrate((float)(cell.getNumericCellValue()));break;
 					case 3:	foodNutrient.setProtein((float)cell.getNumericCellValue());break;
@@ -52,6 +54,7 @@ public class ExcelUtils {
 					case 12: foodNutrient.setOmega((float)cell.getNumericCellValue());break;
 					case 13: food.setImg(cell.getStringCellValue());
 					}
+					log.info("{}. {}case종료 ",a,i);
 				}
 				foodNutrient.setFood(food);
 				foodNutrientList.add(foodNutrient);

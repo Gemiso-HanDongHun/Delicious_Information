@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @Getter @Setter @ToString
 public class PageMaker {
-    private static final int PAGE_COUNT = 3;
+    private static final int PAGE_COUNT = 10;
     private int beginPage, endPage, finalPage;
     private boolean prev, next;
     private Page page;

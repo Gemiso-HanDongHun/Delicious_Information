@@ -37,36 +37,32 @@ DB 설계
 
 ### function
 1. 이용자가 우리 페이지 접속 
-   + MainController getmapping ("/") 
    + index.jsp 페이지 보여주기 
+   + list.jsp 검색기능
+   + about.jsp 홈페이지 설명
     
 2. 찾고싶은 음식 검색
-   + jsp에서 RestController (restcontroller) (/food) getmapping
-   + service -> mapper 연동 데이터베이스에서 값 가져오기 jsp로 json 보내기
    + index.jsp list.jsp로 이동
    
 3. 음식의 상세 정보 출력
-   + 클릭 FoodController (/food/detail) getmapping
-   + service -> mapper food dto 가져와서 jsp 로 setattribute
-   + food-detail.jsp 정보 출력 
+   + food-nutrient.jsp 음식 영양 정보 비교
 
 4. adminLTE 에서 
-   + 음식 정보 등록 
-   + admin-index.jsp adminController ("/") 
    + login.jsp  
-    
+   + food-table.jsp list보여주기
+   + food-write.jsp 등록
+   + food-detail.jsp 상세조회
+   + food-modify,delete.jsp 수정및 삭제
+   + excel로 등록
 
-### 맡은 부분
-lemoncoat   : adminController 
+# Version 2.0
 
+1. 이용자 입장
+    + 추천 음식 100g기준 탄수화물 지방 단백질 비교 알고리즘 
+    + 영양소 효능 .jsp 영양소 상세 효능 페이지
+    + 남자용 여자용 .jsp 기본 하루 권장량 달라져서
+    + list.jsp 내가 선택한 음식 모음 보여주기 (session)
 
-Goill       : mainController restController
-
-
-LUYCIN      : foodController 
-
-
-###
 
 lemoncoat : 
 11.08 - index.jsp login-form.jsp  food-list.jsp 작성

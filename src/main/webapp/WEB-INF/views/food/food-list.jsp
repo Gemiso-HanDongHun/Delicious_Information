@@ -10,6 +10,10 @@
 
 
     <style>
+        div.boxed-page{
+            min-height: 960px;
+        }
+
         /* 외부 폰트 사용 */
         @font-face {
             font-family: 'BMDOHYEON';
@@ -20,7 +24,7 @@
 
         /* CSS */
       .test  {
-            width: 40%;
+            width: 30%;
             border: 2px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -31,7 +35,7 @@
         }
 
         table.test th, table.test td {
-            border: 1px solid #000000;
+            /*border: 1px solid #000000;*/
             border-collapse: collapse;
         }
 
@@ -78,6 +82,7 @@
             line-height: 180%;
             position: relative;
             left: 50px;
+            padding-left :20px;
         }
 
         div.div_search span.lnr-magnifier {
@@ -92,45 +97,52 @@
 
         div.bottom_section{
             padding-bottom: 1px;
+            margin-top: 20px;
+            color: black ;
         }
 
-        div.bottom_section nav.bottom_nav ul {
-            width: 70%;
-            list-style:none;
-            margin: 80px auto 80px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            padding: 0;
+        div.bottom_section ul li a {
+            color: black;
         }
 
-        div.bottom_section nav.bottom_nav ul li {
-            width: 6%;
-            float: left;
-        }
+        /*
+                div.bottom_section nav.bottom_nav ul {
+                    width: 70%;
+                    list-style:none;
+                    margin: 80px auto 80px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    padding: 0;
+                }
 
-        div.bottom_section nav.bottom_nav ul li a.page-link {
-            width: 100%;
-            text-align: center;
-            color: #000000;
-            font-size: 0.8vw;
-            border-collapse: separate;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            background: #ffffff;
-            z-index: 3;
-        }
+                div.bottom_section nav.bottom_nav ul li {
+                    width: 6%;
+                    float: left;
+                }
 
-        div.bottom_section nav.bottom_nav ul li a.page-link:focus {
-            outline: 0;
-            box-shadow: none;
-        }
+                div.bottom_section nav.bottom_nav ul li a.page-link {
+                    width: 100%;
+                    text-align: center;
+                    color: #000000;
+                    font-size: 0.8vw;
+                    border-collapse: separate;
+                    box-sizing: border-box;
+                    border: 1px solid #000000;
+                    background: #ffffff;
+                    z-index: 3;
+                }
 
-        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
-            background: #4e555b;
-            color: #ffff;
-            font-weight: 700;
-        }
+                div.bottom_section nav.bottom_nav ul li a.page-link:focus {
+                    outline: 0;
+                    box-shadow: none;
+                }
+
+                div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+                    background: #4e555b;
+                    color: #ffff;
+                    font-weight: 700;
+                }*/
 
         div.flex-column li{
             /*background-color: #005cbf;*/
@@ -152,11 +164,18 @@
 
         }
 
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color:lightgray;
+            border-color:lightgray;
+        }
+
 
     </style>
 
 </head>
-<body data-spy="scroll" data-target="#navbar" class="static-layout">
+<body data-spy="scroll" data-target="#navbar" class="static-layout" >
 
 <%@include file="./include/side_nav.jsp" %>
 
@@ -251,16 +270,16 @@
         <c:forEach var="f" items="${fList}">
             <tr>
                 <td>${f.foodNo}번</td>
-                <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
-                <td>${f.kcal}(kcal)</td>
+                <td align="center" onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
+                <td align="center" >${f.kcal}(kcal)</td>
 
             </tr>
         </c:forEach>
     </table>
 
-    <div class="bottom_section">
-        <nav class="bottom_nav">
-            <ul class="pagination pagination-lg pagination-custom">
+    <div class="bottom_section d-flex justify-content-center" style="padding-bottom:1px;">
+        <nav class="bottom_nav" >
+            <ul class="pagination<%-- pagination-lg pagination-custom--%>" >
                 <c:if test="${pm.prev}">
                     <li class="page-item">
                         <a class="page-link"
@@ -269,7 +288,7 @@
                 </c:if>
 
                 <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
-                    <li data-page-num="${n}" class="page-item">
+                    <li class="paginate_button page-item " data-page-num="${n}">
                         <a class="page-link"
                            href="/food/list?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>
                     </li>
@@ -290,13 +309,13 @@
 <%@include file="./include/footer_js.jsp" %>
 
 <script>
-    const $searchButton = document.querySelector("#search");
+    /*const $searchButton = document.querySelector("#search");
     const $input = document.querySelector("#inputName");
     $searchButton.onclick = function () {
         $form = document.querySelector("form");
         $form.action = "/food/list";
         $form.submit();
-    };
+    };*/
 
     function appendPageActive() {
 
@@ -319,9 +338,10 @@
     }
 
 
-    (function () {
+
+    $(function () {
         appendPageActive();
-    })();
+    });
 
 </script>
 
