@@ -98,7 +98,7 @@ class FoodServiceTest {
     void pagingTest() {
         Page page = new Page(1, 10);
 
-        mapper.findAll(page).forEach(System.out::println);
+//        mapper.findAll(page).forEach(System.out::println);
     }
 
 

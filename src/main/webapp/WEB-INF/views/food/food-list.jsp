@@ -64,6 +64,7 @@
         div.div_search {
             width: 20%;
             margin: 70px auto 50px;
+            width: 60%;
             overflow: hidden;
         }
 
@@ -125,24 +126,25 @@
             font-weight: 700;
         }
 
+
     </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
-<%@include file="./include/side_nav.jsp"%>
+<%@include file="./include/side_nav.jsp" %>
 
 <div class="boxed-page">
 
-    <%@include file="./include/header_nav.jsp"%>
+    <%@include file="./include/header_nav.jsp" %>
 
-        <div class="div_search">
-            <form id="searchForm">
-                <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
-                value="${s.keyword}">
-            </form>
-            <button type="button" id="search">검색</button>
-        </div>
+    <div class="div_search">
+        <form id="searchForm">
+            <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
+                   value="${s.keyword}">
+        </form>
+        <button type="button" id="search">검색</button>
+    </div>
 
         <table class="test">
             <tr>
@@ -162,38 +164,42 @@
             </c:forEach>
         </table>
 
-        <div class="bottom_section">
-            <nav class="bottom_nav">
-                <ul class="pagination pagination-lg pagination-custom">
-                    <c:if test="${pm.prev}">
-                        <li class="page-item"><a class="page-link"
-                               href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}">prev</a></li>
-                    </c:if>
+    <div class="bottom_section">
+        <nav class="bottom_nav">
+            <ul class="pagination pagination-lg pagination-custom">
+                <c:if test="${pm.prev}">
+                    <li class="page-item">
+                        <a class="page-link" href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
+                    </li>
+                </c:if>
 
-                    <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
-                        <li data-page-num="${n}" class="page-item">
-                            <a class="page-link" href="/food/list?pageNum=${n}&amount=${pm.page.amount}">${n}</a>
-                        </li>
-                    </c:forEach>
+                <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
+                    <li data-page-num="${n}" class="page-item">
+                        <a class="page-link"
+                           href="/food/list?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>
+                    </li>
+                </c:forEach>
 
-                    <c:if test="${pm.next}">
-                        <li class="page-item"><a class="page-link"
-                                href="/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount} ">next</a></li>
-                    </c:if>
-                </ul>
-            </nav>
-        </div>
+                <c:if test="${pm.next}">
+                    <li class="page-item"><a class="page-link"
+                                             href="/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}&keyword=${s.keyword}">next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
+    </div>
 
-<%--    <%@include file="./include/footer.jsp"%>--%>
+
+    <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
-<%@include file="./include/footer_js.jsp"%>
+<%@include file="./include/footer_js.jsp" %>
 
 <script>
     const $searchButton = document.querySelector("#search");
-    const $input =document.querySelector("#inputName");
-    $searchButton.onclick = function(){
-        $form =document.querySelector("form");
-        $form.action="/food/list";
+    const $input = document.querySelector("#inputName");
+    $searchButton.onclick = function () {
+        $form = document.querySelector("form");
+        $form.action = "/food/list";
         $form.submit();
     };
     function appendPageActive() {

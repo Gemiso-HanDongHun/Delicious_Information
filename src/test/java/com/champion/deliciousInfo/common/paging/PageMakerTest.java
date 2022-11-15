@@ -12,15 +12,15 @@ class PageMakerTest {
     @Autowired
     FoodMapper mapper;
 
-    @Test
-    void pageInfoTest() {
+//    @Test
+   /* void pageInfoTest() {
 
-        int totalCount = mapper.getTotalCount();
+//        int totalCount = mapper.getTotalCount();
         PageMaker pm = new PageMaker(new Page(31, 10), totalCount);
 
         System.out.println(pm);
 
 //        assertEquals(40, pm.getEndPage());
 //        assertEquals(31, pm.getBeginPage());
-    }
+    }*/
 }

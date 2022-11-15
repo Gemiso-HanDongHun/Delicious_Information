@@ -9,13 +9,21 @@
         <id property="foodNo" column="food_no"/>
     </resultMap>
 
-    <select id="findAll2" resultMap="foodMap">
+    <!-- 동적 SQL 코드 재사용하기   -->
+    <sql id="search">
+       <if test="keyword != null"> WHERE name LIKE CONCAT('%', #{keyword}, '%')</if>
+    </sql>
+
+    <select id="findAll" resultMap="foodMap">
         select * from food
     </select>
 
-    <select id="findAll" resultMap="foodMap">
+
+    <select id="search" resultMap="foodMap">
+
         SELECT  *
         FROM food
+        <include refid="search" />
         ORDER BY food_no DESC
         LIMIT #{start}, #{amount}
     </select>
@@ -24,9 +32,15 @@
         select * from food where food_no=#{foodNo}
     </select>
 
+   <!-- <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM food
+    </select>
+-->
     <select id="getTotalCount" resultType="int">
         SELECT COUNT(*)
         FROM food
+        <include refid="search" />
     </select>
 
     <insert id="save">

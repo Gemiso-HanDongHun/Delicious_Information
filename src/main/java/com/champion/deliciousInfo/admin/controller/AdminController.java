@@ -3,6 +3,9 @@ package com.champion.deliciousInfo.admin.controller;
 import com.champion.deliciousInfo.admin.domain.Admin;
 import com.champion.deliciousInfo.admin.service.AdminService;
 import com.champion.deliciousInfo.admin.service.LoginFlag;
+import com.champion.deliciousInfo.common.paging.Page;
+import com.champion.deliciousInfo.common.paging.PageMaker;
+import com.champion.deliciousInfo.common.search.Search;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
@@ -27,6 +30,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.http.HttpRequest;
 import java.util.List;
+import java.util.Map;
 
 import static com.champion.deliciousInfo.util.FileUtils.UPLOAD_PATH;
 
@@ -66,10 +70,12 @@ public class AdminController {
     }
 
     @GetMapping("/food")
-    public String getFoodList(Model model) {
+    public String getFoodList(Model model,@ModelAttribute ("s") Search search) {
         log.info("GetMapping admin/food forwarding to foodList.jsp ");
-        List<Food> foodList = foodService.findAllService();
-        model.addAttribute("foodList", foodList);
+        Map<String, Object> foodMap = foodService.search(search);
+        PageMaker pm = new PageMaker(new Page(search.getPageNum(),search.getAmount()), (Integer) foodMap.get("tc"));
+        model.addAttribute("foodList",foodMap.get("fList") );
+        model.addAttribute("pm", pm);
         return "admin/food-table";
     }
 

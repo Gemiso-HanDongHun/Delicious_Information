@@ -201,16 +201,13 @@
 
     }
     $button.onclick = function () {
-        if(isImage()){
-            if(isValidate()){
-                const $form = document.querySelector("form");
-                $form.method = "post";
-                $form.action = "/admin/write";
-                $form.encoding = "multipart/form-data";
-                $form.submit();
-            }
-        }else{
-            alert("jpg,gif,png파일만 등록 할 수 있어요.");
+
+        if(isValidate()){
+            const $form = document.querySelector("form");
+            $form.method = "post";
+            $form.action = "/admin/write";
+            $form.encoding = "multipart/form-data";
+            $form.submit();
         }
 
     };
