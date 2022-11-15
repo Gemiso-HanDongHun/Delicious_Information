@@ -29,18 +29,37 @@ public class FoodNutrientController {
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
         List<Food> foodList = foodService.findAllService();
 
-        FoodNutrient foodNutrient1 = new FoodNutrient();
-        foodNutrient1 = foodNutrient;
+        FoodNutrient foodNutrient0 = foodNutrientService.carbo(foodNo);
+        FoodNutrient foodNutrient1 = foodNutrientService.pro(foodNo);
+        FoodNutrient foodNutrient2 = foodNutrientService.fat(foodNo);
+        FoodNutrient foodNutrient3 = foodNutrientService.sodium(foodNo);
+        FoodNutrient foodNutrient4 = foodNutrientService.vitaminA(foodNo);
+        FoodNutrient foodNutrient5 = foodNutrientService.vitaminC(foodNo);
+        FoodNutrient foodNutrient6 = foodNutrientService.vitaminE(foodNo);
+        FoodNutrient foodNutrient7 = foodNutrientService.omega(foodNo);
+        FoodNutrient foodNutrient8 = foodNutrientService.calcium(foodNo);
+        FoodNutrient foodNutrient9 = foodNutrientService.iron(foodNo);
+        FoodNutrient foodNutrient10 = foodNutrientService.magnesium(foodNo);
+
 
         model.addAttribute("fn", foodNutrient);
         model.addAttribute("fl", foodList);
-//        model.addAttribute()
-        log.info("foodnutrient - {}",foodNutrient);
+        model.addAttribute("carbo", foodNutrient0);
+        model.addAttribute("pro", foodNutrient1);
+        model.addAttribute("fat", foodNutrient2);
+        model.addAttribute("sodium", foodNutrient3);
+        model.addAttribute("vitaminA", foodNutrient4);
+        model.addAttribute("vitaminC", foodNutrient5);
+        model.addAttribute("vitaminE", foodNutrient6);
+        model.addAttribute("omega", foodNutrient7);
+        model.addAttribute("calcium", foodNutrient8);
+        model.addAttribute("iron", foodNutrient9);
+        model.addAttribute("magnesium", foodNutrient10);
+
+
+        log.info("foodnutrient - {}", foodNutrient);
         return "/food/food-nutrient";
 
     }
-
-
-
 }
 

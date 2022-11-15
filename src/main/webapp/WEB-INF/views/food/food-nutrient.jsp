@@ -48,6 +48,7 @@ URL: https://gettemplates.co
             margin: 50px;
             padding-top: 25px;
 
+
         }
 
         #nene {
@@ -74,6 +75,7 @@ URL: https://gettemplates.co
             /*border: 1px solid #444444;*/
             border: 1px solid #ffffff;
             padding: 3px;
+            margin-top: 80px;
             box-sizing: border-box;
             border-collapse: collapse;
         }
@@ -100,22 +102,32 @@ URL: https://gettemplates.co
 
         div.nt_row {
             position: relative;
-            height: 900px;
+            height: 850px;
             width: 800px;
         }
 
         div.nt_row #nt_row1 {
             padding-top: 20px;
+            margin-top: 15px;
+
+            /*background-color: aqua;*/
+        }
+
+        div.col-8 h4 {
             /*background-color: pink;*/
-            margin-top: 19px;
+            padding-top: 4px;
         }
 
         div.col-lg-4 {
             border: 1px solid lightgray;
             border-radius: 2em;
-            padding: 5px;
-            margin: 7px;
+            padding: 3px;
+            margin: 5px;
             width: 300px;
+        }
+
+        div.menu-small{
+            /*background-color: #005cbf;*/
         }
 
         div.col-4 h4.menu-price {
@@ -147,24 +159,24 @@ URL: https://gettemplates.co
             /*left: 333px;*/
         }
 
-        div p2 {
-            /*position: relative;*/
-            margin-left: 32px;
-            margin-top: 100px;
-            color: dodgerblue;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-            font-size: 18px;
-            font-weight: 100;
-            /*top: 345px;*/
-            opacity: 0;
-            /*left: 333px;*/
-        }
+        /*div p2 {*/
+        /*    !*position: relative;*!*/
+        /*    margin-left: 32px;*/
+        /*    margin-top: 100px;*/
+        /*    color: dodgerblue;*/
+        /*    border-radius: 2em;*/
+        /*    border: 1px solid #f4ede5;*/
+        /*    padding: 5px;*/
+        /*    background-color: #f4ede5;*/
+        /*    font-size: 18px;*/
+        /*    font-weight: 100;*/
+        /*    !*top: 345px;*!*/
+        /*    opacity: 0;*/
+        /*    !*left: 333px;*!*/
+        /*}*/
 
         div p4 {
-            /*position: relative;*/
+            position: relative;
             margin-left: 40px;
             margin-top: 100px;
             color: dodgerblue;
@@ -176,6 +188,7 @@ URL: https://gettemplates.co
             font-weight: 100;
             /*top: 345px;*/
             /*left: 333px;*/
+
 
         }
 
@@ -198,16 +211,19 @@ URL: https://gettemplates.co
         /*    padding: 15px;*/
         /*}*/
 
-        div.col-md-12 h2 {
+
+        div.mb-5 h2 {
             position: relative;
             text-align: center;
-            margin-top: 35px;
+            /*margin-top: 35px;*/
+            /*background-color: #0c5460;*/
+            margin: 0 auto;
+            padding-bottom: 50px;
         }
 
-        div nav.navbar-expand-lg{
-            position: absolute;
-            margin-left: 450px;
-            /*background-color: pink;*/
+        div nav.navbar-expand-lg {
+            position: relative;
+            padding-top: 30px;
         }
 
 
@@ -251,13 +267,13 @@ URL: https://gettemplates.co
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-<%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
-<%--                <img src="/resto/img/logo.png" alt="">--%>
-<%--            </a>--%>
-<%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--%>
-<%--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-<%--                <span class="lnr lnr-menu"></span>--%>
-<%--            </button>--%>
+            <%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
+            <%--                <img src="/resto/img/logo.png" alt="">--%>
+            <%--            </a>--%>
+            <%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--%>
+            <%--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+            <%--                <span class="lnr lnr-menu"></span>--%>
+            <%--            </button>--%>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
@@ -324,14 +340,16 @@ URL: https://gettemplates.co
         <div class="container">
             <div class="section-content">
                 <div class="row mb-5">
-                    <div class="col-md-12">
-                        <h2>
-                            ${fn.food.name}의 영양 정보
-                        </h2>
-                        <div class="heading-section text-center">
-                            <%--                            <p>검색한 음식의 영양 정보</p>--%>
-                        </div>
-                    </div>
+                    <h2>
+                        ${fn.food.name} 영양 정보(100g)
+                    </h2>
+
+                    <%--                    <div class="col-md-12">--%>
+
+                    <%--                        <div class="heading-section text-center">--%>
+                    <%--                            &lt;%&ndash;                            <p>검색한 음식의 영양 정보</p>&ndash;%&gt;--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                 </div>
 
 
@@ -450,7 +468,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀탄수화물</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${(2700*0.5)-fn.carbohydrate}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${carbo.carbohydrate}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -466,7 +484,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀단백질</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${fn.protein}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${pro.protein}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -482,7 +500,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀지방</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${53-fn.fat}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${fat.fat}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -498,7 +516,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀나트륨</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${2000-fn.sodium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${sodium.sodium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -510,71 +528,73 @@ URL: https://gettemplates.co
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
                         <div class="col-lg-4 menu-wrap">
-                            <div class="heading-menu">
-                                <h3 class="text-center mb-5"></h3>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>⠀⠀비타민A</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.vitaminA}µg</h4>
-                                        </div>
-                                    </div>
-                                    <p></p>
+                            <div class="menu-small">
+                                <div class="heading-menu">
+                                    <h3 class="text-center mb-5"></h3>
                                 </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>⠀⠀비타민C</h4>
+                                <div class="menus d-flex align-items-center">
+                                    <!--                            <div class="menu-img rounded-circle">-->
+                                    <!--                                <img class="img-fluid" src="" alt="">-->
+                                    <!--                            </div>-->
+                                    <div class="text-wrap">
+                                        <div class="row align-items-start">
+                                            <div class="col-8">
+                                                <h4>⠀⠀비타민A</h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <h4 class="text-muted menu-price">${fn.vitaminA}µg</h4>
+                                            </div>
                                         </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.vitaminC}mg</h4>
-                                        </div>
+                                        <p></p>
                                     </div>
-                                    <p></p>
                                 </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>⠀⠀비타민E</h4>
+                                <div class="menus d-flex align-items-center">
+                                    <!--                            <div class="menu-img rounded-circle">-->
+                                    <!--                                <img class="img-fluid" src="" alt="">-->
+                                    <!--                            </div>-->
+                                    <div class="text-wrap">
+                                        <div class="row align-items-start">
+                                            <div class="col-8">
+                                                <h4>⠀⠀비타민C</h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <h4 class="text-muted menu-price">${fn.vitaminC}mg</h4>
+                                            </div>
                                         </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.vitaminE}mg</h4>
-                                        </div>
+                                        <p></p>
                                     </div>
-                                    <p></p>
                                 </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>⠀⠀오메가3</h4>
+                                <div class="menus d-flex align-items-center">
+                                    <!--                            <div class="menu-img rounded-circle">-->
+                                    <!--                                <img class="img-fluid" src="" alt="">-->
+                                    <!--                            </div>-->
+                                    <div class="text-wrap">
+                                        <div class="row align-items-start">
+                                            <div class="col-8">
+                                                <h4>⠀⠀비타민E</h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <h4 class="text-muted menu-price">${fn.vitaminE}mg</h4>
+                                            </div>
                                         </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.omega}mg</h4>
-                                        </div>
+                                        <p></p>
                                     </div>
-                                    <p></p>
+                                </div>
+                                <div class="menus d-flex align-items-center">
+                                    <!--                            <div class="menu-img rounded-circle">-->
+                                    <!--                                <img class="img-fluid" src="" alt="">-->
+                                    <!--                            </div>-->
+                                    <div class="text-wrap">
+                                        <div class="row align-items-start">
+                                            <div class="col-8">
+                                                <h4>⠀⠀오메가3</h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <h4 class="text-muted menu-price">${fn.omega}mg</h4>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -597,7 +617,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민A</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${900-fn.vitaminA}µg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminA.vitaminA}µg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -613,7 +633,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민C</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${100-fn.vitaminC}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminC.vitaminC}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -629,7 +649,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민E</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${540-fn.vitaminE}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminE.vitaminE}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -645,7 +665,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀오메가3</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${500-fn.omega}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${omega.omega}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -728,7 +748,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀칼슘</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${700-fn.calcium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${calcium.calcium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -744,7 +764,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀철분</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${15-fn.iron}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${iron.iron}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -760,7 +780,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀마그네슘</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${350-fn.magnesium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${magnesium.magnesium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>

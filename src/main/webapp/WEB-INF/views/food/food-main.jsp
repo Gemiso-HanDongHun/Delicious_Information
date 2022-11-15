@@ -40,7 +40,8 @@ URL: https://gettemplates.co
     <style>
         div.boxed-page {
             /*background-color: pink;*/
-            height: 960px;
+            height: 975px;
+
         }
 
         div.container {
@@ -76,6 +77,11 @@ URL: https://gettemplates.co
         div.flex-column li a{
             margin: 20px;
             margin-left: 10px;
+            font-size: 18px;
+        }
+
+        div.mb-2 {
+            padding: 10px;
         }
 
     </style>
@@ -137,23 +143,23 @@ URL: https://gettemplates.co
 <%--                        </a>--%>
 <%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/resto/index.html">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/resto/about.html">About</a>
-                        </li>
+<%--                        <li class="nav-item active">--%>
+<%--                            <a class="nav-link" href="/resto/index.html">Home <span class="sr-only">(current)</span></a>--%>
+<%--                        </li>--%>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="/resto/about.html">About</a>--%>
+<%--                        </li>--%>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Special Dishes
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>
-                                <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>
-                            </div>
-                        </li>
+<%--                        <li class="nav-item dropdown">--%>
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"--%>
+<%--                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+<%--                                Special Dishes--%>
+<%--                            </a>--%>
+<%--                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
+<%--                                <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>--%>
+<%--                                <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>--%>
+<%--                            </div>--%>
+<%--                        </li>--%>
                     </div>
                 </ul>
 
@@ -198,6 +204,8 @@ URL: https://gettemplates.co
                         <!--                            <span class="lnr lnr-film-play"></span>-->
                         <!--                            Play Video-->
                         <!--                        </a>-->
+                        <a class="btn btn-primary btn-shadow btn-lg"
+                           href="/food-about" role="button" style="color: #ffffff">About</a>
                     </div>
 
                     <ul class="hero-info list-unstyled d-flex text-center mb-0">

@@ -106,7 +106,6 @@
             font-weight: 700;
         }
 
-
     </style>
 
 </head>
@@ -165,11 +164,6 @@
                 </ul>
             </nav>
         </div>
-
-
-
-
-
 
 <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
