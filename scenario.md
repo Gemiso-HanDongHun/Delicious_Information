@@ -88,7 +88,7 @@ goill : 11.08 : index.jsp, food-list.jsp, include,
 
         11.14 : Paging 완성, food-list 수정중
         
-        11.15 : 예정사항 fodd-list 이미지칸 삭제, 전체 테이블,검색바(중앙배치) width 줄이기
+        11.15 : fodd-list 수정 완료
 
 luycin -> 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 추후 메인 페이지를 시작으로 디자인 예정
 

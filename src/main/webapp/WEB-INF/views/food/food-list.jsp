@@ -6,173 +6,138 @@
 
 <head>
 
-    <%@include file="./include/header_css.jsp" %>
+<%@include file="./include/header_css.jsp" %>
+
+<style>
+
+    div.boxed-page{
+        min-height: 960px;
+    }
+
+    /* 외부 폰트 사용 */
+    @font-face {
+        font-family: 'BMDOHYEON';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* List CSS */
+    /* 테이블 전체 */
+    .test  {
+        width: 30%;
+        border: 2px solid #f4ede5;
+        border-radius: 1.5em;
+        border-collapse: separate;
+        margin: auto;
+        padding: 30px;
+        background: #f4ede5;
+        line-height: 180%;
+    }
+
+    /* 내부 tr 배경 */
+    table.test tr {
+       background:  #ffffff;
+    }
+
+    /* th 중앙 정렬 및 외부 폰트 */
+    div.boxed-page table th {
+        text-align: center;
+        font-family: 'BMDOHYEON'; /* th 폰트*/
+    }
+
+    /* td 중앙 정렬 */
+    div.boxed-page table td {
+        text-align: center;
+    }
+
+    /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
+    div.boxed-page table td:nth-child(2):hover {
+        cursor: pointer;
+    }
+
+    /* 서치 div 영역 */
+    div.div_search {
+        width: 30%;
+        margin: 70px auto 50px;
+    }
+
+    /* 서치바 영역 */
+    div.div_search input[type=text] {
+        width: 60%;
+        height: 45px;
+        float: left;
+        border-radius: 1em;
+        font-size: 0.8vw;
+        border:2px solid #000000;
+        line-height: 180%;
+        position: relative;
+        left: 50px;
+        padding-left :20px;
+    }
+
+    /* 서치 아이콘 */
+    div.div_search span.lnr-magnifier {
+        display: inline-block;
+        font-size: 30px;
+        margin-left: 20px;
+        position: relative;
+        left: 50px;
+    }
+
+    /* 목록 전체 영역 */
+    div.bottom_section{
+        padding-bottom: 1px;
+        margin-top: 20px;
+        color: black ;
+    }
+
+    /* a태그 폰트 설정 */
+    div.bottom_section ul li a {
+        color: black;
+    }
+
+    /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+    div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+        background: lightgray;
+        color: #ffff;
+        font-weight: 700;
+    }
+
+    /* a태그 포커스 삭제*/
+    div.bottom_section nav.bottom_nav ul li a.page-link:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+    div.flex-column li{
+        padding-top: 35px;
+    }
+
+    div.flex-column li a {
+        position: relative;
+        margin-right: 600px;
+        padding-top: 45px;
+    }
+
+    div.flex-column li p{
+        position: relative;
+        text-align: center;
+        right: 140px;
+        font-size: 35px;
+        /*background-color: rebeccapurple;*/
+
+    }
+
+    .page-item.active .page-link {
+        z-index: 1;
+        color: #fff;
+        background-color:lightgray;
+        border-color:lightgray;
+    }
 
 
-    <style>
-        div.boxed-page{
-            min-height: 960px;
-        }
-
-        /* 외부 폰트 사용 */
-        @font-face {
-            font-family: 'BMDOHYEON';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* CSS */
-      .test  {
-            width: 30%;
-            border: 2px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            margin: auto;
-            padding: 30px;
-            background: #f4ede5;
-            line-height: 180%;
-        }
-
-        table.test th, table.test td {
-            /*border: 1px solid #000000;*/
-            border-collapse: collapse;
-        }
-
-        table.test tr:nth-child(odd) {
-            background: #ffffff;
-        }
-
-        table.test tr:nth-child(even) {
-            background: #ffffff;
-        }
-
-        div.boxed-page table th {
-            text-align: center;
-            font-family: 'BMDOHYEON';
-        }
-
-        div.boxed-page table td:first-child {
-            text-align: center;
-        }
-
-        /*div.boxed-page table td:nth-child(2):hover {
-            color: #ffffff;
-            background: #cccccc;
-            cursor: pointer;
-            font-weight: 700;
-        }*/
-
-        div.boxed-page table td:nth-child(3) {
-            text-align: right;
-        }
-
-        div.div_search {
-            width: 30%;
-            margin: 70px auto 50px;
-        }
-
-        div.div_search input[type=text] {
-            width: 60%;
-            height: 45px;
-            float: left;
-            border-radius: 1em;
-            font-size: 0.8vw;
-            border:2px solid #000000;
-            line-height: 180%;
-            position: relative;
-            left: 50px;
-            padding-left :20px;
-        }
-
-        div.div_search span.lnr-magnifier {
-            display: inline-block;
-            font-size: 30px;
-            margin-left: 20px;
-            position: relative;
-            left: 50px;
-        }
-
-
-
-        div.bottom_section{
-            padding-bottom: 1px;
-            margin-top: 20px;
-            color: black ;
-        }
-
-        div.bottom_section ul li a {
-            color: black;
-        }
-
-        /*
-                div.bottom_section nav.bottom_nav ul {
-                    width: 70%;
-                    list-style:none;
-                    margin: 80px auto 80px;
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    padding: 0;
-                }
-
-                div.bottom_section nav.bottom_nav ul li {
-                    width: 6%;
-                    float: left;
-                }
-
-                div.bottom_section nav.bottom_nav ul li a.page-link {
-                    width: 100%;
-                    text-align: center;
-                    color: #000000;
-                    font-size: 0.8vw;
-                    border-collapse: separate;
-                    box-sizing: border-box;
-                    border: 1px solid #000000;
-                    background: #ffffff;
-                    z-index: 3;
-                }
-
-                div.bottom_section nav.bottom_nav ul li a.page-link:focus {
-                    outline: 0;
-                    box-shadow: none;
-                }
-
-                div.bottom_section nav.bottom_nav ul li a.page-link:hover {
-                    background: #4e555b;
-                    color: #ffff;
-                    font-weight: 700;
-                }*/
-
-        div.flex-column li{
-            /*background-color: #005cbf;*/
-            padding-top: 35px;
-        }
-
-        div.flex-column li a {
-            position: relative;
-            margin-right: 600px;
-            padding-top: 45px;
-        }
-
-        div.flex-column li p{
-            position: relative;
-            text-align: center;
-            right: 140px;
-            font-size: 35px;
-            /*background-color: rebeccapurple;*/
-
-        }
-
-        .page-item.active .page-link {
-            z-index: 1;
-            color: #fff;
-            background-color:lightgray;
-            border-color:lightgray;
-        }
-
-
-    </style>
+</style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout" >
@@ -270,16 +235,16 @@
         <c:forEach var="f" items="${fList}">
             <tr>
                 <td>${f.foodNo}번</td>
-                <td align="center" onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
-                <td align="center" >${f.kcal}(kcal)</td>
+                <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
+                <td>${f.kcal}(kcal)</td>
 
             </tr>
         </c:forEach>
     </table>
 
-    <div class="bottom_section d-flex justify-content-center" style="padding-bottom:1px;">
+    <div class="bottom_section d-flex justify-content-center">
         <nav class="bottom_nav" >
-            <ul class="pagination<%-- pagination-lg pagination-custom--%>" >
+            <ul class="pagination" >
                 <c:if test="${pm.prev}">
                     <li class="page-item">
                         <a class="page-link"
