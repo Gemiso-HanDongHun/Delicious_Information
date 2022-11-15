@@ -114,18 +114,25 @@
         padding-top: 35px;
     }
 
-    div.flex-column li a {
-        position: relative;
-        margin-right: 600px;
-        padding-top: 45px;
-    }
+        div.flex-column li a {
+            position: relative;
+            margin-right: 140px;
+            padding-top: 45px;
+        }
 
-    div.flex-column li p{
-        position: relative;
-        text-align: center;
-        right: 140px;
-        font-size: 35px;
-        /*background-color: rebeccapurple;*/
+        li.nav-item #about {
+            position: relative;
+            margin-right: 400px;
+            padding-top: 45px;
+        }
+
+
+        div.flex-column li p{
+            position: relative;
+            text-align: center;
+            right: 140px;
+            font-size: 35px;
+            /*background-color: rebeccapurple;*/
 
     }
 
@@ -137,7 +144,7 @@
     }
 
 
-</style>
+    </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout" >
@@ -166,14 +173,17 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
 
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="about" href="/food-about">About</a>
                         </li>
 
                         <li>
                             <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                         </li>
-                        <%--                        <li class="nav-item">--%>
-                        <%--                            <a class="nav-link" href="/resto/about.html">About</a>--%>
-                        <%--                        </li>--%>
+
 
                         <li class="nav-item dropdown">
                             <%--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>

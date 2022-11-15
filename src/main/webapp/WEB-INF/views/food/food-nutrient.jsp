@@ -45,7 +45,7 @@ URL: https://gettemplates.co
     <style>
 
         div.flex-column li {
-            margin: 50px;
+            margin: 35px;
             padding-top: 25px;
 
 
@@ -53,18 +53,18 @@ URL: https://gettemplates.co
 
         #nene {
             margin-left: 280px;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
         }
 
         table {
             background-color: #f4ede5;
-            width: 500px;
+            width: 350px;
             border: 1px solid #444444;
             box-sizing: border-box;
             margin: auto;
             border-radius: 1em;
             padding-top: 10px;
-            margin-left: 700px;
+            margin-left: 800px;
             position: absolute;
             height: 400px;
             overflow: hidden;
@@ -82,6 +82,7 @@ URL: https://gettemplates.co
 
         div.boxed-page table th {
             text-align: center;
+
         }
 
         div.boxed-page table td:first-child {
@@ -287,9 +288,15 @@ URL: https://gettemplates.co
                             <a class="nav-link" href="/food-main">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/food-about">About</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/food/list">List</a>
+                        </li>
+
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
