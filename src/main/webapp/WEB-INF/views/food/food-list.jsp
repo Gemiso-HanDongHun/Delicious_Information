@@ -18,14 +18,14 @@
         }
       .test  {
             width: 30%;
-            border: 2px solid #000000;
+            border: 2px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: separate;
             margin:auto;
             padding: 30px;
             font-family: 'BMDOHYEON';
-            box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
-            background: ivory;
+            /*box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);*/
+            background: #f4ede5;
             line-height: 180%;
         }
         table.test th, table.test td {
@@ -69,11 +69,12 @@
         }
 
         div.div_search input[type=text] {
-            width: 60%;
+            width: 30%;
             float: left;
             border-radius: 1em;
             border:2px solid #000000;
             height: 40px;
+            margin-left: 100px;
         }
         div.div_search button[type=button] {
             width: 30%;
