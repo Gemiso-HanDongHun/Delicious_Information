@@ -76,6 +76,8 @@ admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인
 
 11.14 - admin 엑셀로 데이터베이스 입력 완성 delete기능 fix food부분 search 제작중
 
+11.15 - search 기능 완성 및 admin paging처리 완료
+
 
 
 goill : 11.08 : index.jsp, food-list.jsp, include, 
