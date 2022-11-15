@@ -6,7 +6,7 @@
 
 <head>
 
-    <%@include file="./include/header_css.jsp"%>
+    <%@include file="./include/header_css.jsp" %>
 
     <%--<link rel="stylesheet" type="text/css" href="./css/list.css">--%>
     <style>
@@ -16,18 +16,20 @@
             font-weight: normal;
             font-style: normal;
         }
-      .test  {
+
+        .test {
             width: 30%;
             border: 2px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: separate;
-            margin:auto;
+            margin: auto;
             padding: 30px;
             font-family: 'BMDOHYEON';
             /*box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);*/
             background: #f4ede5;
             line-height: 180%;
         }
+
         table.test th, table.test td {
             border: 1px solid #000000;
             border-collapse: collapse;
@@ -72,10 +74,11 @@
             width: 30%;
             float: left;
             border-radius: 1em;
-            border:2px solid #000000;
+            border: 2px solid #000000;
             height: 40px;
             margin-left: 100px;
         }
+
         div.div_search button[type=button] {
             width: 30%;
             float: right;
@@ -89,9 +92,13 @@
             cursor: pointer;
         }
 
+        div.bottom_section{
+            padding-bottom: 1px;
+        }
+
         div.bottom_section nav.bottom_nav ul {
             width: 70%;
-            list-style:none;
+            list-style: none;
             margin: 80px auto;
             overflow: hidden;
             display: flex;
@@ -115,16 +122,35 @@
             z-index: 3;
         }
 
-        div.bottom_section nav.bottom_nav ul li a.page-link:focus{
+        div.bottom_section nav.bottom_nav ul li a.page-link:focus {
             outline: 0;
             box-shadow: none;
         }
 
-        div.bottom_section nav.bottom_nav ul li a.page-link:hover
-        {
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
             background: #4e555b;
             color: #ffff;
             font-weight: 700;
+        }
+
+        div.flex-column li{
+            /*background-color: #005cbf;*/
+            padding-top: 35px;
+        }
+
+        div.flex-column li a {
+            position: relative;
+            margin-right: 600px;
+            padding-top: 45px;
+        }
+
+        div.flex-column li p{
+            position: relative;
+            text-align: center;
+            right: 140px;
+            font-size: 35px;
+            /*background-color: rebeccapurple;*/
+
         }
 
 
@@ -137,7 +163,73 @@
 
 <div class="boxed-page">
 
-    <%@include file="./include/header_nav.jsp" %>
+    <nav id="navbar-header" class="navbar navbar-expand-lg">
+        <div class="container">
+            <%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
+            <%--                <img src="/resto/img/logo.png" alt="">--%>
+            <%--            </a>--%>
+            <%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+            <%--                <span class="lnr lnr-menu"></span>--%>
+            <%--            </button>--%>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <li class="nav-item only-desktop">
+                        <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
+                        <%--                            <span class="lnr lnr-menu"></span>--%>
+                        <%--                        </a>--%>
+                    </li>
+                    <div class="d-flex flex-lg-row flex-column">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
+
+                        </li>
+
+                        <li>
+                            <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
+                        </li>
+                        <%--                        <li class="nav-item">--%>
+                        <%--                            <a class="nav-link" href="/resto/about.html">About</a>--%>
+                        <%--                        </li>--%>
+
+                        <li class="nav-item dropdown">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+                            <%--                                Special Dishes--%>
+                            <%--                            </a>--%>
+                            <%--                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
+                            <%--                                <a class="dropdown-item" href="/resto/special-dishes.html">Beef Steak Sauce</a>--%>
+                            <%--                                <a class="dropdown-item" href="/resto/special-dishes.html">Salmon Zucchini</a>--%>
+                            <%--                            </div>--%>
+                        </li>
+                    </div>
+                </ul>
+
+                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">--%>
+                <%--                    <img src="/resto/img/logo.png" alt="">--%>
+                <%--                </a>--%>
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <div class="d-flex flex-lg-row flex-column">
+                        <%--                        <li class="nav-item active">--%>
+                        <%--                            <a class="nav-link" href="/list">List</a>--%>
+                        <%--                        </li>--%>
+                        <%--                        <li class="nav-item">--%>
+                        <%--                            <a class="nav-link" href="/resto/team.html">Team</a>--%>
+                        <%--                        </li>--%>
+
+                        <%--                        <li class="nav-item dropdown">--%>
+                        <%--                            <a class="nav-link" href="/resto/reservation.html">Reservation</a>--%>
+                        <%--                        </li>--%>
+                    </div>
+                    <li class="nav-item">
+                        <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
+                        <%--                            <span class="lnr lnr-magnifier"></span>--%>
+                        <%--                        </a>--%>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
     <div class="div_search">
         <form id="searchForm">
@@ -147,30 +239,31 @@
         <button type="button" id="search">검색</button>
     </div>
 
-        <table class="test">
+    <table class="test">
+        <tr>
+            <th style="width:30%">No</th>
+            <th style="width:40%">음식명</th>
+            <th style="width:30%">칼로리</th>
+
+        </tr>
+
+        <c:forEach var="f" items="${fList}">
             <tr>
-                <th style="width:30%">No</th>
-                <th style="width:40%">음식명</th>
-                <th style="width:30%">칼로리</th>
+                <td>${f.foodNo}번</td>
+                <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
+                <td>${f.kcal}(kcal)</td>
 
             </tr>
-
-            <c:forEach var="f" items="${fList}">
-                <tr>
-                    <td>${f.foodNo}번</td>
-                    <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
-                    <td>${f.kcal}(kcal)</td>
-
-                </tr>
-            </c:forEach>
-        </table>
+        </c:forEach>
+    </table>
 
     <div class="bottom_section">
         <nav class="bottom_nav">
             <ul class="pagination pagination-lg pagination-custom">
                 <c:if test="${pm.prev}">
                     <li class="page-item">
-                        <a class="page-link" href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
+                        <a class="page-link"
+                           href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
                     </li>
                 </c:if>
 
@@ -203,6 +296,7 @@
         $form.action = "/food/list";
         $form.submit();
     };
+
     function appendPageActive() {
 
         // 현재 내가 보고 있는 페이지 넘버
