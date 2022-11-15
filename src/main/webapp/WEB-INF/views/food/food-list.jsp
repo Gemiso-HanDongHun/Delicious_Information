@@ -8,8 +8,9 @@
 
     <%@include file="./include/header_css.jsp" %>
 
-    <%--<link rel="stylesheet" type="text/css" href="./css/list.css">--%>
+
     <style>
+        /* 외부 폰트 사용 */
         @font-face {
             font-family: 'BMDOHYEON';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
@@ -17,15 +18,14 @@
             font-style: normal;
         }
 
-        .test {
-            width: 30%;
+        /* CSS */
+      .test  {
+            width: 40%;
             border: 2px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 30px;
-            font-family: 'BMDOHYEON';
-            /*box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);*/
             background: #f4ede5;
             line-height: 180%;
         }
@@ -36,61 +36,59 @@
         }
 
         table.test tr:nth-child(odd) {
-            background: #ddd;
+            background: #ffffff;
         }
 
         table.test tr:nth-child(even) {
             background: #ffffff;
         }
 
-
         div.boxed-page table th {
             text-align: center;
+            font-family: 'BMDOHYEON';
         }
 
         div.boxed-page table td:first-child {
             text-align: center;
         }
 
-        div.boxed-page table td:nth-child(2):hover {
+        /*div.boxed-page table td:nth-child(2):hover {
             color: #ffffff;
             background: #cccccc;
             cursor: pointer;
             font-weight: 700;
-        }
+        }*/
 
         div.boxed-page table td:nth-child(3) {
             text-align: right;
         }
 
         div.div_search {
-            width: 20%;
+            width: 30%;
             margin: 70px auto 50px;
-            width: 60%;
-            overflow: hidden;
         }
 
         div.div_search input[type=text] {
-            width: 30%;
+            width: 60%;
+            height: 45px;
             float: left;
             border-radius: 1em;
-            border: 2px solid #000000;
-            height: 40px;
-            margin-left: 100px;
+            font-size: 0.8vw;
+            border:2px solid #000000;
+            line-height: 180%;
+            position: relative;
+            left: 50px;
         }
 
-        div.div_search button[type=button] {
-            width: 30%;
-            float: right;
-            border-radius: 2em;
-            height: 40px;
+        div.div_search span.lnr-magnifier {
+            display: inline-block;
+            font-size: 30px;
+            margin-left: 20px;
+            position: relative;
+            left: 50px;
         }
 
-        div.div_search button[type=button]:hover {
-            background: #4e555b;
-            color: #ffffff;
-            cursor: pointer;
-        }
+
 
         div.bottom_section{
             padding-bottom: 1px;
@@ -98,8 +96,8 @@
 
         div.bottom_section nav.bottom_nav ul {
             width: 70%;
-            list-style: none;
-            margin: 80px auto;
+            list-style:none;
+            margin: 80px auto 80px;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -115,6 +113,7 @@
             width: 100%;
             text-align: center;
             color: #000000;
+            font-size: 0.8vw;
             border-collapse: separate;
             box-sizing: border-box;
             border: 1px solid #000000;
@@ -236,7 +235,9 @@
             <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
                    value="${s.keyword}">
         </form>
-        <button type="button" id="search">검색</button>
+        <a id="side-search-open" class="nav-link" href="#">
+            <span class="lnr lnr-magnifier"></span>
+        </a>
     </div>
 
     <table class="test">
