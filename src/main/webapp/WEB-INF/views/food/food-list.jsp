@@ -10,20 +10,37 @@
 
     <%--<link rel="stylesheet" type="text/css" href="./css/list.css">--%>
     <style>
-        table {
-            width: 60%;
-            border: 2px solid #444444;
-            box-sizing: border-box;
-            margin:auto;
-            border-collapse: separate;
-            border-radius: 2em;
-            padding: 10px;
+        @font-face {
+            font-family: 'BMDOHYEON';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-        th, td {
-            border: 1px solid #444444;
-            box-sizing: border-box;
+      .test  {
+            width: 30%;
+            border: 2px solid #000000;
+            border-radius: 1.5em;
+            border-collapse: separate;
+            margin:auto;
+            padding: 30px;
+            font-family: 'BMDOHYEON';
+            box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+            background: ivory;
+            line-height: 180%;
+        }
+        table.test th, table.test td {
+            border: 1px solid #000000;
             border-collapse: collapse;
         }
+
+        table.test tr:nth-child(odd) {
+            background: #ddd;
+        }
+
+        table.test tr:nth-child(even) {
+            background: #ffffff;
+        }
+
 
         div.boxed-page table th {
             text-align: center;
@@ -45,21 +62,23 @@
         }
 
         div.div_search {
+            width: 20%;
             margin: 70px auto 50px;
-            width: 60%;
             overflow: hidden;
         }
 
         div.div_search input[type=text] {
-            width: 80%;
+            width: 60%;
             float: left;
             border-radius: 1em;
             border:2px solid #000000;
+            height: 40px;
         }
         div.div_search button[type=button] {
-            width: 15%;
+            width: 30%;
             float: right;
             border-radius: 2em;
+            height: 40px;
         }
 
         div.div_search button[type=button]:hover {
@@ -71,7 +90,7 @@
         div.bottom_section nav.bottom_nav ul {
             width: 70%;
             list-style:none;
-            margin: 40px auto;
+            margin: 80px auto;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -127,10 +146,10 @@
 
         <table class="test">
             <tr>
-                <th style="width:10%">No</th>
-                <th style="width:50%">음식명</th>
-                <th style="width:10%">칼로리</th>
-                <th style="width:30%">이미지</th>
+                <th style="width:30%">No</th>
+                <th style="width:40%">음식명</th>
+                <th style="width:30%">칼로리</th>
+
             </tr>
 
             <c:forEach var="f" items="${fList}">
@@ -138,7 +157,7 @@
                     <td>${f.foodNo}번</td>
                     <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                     <td>${f.kcal}(kcal)</td>
-                    <td>${f.img}</td>
+
                 </tr>
             </c:forEach>
         </table>
