@@ -58,16 +58,24 @@ URL: https://gettemplates.co
 
         table {
             background-color: #f4ede5;
-            width: 350px;
+            width: 355px;
             border: 1px solid #444444;
             box-sizing: border-box;
             margin: auto;
             border-radius: 1em;
-            padding-top: 10px;
+            padding-top: 20px;
             margin-left: 800px;
             position: absolute;
             height: 400px;
-            overflow: hidden;
+        }
+
+        #lili td {
+            background-color: floralwhite;
+            padding: 6px;
+        }
+
+        #li th {
+            padding: 9px;
         }
 
 
@@ -127,7 +135,7 @@ URL: https://gettemplates.co
             width: 300px;
         }
 
-        div.menu-small{
+        div.menu-small {
             /*background-color: #005cbf;*/
         }
 
@@ -195,7 +203,7 @@ URL: https://gettemplates.co
 
         div p3 {
             position: relative;
-            margin-left: 190px;
+            margin-left: 270px;
             border-radius: 2em;
             border: 1px solid #f4ede5;
             padding: 5px;
@@ -305,8 +313,9 @@ URL: https://gettemplates.co
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>
-<%--                                <a class="dropdown-item" href="/food-about">여자</a>--%>
+                                <a class="dropdown-item" href="#"
+                                   onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>
+                                <%--                                <a class="dropdown-item" href="/food-about">여자</a>--%>
                             </div>
 
                         </li>
@@ -362,7 +371,7 @@ URL: https://gettemplates.co
 
                 <div>
                     <p4>⠀${fn.food.kcal}kcal⠀</p4>
-                    <p3>부족한 영양분(하루권장량 - 섭취음식)</p3>
+                    <p3>부족한 영양분</p3>
                 </div>
 
 
@@ -371,12 +380,13 @@ URL: https://gettemplates.co
                 <div class="recomend">
 
                     <table class="reco">
-                        <tr>
-                            <th>𝑅𝑒𝒸𝑜𝓂𝓂𝑒𝓃𝒹𝒶𝓉𝒾𝑜𝓃</th>
+                        <tr id="li">
+                            <%--                            <th>𝑅𝑒𝒸𝑜𝓂𝓂𝑒𝓃𝒹𝒶𝓉𝒾𝑜𝓃</th>--%>
+                            <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
-                        <c:forEach var="f" begin="0" end="20" items="${fl}">
-                            <tr>
+                        <c:forEach var="f" begin="0" end="17" items="${fl}">
+                            <tr id="lili">
                                 <td>${f.name}(${f.kcal}kcal)</td>
                             </tr>
                         </c:forEach>

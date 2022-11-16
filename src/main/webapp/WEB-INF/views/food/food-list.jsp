@@ -22,29 +22,30 @@
             font-style: normal;
         }
 
-        /* List CSS */
-        /* 테이블 전체 */
-        .test {
-            width: 30%;
-            border: 2px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            margin: auto;
-            padding: 30px;
-            background: #f4ede5;
-            line-height: 180%;
-        }
+    /* List CSS */
+    /* 테이블 전체 */
+    .test  {
+        width: 30%;
+        border: 2px solid #f4ede5;
+        border-radius: 1.5em;
+        border-collapse: separate;
+        margin: auto;
+        padding: 24px;
+        background: #f4ede5;
+        line-height: 202%;
+    }
 
         /* 내부 tr 배경 */
         table.test tr {
             background: #ffffff;
         }
 
-        /* th 중앙 정렬 및 외부 폰트 */
-        div.boxed-page table th {
-            text-align: center;
-            font-family: 'BMDOHYEON'; /* th 폰트*/
-        }
+    /* th 중앙 정렬 및 외부 폰트 */
+    div.boxed-page table th {
+        text-align: center;
+        /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
+        font-weight: 700;
+    }
 
         /* td 중앙 정렬 */
         div.boxed-page table td {
@@ -56,53 +57,54 @@
             cursor: pointer;
         }
 
-        /* 서치 div 영역 */
-        div.div_search {
-            width: 20%;
-            margin: 70px auto 50px;
-            display: flex;
-            border-radius: 1em;
-            font-size: 0.8vw;
-            border: 2px solid #000000;
-            line-height: 180%;
-            padding-left: 10px;
-        }
+    /* 서치 div 영역 */
+    div.div_search {
+        width: 21%;
+        margin: 70px auto 50px;
+        display:flex;
+        border-radius: 1em;
+        font-size: 0.8vw;
+        border:2px solid #000000;
+        line-height: 180%;
+        padding-left :10px;
+        /*background-color: #005cbf;*/
+        margin-bottom: 30px;
+    }
+    div.div_search form {
 
-        div.div_search form {
-
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 
-        /* 서치바 영역 */
-        div.div_search input[type=text] {
-            width: 100%;
-            height: 45px;
-            border: 0px;
-        }
 
-        div.div_search input[type=text]:focus {
-            outline: none;
-        }
+    /* 서치바 영역 */
+    div.div_search input[type=text] {
+        width: 100%;
+        height: 40px;
+        border: 0px;
 
-        div.div_search a {
-            padding: 8px 8px 2px;
-        }
+    }
+    div.div_search input[type=text]:focus {
+        outline: none;
+    }
+    div.div_search a{
+        padding :8px 8px 2px;
+    }
 
-        /* 서치 아이콘 */
-        span.lnr-magnifier {
-            font-size: 25px;
-        }
+    /* 서치 아이콘 */
+    span.lnr-magnifier {
+        font-size: 25px;
+    }
 
-        /* 목록 전체 영역 */
-        div.bottom_section {
-            padding-bottom: 1px;
-            margin-top: 20px;
-            color: black;
-        }
+    /* 목록 전체 영역 */
+    div.bottom_section{
+        padding-bottom: 1px;
+        margin-top: 25px;
+        color: black ;
+    }
 
         /* a태그 폰트 설정 */
         div.bottom_section ul li a {
@@ -139,21 +141,21 @@
         }
 
 
-        div.flex-column li p {
+        div.flex-column li p{
             position: relative;
             text-align: center;
-            right: 140px;
+            right: 150px;
             font-size: 35px;
             /*background-color: rebeccapurple;*/
 
-        }
+    }
 
-        .page-item.active .page-link {
-            z-index: 1;
-            color: #fff;
-            background-color: lightgray;
-            border-color: lightgray;
-        }
+    .page-item.active .page-link {
+        z-index: 1;
+        color: #fff;
+        background-color:lightgray;
+        border-color:lightgray;
+    }
 
         .boxed-page aside.mine {
             position: fixed;
@@ -258,6 +260,8 @@
         </form>
 
     </div>
+
+
 
 
     <table class="test">

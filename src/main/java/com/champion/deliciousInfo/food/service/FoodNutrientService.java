@@ -41,7 +41,6 @@ public class FoodNutrientService {
         return foodNutrient0;
     }
 
-
     public FoodNutrient pro(int foodNo){
         FoodNutrient foodNutrient1 = foodNutrientMapper.findOne(foodNo);
         Float protein = foodNutrient1.getProtein();
