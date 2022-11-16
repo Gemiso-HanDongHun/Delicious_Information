@@ -58,31 +58,41 @@
 
     /* 서치 div 영역 */
     div.div_search {
-        width: 30%;
+        width: 20%;
         margin: 70px auto 50px;
-    }
-
-    /* 서치바 영역 */
-    div.div_search input[type=text] {
-        width: 60%;
-        height: 45px;
-        float: left;
+        display:flex;
         border-radius: 1em;
         font-size: 0.8vw;
         border:2px solid #000000;
         line-height: 180%;
-        position: relative;
-        left: 50px;
-        padding-left :20px;
+        padding-left :10px;
+    }
+    div.div_search form {
+
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    /* 서치바 영역 */
+    div.div_search input[type=text] {
+        width: 100%;
+        height: 45px;
+        border: 0px;
+    }
+    div.div_search input[type=text]:focus {
+        outline: none;
+    }
+    div.div_search a{
+        padding :8px 8px 2px;
     }
 
     /* 서치 아이콘 */
-    div.div_search span.lnr-magnifier {
-        display: inline-block;
-        font-size: 30px;
-        margin-left: 20px;
-        position: relative;
-        left: 50px;
+    span.lnr-magnifier {
+        font-size: 25px;
     }
 
     /* 목록 전체 영역 */
@@ -141,6 +151,17 @@
         color: #fff;
         background-color:lightgray;
         border-color:lightgray;
+    }
+
+    .boxed-page aside.mine{
+        position: fixed;
+        top: 20%;
+        left: 70%;
+        z-index: 10;
+    }
+    .boxed-page aside.mine div.my-food{
+
+        background:#f4ede5;
     }
 
 
@@ -228,17 +249,22 @@
         <form id="searchForm">
             <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
                    value="${s.keyword}">
+            <a id="side-search-open" class="nav-link" href="#">
+                <span class="lnr lnr-magnifier"></span>
+            </a>
         </form>
-        <a id="side-search-open" class="nav-link" href="#">
-            <span class="lnr lnr-magnifier"></span>
-        </a>
+
     </div>
+
+
+
 
     <table class="test">
         <tr>
-            <th style="width:30%">No</th>
+            <th style="width:25%">No</th>
             <th style="width:40%">음식명</th>
-            <th style="width:30%">칼로리</th>
+            <th style="width:25%">칼로리</th>
+            <th style="width:10%">선택</th>
 
         </tr>
 
@@ -247,6 +273,7 @@
                 <td>${f.foodNo}번</td>
                 <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                 <td>${f.kcal}(kcal)</td>
+                <td><input type="checkbox" class="select" value="${f.foodNo}"></td>
 
             </tr>
         </c:forEach>
@@ -279,19 +306,19 @@
     </div>
 
 
+    <aside class="mine">
+        <div class="my-food">
+            내가 선택한 음식
+        </div>
+    </aside>
     <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
-<%@include file="./include/footer_js.jsp" %>
-
+<%--<%@include file="./include/footer_js.jsp" %>--%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    /*const $searchButton = document.querySelector("#search");
-    const $input = document.querySelector("#inputName");
-    $searchButton.onclick = function () {
-        $form = document.querySelector("form");
-        $form.action = "/food/list";
-        $form.submit();
-    };*/
-
+    const $searchButton = document.querySelector("#side-search-open");
+    const $inputName = document.querySelector("#inputName");
+    const $inputCheck = document.querySelector("table");
     function appendPageActive() {
 
         // 현재 내가 보고 있는 페이지 넘버
@@ -309,8 +336,43 @@
                 break;
             }
         }
-
     }
+    function showFoodData(fn){
+        const $myFood = document.querySelector(".my-food");
+        const $foodData = document.createElement("div");
+        $foodData.setAttribute("id",fn.food.foodNo);
+        $foodData.innerHTML= " name : " +fn.food.name;
+        $myFood.append($foodData);
+        console.log(${myList.foodNutrient.food.name})
+    }
+
+    function deleteFoodData(fn){
+        const $myFood = document.querySelector(".my-food");
+        const $removeNode = document.getElementById(fn);
+        $myFood.removeChild($removeNode);
+    }
+
+    $searchButton.onclick= e =>{
+        location.href="/food/list?keyword="+$inputName.value;
+    };
+    $inputCheck.onchange=e=>{
+        if(!e.target.matches(".select")){ //
+            return;
+        }
+        if(e.target.checked){ //check를 하는 거면
+            fetch('/api/foods/' + e.target.value)
+                .then(res => res.json())
+                .then(food => {
+                    showFoodData(food);
+                });
+        }else{
+            deleteFoodData(e.target.value);
+        }
+    }
+    //내가 지금 보고 있는 페이지 표시
+
+
+
 
 
 
