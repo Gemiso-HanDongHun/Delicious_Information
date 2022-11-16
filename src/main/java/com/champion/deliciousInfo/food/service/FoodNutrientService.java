@@ -31,11 +31,13 @@ public class FoodNutrientService {
         return foodNutrient;
     }
 
+
     public FoodNutrient carbo(int foodNo){
         FoodNutrient foodNutrient0 = foodNutrientMapper.findOne(foodNo);
         Float carbo = foodNutrient0.getCarbohydrate();
         double newcarbo = 2700 * 0.5 - Math.round(carbo * 100) / 100.0;
         foodNutrient0.setCarbohydrate((float) newcarbo);
+
         TodayNutrient tn = new TodayNutrient();
         tn.setCarbohydrate((float)newcarbo);
         return foodNutrient0;
