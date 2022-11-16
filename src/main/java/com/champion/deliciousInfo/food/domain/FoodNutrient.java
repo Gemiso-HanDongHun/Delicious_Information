@@ -20,6 +20,7 @@ public class FoodNutrient {
  private Float sodium;
  private Float omega;
  private Food food;
+ private boolean check;
 
 
 }

@@ -476,7 +476,7 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
                                             <h4 style="color: orangered">⠀⠀${carbo.carbohydrate}g</h4>
-                                        </div>
+                                        </div>  53
                                     </div>
                                     <p></p>
                                 </div>

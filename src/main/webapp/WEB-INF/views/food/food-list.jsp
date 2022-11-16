@@ -6,123 +6,125 @@
 
 <head>
 
-<%@include file="./include/header_css.jsp" %>
+    <%@include file="./include/header_css.jsp" %>
 
-<style>
+    <style>
 
-    div.boxed-page{
-        min-height: 960px;
-    }
+        div.boxed-page {
+            min-height: 960px;
+        }
 
-    /* 외부 폰트 사용 */
-    @font-face {
-        font-family: 'BMDOHYEON';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
+        /* 외부 폰트 사용 */
+        @font-face {
+            font-family: 'BMDOHYEON';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    /* List CSS */
-    /* 테이블 전체 */
-    .test  {
-        width: 30%;
-        border: 2px solid #f4ede5;
-        border-radius: 1.5em;
-        border-collapse: separate;
-        margin: auto;
-        padding: 30px;
-        background: #f4ede5;
-        line-height: 180%;
-    }
+        /* List CSS */
+        /* 테이블 전체 */
+        .test {
+            width: 30%;
+            border: 2px solid #f4ede5;
+            border-radius: 1.5em;
+            border-collapse: separate;
+            margin: auto;
+            padding: 30px;
+            background: #f4ede5;
+            line-height: 180%;
+        }
 
-    /* 내부 tr 배경 */
-    table.test tr {
-       background:  #ffffff;
-    }
+        /* 내부 tr 배경 */
+        table.test tr {
+            background: #ffffff;
+        }
 
-    /* th 중앙 정렬 및 외부 폰트 */
-    div.boxed-page table th {
-        text-align: center;
-        font-family: 'BMDOHYEON'; /* th 폰트*/
-    }
+        /* th 중앙 정렬 및 외부 폰트 */
+        div.boxed-page table th {
+            text-align: center;
+            font-family: 'BMDOHYEON'; /* th 폰트*/
+        }
 
-    /* td 중앙 정렬 */
-    div.boxed-page table td {
-        text-align: center;
-    }
+        /* td 중앙 정렬 */
+        div.boxed-page table td {
+            text-align: center;
+        }
 
-    /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
-    div.boxed-page table td:nth-child(2):hover {
-        cursor: pointer;
-    }
+        /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
+        div.boxed-page table td:nth-child(2):hover {
+            cursor: pointer;
+        }
 
-    /* 서치 div 영역 */
-    div.div_search {
-        width: 20%;
-        margin: 70px auto 50px;
-        display:flex;
-        border-radius: 1em;
-        font-size: 0.8vw;
-        border:2px solid #000000;
-        line-height: 180%;
-        padding-left :10px;
-    }
-    div.div_search form {
+        /* 서치 div 영역 */
+        div.div_search {
+            width: 20%;
+            margin: 70px auto 50px;
+            display: flex;
+            border-radius: 1em;
+            font-size: 0.8vw;
+            border: 2px solid #000000;
+            line-height: 180%;
+            padding-left: 10px;
+        }
 
-        width: 100%;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
+        div.div_search form {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 
+        /* 서치바 영역 */
+        div.div_search input[type=text] {
+            width: 100%;
+            height: 45px;
+            border: 0px;
+        }
 
-    /* 서치바 영역 */
-    div.div_search input[type=text] {
-        width: 100%;
-        height: 45px;
-        border: 0px;
-    }
-    div.div_search input[type=text]:focus {
-        outline: none;
-    }
-    div.div_search a{
-        padding :8px 8px 2px;
-    }
+        div.div_search input[type=text]:focus {
+            outline: none;
+        }
 
-    /* 서치 아이콘 */
-    span.lnr-magnifier {
-        font-size: 25px;
-    }
+        div.div_search a {
+            padding: 8px 8px 2px;
+        }
 
-    /* 목록 전체 영역 */
-    div.bottom_section{
-        padding-bottom: 1px;
-        margin-top: 20px;
-        color: black ;
-    }
+        /* 서치 아이콘 */
+        span.lnr-magnifier {
+            font-size: 25px;
+        }
 
-    /* a태그 폰트 설정 */
-    div.bottom_section ul li a {
-        color: black;
-    }
+        /* 목록 전체 영역 */
+        div.bottom_section {
+            padding-bottom: 1px;
+            margin-top: 20px;
+            color: black;
+        }
 
-    /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
-    div.bottom_section nav.bottom_nav ul li a.page-link:hover {
-        background: lightgray;
-        color: #ffff;
-        font-weight: 700;
-    }
+        /* a태그 폰트 설정 */
+        div.bottom_section ul li a {
+            color: black;
+        }
 
-    /* a태그 포커스 삭제*/
-    div.bottom_section nav.bottom_nav ul li a.page-link:focus {
-        outline: 0;
-        box-shadow: none;
-    }
+        /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+            background: lightgray;
+            color: #ffff;
+            font-weight: 700;
+        }
 
-    div.flex-column li{
-        padding-top: 35px;
-    }
+        /* a태그 포커스 삭제*/
+        div.bottom_section nav.bottom_nav ul li a.page-link:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+
+        div.flex-column li {
+            padding-top: 35px;
+        }
 
         div.flex-column li a {
             position: relative;
@@ -137,38 +139,39 @@
         }
 
 
-        div.flex-column li p{
+        div.flex-column li p {
             position: relative;
             text-align: center;
             right: 140px;
             font-size: 35px;
             /*background-color: rebeccapurple;*/
 
-    }
+        }
 
-    .page-item.active .page-link {
-        z-index: 1;
-        color: #fff;
-        background-color:lightgray;
-        border-color:lightgray;
-    }
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: lightgray;
+            border-color: lightgray;
+        }
 
-    .boxed-page aside.mine{
-        position: fixed;
-        top: 20%;
-        left: 70%;
-        z-index: 10;
-    }
-    .boxed-page aside.mine div.my-food{
+        .boxed-page aside.mine {
+            position: fixed;
+            top: 20%;
+            left: 70%;
+            z-index: 10;
+            background: #f4ede5;
+        }
 
-        background:#f4ede5;
-    }
+        .boxed-page aside.mine div.my-food {
+
+        }
 
 
     </style>
 
 </head>
-<body data-spy="scroll" data-target="#navbar" class="static-layout" >
+<body data-spy="scroll" data-target="#navbar" class="static-layout">
 
 <%@include file="./include/side_nav.jsp" %>
 
@@ -257,8 +260,6 @@
     </div>
 
 
-
-
     <table class="test">
         <tr>
             <th style="width:25%">No</th>
@@ -273,15 +274,17 @@
                 <td>${f.foodNo}번</td>
                 <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                 <td>${f.kcal}(kcal)</td>
-                <td><input type="checkbox" class="select" value="${f.foodNo}"></td>
-
+                    <%-- <c:if test="${f.check}">
+                         <td><input type="checkbox" class="select" value="${f.foodNo}" checked></td>
+                     </c:if>--%>
+                <td><input type="checkbox" class="select" id="${f.foodNo}" value="${f.foodNo}"></td>
             </tr>
         </c:forEach>
     </table>
 
     <div class="bottom_section d-flex justify-content-center">
-        <nav class="bottom_nav" >
-            <ul class="pagination" >
+        <nav class="bottom_nav">
+            <ul class="pagination">
                 <c:if test="${pm.prev}">
                     <li class="page-item">
                         <a class="page-link"
@@ -307,9 +310,35 @@
 
 
     <aside class="mine">
-        <div class="my-food">
-            내가 선택한 음식
+        <div>
+            <div>
+                <div>
+                <p></p>만두</p></div>
+                <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">만두, 1 bag</p>
+                <div class="MuiBox-root css-2imjyh"><p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">칼로리 :
+                    615</p><span class="MuiBox-root css-qbrse1">•</span>
+                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">탄수화물: 43g</p><span
+                            class="MuiBox-root css-qbrse1">•</span>
+                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">지방 : 37g</p><span
+                            class="MuiBox-root css-qbrse1">•</span>
+                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">단백질 : 27g</p></div>
+            </div>
+            <div class="MuiBox-root css-1wm4age">
+                <div class="MuiBox-root css-rmz4vk">
+                    <div class="MuiBox-root css-vldkxt">
+                        <canvas role="img" height="56" width="56"
+                                aria-label="다음 데이터가 포함된 주영양소의 세부 항목 차트: 탄수화물: 43g, 지방 : 37g, 단백질 : 27g"
+                                style="display: block; box-sizing: border-box; height: 56px; width: 56px;"></canvas>
+                    </div>
+                    <div class="MuiBox-root css-1ejrq7o"><h3 class="MuiTypography-root MuiTypography-h3 css-w57zs0">
+                        615</h3></div>
+                </div>
+            </div>
         </div>
+        내가 선택한 음식
+        <div class="my-food">
+        </div>
+        총칼로리 : <span id="totalKcal"></span>
     </aside>
     <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
@@ -318,7 +347,8 @@
 <script>
     const $searchButton = document.querySelector("#side-search-open");
     const $inputName = document.querySelector("#inputName");
-    const $inputCheck = document.querySelector("table");
+    const $table = document.querySelector("table");
+
     function appendPageActive() {
 
         // 현재 내가 보고 있는 페이지 넘버
@@ -337,47 +367,57 @@
             }
         }
     }
-    function showFoodData(fn){
+
+    function showFoodData(myList) { //선택한 음식 보여주기
         const $myFood = document.querySelector(".my-food");
-        const $foodData = document.createElement("div");
-        $foodData.setAttribute("id",fn.food.foodNo);
-        $foodData.innerHTML= " name : " +fn.food.name;
-        $myFood.append($foodData);
-        console.log(${myList.foodNutrient.food.name})
+        while ($myFood.hasChildNodes()) {
+            $myFood.removeChild($myFood.firstChild);
+        }
+        for (let i = 0; i < myList.length; i++) {
+            let fn = myList[i];
+            let $foodData = document.createElement("div");
+            $foodData.setAttribute("id", fn.food.foodNo);
+            $foodData.innerHTML = fn.food.name;
+            $myFood.append($foodData);
+            let $inputBox = document.getElementById(fn.food.foodNo);
+            $inputBox.setAttribute("checked", "checked");
+        }
+
+
     }
 
-    function deleteFoodData(fn){
-        const $myFood = document.querySelector(".my-food");
-        const $removeNode = document.getElementById(fn);
-        $myFood.removeChild($removeNode);
-    }
 
-    $searchButton.onclick= e =>{
-        location.href="/food/list?keyword="+$inputName.value;
+    $searchButton.onclick = e => {
+        location.href = "/food/list?keyword=" + $inputName.value;
     };
-    $inputCheck.onchange=e=>{
-        if(!e.target.matches(".select")){ //
+    $table.onchange = e => {
+        if (!e.target.matches(".select")) { //
             return;
         }
-        if(e.target.checked){ //check를 하는 거면
+        if (e.target.checked) { //check를 하는 거면
             fetch('/api/foods/' + e.target.value)
                 .then(res => res.json())
-                .then(food => {
-                    showFoodData(food);
+                .then(myList => {
+                    showFoodData(myList);
                 });
-        }else{
-            deleteFoodData(e.target.value);
+        } else {
+            fetch('/api/foods/' + e.target.value, {method: 'delete'})
+                .then(res => res.json())
+                .then(myList => {
+                    showFoodData(myList);
+                });
         }
     }
     //내가 지금 보고 있는 페이지 표시
 
 
-
-
-
-
     $(function () {
         appendPageActive();
+        fetch('/api/foods/')
+            .then(res => res.json())
+            .then(myList => {
+                showFoodData(myList);
+            });
     });
 
 </script>

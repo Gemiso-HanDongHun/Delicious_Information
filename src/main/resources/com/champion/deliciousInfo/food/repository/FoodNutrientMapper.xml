@@ -59,4 +59,9 @@
     <delete id="remove">
         delete from food_nutrient where nutrient_no=#{nutrientNo}
     </delete>
+
+    <select id="recommend">
+        select * from food_nutrient
+        where carbohydrate < #{carbohydrate}
+    </select>
 </mapper>

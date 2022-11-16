@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.food.service;
 
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
+import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.repository.FoodNutrientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -35,7 +36,8 @@ public class FoodNutrientService {
         Float carbo = foodNutrient0.getCarbohydrate();
         double newcarbo = 2700 * 0.5 - Math.round(carbo * 100) / 100.0;
         foodNutrient0.setCarbohydrate((float) newcarbo);
-
+        TodayNutrient tn = new TodayNutrient();
+        tn.setCarbohydrate((float)newcarbo);
         return foodNutrient0;
     }
 
