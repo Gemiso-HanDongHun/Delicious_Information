@@ -66,8 +66,8 @@ DB 설계
 
 lemoncoat : 
 11.08 - index.jsp login-form.jsp  food-list.jsp 작성
-admincontroller service mapper 생성 및 로그인 기능 구현 
-admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인을 해야지 들어갈수 있음
+         admincontroller service mapper 생성 및 로그인 기능 구현 
+         admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인을 해야지 들어갈수 있음
 
 11.09 - 음식 정보 테이블에 insert modify delete 생성 이미지파일 업로드 및 수정 가능
       그에 따른 foodmapper에 메서드 추가
@@ -77,6 +77,9 @@ admin페이지로 주소 치고 들어가시 인터셉터가 막아서 로그인
 11.14 - admin 엑셀로 데이터베이스 입력 완성 delete기능 fix food부분 search 제작중
 
 11.15 - search 기능 완성 및 admin paging처리 완료
+
+11.16 - 2.0 시작 list.jsp에서 자신이 먹을 음식 선택하면 오른쪽에 뜸 react로 할려하는데 error있어 아직 자바스크립트로만 완성
+         아직 admin페이지 search 처리안함 
 
 
 goill : 

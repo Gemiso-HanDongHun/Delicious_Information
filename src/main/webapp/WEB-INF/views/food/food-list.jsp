@@ -163,9 +163,11 @@
             left: 70%;
             z-index: 10;
             background: #f4ede5;
+            border-radius: 1.5rem;
+            padding: 10px;
         }
 
-        .boxed-page aside.mine div.my-food {
+        .boxed-page aside.mine div.my-food-list {
 
         }
 
@@ -314,40 +316,28 @@
 
 
     <aside class="mine">
-        <div>
-            <div>
-                <div>
-                <p></p>만두</p></div>
-                <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">만두, 1 bag</p>
-                <div class="MuiBox-root css-2imjyh"><p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">칼로리 :
-                    615</p><span class="MuiBox-root css-qbrse1">•</span>
-                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">탄수화물: 43g</p><span
-                            class="MuiBox-root css-qbrse1">•</span>
-                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">지방 : 37g</p><span
-                            class="MuiBox-root css-qbrse1">•</span>
-                    <p class="MuiTypography-root MuiTypography-body1 css-w1kjmb">단백질 : 27g</p></div>
-            </div>
-            <div class="MuiBox-root css-1wm4age">
-                <div class="MuiBox-root css-rmz4vk">
-                    <div class="MuiBox-root css-vldkxt">
-                        <canvas role="img" height="56" width="56"
-                                aria-label="다음 데이터가 포함된 주영양소의 세부 항목 차트: 탄수화물: 43g, 지방 : 37g, 단백질 : 27g"
-                                style="display: block; box-sizing: border-box; height: 56px; width: 56px;"></canvas>
-                    </div>
-                    <div class="MuiBox-root css-1ejrq7o"><h3 class="MuiTypography-root MuiTypography-h3 css-w57zs0">
-                        615</h3></div>
-                </div>
-            </div>
-        </div>
+
         내가 선택한 음식
-        <div class="my-food">
+        <div class="my-food-list">
+            <div class="my-food">
+                <p>만두<br>
+                칼로리 : 615kcal<br>
+                탄수화물: 43g
+                지방 : 37g
+                단백질 : 27g</p>
+            </div>
+
         </div>
         총칼로리 : <span id="totalKcal"></span>
     </aside>
     <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
 <%--<%@include file="./include/footer_js.jsp" %>--%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 <script>
     const $searchButton = document.querySelector("#side-search-open");
     const $inputName = document.querySelector("#inputName");
@@ -417,11 +407,11 @@
 
     $(function () {
         appendPageActive();
-        fetch('/api/foods/')
-            .then(res => res.json())
-            .then(myList => {
-                showFoodData(myList);
-            });
+    //     fetch('/api/foods/')
+    //         .then(res => res.json())
+    //         .then(myList => {
+    //             showFoodData(myList);
+    //         });
     });
 
 </script>
