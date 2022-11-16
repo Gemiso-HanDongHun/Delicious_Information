@@ -301,12 +301,12 @@ URL: https://gettemplates.co
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                성별 : 남자
+                                성별 : 여자
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<%--                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>--%>
-                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient2/${fn.food.foodNo}'">여자</a>
+                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>
+<%--                                <a class="dropdown-item" href="/food-about">여자</a>--%>
                             </div>
 
                         </li>
@@ -475,7 +475,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀탄수화물</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${carbo.carbohydrate}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${carbo2.carbohydrate}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -491,7 +491,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀단백질</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${pro.protein}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${pro2.protein}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -507,7 +507,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀지방</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${fat.fat}g</h4>
+                                            <h4 style="color: orangered">⠀⠀${fat2.fat}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -523,7 +523,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀나트륨</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${sodium.sodium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${sodium2.sodium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -624,7 +624,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민A</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${vitaminA.vitaminA}µg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminA2.vitaminA}µg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -640,7 +640,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민C</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${vitaminC.vitaminC}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminC2.vitaminC}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -656,7 +656,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민E</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${vitaminE.vitaminE}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${vitaminE2.vitaminE}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -672,7 +672,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀오메가3</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${omega.omega}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${omega2.omega}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -755,7 +755,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀칼슘</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${calcium.calcium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${calcium2.calcium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -771,7 +771,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀철분</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${iron.iron}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${iron2.iron}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -787,7 +787,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀마그네슘</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${magnesium.magnesium}mg</h4>
+                                            <h4 style="color: orangered">⠀⠀${magnesium2.magnesium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -810,72 +810,6 @@ URL: https://gettemplates.co
     <!-- End of menu Section -->
 
 
-    <%--    <footer class="mastfoot pb-5 bg-white section-padding pb-0">--%>
-    <%--        <div class="inner container">--%>
-    <%--            <div class="row">--%>
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pr-lg-5 pr-0">--%>
-    <%--                        <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis--%>
-    <%--                            explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni,--%>
-    <%--                            et voluptatum dolorem.</p>--%>
-    <%--                        <nav class="nav nav-mastfoot justify-content-start">--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-facebook-f"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-twitter"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-instagram"></i>--%>
-    <%--                            </a>--%>
-    <%--                        </nav>--%>
-    <%--                    </div>--%>
-    <%--                </div>--%>
-
-
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget px-lg-5 px-0">--%>
-    <%--                        <h4>Open Hours</h4>--%>
-    <%--                        <ul class="list-unstyled open-hours">--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>--%>
-    <%--                        </ul>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pl-lg-5 pl-0">--%>
-    <%--                        <h4>Newsletter</h4>--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--%>
-    <%--                        <form id="newsletter">--%>
-    <%--                            <div class="form-group">--%>
-    <%--                                <input type="email" class="form-control" id="emailNewsletter"--%>
-    <%--                                       aria-describedby="emailNewsletter" placeholder="Enter email">--%>
-    <%--                            </div>--%>
-    <%--                            <button type="submit" class="btn btn-primary w-100">Submit</button>--%>
-    <%--                        </form>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-    <%--                <div class="col-md-12 d-flex align-items-center">--%>
-    <%--                    <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a--%>
-    <%--                            href="https://gettemplates.co" target="_blank">GetTemplates</a></p>--%>
-    <%--                </div>--%>
-
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--    </footer>--%>
 </div>
 
 </div>

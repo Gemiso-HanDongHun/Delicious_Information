@@ -94,6 +94,10 @@ URL: https://gettemplates.co
             color: dimgray;
         }
 
+        .thumb-menu{
+            color: black;
+        }
+
 
     </style>
 
@@ -240,13 +244,13 @@ URL: https://gettemplates.co
                                 </div>
                                 <div class="col-4">
                                     <a href="#" class="thumb-menu">
-                                        <img class="img-fluid img-cover" src="/resto/img/hero-3.jpg"/>
+                                        <img class="img-fluid img-cover" src="/resto/img/information.jpg"/>
                                         <h6>영양분 정보 제공</h6>
                                     </a>
                                 </div>
                                 <div class="col-4">
                                     <a href="#" class="thumb-menu">
-                                        <img class="img-fluid img-cover" src="/resto/img/hero-3.jpg"/>
+                                        <img class="img-fluid img-cover" src="/resto/img/analysis.jpg"/>
                                         <h6>영양분 권장량 분석</h6>
                                     </a>
                                 </div>

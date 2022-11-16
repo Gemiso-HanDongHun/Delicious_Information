@@ -61,5 +61,45 @@ public class FoodNutrientController {
         return "/food/food-nutrient";
 
     }
+
+
+    @GetMapping("nutrient2/{foodNo}")
+    public String list2(@PathVariable int foodNo, Model model) {
+
+        FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
+        List<Food> foodList = foodService.findAllService();
+
+        model.addAttribute("fn", foodNutrient);
+        model.addAttribute("fl", foodList);
+        FoodNutrient foodNutrient0 = foodNutrientService.carbo2(foodNo);
+        FoodNutrient foodNutrient1 = foodNutrientService.pro2(foodNo);
+        FoodNutrient foodNutrient2 = foodNutrientService.fat2(foodNo);
+        FoodNutrient foodNutrient3 = foodNutrientService.sodium2(foodNo);
+        FoodNutrient foodNutrient4 = foodNutrientService.vitaminA2(foodNo);
+        FoodNutrient foodNutrient5 = foodNutrientService.vitaminC2(foodNo);
+        FoodNutrient foodNutrient6 = foodNutrientService.vitaminE2(foodNo);
+        FoodNutrient foodNutrient7 = foodNutrientService.omega2(foodNo);
+        FoodNutrient foodNutrient8 = foodNutrientService.calcium2(foodNo);
+        FoodNutrient foodNutrient9 = foodNutrientService.iron2(foodNo);
+        FoodNutrient foodNutrient10 = foodNutrientService.magnesium2(foodNo);
+
+
+        model.addAttribute("fn", foodNutrient);
+        model.addAttribute("fl", foodList);
+        model.addAttribute("carbo2", foodNutrient0);
+        model.addAttribute("pro2", foodNutrient1);
+        model.addAttribute("fat2", foodNutrient2);
+        model.addAttribute("sodium2", foodNutrient3);
+        model.addAttribute("vitaminA2", foodNutrient4);
+        model.addAttribute("vitaminC2", foodNutrient5);
+        model.addAttribute("vitaminE2", foodNutrient6);
+        model.addAttribute("omega2", foodNutrient7);
+        model.addAttribute("calcium2", foodNutrient8);
+        model.addAttribute("iron2", foodNutrient9);
+        model.addAttribute("magnesium2", foodNutrient10);
+
+        log.info("foodnutrient - {}", foodNutrient);
+        return "/food/food-nutrient2";
+    }
 }
 
