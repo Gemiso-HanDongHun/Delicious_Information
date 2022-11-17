@@ -1,12 +1,13 @@
 package com.champion.deliciousInfo.food.controller;
 
 import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.service.FoodService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.ResponseEntity;
+import org.apache.poi.ss.formula.functions.Today;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ public class FoodNutrientController {
     public String list(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
+        List<FoodNutrient> todayNutrient = foodNutrientService.recommend(foodNo);
         List<Food> foodList = foodService.findAllService();
 
         FoodNutrient foodNutrient0 = foodNutrientService.carbo(foodNo);
@@ -42,7 +44,6 @@ public class FoodNutrientController {
         FoodNutrient foodNutrient9 = foodNutrientService.iron(foodNo);
         FoodNutrient foodNutrient10 = foodNutrientService.magnesium(foodNo);
 
-
         model.addAttribute("fn", foodNutrient);
         model.addAttribute("fl", foodList);
         model.addAttribute("carbo", foodNutrient0);
@@ -56,22 +57,23 @@ public class FoodNutrientController {
         model.addAttribute("calcium", foodNutrient8);
         model.addAttribute("iron", foodNutrient9);
         model.addAttribute("magnesium", foodNutrient10);
-
+        model.addAttribute("tn", todayNutrient);
 
         log.info("foodnutrient - {}", foodNutrient);
         return "/food/food-nutrient";
 
     }
 
-
     @GetMapping("nutrient2/{foodNo}")
     public String list2(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
         List<Food> foodList = foodService.findAllService();
+        List<FoodNutrient> todayNutrient = foodNutrientService.recommend(foodNo);
 
         model.addAttribute("fn", foodNutrient);
-        model.addAttribute("fl", foodList);
+        model.addAttribute("tn", todayNutrient);
+
         FoodNutrient foodNutrient0 = foodNutrientService.carbo2(foodNo);
         FoodNutrient foodNutrient1 = foodNutrientService.pro2(foodNo);
         FoodNutrient foodNutrient2 = foodNutrientService.fat2(foodNo);
@@ -84,9 +86,7 @@ public class FoodNutrientController {
         FoodNutrient foodNutrient9 = foodNutrientService.iron2(foodNo);
         FoodNutrient foodNutrient10 = foodNutrientService.magnesium2(foodNo);
 
-
         model.addAttribute("fn", foodNutrient);
-        model.addAttribute("fl", foodList);
         model.addAttribute("carbo2", foodNutrient0);
         model.addAttribute("pro2", foodNutrient1);
         model.addAttribute("fat2", foodNutrient2);
@@ -102,8 +102,5 @@ public class FoodNutrientController {
         log.info("foodnutrient - {}", foodNutrient);
         return "/food/food-nutrient2";
     }
-
-
-
 }
 

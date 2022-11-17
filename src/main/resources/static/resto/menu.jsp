@@ -163,9 +163,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -179,9 +177,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -195,9 +191,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -211,9 +205,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -233,9 +225,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -249,9 +239,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -265,9 +253,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -281,9 +267,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -303,9 +287,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -319,9 +301,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -335,9 +315,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">

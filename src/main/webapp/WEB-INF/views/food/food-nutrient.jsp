@@ -47,8 +47,6 @@ URL: https://gettemplates.co
         div.flex-column li {
             margin: 35px;
             padding-top: 25px;
-
-
         }
 
         #nene {
@@ -78,9 +76,7 @@ URL: https://gettemplates.co
             padding: 9px;
         }
 
-
         th, td {
-            /*border: 1px solid #444444;*/
             border: 1px solid #ffffff;
             padding: 3px;
             margin-top: 80px;
@@ -90,7 +86,6 @@ URL: https://gettemplates.co
 
         div.boxed-page table th {
             text-align: center;
-
         }
 
         div.boxed-page table td:first-child {
@@ -118,12 +113,9 @@ URL: https://gettemplates.co
         div.nt_row #nt_row1 {
             padding-top: 20px;
             margin-top: 15px;
-
-            /*background-color: aqua;*/
         }
 
         div.col-8 h4 {
-            /*background-color: pink;*/
             padding-top: 4px;
         }
 
@@ -135,12 +127,9 @@ URL: https://gettemplates.co
             width: 300px;
         }
 
-        div.menu-small {
-            /*background-color: #005cbf;*/
-        }
-
         div.col-4 h4.menu-price {
             margin-left: 33px;
+            padding-top: 4px;
         }
 
         div.col-md-12 h2 {
@@ -164,29 +153,11 @@ URL: https://gettemplates.co
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            /*top: 300px;*/
-            /*left: 333px;*/
         }
-
-        /*div p2 {*/
-        /*    !*position: relative;*!*/
-        /*    margin-left: 32px;*/
-        /*    margin-top: 100px;*/
-        /*    color: dodgerblue;*/
-        /*    border-radius: 2em;*/
-        /*    border: 1px solid #f4ede5;*/
-        /*    padding: 5px;*/
-        /*    background-color: #f4ede5;*/
-        /*    font-size: 18px;*/
-        /*    font-weight: 100;*/
-        /*    !*top: 345px;*!*/
-        /*    opacity: 0;*/
-        /*    !*left: 333px;*!*/
-        /*}*/
 
         div p4 {
             position: relative;
-            margin-left: 40px;
+            margin-left: 105px;
             margin-top: 100px;
             color: dodgerblue;
             border-radius: 2em;
@@ -195,37 +166,20 @@ URL: https://gettemplates.co
             background-color: #f4ede5;
             font-size: 18px;
             font-weight: 100;
-            /*top: 345px;*/
-            /*left: 333px;*/
-
-
         }
 
         div p3 {
             position: relative;
-            margin-left: 270px;
+            margin-left: 196px;
             border-radius: 2em;
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            /*top: 345px;*/
-            /*left: 618px;*/
         }
-
-        /*div li a{*/
-        /*    border-radius: 2em;*/
-        /*    border: 1px solid #f4ede5;*/
-        /*    padding: 5px;*/
-        /*    !*background-color: lightgray;*!*/
-        /*    padding: 15px;*/
-        /*}*/
-
 
         div.mb-5 h2 {
             position: relative;
             text-align: center;
-            /*margin-top: 35px;*/
-            /*background-color: #0c5460;*/
             margin: 0 auto;
             padding-bottom: 50px;
         }
@@ -234,7 +188,6 @@ URL: https://gettemplates.co
             position: relative;
             padding-top: 30px;
         }
-
 
     </style>
 
@@ -266,7 +219,6 @@ URL: https://gettemplates.co
                     </button>
                 </div>
             </div>
-
         </form>
     </div>
 
@@ -276,21 +228,9 @@ URL: https://gettemplates.co
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
-            <%--                <img src="/resto/img/logo.png" alt="">--%>
-            <%--            </a>--%>
-            <%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--%>
-            <%--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-            <%--                <span class="lnr lnr-menu"></span>--%>
-            <%--            </button>--%>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
-                    <%--                    <li class="nav-item only-desktop">--%>
-                    <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
-                    <%--                            <span class="lnr lnr-menu"></span>--%>
-                    <%--                        </a>--%>
-                    <%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
                             <a class="nav-link" href="/food-main">Home<span
@@ -322,29 +262,12 @@ URL: https://gettemplates.co
                     </div>
                 </ul>
 
-                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">--%>
-                <%--                    <img src="/resto/img/logo.png" alt="">--%>
-                <%--                </a>--%>
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
-                        <%--                        <li class="nav-item active">--%>
-                        <%--                            <a class="nav-link" href="menu.jsp">음식</a>--%>
-                        <%--                        </li>--%>
                         <li class="nav-item">
                             <a class="nav-link" href="team.html" id="nene">영양소 효능</a>
                         </li>
-
-                        <%--                        <li class="nav-item dropdown">--%>
-                        <%--                            <a class="nav-link" href="reservation.html">Reservation</a>--%>
-                        <%--                        </li>--%>
                     </div>
-
-                    <%--                    <li class="nav-item">--%>
-                    <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
-                    <%--                            <span class="lnr lnr-magnifier">⠀음식 검색</span>--%>
-
-                    <%--                        </a>--%>
-                    <%--                    </li>--%>
                 </ul>
             </div>
         </div>
@@ -359,52 +282,39 @@ URL: https://gettemplates.co
                     <h2>
                         ${fn.food.name} 영양 정보(100g)
                     </h2>
-
-                    <%--                    <div class="col-md-12">--%>
-
-                    <%--                        <div class="heading-section text-center">--%>
-                    <%--                            &lt;%&ndash;                            <p>검색한 음식의 영양 정보</p>&ndash;%&gt;--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
-
 
                 <div>
                     <p4>⠀${fn.food.kcal}kcal⠀</p4>
                     <p3>부족한 영양분</p3>
                 </div>
 
-
-                <%--<c:forEach var="fn" items="${fnList}">--%>
-
                 <div class="recomend">
 
-                    <table class="reco">
-                        <tr id="li">
-                            <%--                            <th>𝑅𝑒𝒸𝑜𝓂𝓂𝑒𝓃𝒹𝒶𝓉𝒾𝑜𝓃</th>--%>
-                            <th>부족한 영양분을 채워줄 음식</th>
-                        </tr>
+                        <table class="reco">
 
-                        <c:forEach var="f" begin="0" end="17" items="${fl}">
-                            <tr id="lili">
-                                <td>${f.name}(${f.kcal}kcal)</td>
+                            <tr id="li">
+                                <th>부족한 영양분을 채워줄 음식</th>
                             </tr>
-                        </c:forEach>
 
-                    </table>
+                            <c:forEach var="f" begin="0" end="17" items="${tn}">
+                                <tr id="lili">
+
+                                    <td onclick="location.href='/'">${f.food.name}(${f.food.kcal}kcal)</td>
+
+                                </tr>
+                            </c:forEach>
+
+                        </table>
+
                 </div>
 
                 <div class="nt_row">
                     <div class="nt_rowinner">
 
                         <div class="col-lg-4 menu-wrap" id="nt_row1">
-                            <%--                            <div class="heading-menu">--%>
-                            <%--                                <h3 class="text-center mb-5"></h3>--%>
-                            <%--                            </div>--%>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -418,9 +328,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -435,9 +343,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -451,9 +357,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -472,13 +376,8 @@ URL: https://gettemplates.co
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
                         <div class="col-lg-4 menu-wrap" id="nt_row1">
-                            <%--                            <div class="heading-menu">--%>
-                            <%--                                <h3 class="text-center mb-5"></h3>--%>
-                            <%--                            </div>--%>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -492,9 +391,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -508,9 +404,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -524,9 +417,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -550,9 +440,6 @@ URL: https://gettemplates.co
                                     <h3 class="text-center mb-5"></h3>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -566,9 +453,6 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -582,9 +466,6 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -598,9 +479,6 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -625,25 +503,21 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
                                             <h4>⠀⠀비타민A</h4>
                                         </div>
                                         <div class="col-4">
+
                                             <h4 style="color: orangered">⠀⠀${vitaminA.vitaminA}µg</h4>
+
                                         </div>
                                     </div>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -657,9 +531,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -673,9 +544,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -690,7 +558,6 @@ URL: https://gettemplates.co
                             </div>
                         </div>
 
-
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ음식 함유량ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ --%>
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
@@ -699,9 +566,6 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -715,9 +579,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -731,9 +592,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -748,7 +606,6 @@ URL: https://gettemplates.co
                             </div>
                         </div>
 
-
                         <%--  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ   필요한 성분  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ --%>
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
                         <div class="col-lg-4 menu-wrap">
@@ -756,9 +613,6 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -772,9 +626,6 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -788,9 +639,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -800,92 +649,15 @@ URL: https://gettemplates.co
                                             <h4 style="color: orangered">⠀⠀${magnesium.magnesium}mg</h4>
                                         </div>
                                     </div>
-                                    <p></p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
-                <%--    ==============================================================================================================--%>
-                <%--    ==============================================================================================================--%>
-                <%--    ==============================================================================================================--%>
-
-                <%--     </c:forEach>--%>
             </div>
         </div>
     </section>
-
-    <!-- End of menu Section -->
-
-
-    <%--    <footer class="mastfoot pb-5 bg-white section-padding pb-0">--%>
-    <%--        <div class="inner container">--%>
-    <%--            <div class="row">--%>
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pr-lg-5 pr-0">--%>
-    <%--                        <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis--%>
-    <%--                            explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni,--%>
-    <%--                            et voluptatum dolorem.</p>--%>
-    <%--                        <nav class="nav nav-mastfoot justify-content-start">--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-facebook-f"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-twitter"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-instagram"></i>--%>
-    <%--                            </a>--%>
-    <%--                        </nav>--%>
-    <%--                    </div>--%>
-    <%--                </div>--%>
-
-
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget px-lg-5 px-0">--%>
-    <%--                        <h4>Open Hours</h4>--%>
-    <%--                        <ul class="list-unstyled open-hours">--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>--%>
-    <%--                        </ul>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pl-lg-5 pl-0">--%>
-    <%--                        <h4>Newsletter</h4>--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--%>
-    <%--                        <form id="newsletter">--%>
-    <%--                            <div class="form-group">--%>
-    <%--                                <input type="email" class="form-control" id="emailNewsletter"--%>
-    <%--                                       aria-describedby="emailNewsletter" placeholder="Enter email">--%>
-    <%--                            </div>--%>
-    <%--                            <button type="submit" class="btn btn-primary w-100">Submit</button>--%>
-    <%--                        </form>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-    <%--                <div class="col-md-12 d-flex align-items-center">--%>
-    <%--                    <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a--%>
-    <%--                            href="https://gettemplates.co" target="_blank">GetTemplates</a></p>--%>
-    <%--                </div>--%>
-
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--    </footer>--%>
 </div>
 
 </div>

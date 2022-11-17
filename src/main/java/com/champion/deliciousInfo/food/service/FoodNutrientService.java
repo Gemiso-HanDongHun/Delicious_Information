@@ -5,6 +5,8 @@ import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.repository.FoodNutrientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.poi.ss.formula.functions.Today;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTFootnotes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,23 +29,44 @@ public class FoodNutrientService {
 
         FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
 
-
         return foodNutrient;
     }
 
-
-    public FoodNutrient carbo(int foodNo){
+    public FoodNutrient carbo(int foodNo) {
         FoodNutrient foodNutrient0 = foodNutrientMapper.findOne(foodNo);
         Float carbo = foodNutrient0.getCarbohydrate();
         double newcarbo = 2700 * 0.5 - Math.round(carbo * 100) / 100.0;
         foodNutrient0.setCarbohydrate((float) newcarbo);
 
         TodayNutrient tn = new TodayNutrient();
-        tn.setCarbohydrate((float)newcarbo);
+        tn.setCarbohydrate((float) newcarbo);
+
         return foodNutrient0;
     }
 
-    public FoodNutrient pro(int foodNo){
+    public List<FoodNutrient> recommend(int foodNo) {
+        FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
+
+        Float carbo = foodNutrient.getCarbohydrate(); // 음식의 영양정보
+        float fat = foodNutrient.getFat();
+        float protein = foodNutrient.getProtein();
+
+        double newcarbo = (2700 * 0.5 - Math.round(carbo * 100) / 100.0);
+        double newProtein = 55 - Math.round(protein * 100) / 100.0;
+        double newFat = 53 - Math.round(fat * 100) / 100.0;
+
+
+        TodayNutrient tn = new TodayNutrient();
+        tn.setCarbohydrate((float) newcarbo);
+        tn.setProtein((float) newProtein);
+        tn.setFat((float) newFat);
+
+        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+
+        return recommend;
+    }
+
+    public FoodNutrient pro(int foodNo) {
         FoodNutrient foodNutrient1 = foodNutrientMapper.findOne(foodNo);
         Float protein = foodNutrient1.getProtein();
         double newProtein = 55 - Math.round(protein * 100) / 100.0;
@@ -136,7 +159,7 @@ public class FoodNutrientService {
 //   ================================= 여성 권장 칼로리 ===========================
 //   ===========================================================================
 
-    public FoodNutrient carbo2(int foodNo){
+    public FoodNutrient carbo2(int foodNo) {
         FoodNutrient foodNutrient0 = foodNutrientMapper.findOne(foodNo);
         Float carbo = foodNutrient0.getCarbohydrate();
         double newcarbo = 2100 * 0.5 - Math.round(carbo * 100) / 100.0;
@@ -146,7 +169,7 @@ public class FoodNutrientService {
     }
 
 
-    public FoodNutrient pro2(int foodNo){
+    public FoodNutrient pro2(int foodNo) {
         FoodNutrient foodNutrient1 = foodNutrientMapper.findOne(foodNo);
         Float protein = foodNutrient1.getProtein();
         double newProtein = 50 - Math.round(protein * 100) / 100.0;

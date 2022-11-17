@@ -47,8 +47,6 @@ URL: https://gettemplates.co
         div.flex-column li {
             margin: 35px;
             padding-top: 25px;
-
-
         }
 
         #nene {
@@ -78,9 +76,7 @@ URL: https://gettemplates.co
             padding: 9px;
         }
 
-
         th, td {
-            /*border: 1px solid #444444;*/
             border: 1px solid #ffffff;
             padding: 3px;
             margin-top: 80px;
@@ -90,7 +86,6 @@ URL: https://gettemplates.co
 
         div.boxed-page table th {
             text-align: center;
-
         }
 
         div.boxed-page table td:first-child {
@@ -118,12 +113,9 @@ URL: https://gettemplates.co
         div.nt_row #nt_row1 {
             padding-top: 20px;
             margin-top: 15px;
-
-            /*background-color: aqua;*/
         }
 
         div.col-8 h4 {
-            /*background-color: pink;*/
             padding-top: 4px;
         }
 
@@ -133,10 +125,6 @@ URL: https://gettemplates.co
             padding: 3px;
             margin: 5px;
             width: 300px;
-        }
-
-        div.menu-small {
-            /*background-color: #005cbf;*/
         }
 
         div.col-4 h4.menu-price {
@@ -164,29 +152,11 @@ URL: https://gettemplates.co
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            /*top: 300px;*/
-            /*left: 333px;*/
         }
-
-        /*div p2 {*/
-        /*    !*position: relative;*!*/
-        /*    margin-left: 32px;*/
-        /*    margin-top: 100px;*/
-        /*    color: dodgerblue;*/
-        /*    border-radius: 2em;*/
-        /*    border: 1px solid #f4ede5;*/
-        /*    padding: 5px;*/
-        /*    background-color: #f4ede5;*/
-        /*    font-size: 18px;*/
-        /*    font-weight: 100;*/
-        /*    !*top: 345px;*!*/
-        /*    opacity: 0;*/
-        /*    !*left: 333px;*!*/
-        /*}*/
 
         div p4 {
             position: relative;
-            margin-left: 40px;
+            margin-left: 105px;
             margin-top: 100px;
             color: dodgerblue;
             border-radius: 2em;
@@ -195,37 +165,20 @@ URL: https://gettemplates.co
             background-color: #f4ede5;
             font-size: 18px;
             font-weight: 100;
-            /*top: 345px;*/
-            /*left: 333px;*/
-
-
         }
 
         div p3 {
             position: relative;
-            margin-left: 270px;
+            margin-left: 196px;
             border-radius: 2em;
             border: 1px solid #f4ede5;
             padding: 5px;
             background-color: #f4ede5;
-            /*top: 345px;*/
-            /*left: 618px;*/
         }
-
-        /*div li a{*/
-        /*    border-radius: 2em;*/
-        /*    border: 1px solid #f4ede5;*/
-        /*    padding: 5px;*/
-        /*    !*background-color: lightgray;*!*/
-        /*    padding: 15px;*/
-        /*}*/
-
 
         div.mb-5 h2 {
             position: relative;
             text-align: center;
-            /*margin-top: 35px;*/
-            /*background-color: #0c5460;*/
             margin: 0 auto;
             padding-bottom: 50px;
         }
@@ -234,7 +187,6 @@ URL: https://gettemplates.co
             position: relative;
             padding-top: 30px;
         }
-
 
     </style>
 
@@ -266,31 +218,16 @@ URL: https://gettemplates.co
                     </button>
                 </div>
             </div>
-
         </form>
     </div>
-
 
 </div>
 <div id="canvas-overlay"></div>
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
-            <%--                <img src="/resto/img/logo.png" alt="">--%>
-            <%--            </a>--%>
-            <%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--%>
-            <%--                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-            <%--                <span class="lnr lnr-menu"></span>--%>
-            <%--            </button>--%>
-
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
-                    <%--                    <li class="nav-item only-desktop">--%>
-                    <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
-                    <%--                            <span class="lnr lnr-menu"></span>--%>
-                    <%--                        </a>--%>
-                    <%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
                             <a class="nav-link" href="/food-main">Home<span
@@ -322,29 +259,12 @@ URL: https://gettemplates.co
                     </div>
                 </ul>
 
-                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">--%>
-                <%--                    <img src="/resto/img/logo.png" alt="">--%>
-                <%--                </a>--%>
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
-                        <%--                        <li class="nav-item active">--%>
-                        <%--                            <a class="nav-link" href="menu.jsp">음식</a>--%>
-                        <%--                        </li>--%>
                         <li class="nav-item">
                             <a class="nav-link" href="team.html" id="nene">영양소 효능</a>
                         </li>
-
-                        <%--                        <li class="nav-item dropdown">--%>
-                        <%--                            <a class="nav-link" href="reservation.html">Reservation</a>--%>
-                        <%--                        </li>--%>
                     </div>
-
-                    <%--                    <li class="nav-item">--%>
-                    <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
-                    <%--                            <span class="lnr lnr-magnifier">⠀음식 검색</span>--%>
-
-                    <%--                        </a>--%>
-                    <%--                    </li>--%>
                 </ul>
             </div>
         </div>
@@ -359,29 +279,17 @@ URL: https://gettemplates.co
                     <h2>
                         ${fn.food.name} 영양 정보(100g)
                     </h2>
-
-                    <%--                    <div class="col-md-12">--%>
-
-                    <%--                        <div class="heading-section text-center">--%>
-                    <%--                            &lt;%&ndash;                            <p>검색한 음식의 영양 정보</p>&ndash;%&gt;--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
-
 
                 <div>
                     <p4>⠀${fn.food.kcal}kcal⠀</p4>
                     <p3>부족한 영양분</p3>
                 </div>
 
-
-                <%--<c:forEach var="fn" items="${fnList}">--%>
-
                 <div class="recomend">
 
                     <table class="reco">
                         <tr id="li">
-                            <%--                            <th>𝑅𝑒𝒸𝑜𝓂𝓂𝑒𝓃𝒹𝒶𝓉𝒾𝑜𝓃</th>--%>
                             <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
@@ -398,13 +306,9 @@ URL: https://gettemplates.co
                     <div class="nt_rowinner">
 
                         <div class="col-lg-4 menu-wrap" id="nt_row1">
-                            <%--                            <div class="heading-menu">--%>
-                            <%--                                <h3 class="text-center mb-5"></h3>--%>
-                            <%--                            </div>--%>
+
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -418,9 +322,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -435,9 +337,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -451,9 +351,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -472,13 +370,9 @@ URL: https://gettemplates.co
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
                         <div class="col-lg-4 menu-wrap" id="nt_row1">
-                            <%--                            <div class="heading-menu">--%>
-                            <%--                                <h3 class="text-center mb-5"></h3>--%>
-                            <%--                            </div>--%>
+
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -492,9 +386,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -508,9 +400,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -524,9 +414,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -550,9 +438,7 @@ URL: https://gettemplates.co
                                     <h3 class="text-center mb-5"></h3>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
+
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -566,9 +452,7 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
+
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -582,9 +466,7 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
+
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -598,9 +480,7 @@ URL: https://gettemplates.co
                                     </div>
                                 </div>
                                 <div class="menus d-flex align-items-center">
-                                    <!--                            <div class="menu-img rounded-circle">-->
-                                    <!--                                <img class="img-fluid" src="" alt="">-->
-                                    <!--                            </div>-->
+
                                     <div class="text-wrap">
                                         <div class="row align-items-start">
                                             <div class="col-8">
@@ -625,9 +505,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -641,9 +519,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -657,9 +533,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -673,9 +547,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -699,9 +571,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -715,9 +585,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -731,9 +599,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -756,9 +622,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -772,9 +636,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -788,9 +650,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
-                                <!--                            <div class="menu-img rounded-circle">-->
-                                <!--                                <img class="img-fluid" src="" alt="">-->
-                                <!--                            </div>-->
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -807,18 +667,11 @@ URL: https://gettemplates.co
 
                     </div>
                 </div>
-
-                <%--    ==============================================================================================================--%>
-                <%--    ==============================================================================================================--%>
-                <%--    ==============================================================================================================--%>
-
-                <%--     </c:forEach>--%>
             </div>
         </div>
     </section>
 
     <!-- End of menu Section -->
-
 
 </div>
 

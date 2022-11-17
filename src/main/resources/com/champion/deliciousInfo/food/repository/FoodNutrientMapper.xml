@@ -57,15 +57,19 @@
     </update>
 
     <delete id="remove">
+
         delete from food_nutrient where nutrient_no=#{nutrientNo}
+
     </delete>
 
     <select id="recommend" resultMap="foodNutrientMap">
         <![CDATA[
+
         select * from food_nutrient
-        where carbohydrate < #{carbohydrate}
+        where carbohydrate < #{carbohydrate} and protein < #{protein} and fat < #{fat}
 
         ]]>
 
     </select>
+
 </mapper>
