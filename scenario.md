@@ -108,3 +108,5 @@ luycin -> 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구�
 11.15 : food-nuturient.jsp 계산 후 소수점 고정을 완료하였으며 Main 화면에서의 About.jsp(도움말 페이지) 구현을 완료하였다. 추후 종합적인 About페이지와 영양소 효능 페이지를 구현할 예정이다.
 
 11.16 : About페이지를 구현완료하였고 food-nuturient.jsp의 남, 여 성별별 하루영양분 비교를 구현하였다. 추후 영양분을 비교 계산을해서 추천목록에 알맞는 음식만 출력되도록 할 예정이다.
+
+11.17 : list.jsp 사진추가, food-nutrient.jsp 에서 추천목록에서 메뉴로 이동가능 food-nutrient2.jsp도 동일
