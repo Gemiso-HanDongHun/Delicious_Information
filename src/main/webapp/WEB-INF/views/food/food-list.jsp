@@ -182,11 +182,12 @@
 
         }
 
-        .boxed-page aside.aside .side-bar-list {
-            min-width: 410px;
-            background: #f4ede5;
-            border-radius: 1.5rem;
-            padding: 10px;
+        .boxed-page aside.aside .side-bar-list  {
+        min-width: 200px;
+        background: #FFFFFF;
+        border-radius: 1.5rem;
+        border: solid 10px #f4ede5;
+        padding: 10px;
 
         }
 
@@ -199,7 +200,6 @@
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
 <%@include file="./include/side_nav.jsp" %>
-
 
 <div class="boxed-page">
 
@@ -308,9 +308,9 @@
         </nav>
     </div>
 
-    <aside class="aside">
-        <div class="side-bar-list">
-            <div class="myList">내가 선택한 음식</div>
+    <aside class="aside" >
+        <div class="side-bar-list" >
+            <div class="myList">내가 선택한 음식(100g)</div>
             <div id="mine">
 
             </div>
@@ -334,23 +334,34 @@
             <div className="my-food">
                 <p>{props.name}<br/>
                     칼로리 : {props.kcal}kcal
-                    탄수화물: {props.carbohydrate}g
-                    지방 : {props.fat}g
-                    단백질 : {props.protein}g</p>
+                </p>
             </div>
+        );
+    }
+    function Getbr(){
+        return (
+            <br/>
         );
     }
 
     function List(props) {
         var myList = props.myList;
         //tr을 반복한 컨테츠를 구성
-        var tag = []; //여기에 tr을 모아 둘것임
-        for (var i = 0; i < myList.length; i++) {
-            var fn = myList[i];
-            tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
-                           name={fn.food.name} kcal={fn.food.kcal}/>); //10
-            if (i == myList.length - 1) {
-                tag.push("총칼로리:");
+        var tag=[]; //여기에 tr을 모아 둘것임
+        var total=0;
+        for(let i=0; i<myList.length;i++){
+            let fn = myList[i];
+            if(i<8) {
+                tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
+                               name={fn.food.name} kcal={fn.food.kcal}/>); //10
+                total+=fn.food.kcal;
+            }
+            if(i==myList.length-1){
+                tag.push("총칼로리:"+total+"kcal");
+                if(i>=7){
+                    tag.push(<Getbr />);
+                    tag.push("8개까지만 추가 할 수 있어요.");
+                }
             }
         }
 
@@ -372,7 +383,10 @@
     const $inputName = document.querySelector("#inputName");
     const $table = document.querySelector("table");
     const $reset = document.querySelector("#reset");
-
+    let checkTotal=0;
+    /*  탄수화물: {props.carbohydrate}g
+                        지방 : {props.fat}g
+                        단백질 : {props.protein}g</p>*/
 
     function appendPageActive() {
 
@@ -395,15 +409,20 @@
 
     function showFoodData(myList) { //선택한 음식 보여주기
         printList(myList);
+        checkTotal=myList.length;
         for (let i = 0; i < myList.length; i++) {
             let fn = myList[i];
             let $inputBox = document.getElementById(fn.food.foodNo);
-            $inputBox.setAttribute("checked", "checked");
+            console.log($inputBox);
+            if($inputBox !== null){
+                $inputBox.setAttribute("checked", "checked");
+            }
         }
     }
 
     function resetSession(myList) {
         printList(myList);
+        checkTotal=myList.length;
         for (let i = 0; i < 15; i++) {
             let $inputBox = document.querySelectorAll(".select");
             $inputBox[i].checked = false;
@@ -418,17 +437,26 @@
             return;
         }
         if (e.target.checked) { //check를 하는 거면
-            fetch('/api/foods/' + e.target.value)
-                .then(res => res.json())
-                .then(myList => {
-                    showFoodData(myList);
-                });
+            if(checkTotal<8){
+                fetch('/api/foods/' + e.target.value)
+                    .then(res => res.json())
+                    .then(myList => {
+                        showFoodData(myList);
+                    });
+                checkTotal++;
+            }else{
+                e.target.checked=false;
+            }
         } else {
-            fetch('/api/foods/' + e.target.value, {method: 'delete'})
-                .then(res => res.json())
-                .then(myList => {
-                    showFoodData(myList);
-                });
+            if(checkTotal<9) {
+                fetch('/api/foods/' + e.target.value, {method: 'delete'})
+                    .then(res => res.json())
+                    .then(myList => {
+                        showFoodData(myList);
+                    });
+                checkTotal--;
+            }
+
         }
     }
     $reset.onclick = e => {
