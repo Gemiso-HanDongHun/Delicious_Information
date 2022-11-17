@@ -271,7 +271,8 @@ URL: https://gettemplates.co
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="team.html" id="nene">영양소 효능</a>
+                            <a class="nav-link" id="nene"
+                               onclick="location.href='/food/about/carb'">영양소 효능</a>
                         </li>
                     </div>
                 </ul>

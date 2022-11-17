@@ -20,8 +20,6 @@
                 <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
                         <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
-
-
                     </li>
 
                     <li class="nav-item">
@@ -32,7 +30,6 @@
                         <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                     </li>
 
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,10 +37,30 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <%--                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>--%>
-                            <a class="dropdown-item" href="#"
-                               onclick="location.href='/food/nutrient2/${fn.food.foodNo}'">여자</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/carb'">탄수화물</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/protein'">단백질</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/fat'">지방</a>
+                            <a class="dropdown-item" h
+                               onclick="location.href='/food/about/na'">나트륨</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/vitaminA'">비타민A</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/vitaminC'">비타민C</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/vitaminE'">비타민E</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/dha'">오메가3</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/ca'">칼슘</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/fe'">철분</a>
+                            <a class="dropdown-item"
+                               onclick="location.href='/food/about/mg'">마그네슘</a>
                         </div>
+
                     </li>
                 </div>
             </ul>

@@ -22,60 +22,60 @@ public class FoodAboutController {
     @GetMapping("/protein")
     public String protein(Model model, HttpSession session) {
 
-        return null;
+        return "about/protein";
     }
     @GetMapping("/fat")
     public String fat(Model model, HttpSession session) {
 
-        return null;
+        return "about/fat";
     }
 
     @GetMapping("/na")
     public String na(Model model, HttpSession session) {
 
-        return null;
+        return "about/na";
     }
 
     @GetMapping("/ca")
     public String ca(Model model, HttpSession session) {
 
-        return null;
+        return "about/ca";
     }
 
     @GetMapping("/fe")
     public String fe(Model model, HttpSession session) {
 
-        return null;
+        return "about/fe";
     }
 
     @GetMapping("/dha")
     public String dha(Model model, HttpSession session) {
 
-        return null;
+        return "about/dha";
     }
 
     @GetMapping("/mg")
     public String mg(Model model, HttpSession session) {
 
-        return null;
+        return "about/mg";
     }
 
     @GetMapping("/vitaminA")
     public String vitaminA(Model model, HttpSession session) {
 
-        return null;
+        return "about/vitaminA";
     }
 
     @GetMapping("/vitaminC")
     public String vitaminC(Model model, HttpSession session) {
 
-        return null;
+        return "about/vitaminC";
     }
 
     @GetMapping("/vitaminE")
     public String vitaminE(Model model, HttpSession session) {
 
-        return null;
+        return "about/vitaminE";
     }
 
 }
