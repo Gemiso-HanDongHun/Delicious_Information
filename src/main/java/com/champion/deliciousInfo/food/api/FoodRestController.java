@@ -79,4 +79,12 @@ public class FoodRestController {
         session.setAttribute("myList",myList);
         return new ResponseEntity<>(myList, HttpStatus.OK);
     }
+
+    @DeleteMapping("")
+    public ResponseEntity<List> deleteSession(HttpSession session){
+        log.info("/api/foods Delete! " );
+        List<FoodNutrient> myList = new ArrayList<>();
+        session.removeAttribute("myList");
+        return new ResponseEntity<>(myList, HttpStatus.OK);
+    }
 }

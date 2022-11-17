@@ -158,21 +158,27 @@
         border-color:lightgray;
     }
 
-        .boxed-page aside.mine {
-            position: fixed;
-            top: 20%;
-            left: 70%;
-            z-index: 10;
-            background: #f4ede5;
-            border-radius: 1.5rem;
-            padding: 10px;
-        }
-
-        .boxed-page aside.mine div.my-food-list {
-
-        }
+    .boxed-page aside.aside {
+        position: fixed;
+        top: 20%;
+        left: 70%;
+        z-index: 10;
+        padding: 10px;
 
 
+    }
+
+    .boxed-page aside.aside .side-bar-list  {
+        min-width: 410px;
+        background: #f4ede5;
+        border-radius: 1.5rem;
+        padding: 10px;
+
+    }
+
+    .boxed-page aside.aside .side-bar-list .myList {
+        text-align: center;
+    }
     </style>
 
 </head>
@@ -316,21 +322,20 @@
     </div>
 
 
-    <aside class="mine">
+    <aside class="aside" >
+        <div class="side-bar-list" >
+            <div class="myList">내가 선택한 음식</div>
+            <div id="mine">
 
-        내가 선택한 음식
-        <div class="my-food-list">
-            <div class="my-food">
-                <p>만두<br>
-                칼로리 : 615kcal<br>
-                탄수화물: 43g
-                지방 : 37g
-                단백질 : 27g</p>
             </div>
-
         </div>
-        총칼로리 : <span id="totalKcal"></span>
+        <div class="aside-down d-flex justify-content-center">
+
+            <button type="button" class="btn btn-info" id="reset">초기화</button>
+        </div>
     </aside>
+
+
     <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
 <%--<%@include file="./include/footer_js.jsp" %>--%>
@@ -339,10 +344,57 @@
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+
+<script type="text/babel">
+
+
+    function Food(props){
+        return (
+            <div className="my-food">
+                <p>{props.name}<br/>
+                    칼로리 : {props.kcal}kcal
+                    탄수화물: {props.carbohydrate}g
+                    지방 : {props.fat}g
+                    단백질 : {props.protein}g</p>
+            </div>
+        );
+    }
+
+
+
+    function List(props){
+        var myList = props.myList;
+        //tr을 반복한 컨테츠를 구성
+        var tag=[]; //여기에 tr을 모아 둘것임
+        for(var i=0; i<myList.length;i++){
+            var fn = myList[i];
+            tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
+                           name={fn.food.name} kcal={fn.food.kcal}/>); //10
+            if(i==myList.length-1){
+                tag.push("총칼로리:");
+            }
+        }
+
+        return (
+            <div className="my-food-list">
+            {tag}
+            </div>
+        );
+    }
+
+    function printList(myList){
+        var root = ReactDOM.createRoot(document.getElementById("mine"));
+        root.render(<List myList={myList}/>);
+    }
+</script>
+
 <script>
     const $searchButton = document.querySelector("#side-search-open");
     const $inputName = document.querySelector("#inputName");
     const $table = document.querySelector("table");
+    const $reset = document.querySelector("#reset");
+
+
 
     function appendPageActive() {
 
@@ -364,22 +416,25 @@
     }
 
     function showFoodData(myList) { //선택한 음식 보여주기
-        const $myFood = document.querySelector(".my-food");
-        while ($myFood.hasChildNodes()) {
-            $myFood.removeChild($myFood.firstChild);
-        }
+        printList(myList);
         for (let i = 0; i < myList.length; i++) {
             let fn = myList[i];
-            let $foodData = document.createElement("div");
-            $foodData.setAttribute("id", fn.food.foodNo);
-            $foodData.innerHTML = fn.food.name;
-            $myFood.append($foodData);
             let $inputBox = document.getElementById(fn.food.foodNo);
             $inputBox.setAttribute("checked", "checked");
         }
-
+    }
+    function resetSession(myList){
+        printList(myList);
+        for (let i = 0; i < 15; i++) {
+            let $inputBox = document.querySelectorAll(".select");
+            $inputBox[i].checked=false;
+        }
 
     }
+
+
+
+
 
 
     $searchButton.onclick = e => {
@@ -403,16 +458,23 @@
                 });
         }
     }
+    $reset.onclick=e=>{
+        fetch('/api/foods/' , {method: 'delete'})
+            .then(res => res.json())
+            .then(myList => {
+                resetSession(myList);
+            });
+    };
     //내가 지금 보고 있는 페이지 표시
 
 
     $(function () {
         appendPageActive();
-    //     fetch('/api/foods/')
-    //         .then(res => res.json())
-    //         .then(myList => {
-    //             showFoodData(myList);
-    //         });
+        fetch('/api/foods/')
+            .then(res => res.json())
+            .then(myList => {
+                showFoodData(myList);
+            });
     });
 
 </script>
