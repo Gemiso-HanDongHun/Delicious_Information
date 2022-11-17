@@ -6,18 +6,38 @@
 
 <head>
 
-<%@include file="./include/header_css.jsp" %>\
+<%@include file="./include/header_css.jsp" %>
+
 <style>
+    /* 외부 무료 폰트*/
+    @font-face {
+        font-family: 'LINESeedKR-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    div nav.navbar-expand-lg {
+        position: relative;
+        padding-top: 30px;
+    }
+
+    div.boxed-page {
+        padding-bottom: 30px;
+    }
+
     div.flex-column li{
+        margin: 35px;
         padding-top: 35px;
     }
 
     div.flex-column li a {
         position: relative;
-        margin-right: 140px;
         padding-top: 45px;
     }
-
+    .navbar-expand-lg .navbar-nav .flex-column .dropdown {
+        padding: 0;
+    }
     li.nav-item #about {
         position: relative;
         margin-right: 400px;
@@ -33,15 +53,15 @@
 
     div.boxed-page section.top-area {
         width: 50%;
-        height: 550px;
+        height: 570px;
         padding: 20px;
-        margin: 100px auto 40px;
+        margin: 60px auto 30px;
         overflow: hidden;
     }
 
     div.boxed-page section.top-area div.img {
         width: 50%;
-        height: 500px;
+        height: 520px;
         float: left;
         display: block;
         box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
@@ -52,44 +72,74 @@
 
     div.boxed-page section.top-area div.top-p {
         width: 35%;
-        height: 500px;
+        height: 520px;
         float: right;
-        margin: 0;
-        padding: 0;
+        font-size: 15px;
+        border: 1px solid  #f4ede5;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        border-radius: 1.5em;
+        background:  #f4ede5;
+        padding: 20px;
     }
 
     div.boxed-page section.top-area div.top-p h1 {
-
+        font-family: 'LINESeedKR-Bd';
+        margin-bottom: 30px;
+        color: #6c6c6c;
     }
+
     div.boxed-page section.top-area div.top-p p {
         font-size: 1.5em;
         text-indent: 1em;
         line-height: 160%;
         text-align: justify;
+        font-family: 'LINESeedKR-Bd';
     }
 
     div.boxed-page section.bottom-area  {
         width: 50%;
         display: block;
         margin: auto;
-        padding-bottom: 10px;
+        padding: 15px;
+        border: 1px solid  #f4ede5;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        border-radius: 1.5em;
+        background:  #f4ede5;
+        font-family: 'LINESeedKR-Bd';
     }
 
     div.boxed-page section.bottom-area div.detail2 h2 {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+
+        font-size: 40px;
+        color: #6c6c6c;
     }
 
     div.boxed-page section.bottom-area div.detail2 h3 {
-        margin:0;
+        margin-bottom: 5px;
+        font-size: 25px;
+        font-weight: 600;
     }
 
     div.boxed-page section.bottom-area div.detail2 ul {
         list-style:none;
-        padding: 0;
+        padding-left: 15px;
+        margin: 0;
     }
-    div.boxed-page section.bottom-area div.detail2 ul li {
-       margin-bottom: 7px;
+
+    div.boxed-page section.bottom-area div.detail2 ul li:first-child {
+       margin-bottom: 20px;
     }
+    div.boxed-page section.bottom-area div.detail2 ul li:nth-child(2) {
+        margin-bottom: 20px;
+    }
+
+    div.boxed-page section.bottom-area div.detail2 ul li p {
+        margin: 0;
+        font-size: 18px;
+        text-indent: 1em;
+    }
+
 </style>
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout" >
@@ -115,16 +165,17 @@
             <h2>효능</h2>
             <ul>
                 <li>
-                    <h3>단백질 절약 작용</h3>
-                    중추신경계는 에너지 급원으로 오직 포도당만을 사용하므로 중추신경계의 원활한 작용을 위해서는
-                    탄수화물은 꼭 있어야 하고 지방도 에너지 급원으로 쓰여지긴 하지만 이때에도 탄수화물이 필요하다.</li>
+                    <h3>1. 단백질 절약 작용</h3>
+                    <p>중추신경계의 원활한 작용을 위해서는 탄수화물은 꼭 있어야 하고 지방도 에너지 급원으로 쓰여지긴 하지만 이때에도
+                    탄수화물이 필요하다.</p></li>
                 <li>
-                    <h3>장내 운동성</h3>
-                    탄수화물과 지방은 단백질이 에너지원이 되는 것보다 단백질의 고유기능을 행하도록 단백질을 절약시켜주는 작용이 있다고 볼 수 있다.</li>
+                    <h3>2. 장내 운동성</h3>
+                    <p>탄수화물과 지방은 단백질이 에너지원이 되는 것보다 단백질의 고유기능을 행하도록 단백질을
+                        절약시켜주는 작용이 있다고 볼 수 있다.</p></li>
                 <li>
-                    <h3>신체 구성 성분</h3>
-                    장내에서 물을 흡수하여 부드러운 덩어리를 만들고, 이것이 소화기관 근육의 수축을 자극하여
-                    장내에서 음식물이 잘 이동하도록 연동운동을 돕는 역할을 한다.</li>
+                    <h3>3. 신체 구성 성분</h3>
+                    <p>장내에서 물을 흡수하여 부드러운 덩어리를 만들고, 소화기관 근육의 수축을 자극하여
+                        장내에서 음식물이 잘 이동하도록 연동운동을 돕는 역할을 한다.</p></li>
             </ul>
         </div>
     </section>

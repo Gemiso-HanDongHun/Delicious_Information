@@ -103,6 +103,7 @@
     div.bottom_section{
         padding-bottom: 1px;
         margin-top: 25px;
+        margin-bottom: 2px;
         color: black ;
     }
 
