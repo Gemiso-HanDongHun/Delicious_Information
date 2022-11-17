@@ -10,7 +10,36 @@
 
     <style>
 
-        .img-2{
+        button#reset{
+            background-color: #f4ede5;
+            color: black;
+            margin: 10px;
+            margin-left: 90px;
+
+            /*border-radius: 2em;*/
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+        }
+
+        button#searchk{
+            background-color: #f4ede5;
+            color: black;
+            margin: 10px;
+            margin-left: 10px;
+
+            /*border-radius: 2em;*/
+            border: 1px solid #f4ede5;
+            padding: 5px;
+            background-color: #f4ede5;
+        }
+
+        button.btn-info:hover{
+            color: #f4ede5;
+        }
+
+
+        .img-2 {
             width: 17%;
             height: 600px;
             position: absolute;
@@ -18,7 +47,6 @@
             margin-top: 11px;
 
         }
-
 
 
         div.boxed-page {
@@ -182,12 +210,14 @@
 
         }
 
-        .boxed-page aside.aside .side-bar-list  {
-        min-width: 200px;
-        background: #FFFFFF;
-        border-radius: 1.5rem;
-        border: solid 10px #f4ede5;
-        padding: 10px;
+        .boxed-page aside.aside .side-bar-list {
+            min-width: 200px;
+            background: #FFFFFF;
+            border-radius: 1.5rem;
+            border: solid 10px #f4ede5;
+            padding: 10px;
+            margin-left: 70px;
+            /*margin-top: 30px;*/
 
         }
 
@@ -252,6 +282,7 @@
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>
             </a>
+
         </form>
     </div>
 
@@ -308,8 +339,8 @@
         </nav>
     </div>
 
-    <aside class="aside" >
-        <div class="side-bar-list" >
+    <aside class="aside">
+        <div class="side-bar-list">
             <div class="myList">내가 선택한 음식(100g)</div>
             <div id="mine">
 
@@ -317,7 +348,8 @@
         </div>
         <div class="aside-down d-flex justify-content-center">
 
-            <button type="button" class="btn btn-info" id="reset">초기화</button>
+            <button type="button" class="btn btn-info" id="reset" >초기화</button>
+            <button type="button" class="btn btn-info" id="searchk" >검색</button>
         </div>
     </aside>
 </div>
@@ -338,7 +370,8 @@
             </div>
         );
     }
-    function Getbr(){
+
+    function Getbr() {
         return (
             <br/>
         );
@@ -347,19 +380,19 @@
     function List(props) {
         var myList = props.myList;
         //tr을 반복한 컨테츠를 구성
-        var tag=[]; //여기에 tr을 모아 둘것임
-        var total=0;
-        for(let i=0; i<myList.length;i++){
+        var tag = []; //여기에 tr을 모아 둘것임
+        var total = 0;
+        for (let i = 0; i < myList.length; i++) {
             let fn = myList[i];
-            if(i<8) {
+            if (i < 8) {
                 tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
                                name={fn.food.name} kcal={fn.food.kcal}/>); //10
-                total+=fn.food.kcal;
+                total += fn.food.kcal;
             }
-            if(i==myList.length-1){
-                tag.push("총칼로리:"+total+"kcal");
-                if(i>=7){
-                    tag.push(<Getbr />);
+            if (i == myList.length - 1) {
+                tag.push("총칼로리:" + total + "kcal");
+                if (i >= 7) {
+                    tag.push(<Getbr/>);
                     tag.push("8개까지만 추가 할 수 있어요.");
                 }
             }
@@ -383,7 +416,8 @@
     const $inputName = document.querySelector("#inputName");
     const $table = document.querySelector("table");
     const $reset = document.querySelector("#reset");
-    let checkTotal=0;
+    let checkTotal = 0;
+
     /*  탄수화물: {props.carbohydrate}g
                         지방 : {props.fat}g
                         단백질 : {props.protein}g</p>*/
@@ -409,12 +443,12 @@
 
     function showFoodData(myList) { //선택한 음식 보여주기
         printList(myList);
-        checkTotal=myList.length;
+        checkTotal = myList.length;
         for (let i = 0; i < myList.length; i++) {
             let fn = myList[i];
             let $inputBox = document.getElementById(fn.food.foodNo);
             console.log($inputBox);
-            if($inputBox !== null){
+            if ($inputBox !== null) {
                 $inputBox.setAttribute("checked", "checked");
             }
         }
@@ -422,7 +456,7 @@
 
     function resetSession(myList) {
         printList(myList);
-        checkTotal=myList.length;
+        checkTotal = myList.length;
         for (let i = 0; i < 15; i++) {
             let $inputBox = document.querySelectorAll(".select");
             $inputBox[i].checked = false;
@@ -437,18 +471,18 @@
             return;
         }
         if (e.target.checked) { //check를 하는 거면
-            if(checkTotal<8){
+            if (checkTotal < 8) {
                 fetch('/api/foods/' + e.target.value)
                     .then(res => res.json())
                     .then(myList => {
                         showFoodData(myList);
                     });
                 checkTotal++;
-            }else{
-                e.target.checked=false;
+            } else {
+                e.target.checked = false;
             }
         } else {
-            if(checkTotal<9) {
+            if (checkTotal < 9) {
                 fetch('/api/foods/' + e.target.value, {method: 'delete'})
                     .then(res => res.json())
                     .then(myList => {

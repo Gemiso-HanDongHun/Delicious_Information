@@ -188,6 +188,12 @@ URL: https://gettemplates.co
             padding-top: 30px;
         }
 
+        #lili td:hover{
+            color: orangered;
+            cursor: pointer;
+        }
+
+
     </style>
 
 </head>
@@ -293,9 +299,11 @@ URL: https://gettemplates.co
                             <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
-                        <c:forEach var="f" begin="0" end="17" items="${fl}">
+                        <c:forEach var="f" begin="0" end="17" items="${tn}">
                             <tr id="lili">
-                                <td>${f.name}(${f.kcal}kcal)</td>
+
+                                <td onclick="location.href='/food/nutrient2/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+
                             </tr>
                         </c:forEach>
 
