@@ -98,6 +98,7 @@ goill :
       
 11.16 : 영양 정보 상세 페이지 작성중 about/carb.jsp, FoodAboutController
 
+11:17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중
 
 luycin -> 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 추후 메인 페이지를 시작으로 디자인 예정
 
