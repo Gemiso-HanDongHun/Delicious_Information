@@ -189,6 +189,12 @@ URL: https://gettemplates.co
             padding-top: 30px;
         }
 
+        #lili td:hover{
+            color: orangered;
+            cursor: pointer;
+        }
+
+
     </style>
 
 </head>
@@ -300,7 +306,7 @@ URL: https://gettemplates.co
                             <c:forEach var="f" begin="0" end="17" items="${tn}">
                                 <tr id="lili">
 
-                                    <td onclick="location.href='/'">${f.food.name}(${f.food.kcal}kcal)</td>
+                                   <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
 
                                 </tr>
                             </c:forEach>

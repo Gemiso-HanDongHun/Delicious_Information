@@ -3,7 +3,6 @@
 
 <%-- 사이트 설명 및 정보 --%>
 
-
 <!DOCTYPE html>
 <!--
 Resto by GetTemplates.co
@@ -58,27 +57,25 @@ URL: https://gettemplates.co
             height: 620px;
         }
 
-        div.ml-md-5{
+        div.ml-md-5 {
             /*margin: 20px;*/
             padding-bottom: 20px;
         }
 
-        div.ml-md-5 h2{
+        div.ml-md-5 h2 {
             margin-left: 20px;
         }
 
-        div.ml-md-5 h3{
+        div.ml-md-5 h3 {
             padding-top: 30px;
             margin-left: 10px;
         }
 
-        div.col-4{
-            /*background-color: #005cbf;*/
+        div.col-4 {
             padding-top: 30px;
         }
 
         div.ml-md-5 p {
-            /*background-color: pink;*/
             font-size: 18px;
             margin: 25px;
             padding: 10px;
@@ -94,10 +91,9 @@ URL: https://gettemplates.co
             color: dimgray;
         }
 
-        .thumb-menu{
+        .thumb-menu {
             color: black;
         }
-
 
     </style>
 
@@ -133,7 +129,6 @@ URL: https://gettemplates.co
         </form>
     </div>
 
-
 </div>
 <div id="canvas-overlay"></div>
 <div class="boxed-page">
@@ -149,11 +144,6 @@ URL: https://gettemplates.co
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
-                    <%--                    <li class="nav-item only-desktop">--%>
-                    <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
-                    <%--                            <span class="lnr lnr-menu"></span>--%>
-                    <%--                        </a>--%>
-                    <%--                    </li>--%>
                     <div class="d-flex flex-lg-row flex-column">
 
                         <li class="nav-item active">
@@ -164,46 +154,19 @@ URL: https://gettemplates.co
                             <a class="nav-link" href="/food/list">List</a>
                         </li>
 
-                        <%--                        <li class="nav-item dropdown">--%>
-                        <%--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"--%>
-                        <%--                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                        <%--                                Special Dishes--%>
-                        <%--                            </a>--%>
-                        <%--                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-                        <%--                                <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>--%>
-                        <%--                                <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>--%>
-                        <%--                            </div>--%>
-                        <%--                        </li--%>
-
-
                     </div>
                 </ul>
-
-                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">--%>
-                <%--                    <img src="/resto/img/logo.png" alt="">--%>
-                <%--                </a>--%>
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
-                        <%--                        <li class="nav-item active">--%>
-                        <%--                            <a class="nav-link" href="menu.jsp">Menu</a>--%>
-                        <%--                        </li>--%>
-                        <%--                        <li class="nav-item">--%>
-                        <%--                            <a class="nav-link" href="team.html">Team</a>--%>
-                        <%--                        </li>--%>
-
-                        <%--                        <li class="nav-item dropdown">--%>
-                        <%--                            <a class="nav-link" href="reservation.html">Reservation</a>--%>
-                        <%--                        </li>--%>
                     </div>
                     <li class="nav-item">
-                        <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
-                        <%--                            <span class="lnr lnr-magnifier"></span>--%>
-                        <%--                        </a>--%>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>        <!-- Welcome Section -->
+    </nav>
+
+    <!-- Welcome Section -->
     <section id="gtco-welcome" class="bg-white section-padding">
         <div class="container">
             <div class="section-content">
@@ -217,22 +180,15 @@ URL: https://gettemplates.co
                         <span class="subheading">
 
                         </span>
-                            <%--                            <h2>--%>
-                            <%--                                Welcome to Delicious info--%>
-                            <%--                            </h2>--%>
-
                             <h2>
-                                <%--                                                            𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓲𝓷𝓯𝓸--%>
                                 𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝓉𝑜 𝒟𝑒𝓁𝒾𝒸𝒾𝑜𝓊𝓈 𝒾𝓃𝒻𝑜
                             </h2>
-
 
                         </div>
                         <div class="pl-lg-5 ml-md-5">
                             <p>섭취하고자 하는 음식의 영양분을 확인할 수 있습니다</p>
                             <p>다양한 음식의 영양 정보를 제공합니다</p>
                             <p>하루 동안 섭취한 영양분을 비교 분석합니다</p>
-
 
                             <h3 class="mt-5">𝓢𝓹𝓮𝓬𝓲𝓪𝓵</h3>
                             <div class="row">
@@ -261,72 +217,6 @@ URL: https://gettemplates.co
             </div>
         </div>
     </section>
-    <!-- End of Welcome Section -->
-    <%--    <footer class="mastfoot pb-5 bg-white section-padding pb-0">--%>
-    <%--        <div class="inner container">--%>
-    <%--            <div class="row">--%>
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pr-lg-5 pr-0">--%>
-    <%--                        <img src="/resto/img/logo.png" class="img-fluid footer-logo mb-3" alt="">--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis--%>
-    <%--                            explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni,--%>
-    <%--                            et voluptatum dolorem.</p>--%>
-    <%--                        <nav class="nav nav-mastfoot justify-content-start">--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-facebook-f"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-twitter"></i>--%>
-    <%--                            </a>--%>
-    <%--                            <a class="nav-link" href="#">--%>
-    <%--                                <i class="fab fa-instagram"></i>--%>
-    <%--                            </a>--%>
-    <%--                        </nav>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget px-lg-5 px-0">--%>
-    <%--                        <h4>Open Hours</h4>--%>
-    <%--                        <ul class="list-unstyled open-hours">--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span>--%>
-    <%--                            </li>--%>
-    <%--                            <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>--%>
-    <%--                        </ul>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-
-    <%--                <div class="col-lg-4">--%>
-    <%--                    <div class="footer-widget pl-lg-5 pl-0">--%>
-    <%--                        <h4>Newsletter</h4>--%>
-    <%--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--%>
-    <%--                        <form id="newsletter">--%>
-    <%--                            <div class="form-group">--%>
-    <%--                                <input type="email" class="form-control" id="emailNewsletter"--%>
-    <%--                                       aria-describedby="emailNewsletter" placeholder="Enter email">--%>
-    <%--                            </div>--%>
-    <%--                            <button type="submit" class="btn btn-primary w-100">Submit</button>--%>
-    <%--                        </form>--%>
-    <%--                    </div>--%>
-
-    <%--                </div>--%>
-    <%--                <div class="col-md-12 d-flex align-items-center">--%>
-    <%--                    <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a--%>
-    <%--                            href="https://gettemplates.co" target="_blank">GetTemplates</a></p>--%>
-    <%--                </div>--%>
-
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--    </footer>--%>
 </div>
 
 </div>

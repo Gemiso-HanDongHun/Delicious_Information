@@ -10,6 +10,17 @@
 
     <style>
 
+        .img-2{
+            width: 17%;
+            height: 600px;
+            position: absolute;
+            left: 130px;
+            margin-top: 11px;
+
+        }
+
+
+
         div.boxed-page {
             min-height: 960px;
         }
@@ -22,30 +33,31 @@
             font-style: normal;
         }
 
-    /* List CSS */
-    /* 테이블 전체 */
-    .test  {
-        width: 30%;
-        border: 2px solid #f4ede5;
-        border-radius: 1.5em;
-        border-collapse: separate;
-        margin: auto;
-        padding: 24px;
-        background: #f4ede5;
-        line-height: 202%;
-    }
+        /* List CSS */
+        /* 테이블 전체 */
+        .test {
+            width: 35%;
+            border: 2px solid #f4ede5;
+            border-radius: 1.5em;
+            border-collapse: separate;
+            margin: auto;
+            padding: 24px;
+            background: #f4ede5;
+            line-height: 202%;
+            z-index: 1000;
+        }
 
         /* 내부 tr 배경 */
         table.test tr {
             background: #ffffff;
         }
 
-    /* th 중앙 정렬 및 외부 폰트 */
-    div.boxed-page table th {
-        text-align: center;
-        /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
-        font-weight: 700;
-    }
+        /* th 중앙 정렬 및 외부 폰트 */
+        div.boxed-page table th {
+            text-align: center;
+            /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
+            font-weight: 700;
+        }
 
         /* td 중앙 정렬 */
         div.boxed-page table td {
@@ -57,55 +69,57 @@
             cursor: pointer;
         }
 
-    /* 서치 div 영역 */
-    div.div_search {
-        width: 21%;
-        margin: 70px auto 50px;
-        display:flex;
-        border-radius: 1em;
-        font-size: 0.8vw;
-        border:2px solid #000000;
-        line-height: 180%;
-        padding-left :10px;
-        /*background-color: #005cbf;*/
-        margin-bottom: 30px;
-    }
-    div.div_search form {
+        /* 서치 div 영역 */
+        div.div_search {
+            width: 21%;
+            margin: 70px auto 50px;
+            display: flex;
+            border-radius: 1em;
+            font-size: 0.8vw;
+            border: 2px solid #000000;
+            line-height: 180%;
+            padding-left: 10px;
+            /*background-color: #005cbf;*/
+            margin-bottom: 30px;
+        }
 
-        width: 100%;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
+        div.div_search form {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 
+        /* 서치바 영역 */
+        div.div_search input[type=text] {
+            width: 100%;
+            height: 40px;
+            border: 0px;
 
-    /* 서치바 영역 */
-    div.div_search input[type=text] {
-        width: 100%;
-        height: 40px;
-        border: 0px;
+        }
 
-    }
-    div.div_search input[type=text]:focus {
-        outline: none;
-    }
-    div.div_search a{
-        padding :8px 8px 2px;
-    }
+        div.div_search input[type=text]:focus {
+            outline: none;
+        }
 
-    /* 서치 아이콘 */
-    span.lnr-magnifier {
-        font-size: 25px;
-    }
+        div.div_search a {
+            padding: 8px 8px 2px;
+        }
 
-    /* 목록 전체 영역 */
-    div.bottom_section{
-        padding-bottom: 1px;
-        margin-top: 25px;
-        margin-bottom: 2px;
-        color: black ;
-    }
+        /* 서치 아이콘 */
+        span.lnr-magnifier {
+            font-size: 25px;
+        }
+
+        /* 목록 전체 영역 */
+        div.bottom_section {
+            padding-bottom: 1px;
+            margin-top: 25px;
+            margin-bottom: 2px;
+            color: black;
+        }
 
         /* a태그 폰트 설정 */
         div.bottom_section ul li a {
@@ -142,43 +156,43 @@
         }
 
 
-        div.flex-column li p{
+        div.flex-column li p {
             position: relative;
             text-align: center;
             right: 150px;
             font-size: 35px;
             /*background-color: rebeccapurple;*/
 
-    }
+        }
 
-    .page-item.active .page-link {
-        z-index: 1;
-        color: #fff;
-        background-color:lightgray;
-        border-color:lightgray;
-    }
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: lightgray;
+            border-color: lightgray;
+        }
 
-    .boxed-page aside.aside {
-        position: fixed;
-        top: 20%;
-        left: 70%;
-        z-index: 10;
-        padding: 10px;
+        .boxed-page aside.aside {
+            position: fixed;
+            top: 20%;
+            left: 70%;
+            z-index: 10;
+            padding: 10px;
 
 
-    }
+        }
 
-    .boxed-page aside.aside .side-bar-list  {
-        min-width: 410px;
-        background: #f4ede5;
-        border-radius: 1.5rem;
-        padding: 10px;
+        .boxed-page aside.aside .side-bar-list {
+            min-width: 410px;
+            background: #f4ede5;
+            border-radius: 1.5rem;
+            padding: 10px;
 
-    }
+        }
 
-    .boxed-page aside.aside .side-bar-list .myList {
-        text-align: center;
-    }
+        .boxed-page aside.aside .side-bar-list .myList {
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -186,16 +200,11 @@
 
 <%@include file="./include/side_nav.jsp" %>
 
+
 <div class="boxed-page">
 
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <%--            <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">--%>
-            <%--                <img src="/resto/img/logo.png" alt="">--%>
-            <%--            </a>--%>
-            <%--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-            <%--                <span class="lnr lnr-menu"></span>--%>
-            <%--            </button>--%>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-between">
@@ -207,8 +216,6 @@
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
                             <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
-
-
                         </li>
 
                         <li class="nav-item">
@@ -219,15 +226,7 @@
                             <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                         </li>
 
-
                         <li class="nav-item dropdown">
-                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                            <%--                                Special Dishes--%>
-                            <%--                            </a>--%>
-                            <%--                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-                            <%--                                <a class="dropdown-item" href="/resto/special-dishes.html">Beef Steak Sauce</a>--%>
-                            <%--                                <a class="dropdown-item" href="/resto/special-dishes.html">Salmon Zucchini</a>--%>
-                            <%--                            </div>--%>
                         </li>
                     </div>
                 </ul>
@@ -237,27 +236,14 @@
                 <%--                </a>--%>
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
-                        <%--                        <li class="nav-item active">--%>
-                        <%--                            <a class="nav-link" href="/list">List</a>--%>
-                        <%--                        </li>--%>
-                        <%--                        <li class="nav-item">--%>
-                        <%--                            <a class="nav-link" href="/resto/team.html">Team</a>--%>
-                        <%--                        </li>--%>
-
-                        <%--                        <li class="nav-item dropdown">--%>
-                        <%--                            <a class="nav-link" href="/resto/reservation.html">Reservation</a>--%>
-                        <%--                        </li>--%>
+                        </li>
                     </div>
                     <li class="nav-item">
-                        <%--                        <a id="side-search-open" class="nav-link" href="#">--%>
-                        <%--                            <span class="lnr lnr-magnifier"></span>--%>
-                        <%--                        </a>--%>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <div class="div_search">
         <form id="searchForm">
@@ -267,10 +253,12 @@
                 <span class="lnr lnr-magnifier"></span>
             </a>
         </form>
-
     </div>
 
+    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
+         style="background-image: url(/resto/img/steak.jpg);">
 
+    </div>
 
 
     <table class="test">
@@ -279,7 +267,6 @@
             <th style="width:40%">음식명</th>
             <th style="width:25%">칼로리</th>
             <th style="width:10%">선택</th>
-
         </tr>
 
         <c:forEach var="f" items="${fList}">
@@ -321,9 +308,8 @@
         </nav>
     </div>
 
-
-    <aside class="aside" >
-        <div class="side-bar-list" >
+    <aside class="aside">
+        <div class="side-bar-list">
             <div class="myList">내가 선택한 음식</div>
             <div id="mine">
 
@@ -334,21 +320,16 @@
             <button type="button" class="btn btn-info" id="reset">초기화</button>
         </div>
     </aside>
-
-
-    <%--    <%@include file="./include/footer.jsp"%>--%>
 </div>
-<%--<%@include file="./include/footer_js.jsp" %>--%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-
 <script type="text/babel">
 
-
-    function Food(props){
+    function Food(props) {
         return (
             <div className="my-food">
                 <p>{props.name}<br/>
@@ -360,29 +341,27 @@
         );
     }
 
-
-
-    function List(props){
+    function List(props) {
         var myList = props.myList;
         //tr을 반복한 컨테츠를 구성
-        var tag=[]; //여기에 tr을 모아 둘것임
-        for(var i=0; i<myList.length;i++){
+        var tag = []; //여기에 tr을 모아 둘것임
+        for (var i = 0; i < myList.length; i++) {
             var fn = myList[i];
             tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
                            name={fn.food.name} kcal={fn.food.kcal}/>); //10
-            if(i==myList.length-1){
+            if (i == myList.length - 1) {
                 tag.push("총칼로리:");
             }
         }
 
         return (
             <div className="my-food-list">
-            {tag}
+                {tag}
             </div>
         );
     }
 
-    function printList(myList){
+    function printList(myList) {
         var root = ReactDOM.createRoot(document.getElementById("mine"));
         root.render(<List myList={myList}/>);
     }
@@ -393,7 +372,6 @@
     const $inputName = document.querySelector("#inputName");
     const $table = document.querySelector("table");
     const $reset = document.querySelector("#reset");
-
 
 
     function appendPageActive() {
@@ -423,19 +401,14 @@
             $inputBox.setAttribute("checked", "checked");
         }
     }
-    function resetSession(myList){
+
+    function resetSession(myList) {
         printList(myList);
         for (let i = 0; i < 15; i++) {
             let $inputBox = document.querySelectorAll(".select");
-            $inputBox[i].checked=false;
+            $inputBox[i].checked = false;
         }
-
     }
-
-
-
-
-
 
     $searchButton.onclick = e => {
         location.href = "/food/list?keyword=" + $inputName.value;
@@ -458,15 +431,14 @@
                 });
         }
     }
-    $reset.onclick=e=>{
-        fetch('/api/foods/' , {method: 'delete'})
+    $reset.onclick = e => {
+        fetch('/api/foods/', {method: 'delete'})
             .then(res => res.json())
             .then(myList => {
                 resetSession(myList);
             });
     };
     //내가 지금 보고 있는 페이지 표시
-
 
     $(function () {
         appendPageActive();
@@ -478,7 +450,6 @@
     });
 
 </script>
-
 
 </body>
 </html>
