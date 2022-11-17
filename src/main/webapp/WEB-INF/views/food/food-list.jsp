@@ -201,14 +201,15 @@
         }
 
         .boxed-page aside.aside {
-            position: fixed;
-            top: 20%;
+            position: absolute;
+            top: 25%;
             left: 70%;
             z-index: 10;
             padding: 10px;
 
 
         }
+
 
         .boxed-page aside.aside .side-bar-list {
             min-width: 200px;
@@ -341,13 +342,12 @@
 
     <aside class="aside">
         <div class="side-bar-list">
-            <div class="myList">내가 선택한 음식(100g)</div>
+            <div class="myList">내가 선택한 음식(100g) </div>
             <div id="mine">
 
             </div>
         </div>
         <div class="aside-down d-flex justify-content-center">
-
             <button type="button" class="btn btn-info" id="reset" >초기화</button>
             <button type="button" class="btn btn-info" id="searchk" >검색</button>
         </div>
@@ -402,6 +402,7 @@
             <div className="my-food-list">
                 {tag}
             </div>
+
         );
     }
 

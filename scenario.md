@@ -58,10 +58,10 @@ DB 설계
 # Version 2.0
 
 1. 이용자 입장
-    + 추천 음식 100g기준 탄수화물 지방 단백질 비교 알고리즘 
-    + 영양소 효능 .jsp 영양소 상세 효능 페이지
-    + 남자용 여자용 .jsp 기본 하루 권장량 달라지도록 페이지 구현
-    + list.jsp 내가 선택한 음식 모음 보여주기 (session)
+    + 추천 음식 100g기준 탄수화물 지방 단백질 비교 알고리즘 x
+    + 영양소 효능 .jsp 영양소 상세 효능 페이지 ok
+    + 남자용 여자용 .jsp 기본 하루 권장량 달라지도록 페이지 구현 ok
+    + list.jsp 내가 선택한 음식 모음 보여주기 (session) ok
 
 
 lemoncoat : 
@@ -80,6 +80,8 @@ lemoncoat :
 
 11.16 - 2.0 시작 list.jsp에서 자신이 먹을 음식 선택하면 오른쪽에 뜸 react로 할려하는데 error있어 아직 자바스크립트로만 완성
          아직 admin페이지 search 처리안함 
+
+11.17 - session 초기화 및 8개 까지 보여주기 adminpage search 처리 x 선택된 check 처리
 
 
 goill : 
