@@ -8,167 +8,21 @@
 
 <%@include file="./include/header_css.jsp" %>
 
-<style>
-    /* 외부 무료 폰트*/
-    @font-face {
-        font-family: 'LINESeedKR-Bd';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-        font-weight: 700;
-        font-style: normal;
-    }
+    <link rel="stylesheet" href="/about/css/about.css">
 
-    /* 바디 하단 패딩으로 띄우기 */
-    div.boxed-page {
-        padding-bottom: 30px;
-    }
-
-    /* 네비바  전체 */
-    div nav.navbar-expand-lg {
-        position: relative;
-        padding-top: 30px;
-    }
-
-    /* 네비바 li */
-    div.flex-column li {
-        padding-top: 35px;
-    }
-
-    /* 네비바 a 태그 */
-    div.flex-column li a {
-        position: relative;
-        margin-right: 140px;
-    }
-
-    /* home */
-    div.flex-column li.active a.nav-link {
-        padding-top: 45px;
-    }
-
-    /* 영양소 */
-    div.flex-column li.nav-item #navbarDropdown {
-        width: 100px;
-        padding-top: 45px;
-        margin-top: 45px;
-    }
-
-    .dropdown-menu {
-        top: 80%;
-    }
-
-    .dropdown-menu:hover {
-        display: none;
-    }
-
-    /* 전체 네비바  */
-    .navbar-expand-lg .navbar-nav .flex-column .dropdown {
-        padding: 0;
-    }
-
-    /* about */
-    li.nav-item #about {
-        position: relative;
-        margin-right: 400px;
-        padding-top: 45px;
-    }
-
-    /* food list */
-    div.flex-column li p{
-        position: relative;
-        text-align: center;
-        right: 150px;
-        font-size: 35px;
-    }
-
-    div.boxed-page section.top-area {
-        width: 50%;
-        height: 500px;
-        padding: 20px;
-        margin: 60px auto 30px;
-        overflow: hidden;
-    }
-
-    div.boxed-page section.top-area div.img {
-        width: 40%;
-        height: 390px;
-        float: left;
-        display: block;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-        background-image: url("/images/vitaminA.jpg");
-        background-size: 452px 390px;
-        background-repeat: no-repeat;
-    }
-
-    div.boxed-page section.top-area div.top-p {
-        width: 50%;
-        height: 390px;
-        float: right;
-        font-size: 15px;
-        border: 1px solid  #f4ede5;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-        border-radius: 1.5em;
-        background:  #f4ede5;
-        padding: 20px;
-    }
-
-    div.boxed-page section.top-area div.top-p h1 {
-        font-family: 'LINESeedKR-Bd';
-        margin-bottom: 30px;
-        color: #6c6c6c;
-    }
-
-    div.boxed-page section.top-area div.top-p p {
-        font-size: 1.5em;
-        text-indent: 1em;
-        line-height: 160%;
-        text-align: justify;
-        font-family: 'LINESeedKR-Bd';
-    }
-
-    div.boxed-page section.bottom-area  {
-        width: 50%;
-        display: block;
-        margin: auto;
-        padding: 15px;
-        border: 1px solid  #f4ede5;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-        border-radius: 1.5em;
-        background:  #f4ede5;
-        font-family: 'LINESeedKR-Bd';
-    }
-
-    div.boxed-page section.bottom-area div.detail2 h2 {
-        margin-bottom: 15px;
-
-        font-size: 40px;
-        color: #6c6c6c;
-    }
-
-    div.boxed-page section.bottom-area div.detail2 h3 {
-        margin-bottom: 5px;
-        font-size: 25px;
-        font-weight: 600;
-    }
-
-    div.boxed-page section.bottom-area div.detail2 ul {
-        list-style:none;
-        padding-left: 15px;
-        margin: 0;
-    }
-
-    div.boxed-page section.bottom-area div.detail2 ul li:first-child {
-       margin-bottom: 20px;
-    }
-    div.boxed-page section.bottom-area div.detail2 ul li:nth-child(2) {
-        margin-bottom: 20px;
-    }
-
-    div.boxed-page section.bottom-area div.detail2 ul li p {
-        margin: 0;
-        font-size: 18px;
-        text-indent: 1em;
-    }
-
-</style>
+    <style>
+        div.boxed-page section.top-area div.img {
+            width: 40%;
+            height: 100%;
+            min-width: 120px;
+            float: left;
+            display: block;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            background-image: url("/images/vitaminA.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout" >
 

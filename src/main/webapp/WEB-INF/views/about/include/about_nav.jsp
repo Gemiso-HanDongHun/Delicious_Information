@@ -30,8 +30,8 @@
                         <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown" id="nav-li">
+                        <a class="nav-link dropdown-toggle" d="navibarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             영양소
                         </a>
@@ -43,7 +43,7 @@
                                onclick="location.href='/food/about/protein'">단백질</a>
                             <a class="dropdown-item"
                                onclick="location.href='/food/about/fat'">지방</a>
-                            <a class="dropdown-item" h
+                            <a class="dropdown-item"
                                onclick="location.href='/food/about/na'">나트륨</a>
                             <a class="dropdown-item"
                                onclick="location.href='/food/about/vitaminA'">비타민A</a>
