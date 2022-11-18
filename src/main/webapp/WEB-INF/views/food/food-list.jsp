@@ -288,7 +288,7 @@
     </div>
 
     <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-         style="background-image: url(/resto/img/steak.jpg);">
+         style="background-image: url(/resto/img/steak.jpg);"> <%-- 이미지요소 --%>
 
     </div>
 
@@ -303,7 +303,7 @@
 
         <c:forEach var="f" items="${fList}">
             <tr>
-                <td>${f.foodNo}번</td>
+                <td>${f.foodNo}</td>
                 <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                 <td>${f.kcal}(kcal)</td>
                     <%-- <c:if test="${f.check}">

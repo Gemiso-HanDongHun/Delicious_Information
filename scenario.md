@@ -112,4 +112,6 @@ luycin -> 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구�
 
 11.16 : About페이지를 구현완료하였고 food-nuturient.jsp의 남, 여 성별별 하루영양분 비교를 구현하였다. 추후 영양분을 비교 계산을해서 추천목록에 알맞는 음식만 출력되도록 할 예정이다.
 
-11.17 : list.jsp 사진추가, food-nutrient.jsp 에서 추천목록에서 메뉴로 이동가능 food-nutrient2.jsp도 동일.
+11.17 : list.jsp 사진추가, food-nutrient.jsp 에서 추천목록에서 메뉴로 이동가능 food-nutrient2.jsp도 동일
+
+11.18 : food-nuturient.jsp에서 하루할당 에너지를 충족 시키거나 초과할시 충족, 초과(초과된 영양분) 표시에 나도록 바꿈, 화면을 줄였을때 오류가 발생하여 오류 수정하였고, session으로 체크한 음식을 보여주기위한 박스를 생성함
