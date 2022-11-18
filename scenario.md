@@ -100,7 +100,7 @@ goill :
 
 11:17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중
 
-11:18 : resources에 css파일 생성 및 about 페이지 디자인 수정 완료 ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅇ
+11:18 : resources에 css파일 생성 및 about 페이지 디자인 수정 완료 ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅇㅁㄴㅇㅁㄴㅇ
 
 luycin -> 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료, 추후 메인 페이지를 시작으로 디자인 예정
 
