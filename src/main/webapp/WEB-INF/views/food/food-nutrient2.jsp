@@ -353,8 +353,7 @@ URL: https://gettemplates.co
             function Food(props) {
                 return (
                     <div className="my-food">
-                        <p>{props.name}<br/>
-                            // 칼로리 : {props.kcal}kcal
+                        <p>{props.name}
                         </p>
                     </div>
                 );
@@ -424,6 +423,13 @@ URL: https://gettemplates.co
                 }
             }
 
+            $(function () { //onload되면
+                fetch('/api/foods/')
+                    .then(res => res.json())
+                    .then(myList => {
+                        showFoodData(myList);
+                    });
+            });
         </script>
 
         <div class="container">
@@ -449,7 +455,7 @@ URL: https://gettemplates.co
                             <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
-                        <c:forEach var="f" begin="0" end="17" items="${tn}">
+                        <c:forEach var="f" begin="0" end="17" items="${tl}">
                             <tr id="lili">
 
                                 <td onclick="location.href='/food/nutrient2/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
@@ -528,6 +534,7 @@ URL: https://gettemplates.co
                         <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
                         <div class="col-lg-4 menu-wrap" id="nt_row1">
+
                             <div class="menus d-flex align-items-center">
 
                                 <div class="text-wrap">
@@ -537,13 +544,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${carbo2.carbohydrate > 0}">
-                                                <h4 style="color: orangered">⠀⠀${carbo2.carbohydrate}g</h4>
+                                            <c:if test="${tn.carbohydrate > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.carbohydrate}g</h4>
                                             </c:if>
 
-                                            <c:if test="${carbo2.carbohydrate <= 0}">
+                                            <c:if test="${tn.carbohydrate <= 0}">
                                                 <h4 style="color: blue" id="excess">초과</h4>
-                                                <h4 style="color: blue" id="excess2">(${carbo2.carbohydrate}g)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.carbohydrate}g)</h4>
                                             </c:if>
 
                                         </div>
@@ -552,6 +559,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -559,13 +567,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${pro2.protein > 0}">
-                                                <h4 style="color: orangered">⠀⠀${pro2.protein}g</h4>
+                                            <c:if test="${tn.protein > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.protein}g</h4>
                                             </c:if>
 
-                                            <c:if test="${pro2.protein <= 0}">
+                                            <c:if test="${tn.protein <= 0}">
                                                 <h4 style="color: blue" id="excess">초과</h4>
-                                                <h4 style="color: blue" id="excess2">(${pro2.protein}g)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.protein}g)</h4>
                                             </c:if>
                                         </div>
                                     </div>
@@ -573,6 +581,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -580,14 +589,14 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${fat2.fat>0}">
-                                                <h4 style="color: orangered">⠀⠀${fat2.fat}g</h4>
+                                            <c:if test="${tn.fat>0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.fat}g</h4>
                                             </c:if>
 
 
-                                            <c:if test="${fat2.fat<=0}">
+                                            <c:if test="${tn.fat<=0}">
                                                 <h4 style="color: blue" id="excess">초과</h4>
-                                                <h4 style="color: blue" id="excess2">(${fat2.fat}g)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.fat}g)</h4>
                                             </c:if>
 
                                         </div>
@@ -596,6 +605,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -603,14 +613,14 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${sodium2.sodium>0}">
-                                                <h4 style="color: orangered">⠀⠀${sodium2.sodium}mg</h4>
+                                            <c:if test="${tn.sodium>0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.sodium}mg</h4>
                                             </c:if>
 
 
-                                            <c:if test="${sodium2.sodium<=0}">
+                                            <c:if test="${tn.sodium<=0}">
                                                 <h4 style="color: blue" id="excess">초과</h4>
-                                                <h4 style="color: blue" id="excess2">(${sodium2.sodium}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.sodium}mg)</h4>
                                             </c:if>
 
                                         </div>
@@ -694,6 +704,7 @@ URL: https://gettemplates.co
                                 <h3 class="text-center mb-5"></h3>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -701,13 +712,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${vitaminA2.vitaminA>0}">
-                                                <h4 style="color: orangered">⠀⠀${vitaminA2.vitaminA}µg</h4>
+                                            <c:if test="${tn.vitaminA>0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.vitaminA}µg</h4>
                                             </c:if>
 
-                                            <c:if test="${vitaminA2.vitaminA<=0}">
+                                            <c:if test="${tn.vitaminA<=0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${vitaminA2.vitaminA}µg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.vitaminA}µg)</h4>
                                             </c:if>
 
 
@@ -717,28 +728,21 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
                                             <h4>⠀⠀비타민C</h4>
                                         </div>
                                         <div class="col-4">
-
-                                            <c:if test="${vitaminC2.vitaminC > 0}">
-                                                <h4 style="color: orangered">⠀⠀${vitaminC2.vitaminC}mg</h4>
-                                            </c:if>
-
-                                            <c:if test="${vitaminC2.vitaminC <= 0}">
-                                                <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${vitaminC2.vitaminC}mg)</h4>
-                                            </c:if>
-
+                                            <h4 style="color: orangered">⠀⠀${tn.vitaminC}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -746,13 +750,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${vitaminE2.vitaminE > 0}">
-                                                <h4 style="color: orangered">⠀⠀${vitaminE2.vitaminE}mg</h4>
+                                            <c:if test="${tn.vitaminE > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.vitaminE}mg</h4>
                                             </c:if>
 
-                                            <c:if test="${vitaminE2.vitaminE <= 0}">
+                                            <c:if test="${tn.vitaminE <= 0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${vitaminE2.vitaminE}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.vitaminE}mg)</h4>
                                             </c:if>
 
                                         </div>
@@ -761,6 +765,7 @@ URL: https://gettemplates.co
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
+
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
@@ -768,13 +773,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${omega2.omega > 0}">
-                                                <h4 style="color: orangered">⠀⠀${omega2.omega}mg</h4>
+                                            <c:if test="${tn.omega > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.omega}mg</h4>
                                             </c:if>
 
-                                            <c:if test="${omega2.omega <= 0}">
+                                            <c:if test="${tn.omega <= 0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${omega2.omega}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.omega}mg)</h4>
                                             </c:if>
 
                                         </div>
@@ -846,13 +851,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${calcium2.calcium > 0}">
-                                                <h4 style="color: orangered">⠀⠀${calcium2.calcium}mg</h4>
+                                            <c:if test="${tn.calcium > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.calcium}mg</h4>
                                             </c:if>
 
-                                            <c:if test="${calcium2.calcium <= 0}">
+                                            <c:if test="${tn.calcium <= 0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${calcium2.calcium}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.calcium}mg)</h4>
                                             </c:if>
 
                                         </div>
@@ -868,13 +873,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${iron2.iron>0}">
-                                                <h4 style="color: orangered">⠀⠀${iron2.iron}mg</h4>
+                                            <c:if test="${tn.iron>0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.iron}mg</h4>
                                             </c:if>
 
-                                            <c:if test="${iron2.iron <= 0}">
+                                            <c:if test="${tn.iron <= 0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${iron2.iron}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.iron}mg)</h4>
                                             </c:if>
 
                                         </div>
@@ -891,13 +896,13 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
 
-                                            <c:if test="${magnesium2.magnesium > 0}">
-                                                <h4 style="color: orangered">⠀⠀${magnesium2.magnesium}mg</h4>
+                                            <c:if test="${tn.magnesium > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.magnesium}mg</h4>
                                             </c:if>
 
-                                            <c:if test="${magnesium2.magnesium <= 0}">
+                                            <c:if test="${tn.magnesium <= 0}">
                                                 <h4 style="color: blue" id="excess">충족</h4>
-                                                <h4 style="color: blue" id="excess2">(${magnesium2.magnesium}mg)</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.magnesium}mg)</h4>
                                             </c:if>
 
                                         </div>

@@ -353,7 +353,6 @@
         </div>
     </aside>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -417,6 +416,7 @@
     const $inputName = document.querySelector("#inputName");
     const $table = document.querySelector("table");
     const $reset = document.querySelector("#reset");
+    const $searchk = document.querySelector("#searchk");
     let checkTotal = 0;
 
     /*  탄수화물: {props.carbohydrate}g
@@ -455,7 +455,7 @@
         }
     }
 
-    function resetSession(myList) {
+    function resetSession(myList) { //선택한 음식 초기화
         printList(myList);
         checkTotal = myList.length;
         for (let i = 0; i < 15; i++) {
@@ -464,26 +464,27 @@
         }
     }
 
-    $searchButton.onclick = e => {
+    $searchButton.onclick = e => { //검색창 버튼
         location.href = "/food/list?keyword=" + $inputName.value;
     };
-    $table.onchange = e => {
+
+    $table.onchange = e => { //체크박스 선택시
         if (!e.target.matches(".select")) { //
             return;
         }
         if (e.target.checked) { //check를 하는 거면
-            if (checkTotal < 8) {
+            if (checkTotal < 8) { //8개까지만
                 fetch('/api/foods/' + e.target.value)
                     .then(res => res.json())
                     .then(myList => {
                         showFoodData(myList);
                     });
                 checkTotal++;
-            } else {
+            } else {    //check 를 푸는 거면
                 e.target.checked = false;
             }
         } else {
-            if (checkTotal < 9) {
+            if (checkTotal < 9) { //지울때
                 fetch('/api/foods/' + e.target.value, {method: 'delete'})
                     .then(res => res.json())
                     .then(myList => {
@@ -494,16 +495,19 @@
 
         }
     }
-    $reset.onclick = e => {
+    $reset.onclick = e => { //초기화 버틑 클릭시
         fetch('/api/foods/', {method: 'delete'})
             .then(res => res.json())
             .then(myList => {
                 resetSession(myList);
             });
     };
-    //내가 지금 보고 있는 페이지 표시
+    $searchk.onclick =e =>{
+      location.href="/food/select-nutrient";
+    };
 
-    $(function () {
+
+    $(function () { //onload되면
         appendPageActive();
         fetch('/api/foods/')
             .then(res => res.json())

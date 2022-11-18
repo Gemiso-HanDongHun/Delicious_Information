@@ -56,7 +56,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Food table</h3>
-                                    <input type="search"style="float:right" class="form-control form-control-sm col-md-2" placeholder="검색창" name="keyword">
+                                <form id="searchForm">
+                                    <input type="search"style="float:right" class="form-control form-control-sm col-md-2" id="inputName" placeholder="검색창"
+                                           name="keyword" value="${s.keyword}">
+                                </form>
+
+
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

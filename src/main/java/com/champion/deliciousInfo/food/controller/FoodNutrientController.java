@@ -1,18 +1,22 @@
 package com.champion.deliciousInfo.food.controller;
 
 import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
-import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.service.FoodService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.apache.poi.ss.formula.functions.Today;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Log4j2
@@ -29,38 +33,16 @@ public class FoodNutrientController {
     public String list(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
-        List<FoodNutrient> todayNutrient = foodNutrientService.recommend(foodNo);
-        List<Food> foodList = foodService.findAllService();
+        Map<String,Object> recommendData = foodNutrientService.manRecommend(foodNo);
+        List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) recommendData.get("tl");
+        TodayNutrient todayNutrient = (TodayNutrient) recommendData.get("tn");
 
-        FoodNutrient foodNutrient0 = foodNutrientService.carbo(foodNo);
-        FoodNutrient foodNutrient1 = foodNutrientService.pro(foodNo);
-        FoodNutrient foodNutrient2 = foodNutrientService.fat(foodNo);
-        FoodNutrient foodNutrient3 = foodNutrientService.sodium(foodNo);
-        FoodNutrient foodNutrient4 = foodNutrientService.vitaminA(foodNo);
-        FoodNutrient foodNutrient5 = foodNutrientService.vitaminC(foodNo);
-        FoodNutrient foodNutrient6 = foodNutrientService.vitaminE(foodNo);
-        FoodNutrient foodNutrient7 = foodNutrientService.omega(foodNo);
-        FoodNutrient foodNutrient8 = foodNutrientService.calcium(foodNo);
-        FoodNutrient foodNutrient9 = foodNutrientService.iron(foodNo);
-        FoodNutrient foodNutrient10 = foodNutrientService.magnesium(foodNo);
-
-        model.addAttribute("fn", foodNutrient);
-        model.addAttribute("fl", foodList);
-        model.addAttribute("carbo", foodNutrient0);
-        model.addAttribute("pro", foodNutrient1);
-        model.addAttribute("fat", foodNutrient2);
-        model.addAttribute("sodium", foodNutrient3);
-        model.addAttribute("vitaminA", foodNutrient4);
-        model.addAttribute("vitaminC", foodNutrient5);
-        model.addAttribute("vitaminE", foodNutrient6);
-        model.addAttribute("omega", foodNutrient7);
-        model.addAttribute("calcium", foodNutrient8);
-        model.addAttribute("iron", foodNutrient9);
-        model.addAttribute("magnesium", foodNutrient10);
-        model.addAttribute("tn", todayNutrient);
+        model.addAttribute("fn",foodNutrient);
+        model.addAttribute("tl",todayNutrientList);
+        model.addAttribute("tn",todayNutrient);
 
         log.info("foodnutrient - {}", foodNutrient);
-        return "/food/food-nutrient";
+        return "food/food-nutrient";
 
     }
 
@@ -68,39 +50,26 @@ public class FoodNutrientController {
     public String list2(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
-        List<Food> foodList = foodService.findAllService();
-        List<FoodNutrient> todayNutrient = foodNutrientService.recommend(foodNo);
+        Map<String,Object> recommendData = foodNutrientService.womanRecommend(foodNo);
+        List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) recommendData.get("tl");
+        TodayNutrient todayNutrient = (TodayNutrient) recommendData.get("tn");
 
         model.addAttribute("fn", foodNutrient);
-        model.addAttribute("tn", todayNutrient);
-
-        FoodNutrient foodNutrient0 = foodNutrientService.carbo2(foodNo);
-        FoodNutrient foodNutrient1 = foodNutrientService.pro2(foodNo);
-        FoodNutrient foodNutrient2 = foodNutrientService.fat2(foodNo);
-        FoodNutrient foodNutrient3 = foodNutrientService.sodium2(foodNo);
-        FoodNutrient foodNutrient4 = foodNutrientService.vitaminA2(foodNo);
-        FoodNutrient foodNutrient5 = foodNutrientService.vitaminC2(foodNo);
-        FoodNutrient foodNutrient6 = foodNutrientService.vitaminE2(foodNo);
-        FoodNutrient foodNutrient7 = foodNutrientService.omega2(foodNo);
-        FoodNutrient foodNutrient8 = foodNutrientService.calcium2(foodNo);
-        FoodNutrient foodNutrient9 = foodNutrientService.iron2(foodNo);
-        FoodNutrient foodNutrient10 = foodNutrientService.magnesium2(foodNo);
-
-        model.addAttribute("fn", foodNutrient);
-        model.addAttribute("carbo2", foodNutrient0);
-        model.addAttribute("pro2", foodNutrient1);
-        model.addAttribute("fat2", foodNutrient2);
-        model.addAttribute("sodium2", foodNutrient3);
-        model.addAttribute("vitaminA2", foodNutrient4);
-        model.addAttribute("vitaminC2", foodNutrient5);
-        model.addAttribute("vitaminE2", foodNutrient6);
-        model.addAttribute("omega2", foodNutrient7);
-        model.addAttribute("calcium2", foodNutrient8);
-        model.addAttribute("iron2", foodNutrient9);
-        model.addAttribute("magnesium2", foodNutrient10);
+        model.addAttribute("tl", todayNutrientList);
+        model.addAttribute("tn",todayNutrient);
 
         log.info("foodnutrient - {}", foodNutrient);
-        return "/food/food-nutrient2";
+        return "food/food-nutrient2";
+    }
+
+    @GetMapping("/select-nutrient")
+    public String getSelect(HttpSession session,Model model) {
+        List<FoodNutrient> myList = (List<FoodNutrient>) session.getAttribute("myList");
+        log.info("GetMapping /select-nutrient -{}",myList);
+        FoodNutrient total = foodNutrientService.total(myList);
+
+        model.addAttribute("total",total);
+        return "/food/food-nutrient-list";
     }
 }
 

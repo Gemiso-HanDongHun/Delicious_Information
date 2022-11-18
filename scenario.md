@@ -83,6 +83,8 @@ lemoncoat :
 
 11.17 - session 초기화 및 8개 까지 보여주기 adminpage search 처리 x 선택된 check 처리
 
+11.18 - 여러가지 음식 선택하고 검색 버튼 누르면 선택한 음식들의 영양정보 보여주기 controller 와 서비스 처리 완료
+
 
 goill : 
 
