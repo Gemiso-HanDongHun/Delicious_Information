@@ -23,11 +23,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="about" href="/food/list">List</a>
+                        <a class="nav-link" id="about" href="/food-about">About</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="foodlist" href="/food-about">list</a>
+                        <a class="nav-link" id="foodlist" href="/food/list">List</a>
                     </li>
 
                     <li>

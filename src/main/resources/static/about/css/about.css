@@ -8,8 +8,7 @@
 
 /* 바디 하단 패딩으로 띄우기 */
 div.boxed-page {
-    /*padding-bo: 25px;*/
-    height: 967px;
+    padding-bottom: 25px;
 }
 
 /* 네비바  전체 */
@@ -22,17 +21,35 @@ div nav.navbar-expand-lg {
 div.flex-column li {
     padding-top: 35px;
 }
+.navbar-nav .nav-link {
+    margin-right: 100px;
+}
 
 /* 네비바 a 태그 */
 div.flex-column li a {
     position: relative;
-    margin-right: 140px;
+}
+/* about */
+li.nav-item #about {
+    position: relative;
+    padding-top: 45px;
+}
+
+li.nav-item #foodlist {
+    padding-top: 45px;
+}
+
+/* food list */
+div.flex-column li p{
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+    margin-right: 170px;
 }
 
 div.flex-column li.dropdown:hover {
     cursor: pointer;
 }
-
 
 div.flex-column li a.dropdown-toggle {
     top: 45%;
@@ -71,31 +88,14 @@ div.flex-column li.active a.nav-link {
     padding: 0;
 }
 
-/* about */
-li.nav-item #about {
-    position: relative;
-    margin-right: 120px;
-    padding-top: 45px;
-}
-
-li.nav-item #foodlist {
-    margin-right: 150px;
-}
 
 
-/* food list */
-div.flex-column li p{
-    position: relative;
-    text-align: center;
-    right: 150px;
-    font-size: 35px;
-}
 
 div.boxed-page section.top-area {
     width: 50%;
     height: 420px;
     padding: 20px;
-    margin: 30px auto 15px;
+    margin:15px auto 15px;
     overflow: hidden;
 }
 
