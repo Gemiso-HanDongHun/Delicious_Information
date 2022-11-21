@@ -126,7 +126,7 @@ goill :
       
 11.16 : 영양 정보 상세 페이지 작성중 about/carb.jsp, FoodAboutController
 
-11:17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중
+11:17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중 
 
 11:18 : resources에 css파일 생성 및 about 페이지 디자인 수정 완료 
 
