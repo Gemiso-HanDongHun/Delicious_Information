@@ -26,6 +26,10 @@
                         <a class="nav-link" id="about" href="/food/list">List</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" id="foodlist" href="/food-about">list</a>
+                    </li>
+
                     <li>
                         <p>𝓝𝓾𝓽𝓻𝓲𝓮𝓷𝓽 𝓛𝓲𝓼𝓽</p>
                     </li>

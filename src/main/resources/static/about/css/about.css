@@ -74,9 +74,14 @@ div.flex-column li.active a.nav-link {
 /* about */
 li.nav-item #about {
     position: relative;
-    margin-right: 400px;
+    margin-right: 120px;
     padding-top: 45px;
 }
+
+li.nav-item #foodlist {
+    margin-right: 150px;
+}
+
 
 /* food list */
 div.flex-column li p{

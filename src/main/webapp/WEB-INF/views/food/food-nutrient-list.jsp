@@ -54,6 +54,11 @@ URL: https://gettemplates.co
             margin-bottom: 4px;
         }
 
+        #nene:hover {
+            color: #f44336;
+            cursor: pointer;
+        }
+
         table {
             background-color: #f4ede5;
             width: 355px;

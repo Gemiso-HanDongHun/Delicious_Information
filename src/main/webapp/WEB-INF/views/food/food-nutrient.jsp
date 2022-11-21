@@ -64,6 +64,11 @@ URL: https://gettemplates.co
             cursor: pointer;
         }
 
+        #nene:hover {
+            color: #f44336;
+            cursor: pointer;
+        }
+
         table {
             background-color: #f4ede5;
             width: 355px;

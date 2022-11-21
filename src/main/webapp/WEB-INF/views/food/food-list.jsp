@@ -158,7 +158,6 @@
         div.bottom_section nav.bottom_nav ul li a.page-link:hover {
             background: lightgray;
             color: #ffff;
-            font-weight: 700;
         }
 
         /* a태그 포커스 삭제*/

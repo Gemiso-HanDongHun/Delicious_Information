@@ -17,7 +17,7 @@
             float: left;
             display: block;
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-            background-image: url("/images/carb.jpg");
+            background-image: url("/images/carb2.jpg");
             background-size: /*353px 390px*/100% 100%;
             background-repeat: no-repeat;
         }
