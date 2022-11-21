@@ -206,8 +206,9 @@ a:hover {
 ============================*/
 .menus:hover img {
   transform: scale(1.1, 1.1);
-
 }
+
+
 
 /*.menu-img {*/
 /*  overflow: hidden;*/
@@ -240,6 +241,10 @@ a:hover {
     .menus .text-wrap  h4 {
       font-weight: 200;
       font-size: 17px;
+    }
+
+    .my-food{
+      text-align: center;
     }
 
 /*=====  End of MENU  ======*/

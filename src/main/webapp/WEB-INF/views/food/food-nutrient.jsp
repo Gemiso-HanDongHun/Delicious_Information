@@ -59,6 +59,11 @@ URL: https://gettemplates.co
             margin-bottom: 4px;
         }
 
+        #nene:hover{
+            color: orangered;
+            cursor: pointer;
+        }
+
         table {
             background-color: #f4ede5;
             width: 355px;
@@ -246,6 +251,10 @@ URL: https://gettemplates.co
             position: relative;
         }
 
+        div.myList {
+            font-weight: 700;
+        }
+
     </style>
 
 </head>
@@ -343,7 +352,6 @@ URL: https://gettemplates.co
 
                 </div>
             </div>
-
         </aside>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -356,7 +364,7 @@ URL: https://gettemplates.co
             function Food(props) {
                 return (
                     <div className="my-food">
-                        <p>{props.name}</p>
+                        <br/>  <p>{props.name}</p>
                     </div>
                 );
             }
@@ -426,7 +434,6 @@ URL: https://gettemplates.co
             }
 
 
-
             $(function () { //onload되면
                 fetch('/api/foods/')
                     .then(res => res.json())
@@ -446,7 +453,6 @@ URL: https://gettemplates.co
 
                 <div>
                     <p4>⠀${fn.food.kcal}kcal⠀</p4>
-
                 </div>
 
                 <div>

@@ -21,7 +21,6 @@ public class FoodNutrient {
     private Float sodium;
     private Float omega;
 
-
     private Food food;
 
     public FoodNutrient() {
@@ -38,18 +37,18 @@ public class FoodNutrient {
         this.omega = 0f;
     }
 
-    public void addTotal(FoodNutrient fn){
-        this.carbohydrate =(Float)(Math.round((this.carbohydrate+fn.getCarbohydrate())*100)/100.0f);
-        this.protein =(Float)(Math.round((this.protein+fn.getProtein())*100)/100.0f);
-        this.fat+=fn.getFat();
-        this.vitaminA+=fn.getVitaminA();
-        this.vitaminC+=fn.getVitaminC();
-        this.vitaminE+=fn.getVitaminE();
-        this.calcium+=fn.getCalcium();
-        this.iron+=fn.getIron();
-        this.magnesium+=fn.getMagnesium();
-        this.sodium+=fn.getSodium();
-        this.omega+=fn.getOmega();
+    public void addTotal(FoodNutrient fn) {
+        this.carbohydrate = (Math.round((this.carbohydrate + fn.getCarbohydrate()) * 100) / 100.0f);
+        this.protein = (Math.round((this.protein + fn.getProtein()) * 100) / 100.0f);
+        this.fat = (Math.round((this.fat + fn.getFat()) * 100) / 100.0f);
+        this.vitaminA = (Math.round((this.vitaminA + fn.getVitaminA()) * 100) / 100.0f);
+        this.vitaminC = (Math.round(this.vitaminC + fn.getVitaminC()) * 100 / 100.0f);
+        this.vitaminE = (Math.round(this.vitaminE + fn.getVitaminE()) * 100 / 100.0f);
+        this.calcium = (Math.round(this.calcium + fn.getCalcium()) * 100 / 100.0f);
+        this.iron = (Math.round(this.iron + fn.getIron()) * 100 / 100.0f);
+        this.magnesium = (Math.round(this.magnesium + fn.getMagnesium()) * 100 / 100.0f);
+        this.sodium = (Math.round(this.sodium + fn.getSodium()) * 100 / 100.0f);
+        this.omega = (Math.round(this.omega + fn.getOmega()) * 100 / 100.0f);
     }
-
 }
+
