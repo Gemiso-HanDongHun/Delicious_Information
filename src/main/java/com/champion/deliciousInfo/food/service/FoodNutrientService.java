@@ -6,8 +6,6 @@ import com.champion.deliciousInfo.food.repository.FoodNutrientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections4.map.HashedMap;
-import org.apache.poi.ss.formula.functions.Today;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTFootnotes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,22 +32,69 @@ public class FoodNutrientService {
         return foodNutrient;
     }
 
-    public FoodNutrient carbo(int foodNo) {
-        FoodNutrient foodNutrient0 = foodNutrientMapper.findOne(foodNo);
-        Float carbo = foodNutrient0.getCarbohydrate();
-        double newcarbo = 2700 * 0.5 - Math.round(carbo * 100) / 100.0;
-        foodNutrient0.setCarbohydrate((float) newcarbo);
-
-        TodayNutrient tn = new TodayNutrient();
-        tn.setCarbohydrate((float) newcarbo);
-
-        return foodNutrient0;
-    }
 
     public Map<String, Object> manRecommend(int foodNo) {
         Map<String, Object> findRecommendData = new HashedMap<>();
         FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
 
+        TodayNutrient tn = getManTn(foodNutrient);
+        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        findRecommendData.put("tl",recommend);
+        findRecommendData.put("tn",tn);
+        return findRecommendData;
+    }
+
+    
+    public Map<String, Object> womanRecommend(int foodNo) {
+        Map<String, Object> findRecommendData = new HashedMap<>();
+        FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
+
+        TodayNutrient tn = getWomanTn(foodNutrient);
+        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        findRecommendData.put("tl",recommend);
+        findRecommendData.put("tn",tn);
+        return findRecommendData;
+    }
+
+   
+
+    public Map<String, Object> manTotal(List<FoodNutrient> myList){
+        Map<String, Object> findRecommendData = new HashedMap<>();
+        FoodNutrient foodNutrient = new FoodNutrient();
+        TodayNutrient tn =null;
+        if(myList!=null) {
+            for (FoodNutrient fn : myList) {
+                log.info("total실행중인 fn -{}",fn);
+                foodNutrient.addTotal(fn);
+            }
+        }
+        tn = getManTn(foodNutrient);
+        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        findRecommendData.put("tl",recommend);
+        findRecommendData.put("tn",tn);
+        findRecommendData.put("fn",foodNutrient);
+        return findRecommendData;
+    }
+
+    public Map<String, Object> womanTotal(List<FoodNutrient> myList){
+        Map<String, Object> findRecommendData = new HashedMap<>();
+        FoodNutrient foodNutrient = new FoodNutrient();
+        TodayNutrient tn =null;
+        if(myList!=null) {
+            for (FoodNutrient fn : myList) {
+                log.info("total실행중인 fn -{}",fn);
+                foodNutrient.addTotal(fn);
+            }
+        }
+        tn = getWomanTn(foodNutrient);
+        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        findRecommendData.put("tl",recommend);
+        findRecommendData.put("tn",tn);
+        findRecommendData.put("fn",foodNutrient);
+        return findRecommendData;
+    }
+
+    private static TodayNutrient getManTn(FoodNutrient foodNutrient) {
         double todayCarbo = (2700 * 0.5 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0);
         double todayProtein = 55 - Math.round(foodNutrient.getProtein() * 100) / 100.0;
         double todayFat = 53 - Math.round(foodNutrient.getFat() * 100) / 100.0;
@@ -76,16 +121,9 @@ public class FoodNutrientService {
                 .iron((float)todayIron)
                 .magnesium((float)todayMagnesium)
                 .build();
-        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
-        findRecommendData.put("tl",recommend);
-        findRecommendData.put("tn",tn);
-        return findRecommendData;
+        return tn;
     }
-
-    public Map<String, Object> womanRecommend(int foodNo) {
-        Map<String, Object> findRecommendData = new HashedMap<>();
-        FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
-
+    private static TodayNutrient getWomanTn(FoodNutrient foodNutrient) {
         double todayCarbo = 2100 * 0.5 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0;
         double todayProtein = 50 - Math.round(foodNutrient.getProtein() * 100) / 100.0;
         double todayFat = 42 - Math.round(foodNutrient.getFat() * 100) / 100.0;
@@ -111,24 +149,11 @@ public class FoodNutrientService {
                 .iron((float)todayIron)
                 .magnesium((float)todayMagnesium)
                 .build();
-        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
-        findRecommendData.put("tl",recommend);
-        findRecommendData.put("tn",tn);
-        return findRecommendData;
+        return tn;
     }
 
-    public FoodNutrient total(List<FoodNutrient> myList){
-        FoodNutrient foodNutrient = new FoodNutrient();
-
-        if(myList!=null) {
-            for (FoodNutrient fn : myList) {
-                foodNutrient.addTotal(fn);
-            }
-        }
-
-        return foodNutrient;
-    }
 
 }
+
 
 

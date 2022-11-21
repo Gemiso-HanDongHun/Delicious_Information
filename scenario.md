@@ -1,11 +1,29 @@
 Application Scenario
 =========================
-# Version 1.0
+
+## 사업방향
+1. 영양제 회사와 협업을 통해 사용자가 부족한 영양성분과 제품 추천 및 광고
+2. 
+
+
+
 ## Admin 
 1. 식품 정보를 등록 할 수 있다.
+2. 회원정보 관리 페이지
 
 ## Member 
-1. 지금은 존재 x
+1. 자신의 검색목록 
+2. 즐겨 찾기
+3. 게시판 이용
+4. 회원만 제품 추천
+member db
+account password grade email gender phone 
+
+
+## Board
+1. 자유
+2. 회워용 리스트 게시판 추천 -> list.jsp 업데이트 -> vip -> 영양소 제품 하나줘 (정보)
+3. 건의/문의사항 
 
 DB 설계
 음식ID, 음식명, Kcal, 사진명
@@ -35,7 +53,7 @@ DB 설계
 * 오메가3 (양)
 * food_no reference(food.food_no) 
 
-### function
+# Version 1.0
 1. 이용자가 우리 페이지 접속 
    + index.jsp 페이지 보여주기 
    + list.jsp 검색기능
@@ -58,10 +76,17 @@ DB 설계
 # Version 2.0
 
 1. 이용자 입장
-    + 추천 음식 100g기준 탄수화물 지방 단백질 비교 알고리즘 x
+    + 추천 음식 100g기준 탄수화물 지방 단백질 비교 알고리즘 x  (추천 알고리즘 sql수정 나중에)
     + 영양소 효능 .jsp 영양소 상세 효능 페이지 ok
     + 남자용 여자용 .jsp 기본 하루 권장량 달라지도록 페이지 구현 ok
     + list.jsp 내가 선택한 음식 모음 보여주기 (session) ok
+
+
+# Version 3.0
+1. client 
+    + 영양제 추천 nutrient.jsp 에 영양제만 vitaminA, vitaminC, vitaminE 
+    + 회원기능 추가 sign-in.jsp sign-up.jsp 카카오로그인만들기 
+    + 
 
 
 lemoncoat : 
@@ -85,6 +110,7 @@ lemoncoat :
 
 11.18 - 여러가지 음식 선택하고 검색 버튼 누르면 선택한 음식들의 영양정보 보여주기 controller 와 서비스 처리 완료
 
+11.21 - food-nutrient-list.jsp 영양소 양 뜨게 바꾸기 fnservice fncontroller 변경
 
 goill : 
 

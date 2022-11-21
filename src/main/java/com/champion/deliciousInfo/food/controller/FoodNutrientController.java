@@ -1,6 +1,5 @@
 package com.champion.deliciousInfo.food.controller;
 
-import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,13 +61,32 @@ public class FoodNutrientController {
     }
 
     @GetMapping("/select-nutrient")
-    public String getSelect(HttpSession session,Model model) {
+    public String getSelect1(HttpSession session,Model model) {
         List<FoodNutrient> myList = (List<FoodNutrient>) session.getAttribute("myList");
         log.info("GetMapping /select-nutrient -{}",myList);
-        FoodNutrient total = foodNutrientService.total(myList);
+        Map<String, Object> foundMapData = foodNutrientService.manTotal(myList);
+        List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) foundMapData.get("tl");
+        TodayNutrient todayNutrient = (TodayNutrient) foundMapData.get("tn");
+        FoodNutrient total = (FoodNutrient) foundMapData.get("fn");
 
         model.addAttribute("total",total);
+        model.addAttribute("tn",todayNutrient);
+        model.addAttribute("tl",todayNutrientList);
         return "/food/food-nutrient-list";
+    }
+    @GetMapping("/select-nutrient2")
+    public String getSelect2(HttpSession session,Model model) {
+        List<FoodNutrient> myList = (List<FoodNutrient>) session.getAttribute("myList");
+        log.info("GetMapping /select-nutrient -{}",myList);
+        Map<String, Object> foundMapData = foodNutrientService.womanTotal(myList);
+        List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) foundMapData.get("tl");
+        TodayNutrient todayNutrient = (TodayNutrient) foundMapData.get("tn");
+        FoodNutrient total = (FoodNutrient) foundMapData.get("fn");
+
+        model.addAttribute("total",total);
+        model.addAttribute("tn",todayNutrient);
+        model.addAttribute("tl",todayNutrientList);
+        return "/food/food-nutrient-list2";
     }
 }
 

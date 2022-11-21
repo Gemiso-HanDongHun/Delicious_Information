@@ -740,7 +740,16 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀비타민C</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 style="color: orangered">⠀⠀${tn.vitaminC}mg</h4>
+
+                                            <c:if test="${tn.vitaminC > 0}">
+                                                <h4 style="color: orangered">⠀⠀${tn.vitaminC}mg</h4>
+                                            </c:if>
+
+                                            <c:if test="${tn.vitaminC <= 0}">
+                                                <h4 style="color: blue" id="excess">충족</h4>
+                                                <h4 style="color: blue" id="excess2">(${tn.vitaminC}mg)</h4>
+                                            </c:if>
+
                                         </div>
                                     </div>
                                     <p></p>

@@ -306,13 +306,13 @@ URL: https://gettemplates.co
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                성별 : 남자
+                                성별 : 여자
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <%--                                <a class="dropdown-item" href="#" onclick="location.href='/food/nutrient/${fn.food.foodNo}'">남자</a>--%>
                                 <a class="dropdown-item" href="#"
-                                   onclick="location.href='/food/select-nutrient2/'">여자</a>
+                                    onclick="location.href='/food/select-nutrient/'">남자</a>
                             </div>
 
                         </li>

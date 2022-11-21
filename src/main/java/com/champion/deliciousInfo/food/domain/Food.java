@@ -13,4 +13,9 @@ public class Food {
     private int kcal;
     private String img;
 
+    public int addTotal(FoodNutrient fn){
+
+        return this.kcal = this.kcal+fn.getFood().getKcal();
+    }
+
 }

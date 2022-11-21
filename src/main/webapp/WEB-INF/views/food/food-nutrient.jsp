@@ -368,7 +368,7 @@ URL: https://gettemplates.co
 
             function Food(props) {
                 return (
-                    <div className="my-food">
+                    <div className="my-food d-flex justify-content-center">
                         <br/>  <p>{props.name}</p>
                     </div>
                 );
