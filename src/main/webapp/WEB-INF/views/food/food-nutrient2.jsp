@@ -38,220 +38,13 @@ URL: https://gettemplates.co
 
     <!-- CSS -->
     <link rel="stylesheet" href="/resto/css/style.min.css">
+    <link rel="stylesheet" href="/food-nutrient/food-nutrient.css">
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
-    <style>
-
-        div.boxed-page {
-            /*background-color: pink;*/
-            height: 1350px;
-        }
-
-        div.flex-column li {
-            margin: 35px;
-            padding-top: 25px;
-        }
-
-        #nene {
-            margin-left: 280px;
-            margin-bottom: 4px;
-        }
-
-        #nene:hover {
-            color: #f44336;
-            cursor: pointer;
-        }
-
-        table {
-            background-color: #f4ede5;
-            width: 355px;
-            border: 1px solid #444444;
-            box-sizing: border-box;
-            margin: auto;
-            border-radius: 1em;
-            padding-top: 20px;
-            margin-left: 800px;
-            position: absolute;
-            height: 400px;
-            z-index: 1200;
-        }
-
-        #lili td {
-            background-color: floralwhite;
-            padding: 6px;
-        }
-
-        #li th {
-            padding: 9px;
-        }
-
-        th, td {
-            border: 1px solid #ffffff;
-            padding: 3px;
-            margin-top: 80px;
-            box-sizing: border-box;
-            border-collapse: collapse;
-        }
-
-        div.boxed-page table th {
-            text-align: center;
-        }
-
-        div.boxed-page table td:first-child {
-            text-align: center;
-        }
-
-        div.boxed-page table td:nth-child(2):hover {
-            color: #ffffff;
-            background: #cccccc;
-            cursor: pointer;
-        }
-
-        div.boxed-page table td:nth-child(3) {
-            text-align: right;
-        }
-
-        /* 검색한 음식 영양성분 조회 */
-
-        div.nt_row {
-            position: relative;
-            height: 850px;
-            width: 920px;
-
-        }
-
-        div.nt_row #nt_row1 {
-            padding-top: 20px;
-            margin-top: 15px;
-        }
-
-        div.col-8 h4 {
-            padding-top: 4px;
-        }
-
-        div.col-lg-4 {
-            border: 1px solid lightgray;
-            border-radius: 2em;
-            padding: 3px;
-            margin: 5px;
-            width: 300px;
-        }
-
-        div.col-4 h4.menu-price {
-            margin-left: 33px;
-            padding-top: 4px;
-        }
-
-        div.col-4 h4#excess {
-            padding-top: 5px;
-            position: absolute;
-        }
-
-        div.col-4 h4#excess2 {
-            margin-left: 34px;
-            padding-top: 5px;
-        }
 
 
-        div.col-md-12 h2 {
-            position: absolute;
-            text-align: center;
-            padding-bottom: 50px;
-            margin-top: 30px;
-        }
-
-        div.menu-wrap {
-            float: left;
-            margin: 20px;
-        }
-
-        div p1 {
-            position: relative;
-            margin-left: 40px;
-            margin-top: 10px;
-            padding-top: 30px;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        div p4 {
-            position: absolute;
-            margin-left: 125px;
-            top: 336px;
-            color: dodgerblue;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-            font-size: 18px;
-            font-weight: 500;
-
-        }
-
-
-        div p5 {
-            position: absolute;
-            margin-left: 453px;
-            top: 338px;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        div.mb-5 h2 {
-            position: relative;
-            text-align: center;
-            margin: 0 auto;
-            padding-bottom: 50px;
-        }
-
-        div nav.navbar-expand-lg {
-            position: relative;
-            padding-top: 30px;
-        }
-
-        #lili td:hover {
-            color: orangered;
-            cursor: pointer;
-        }
-
-        div.text-wrap {
-            left: 20px;
-        }
-
-        .boxed-page aside.aside {
-            position: absolute;
-            top: 25%;
-            right: 82%;
-            z-index: 10;
-            padding: 10px;
-        }
-
-        .boxed-page aside.aside .side-bar-list {
-            min-width: 200px;
-            background: #FFFFFF;
-            border-radius: 1.5rem;
-            border: solid 10px #f4ede5;
-            padding: 10px;
-            margin-left: 70px;
-            /*margin-top: 30px;*/
-        }
-
-        .boxed-page aside.aside .side-bar-list .myList {
-            text-align: center;
-        }
-
-        a.dropdown-toggle {
-            /*background-color: pink;*/
-            position: relative;
-        }
-
-    </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
@@ -469,6 +262,25 @@ URL: https://gettemplates.co
                         </c:forEach>
 
                     </table>
+                </div>
+                <div class="recomend">
+
+                    <table class="recommend-nutrients">
+
+                        <tr id="li">
+                            <th>추천 영양제</th>
+                        </tr>
+
+                        <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                            <tr id="lili">
+
+                                <td>${sm.name}</td>
+
+                            </tr>
+                        </c:forEach>
+
+                    </table>
+
                 </div>
 
                 <div class="nt_row">
