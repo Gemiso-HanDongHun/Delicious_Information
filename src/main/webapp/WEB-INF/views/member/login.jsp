@@ -180,7 +180,7 @@
 
             <div class="loginbt">
                 <button type="submit" id="login" value="로그인">로그인</button>
-                <button type="button" id="regist" onclick="location.href='/member/sign-up'">회원가입</button>
+                <button type="button" id="regist" onclick="location.href='/member/sign-up'"><strong>회원가입</strong></button>
             </div>
 
             <div class="p">

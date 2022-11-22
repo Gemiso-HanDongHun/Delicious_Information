@@ -85,7 +85,7 @@ public class MemberController {
         if (flag == MemberLoginFlag.SUCCESS) {
             log.info("login success!!");
             String redirectURI = (String) session.getAttribute("redirectURI");
-            return "redirect:"+ redirectURI;
+            return "redirect:/food/list";
         }
         model.addAttribute("loginMsg", flag);
         return "member/login";

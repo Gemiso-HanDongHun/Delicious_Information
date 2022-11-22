@@ -75,6 +75,7 @@
 	const $pw = document.querySelector("#password");
 	const $loginButton = document.querySelector("button[type=button]");
 	const $form = document.querySelector("form");
+
 	function isValiDate(){
 
 
@@ -89,6 +90,8 @@
 		return true;
 
 	}
+
+
 
 	$loginButton.addEventListener("click", function () {
 		if(isValiDate()){

@@ -5,9 +5,7 @@
 <html lang="ko">
 
 <head>
-    <%--    <%@ include file="./include/static-head.jsp" %>--%>
-    <%@include file="../about/include/header_css.jsp" %>
-    <link rel="stylesheet" href="/about/css/about.css">
+<%--    <%@ include file="../include/static-head.jsp" %>--%>
 
     <style>
         .wrap {
@@ -26,15 +24,15 @@
 
 <body>
 
-<%--<%@ include file="./include/header.jsp" %>--%>
-<%@include file="../about/include/side_nav.jsp" %>
+<%--<%@ include file="../include/header.jsp" %>--%>
+
 
 <div class="container wrap">
     <div class="row">
         <div class="offset-md-2 col-md-4">
             <div class="card" style="width:200%;">
                 <div class="card-header text-white" style="background: #343A40;">
-                    <h2><span style="color: gray;">Delicious Nutrient</span> 회원 가입</h2>
+                    <h2><span style="color: gray;">MVC</span> 회원 가입</h2>
                 </div>
                 <div class="card-body">
 
@@ -74,28 +72,16 @@
                             </tr>
                             <tr>
                                 <td style="text-align: left">
-                                    <p><strong>성별</strong>&nbsp;&nbsp;&nbsp;<span id="genderchk"></span>
+                                    <p><strong>비밀번호를 재확인해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="pwChk2"></span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <input type="radio" name="gender" value="남">남
-                                    <%--                                    <input type="radio" size="17" maxlength="20" id="checkbox"--%>
-                                    <%--                                           name="gender" class="form-control tooltipstered" maxlength="20"--%>
-                                    <%--                                           required="required" aria-required="true"--%>
-                                    <%--                                           style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"--%>
-                                    <%--                                           placeholder="성별입력.">--%>
-                                </td>
-
-                                <td>
-                                    <input type="radio" name="gender" value="여">여
-                                    <%--                                    <input type="radio" size="17" maxlength="20" id="checkbox"--%>
-                                    <%--                                           name="gender" class="form-control tooltipstered" maxlength="20"--%>
-                                    <%--                                           required="required" aria-required="true"--%>
-                                    <%--                                           style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"--%>
-                                    <%--                                           placeholder="성별입력.">--%>
-                                </td>
+                                <td><input type="password" size="17" maxlength="20" id="password_check"
+                                           name="pw_check" class="form-control tooltipstered" maxlength="20"
+                                           required="required" aria-required="true"
+                                           style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"
+                                           placeholder="비밀번호가 일치해야합니다."></td>
                             </tr>
 
                             <tr>
@@ -106,18 +92,6 @@
                             <tr>
                                 <td><input type="text" name="name" id="user_name" class="form-control tooltipstered"
                                            maxlength="6" required="required" aria-required="true"
-                                           style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-                                           placeholder="한글로 최대 6자"></td>
-                            </tr>
-
-                            <tr>
-                                <td style="text-align: left">
-                                    <p><strong>번호를 입력해주세요</strong>&nbsp;&nbsp;&nbsp;<span id="phonecheck"></span></p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" name="phone" id="user_number" class="form-control tooltipstered"
-                                           maxlength="13" required="required" aria-required="true"
                                            style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
                                            placeholder="한글로 최대 6자"></td>
                             </tr>
@@ -136,23 +110,18 @@
                                            placeholder="ex) abc@mvc.com"></td>
                             </tr>
 
+
                             <tr>
                                 <td style="padding-top: 10px; text-align: center">
-                                    <p><strong>회원가입을 하면 음식 추천정보를 이용할 수 있습니다~!</strong></p>
+                                    <p><strong>회원가입하셔서 더 많은 서비스를 사용하세요~~!</strong></p>
                                 </td>
                             </tr>
-
-
                             <tr>
-
-                                <button value="회원가입" class="btn form-control tooltipstered"
-                                        style="width: 40%; text-align: center; colspand : 2;">회원가입
-                                </button>
-                                <%--                                <td style="width: 40%; text-align: center; colspan: 2;">--%>
-                                <%--                                    <input type="button" value="회원가입" class="btn form-control tooltipstered"--%>
-                                <%--                                           id="signup-btn"--%>
-                                <%--                                           style="background: pink; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">--%>
-                                <%--                                </td>--%>
+                                <td style="width: 100%; text-align: center; colspan: 2;">
+                                    <input type="button" value="회원가입" class="btn form-control tooltipstered"
+                                           id="signup-btn"
+                                           style="background: gray; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
+                                </td>
                             </tr>
 
                         </table>
@@ -162,7 +131,6 @@
         </div>
     </div>
 </div>
-+
 
 <script>
 
@@ -177,7 +145,7 @@
         const getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
 
         // 입력값 검증 배열
-        // 1: 아이디,  2: 비번, 3: 성별, 4: 이름, 5: 번호
+        // 1: 아이디,  2: 비번, 3: 비번확인, 4: 이름, 5: 이메일
         const checkArr = [false, false, false, false, false];
 
         // 1. 아이디 검증
@@ -241,6 +209,7 @@
                 $('#pwChk').html('<b class="c-blue">[참 잘했어요]</b>');
                 checkArr[1] = true;
             }
+
         });
 
         //패스워드 확인란 입력값 검증.
@@ -284,9 +253,6 @@
 
         });
 
-        // 성별 입력값 검증
-
-
         //이메일 입력값 검증.
         const $emailInput = $('#user_email');
         $emailInput.on('keyup', function () {
@@ -324,6 +290,7 @@
             }
         });
 
+
         // 회원가입 양식 서버로 전송하는 클릭 이벤트
         const $regForm = $('#signUpForm');
 
@@ -336,8 +303,12 @@
             }
         });
 
-    });
+
+    }); // end jQuery
 </script>
+
+
+<%--<%@ include file="../include/footer.jsp" %>--%>
 
 </body>
 
