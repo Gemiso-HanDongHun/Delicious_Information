@@ -1,14 +1,19 @@
 package com.champion.deliciousInfo.member.service;
 
+import com.champion.deliciousInfo.admin.service.LoginFlag;
 import com.champion.deliciousInfo.member.domain.Member;
+import com.champion.deliciousInfo.member.dto.LoginDTO;
 import com.champion.deliciousInfo.member.repository.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.champion.deliciousInfo.member.service.MemberLoginFlag.*;
 
 @Service
 @Log4j2
@@ -48,4 +53,29 @@ public class MemberService {
         return memberMapper.findUser(account);
     }
 
+
+    public MemberLoginFlag login(LoginDTO inputData, HttpSession session) {
+        // 회원가입 여부 확인
+        Member foundMember = memberMapper.findUser(inputData.getAccount());
+        if (foundMember != null) {
+            if (encoder.matches(inputData.getPassword(), foundMember.getPassword())) {
+
+                // 세션에 사용자 정보기록 저장
+                session.setAttribute("loginUser", foundMember);
+
+                // 세션 타임아웃 설정
+                session.setMaxInactiveInterval(60 * 60); // 1시간
+
+
+                // 로그인 성공
+                return SUCCESS;
+            } else {
+                // 비번 틀림
+                return NO_PW;
+            }
+        } else {
+            // 아이디 없음
+            return NO_ACC;
+        }
+    }
 }

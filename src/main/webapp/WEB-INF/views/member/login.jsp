@@ -44,7 +44,9 @@
             height: 40px;
             display: block;
             margin: 0 auto;
-
+            border-radius: 1.5em;
+            border: 1px solid #f4ede5;
+            padding: 15px;
         }
 
         #memberps {
@@ -52,7 +54,18 @@
             height: 40px;
             display: block;
             margin:  15px auto;
+            border-radius: 1.5em;
+            border: 1px solid #f4ede5;
+            padding: 15px;
         }
+
+        #memberid:focus, #memberps:focus {
+            outline: none;
+            border: 1px solid #bcbcbc;
+            box-sizing: border-box;
+        }
+
+
 
         .boxed-page .loginform .loginbt {
             width: 100%;
@@ -105,7 +118,7 @@
         </div>
 
         <div class="loginbt">
-            <button type="button" id="login">로그인</button>
+            <button type="submit" id="login" value="로그인">로그인</button>
             <button type="button" id="regist" onclick="location.href='/member/sign-up'">회원가입</button>
         </div>
 
@@ -118,9 +131,32 @@
                     <img src="/images/kakao_login_large_wide.png" alt="카카오 로그인">
                 </a>
         </div>
+        <ul>
+        <c:if test="${loginUser == null}">
+            <li><a href="/member/sign-up">Sign Up</a></li>
+            <li><a href="/member/login">Sign In</a></li>
+        </c:if>
+
+        <c:if test="${loginUser != null}">
+            <li><a href="#">My Page</a></li>
+            <li><a href="/member/sign-out">Sign Out</a></li>
+        </c:if>
+        </ul>
     </section>
 
 
+    </form>
 </div>
+
+<script>
+
+    const loginMsg = '${loginMsg}';
+    if (loginMsg === 'NO_ACC') {
+        alert('존재하지 않는 회원입니다.');
+    } else if (loginMsg === 'NO_PW') {
+        alert('비밀번호가 틀렸습니다.');
+    }
+</script>
+
 </body>
 </html>

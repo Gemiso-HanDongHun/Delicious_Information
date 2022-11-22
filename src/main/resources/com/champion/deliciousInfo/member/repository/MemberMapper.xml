@@ -25,13 +25,13 @@
 
     </select>
 
-<!--    &lt;!&ndash; 회원 조회 기능   &ndash;&gt;-->
-<!--    <select id="findUser" resultMap="memberMap">-->
+    <!-- 회원 조회 기능   -->
+    <select id="findUser" resultType="com.champion.deliciousInfo.member.domain.Member">
 
-<!--        SELECT *-->
-<!--        FROM tbl_member-->
-<!--        WHERE account = #{account}-->
+        SELECT *
+        FROM member
+        WHERE account = #{account}
 
-<!--    </select>-->
+    </select>
 
 </mapper>

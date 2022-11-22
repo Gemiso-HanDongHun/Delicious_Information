@@ -31,7 +31,7 @@
           </li>
 
           <li>
-            <p>𝓝𝓾𝓽𝓻𝓲𝓮𝓷𝓽 𝓛𝓲𝓼𝓽</p>
+            <p>𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</p>
           </li>
 
           <li class="nav-item dropdown" id="nav-li">
