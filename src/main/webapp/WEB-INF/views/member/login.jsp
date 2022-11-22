@@ -106,7 +106,7 @@
 
         <div class="loginbt">
             <button type="button" id="login">로그인</button>
-            <button type="button" id="regist">회원가입</button>
+            <button type="button" id="regist" onclick="location.href='/member/sign-up'">회원가입</button>
         </div>
 
         <div class="p">

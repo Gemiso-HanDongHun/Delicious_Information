@@ -134,6 +134,7 @@ URL: https://gettemplates.co
         <aside class="aside">
             <div class="side-bar-list">
                 <div class="myList">내가 선택한 음식목록</div>
+                <div>~~~~~~~~~~~~~~~~~~</div>
                 <div id="mine">
 
                 </div>
