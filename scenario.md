@@ -154,3 +154,5 @@ luycin
 11.17 : list.jsp 사진추가, food-nutrient.jsp 에서 추천목록에서 메뉴로 이동가능 food-nutrient2.jsp도 동일
 
 11.18 : food-nuturient.jsp에서 하루할당 에너지를 만족여부에 따른 결과 메세지 출력,session으로 체크한 음식을 보여주기위한 박스 생성
+
+11.21 : 회원가입 기능 -> 현재 값을 입력할시에 DB에 데이터가 삽입된다. 성별 체크박스 유효성 검사 필요

@@ -186,7 +186,7 @@
         div.flex-column li p {
             position: relative;
             text-align: center;
-            right: 150px;
+            right: 165px;
             font-size: 35px;
             /*background-color: rebeccapurple;*/
 
@@ -256,9 +256,26 @@
                             <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                         </li>
 
+
+
                         <li class="nav-item dropdown">
                         </li>
                     </div>
+
+                    <div>
+                        <li class="nav-item">
+<%--                            <a class="nav-link" id="sign-in" href="/sing-in">sign-</a>--%>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-up" href="/member/sign-up">Sign-up</a>
+                        </li>
+
+                    </div>
+
+
+
+
                 </ul>
 
                 <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">--%>

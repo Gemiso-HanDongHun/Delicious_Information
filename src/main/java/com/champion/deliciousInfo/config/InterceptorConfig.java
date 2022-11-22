@@ -1,6 +1,6 @@
 package com.champion.deliciousInfo.config;
 
-import com.champion.deliciousInfo.interceptor.AdminInterceptor;
+import com.champion.deliciousInfo.intercepter.AdminInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
