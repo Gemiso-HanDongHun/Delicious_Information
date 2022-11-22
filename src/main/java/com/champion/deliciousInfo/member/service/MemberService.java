@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.champion.deliciousInfo.member.service.MemberLoginFlag.*;
+import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
 
 @Service
 @Log4j2
@@ -61,7 +62,7 @@ public class MemberService {
             if (encoder.matches(inputData.getPassword(), foundMember.getPassword())) {
 
                 // 세션에 사용자 정보기록 저장
-                session.setAttribute("loginUser", foundMember);
+                session.setAttribute(LOGIN_FLAG, foundMember);
 
                 // 세션 타임아웃 설정
                 session.setMaxInactiveInterval(60 * 60); // 1시간

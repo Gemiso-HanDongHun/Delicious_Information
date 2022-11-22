@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ko">
 
 <head>
 
@@ -224,6 +224,15 @@
         .boxed-page aside.aside .side-bar-list .myList {
             text-align: center;
         }
+        div.sign{
+            margin-left:250px;
+        }
+        div.flex-column li.sign a {
+            width:75px;
+            position: relative;
+            margin-right: 10px;
+            padding-top: 45px;
+        }
     </style>
 
 </head>
@@ -262,15 +271,21 @@
                         </li>
                     </div>
 
-                    <div>
-                        <li class="nav-item">
-<%--                            <a class="nav-link" id="sign-in" href="/sing-in">sign-</a>--%>
-                        </li>
+                    <div class="d-flex flex-lg-row flex-column sign " >
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-in" href="/member/login">Sign-in</a>
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-up" href="/member/sign-up">Sign-up</a>
+                            </li>
+                        </c:if>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="sign-up" href="/member/sign-up">Sign-up</a>
-                        </li>
-
+                        <c:if test="${!empty loginUser}">
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">Sign-out</a>
+                            </li>
+                        </c:if>
                     </div>
 
 
@@ -281,13 +296,13 @@
                 <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">--%>
                 <%--                    <img src="/resto/img/logo.png" alt="">--%>
                 <%--                </a>--%>
-                <ul class="navbar-nav d-flex justify-content-between">
+               <%-- <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
                         </li>
                     </div>
                     <li class="nav-item">
                     </li>
-                </ul>
+                </ul>--%>
             </div>
         </div>
     </nav>

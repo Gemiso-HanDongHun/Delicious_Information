@@ -107,14 +107,15 @@
 <div class="boxed-page">
     <%@include file="./include/member_nav.jsp" %>
 
+    <form action="/member/login" method="post">
     <section class="loginform">
 
         <div class="login">
             <div class="title">
                 <h1>Delicious info에 로그인</h1>
             </div>
-            <input type="text" id="memberid" value="" placeholder="아이디를 입력해주세요">
-            <input type="password" id="memberps" value="" placeholder="비밀번호를 입력해주세요">
+            <input type="text" id="memberid" name="account" value="" placeholder="아이디를 입력해주세요">
+            <input type="password" id="memberps" name ="password" value="" placeholder="비밀번호를 입력해주세요">
         </div>
 
         <div class="loginbt">
@@ -127,7 +128,7 @@
         </div>
 
         <div class="kakao">
-                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${appKey}&redirect_uri=http://localhost:8276${redirectUri}&response_type=code">
+                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAppKey}&redirect_uri=http://localhost:8276${kakaoRedirect}&response_type=code">
                     <img src="/images/kakao_login_large_wide.png" alt="카카오 로그인">
                 </a>
         </div>
