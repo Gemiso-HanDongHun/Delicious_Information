@@ -11,7 +11,7 @@
     <style>
 
         div.flex-column p.maintext {
-            right: 27px;
+            margin-left: 105px;
         }
 
         li a.dropdown-to {
@@ -163,12 +163,12 @@
                             <a class="nav-link" id="about" href="/food-about">About</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/food/list">List</a>
-                        </li>
-
                         <li>
                             <p class="maintext">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</p>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="foodlist" href="/food/list">List</a>
                         </li>
 
                         <li class="nav-item dropdown" id="nav-li">
@@ -205,7 +205,7 @@
                 <input type="text" id="name" name="name" value="" placeholder="이름을 입력해주세요">
 
                 <p style="text-align: left; "><strong>아이디<span class="import">(필수 정보)</span></strong></p>
-                <input type="text" id="account" name="account" value="" placeholder="아이디를 입력해주세요">
+                <input type="text" id="account" name="account"  placeholder="아이디를 입력해주세요">
 
                 <p style="text-align: left; "><strong>비밀번호<span class="import">(필수 정보)</span></strong>&nbsp;&nbsp;&nbsp;<span id="pwChk"></span></p>
                 <input type="password" id="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
