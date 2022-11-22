@@ -21,17 +21,17 @@
         }
 
         .boxed-page {
-            height: 970px;
+            height: 90vh;
         }
 
         .boxed-page .loginform {
             width: 25%;
-            height: 45vh;
+            height: 50vh;
             position: relative;
             margin: auto;
             top: 120px;
-            border: 1px solid #f4ede5;
-            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+            border: 1px solid  #f4ede5;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
             border-radius: 1.5em;
             box-sizing: border-box;
             background: #f4ede5;
@@ -65,7 +65,7 @@
             width: 90%;
             height: 40px;
             display: block;
-            margin: 15px auto;
+            margin:  15px auto;
             border-radius: 1.5em;
             border: 1px solid #f4ede5;
             padding: 15px;
@@ -76,6 +76,7 @@
             border: 1px solid #bcbcbc;
             box-sizing: border-box;
         }
+
 
 
         .boxed-page .loginform .loginbt {
@@ -167,19 +168,19 @@
     </nav>
 
 
-    <form action="/member/login" method="post">
+    <form id="form1">
         <section class="loginform">
 
             <div class="login">
                 <div class="title">
                     <h1>로그인</h1>
                 </div>
-                <input type="text" id="memberid" name="account" value="" placeholder="아이디를 입력해주세요">
-                <input type="password" id="memberps" name="password" value="" placeholder="비밀번호를 입력해주세요">
+                <input type="text" id="memberid" name="account"  placeholder="아이디를 입력해주세요">
+                <input type="password" id="memberps" name="password"  placeholder="비밀번호를 입력해주세요">
             </div>
 
             <div class="loginbt">
-                <button type="submit" id="login" value="로그인">로그인</button>
+                <button type="button" id="login" value="로그인">로그인</button>
                 <button type="button" id="regist" onclick="location.href='/member/sign-up'"><strong>회원가입</strong></button>
             </div>
 
@@ -210,13 +211,44 @@
 </div>
 
 <script>
-
+    const $id = document.querySelector("#memberid");
+    const $pw = document.querySelector("#memberps");
+    const $loginButton = document.querySelector("#login");
+    const $form = document.querySelector("#form1");
     const loginMsg = '${loginMsg}';
+
+    function isValiDate(){
+
+
+        if($id.value.trim()=="") {
+            alert("아이디를 입력해주세요");
+            return false;
+        }else if($pw.value.trim()==""){
+            alert("비밀번호를 입력해주세요");
+            return false;
+        }
+
+        return true;
+
+    }
+
     if (loginMsg === 'NO_ACC') {
         alert('존재하지 않는 회원입니다.');
     } else if (loginMsg === 'NO_PW') {
         alert('비밀번호가 틀렸습니다.');
     }
+
+
+    $loginButton.addEventListener("click", function () {
+         if (isValiDate()){
+            $form.action="/member/login";
+            $form.method="post";
+            $form.submit();
+        }
+    });
+
+
+
 </script>
 
 </body>

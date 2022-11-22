@@ -100,6 +100,7 @@
             $form.submit();
 		}
 	});
+
 	$pw.addEventListener("keydown",e => {
 		if(e.keyCode==13){
 			if(isValiDate()){
