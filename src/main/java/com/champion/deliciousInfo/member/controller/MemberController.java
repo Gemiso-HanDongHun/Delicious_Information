@@ -38,7 +38,7 @@ public class MemberController {
         log.info("/member/sign-up POST ! - {}", member);
         boolean flag = memberService.signUp(member);
         ra.addFlashAttribute("msg", "reg-success");
-        return flag ? "redirect:/member/sign-up" : "redirect:/member/sign-up";
+        return flag ? "redirect:/member/login" : "redirect:/member/sign-up";
     }
 
 }
