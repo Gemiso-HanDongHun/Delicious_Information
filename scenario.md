@@ -29,6 +29,10 @@ DB 설계
 음식ID, 음식명, Kcal, 사진명
 
 영양소( 탄수화물, 단백질, 지방, 비타민 A, D, E, K, C),
+## nutrient(영양제)
+* name
+* id
+* quantity
 
 ## food Table 
 * food_no (int auto Increment primary key) 
@@ -85,8 +89,10 @@ DB 설계
 # Version 3.0
 1. client 
     + 영양제 추천 nutrient.jsp 에 영양제만 vitaminA, vitaminC, vitaminE 
-    + 회원기능 추가 sign-in.jsp sign-up.jsp 카카오로그인만들기 
-    + 
+    + 로그인, 회원 가입 
+    + 카카오로그인 
+   
+
 
 
 lemoncoat : 
@@ -110,7 +116,8 @@ lemoncoat :
 
 11.18 - 여러가지 음식 선택하고 검색 버튼 누르면 선택한 음식들의 영양정보 보여주기 controller 와 서비스 처리 완료
 
-11.21 - food-nutrient-list.jsp 영양소 양 뜨게 바꾸기 fnservice fncontroller 변경
+11.21 - food-nutrient-list.jsp 영양소 양 뜨게 바꾸기 fnservice fncontroller 변경 supplement db추가 및 도메인
+추가 service추가 mapper추가 추천 영양제 보여주기 완료
 
 goill : 
 

@@ -4,6 +4,8 @@ import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.domain.TodayNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
 import com.champion.deliciousInfo.food.service.FoodService;
+import com.champion.deliciousInfo.supplement.domain.Supplement;
+import com.champion.deliciousInfo.supplement.service.SupplementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -26,18 +28,22 @@ public class FoodNutrientController {
 
     private final FoodService foodService;
 
+    private final SupplementService supplementService;
+
     // 영양분 정보 상세 조회
     @GetMapping("/nutrient/{foodNo}")
     public String list(@PathVariable int foodNo, Model model) {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
         Map<String,Object> recommendData = foodNutrientService.manRecommend(foodNo);
+        List<Supplement> sl = supplementService.findAll();
         List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) recommendData.get("tl");
         TodayNutrient todayNutrient = (TodayNutrient) recommendData.get("tn");
 
         model.addAttribute("fn",foodNutrient);
         model.addAttribute("tl",todayNutrientList);
         model.addAttribute("tn",todayNutrient);
+        model.addAttribute("sl",sl);
 
         log.info("foodnutrient - {}", foodNutrient);
         return "food/food-nutrient";
@@ -49,12 +55,14 @@ public class FoodNutrientController {
 
         FoodNutrient foodNutrient = foodNutrientService.findOne(foodNo);
         Map<String,Object> recommendData = foodNutrientService.womanRecommend(foodNo);
+        List<Supplement> sl = supplementService.findAll();
         List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) recommendData.get("tl");
         TodayNutrient todayNutrient = (TodayNutrient) recommendData.get("tn");
 
         model.addAttribute("fn", foodNutrient);
         model.addAttribute("tl", todayNutrientList);
         model.addAttribute("tn",todayNutrient);
+        model.addAttribute("sl",sl);
 
         log.info("foodnutrient - {}", foodNutrient);
         return "food/food-nutrient2";
@@ -65,6 +73,7 @@ public class FoodNutrientController {
         List<FoodNutrient> myList = (List<FoodNutrient>) session.getAttribute("myList");
         log.info("GetMapping /select-nutrient -{}",myList);
         Map<String, Object> foundMapData = foodNutrientService.manTotal(myList);
+        List<Supplement> sl = supplementService.findAll();
         List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) foundMapData.get("tl");
         TodayNutrient todayNutrient = (TodayNutrient) foundMapData.get("tn");
         FoodNutrient total = (FoodNutrient) foundMapData.get("fn");
@@ -72,6 +81,7 @@ public class FoodNutrientController {
         model.addAttribute("total",total);
         model.addAttribute("tn",todayNutrient);
         model.addAttribute("tl",todayNutrientList);
+        model.addAttribute("sl",sl);
         return "/food/food-nutrient-list";
     }
     @GetMapping("/select-nutrient2")
@@ -79,6 +89,7 @@ public class FoodNutrientController {
         List<FoodNutrient> myList = (List<FoodNutrient>) session.getAttribute("myList");
         log.info("GetMapping /select-nutrient -{}",myList);
         Map<String, Object> foundMapData = foodNutrientService.womanTotal(myList);
+        List<Supplement> sl = supplementService.findAll();
         List<FoodNutrient> todayNutrientList = (List<FoodNutrient>) foundMapData.get("tl");
         TodayNutrient todayNutrient = (TodayNutrient) foundMapData.get("tn");
         FoodNutrient total = (FoodNutrient) foundMapData.get("fn");
@@ -86,6 +97,7 @@ public class FoodNutrientController {
         model.addAttribute("total",total);
         model.addAttribute("tn",todayNutrient);
         model.addAttribute("tl",todayNutrientList);
+        model.addAttribute("sl",sl);
         return "/food/food-nutrient-list2";
     }
 }

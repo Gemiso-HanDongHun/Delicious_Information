@@ -38,233 +38,17 @@ URL: https://gettemplates.co
 
     <!-- CSS -->
     <link rel="stylesheet" href="/resto/css/style.min.css">
+    <link rel="stylesheet" href="/food-nutrient/food-nutrient.css">
+
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
-    <style>
 
-        div.boxed-page {
-            /*background-color: pink;*/
-            height: 1350px;
-        }
-
-        div.flex-column li {
-            margin: 35px;
-            padding-top: 25px;
-        }
-
-        #nene {
-            margin-left: 280px;
-            margin-bottom: 4px;
-        }
-
-        #nene:hover {
-            color: orangered;
-            cursor: pointer;
-        }
-
-        #nene:hover {
-            color: #f44336;
-            cursor: pointer;
-        }
-
-        table {
-            background-color: #f4ede5;
-            width: 355px;
-            border: 1px solid #444444;
-            box-sizing: border-box;
-            margin: auto;
-            border-radius: 1em;
-            padding-top: 20px;
-            margin-left: 800px;
-            position: absolute;
-            height: 400px;
-            z-index: 1200;
-        }
-
-        #lili td {
-            background-color: floralwhite;
-            padding: 6px;
-        }
-
-        #li th {
-            padding: 9px;
-        }
-
-        th, td {
-            border: 1px solid #ffffff;
-            padding: 3px;
-            margin-top: 80px;
-            box-sizing: border-box;
-            border-collapse: collapse;
-        }
-
-        div.boxed-page table th {
-            text-align: center;
-        }
-
-        div.boxed-page table td:first-child {
-            text-align: center;
-        }
-
-        div.boxed-page table td:nth-child(2):hover {
-            color: #ffffff;
-            background: #cccccc;
-            cursor: pointer;
-        }
-
-        div.boxed-page table td:nth-child(3) {
-            text-align: right;
-        }
-
-        /* 검색한 음식 영양성분 조회 */
-
-        div.nt_row {
-            position: relative;
-            height: 850px;
-            width: 920px;
-
-        }
-
-        div.nt_row #nt_row1 {
-            padding-top: 20px;
-            margin-top: 15px;
-        }
-
-        div.col-8 h4 {
-            padding-top: 4px;
-        }
-
-        div.col-lg-4 {
-            border: 1px solid lightgray;
-            border-radius: 2em;
-            padding: 3px;
-            margin: 5px;
-            width: 300px;
-        }
-
-        div.col-4 h4.menu-price {
-            margin-left: 33px;
-            padding-top: 4px;
-        }
-
-        div.col-4 h4#excess {
-            padding-top: 5px;
-            position: absolute;
-        }
-
-        div.col-4 h4#excess2 {
-            margin-left: 34px;
-            padding-top: 5px;
-        }
-
-
-        div.col-md-12 h2 {
-            position: absolute;
-            text-align: center;
-            padding-bottom: 50px;
-            margin-top: 30px;
-        }
-
-        div.menu-wrap {
-            float: left;
-            margin: 20px;
-        }
-
-        div p1 {
-            position: relative;
-            margin-left: 40px;
-            margin-top: 10px;
-            padding-top: 30px;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        div p4 {
-            position: absolute;
-            margin-left: 125px;
-            top: 336px;
-            color: dodgerblue;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-            font-size: 18px;
-            font-weight: 500;
-
-        }
-
-
-        div p5 {
-            position: absolute;
-            margin-left: 453px;
-            top: 338px;
-            border-radius: 2em;
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        div.mb-5 h2 {
-            position: relative;
-            text-align: center;
-            margin: 0 auto;
-            padding-bottom: 50px;
-        }
-
-        div nav.navbar-expand-lg {
-            position: relative;
-            padding-top: 30px;
-        }
-
-        #lili td:hover {
-            color: orangered;
-            cursor: pointer;
-        }
-
-        div.text-wrap {
-            left: 20px;
-        }
-
-        .boxed-page aside.aside {
-            position: absolute;
-            top: 25%;
-            right: 82%;
-            z-index: 10;
-            padding: 10px;
-        }
-
-        .boxed-page aside.aside .side-bar-list {
-            min-width: 200px;
-            background: #FFFFFF;
-            border-radius: 1.5rem;
-            border: solid 10px #f4ede5;
-            padding: 10px;
-            margin-left: 70px;
-            /*margin-top: 30px;*/
-        }
-
-        .boxed-page aside.aside .side-bar-list .myList {
-            text-align: center;
-        }
-
-        a.dropdown-toggle {
-            /*background-color: pink;*/
-            position: relative;
-        }
-
-        div.myList {
-            font-weight: 700;
-        }
-
-    </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
-<div id="side-nav" class="sidenav">
+<%--<div id="side-nav" class="sidenav">
     <a href="javascript:void(0)" id="side-nav-close">&times;</a>
 
     <div class="sidenav-content">
@@ -294,7 +78,7 @@ URL: https://gettemplates.co
     </div>
 
 
-</div>
+</div>--%>
 <div id="canvas-overlay"></div>
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
@@ -360,94 +144,7 @@ URL: https://gettemplates.co
             </div>
         </aside>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        <script type="text/babel">
-
-            function Food(props) {
-                return (
-                    <div className="my-food d-flex justify-content-center">
-                        <br/>  <p>{props.name}</p>
-                    </div>
-                );
-            }
-
-            function Getbr() {
-                return (
-                    <br/>
-                );
-            }
-
-            function List(props) {
-                var myList = props.myList;
-                //tr을 반복한 컨테츠를 구성
-                var tag = []; //여기에 tr을 모아 둘것임
-                for (let i = 0; i < myList.length; i++) {
-                    let fn = myList[i];
-                    if (i < 8) {
-                        tag.push(<Food name={fn.food.name}/>); //10
-                    }
-                }
-
-                return (
-                    <div className="my-food-list">
-                        {tag}
-                    </div>
-
-                );
-            }
-
-            function printList(myList) {
-                var root = ReactDOM.createRoot(document.getElementById("mine"));
-                root.render(<List myList={myList}/>);
-            }
-        </script>
-
-        <script>
-            const $searchButton = document.querySelector("#side-search-open");
-            const $inputName = document.querySelector("#inputName");
-            const $table = document.querySelector("table");
-            const $reset = document.querySelector("#reset");
-            let checkTotal = 0;
-
-            /*  탄수화물: {props.carbohydrate}g
-                                지방 : {props.fat}g
-                                단백질 : {props.protein}g</p>*/
-
-            function showFoodData(myList) { //선택한 음식 보여주기
-                printList(myList);
-                checkTotal = myList.length;
-                for (let i = 0; i < myList.length; i++) {
-                    let fn = myList[i];
-                    let $inputBox = document.getElementById(fn.food.foodNo);
-                    console.log($inputBox);
-                    if ($inputBox !== null) {
-                        $inputBox.setAttribute("checked", "checked");
-                    }
-                }
-            }
-
-            function resetSession(myList) {
-                printList(myList);
-                checkTotal = myList.length;
-                for (let i = 0; i < 15; i++) {
-                    let $inputBox = document.querySelectorAll(".select");
-                    $inputBox[i].checked = false;
-                }
-            }
-
-
-            $(function () { //onload되면
-                fetch('/api/foods/')
-                    .then(res => res.json())
-                    .then(myList => {
-                        showFoodData(myList);
-                    });
-            });
-        </script>
 
         <div class="container">
             <div class="section-content">
@@ -477,6 +174,25 @@ URL: https://gettemplates.co
                             <tr id="lili">
 
                                 <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+
+                            </tr>
+                        </c:forEach>
+
+                    </table>
+
+                </div>
+                <div class="recomend">
+
+                    <table class="recommend-nutrients">
+
+                        <tr id="li">
+                            <th>추천 영양제</th>
+                        </tr>
+
+                        <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                            <tr id="lili">
+
+                                <td>${sm.name}</td>
 
                             </tr>
                         </c:forEach>
@@ -949,6 +665,94 @@ URL: https://gettemplates.co
 <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
 <script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    function Food(props) {
+        return (
+            <div className="my-food d-flex justify-content-center">
+                <br/>  <p>{props.name}</p>
+            </div>
+        );
+    }
+
+    function Getbr() {
+        return (
+            <br/>
+        );
+    }
+
+    function List(props) {
+        var myList = props.myList;
+        //tr을 반복한 컨테츠를 구성
+        var tag = []; //여기에 tr을 모아 둘것임
+        for (let i = 0; i < myList.length; i++) {
+            let fn = myList[i];
+            if (i < 8) {
+                tag.push(<Food name={fn.food.name}/>); //10
+            }
+        }
+
+        return (
+            <div className="my-food-list">
+                {tag}
+            </div>
+
+        );
+    }
+
+    function printList(myList) {
+        var root = ReactDOM.createRoot(document.getElementById("mine"));
+        root.render(<List myList={myList}/>);
+    }
+</script>
+
+<script>
+    const $searchButton = document.querySelector("#side-search-open");
+    const $inputName = document.querySelector("#inputName");
+    const $table = document.querySelector("table");
+    const $reset = document.querySelector("#reset");
+    let checkTotal = 0;
+
+    /*  탄수화물: {props.carbohydrate}g
+                        지방 : {props.fat}g
+                        단백질 : {props.protein}g</p>*/
+
+    function showFoodData(myList) { //선택한 음식 보여주기
+        printList(myList);
+        checkTotal = myList.length;
+        for (let i = 0; i < myList.length; i++) {
+            let fn = myList[i];
+            let $inputBox = document.getElementById(fn.food.foodNo);
+            console.log($inputBox);
+            if ($inputBox !== null) {
+                $inputBox.setAttribute("checked", "checked");
+            }
+        }
+    }
+
+    function resetSession(myList) {
+        printList(myList);
+        checkTotal = myList.length;
+        for (let i = 0; i < 15; i++) {
+            let $inputBox = document.querySelectorAll(".select");
+            $inputBox[i].checked = false;
+        }
+    }
+
+
+    $(function () { //onload되면
+        fetch('/api/foods/')
+            .then(res => res.json())
+            .then(myList => {
+                showFoodData(myList);
+            });
+    });
+</script>
 
 <!-- Main JS -->
 <script src="js/app.min.js "></script>
