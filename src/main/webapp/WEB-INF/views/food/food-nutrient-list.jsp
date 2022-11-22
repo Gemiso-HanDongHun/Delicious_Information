@@ -277,13 +277,23 @@ URL: https://gettemplates.co
                             <th>추천 영양제</th>
                         </tr>
 
-                        <c:forEach var="sm" begin="0" end="17" items="${sl}">
-                            <tr id="lili">
+                        <c:if test="${!empty loginUser}">
+                            <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                                <tr id="lili">
 
-                                <td>${sm.name}</td>
+                                    <td>${sm.name}</td>
 
-                            </tr>
-                        </c:forEach>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty loginUser}">
+                                <tr id="lili">
+
+                                    <td onclick="location.href='/member/login'">회원만 이용 할 수 있습니다.</td>
+
+                                </tr>
+                        </c:if>
 
                     </table>
 

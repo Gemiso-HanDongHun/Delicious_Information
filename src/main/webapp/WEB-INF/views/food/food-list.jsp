@@ -228,7 +228,7 @@
             margin-left:250px;
         }
         div.flex-column li.sign a {
-            width:75px;
+            width:90px;
             position: relative;
             margin-right: 10px;
             padding-top: 45px;
@@ -337,9 +337,6 @@
                 <td>${f.foodNo}</td>
                 <td onclick="location.href='/food/nutrient/${f.foodNo}'">${f.name}</td>
                 <td>${f.kcal}(kcal)</td>
-                    <%-- <c:if test="${f.check}">
-                         <td><input type="checkbox" class="select" value="${f.foodNo}" checked></td>
-                     </c:if>--%>
                 <td><input type="checkbox" class="select" id="${f.foodNo}" value="${f.foodNo}"></td>
             </tr>
         </c:forEach>
@@ -391,7 +388,7 @@
 
 <script type="text/babel">
 
-    function Food(props) {
+    function Food(props) { //반복될 구간
         return (
             <div className="my-food">
                 <p>{props.name}<br/>
@@ -401,13 +398,13 @@
         );
     }
 
-    function Getbr() {
+    function Getbr() { //뛰어쓰기
         return (
             <br/>
         );
     }
 
-    function List(props) {
+    function List(props) { //그리기
         var myList = props.myList;
         //tr을 반복한 컨테츠를 구성
         var tag = []; //여기에 tr을 모아 둘것임
@@ -427,7 +424,6 @@
                 }
             }
         }
-
         return (
             <div className="my-food-list">
                 {tag}
@@ -436,7 +432,7 @@
         );
     }
 
-    function printList(myList) {
+    function printList(myList) { //react로 선택한 리스트 보여주기
         var root = ReactDOM.createRoot(document.getElementById("mine"));
         root.render(<List myList={myList}/>);
     }
@@ -449,10 +445,6 @@
     const $reset = document.querySelector("#reset");
     const $searchk = document.querySelector("#searchk");
     let checkTotal = 0;
-
-    /*  탄수화물: {props.carbohydrate}g
-                        지방 : {props.fat}g
-                        단백질 : {props.protein}g</p>*/
 
     function appendPageActive() {
 
@@ -525,7 +517,8 @@
             }
 
         }
-    }
+    };
+
     $reset.onclick = e => { //초기화 버틑 클릭시
         fetch('/api/foods/', {method: 'delete'})
             .then(res => res.json())
@@ -533,7 +526,8 @@
                 resetSession(myList);
             });
     };
-    $searchk.onclick =e =>{
+
+    $searchk.onclick =e =>{ //선택한 음식들 검색 버튼 클릭시
       location.href="/food/select-nutrient";
     };
 

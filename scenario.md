@@ -119,7 +119,8 @@ lemoncoat :
 11.21 - food-nutrient-list.jsp 영양소 양 뜨게 바꾸기 fnservice fncontroller 변경 supplement db추가 및 도메인
 추가 service추가 mapper추가 추천 영양제 보여주기 완료
 
-11.22 - kakoLogin 구현 
+11.22 - kakoLogin 구현 afterLogininterceptor 구현
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

@@ -33,9 +33,10 @@ public class MemberController {
 
     private final KakaoService kakaoService;
 
+    // 로그인 폼 요청
     @GetMapping("/login")
-    public String home(@ModelAttribute("message") String message, Model model, HttpSession session, HttpServletRequest request) {
-        log.info("/member/login GET! - forwarding to sign-in.jsp - {}", message);
+    public String home(Model model, HttpSession session, HttpServletRequest request) {
+        log.info("/member/login GET! - forwarding to sign-in.jsp - {}");
 
         // 요청 정보 헤더 안에는 Referer라는 키가 있는데
         // 여기 안에는 이 페이지로 진입할 때 어디에서 왔는지 URI정보가 들어있음.
@@ -47,6 +48,30 @@ public class MemberController {
         session.setAttribute("redirectURI", referer);
 
         return "member/login";
+    }
+
+    //login 처리 요청
+    @PostMapping("/login")
+    public String signIn(LoginDTO inputData, Model model, HttpSession session) {
+
+        log.info("/member/sign-in POST - {}", inputData);
+
+        // 로그인 서비스 호출
+        MemberLoginFlag flag = memberService.login(inputData, session);
+
+        if (flag == MemberLoginFlag.SUCCESS) {
+            log.info("login success!!");
+            String redirectURI = (String) session.getAttribute("redirectURI");
+            log.info("redirectUri ={}",redirectURI);
+            if(redirectURI!=null) {
+                return "redirect:" + redirectURI;
+            }else{
+                return "redirect:/food/list";
+            }
+        }
+        model.addAttribute("loginMsg", flag);
+        return "member/login";
+
     }
 
     // 회원가입 양식 띄우기 요청
@@ -65,37 +90,9 @@ public class MemberController {
         return flag ? "redirect:/member/login" : "redirect:/member/sign-up";
     }
 
-/*    @GetMapping("/login")
-    public void login(HttpSession session, HttpServletRequest request) {
-        String referer = request.getHeader("Referer");
-        log.info("referer: {}", referer);
-
-
-        request.getSession().setAttribute("redirectURI", referer);
-    }*/
-
-    @PostMapping("/login")
-    public String signIn(LoginDTO inputData, Model model, HttpSession session) {
-
-        log.info("/member/sign-in POST - {}", inputData);
-
-        // 로그인 서비스 호출
-        MemberLoginFlag flag = memberService.login(inputData, session);
-
-        if (flag == MemberLoginFlag.SUCCESS) {
-            log.info("login success!!");
-            String redirectURI = (String) session.getAttribute("redirectURI");
-            return "redirect:/food/list";
-        }
-        model.addAttribute("loginMsg", flag);
-        return "member/login";
-
-    }
-
-
 
     @GetMapping("/sign-out")
-    public String signOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String signOut(HttpServletRequest request) throws Exception {
 
         HttpSession session = request.getSession();
 
@@ -113,12 +110,12 @@ public class MemberController {
                     case KAKAO:
                         kakaoService.logout((String) session.getAttribute("accessToken"));
                         break;
-                    case NAVER:
+                    /*case NAVER:
                         break;
                     case GOOGLE:
                         break;
                     case FACEBOOK:
-                        break;
+                        break;*/
                 }
             }
 
@@ -136,7 +133,5 @@ public class MemberController {
     public String loginTest(){
         return "food/logintest";
     }
-
-
 
 }

@@ -952,6 +952,10 @@
 <!-- ./wrapper -->
 <%@include file="include/index/static-js.jsp"%>
 <script>
+    const msg ='${msg}';
+    if(msg!==""){
+        alert(msg);
+    }
     $(function () {
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,

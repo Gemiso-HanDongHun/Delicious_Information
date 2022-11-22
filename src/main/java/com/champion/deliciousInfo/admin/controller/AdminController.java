@@ -58,11 +58,12 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public String login(Admin admin, HttpSession session, Model model) {
+    public String login(Admin admin, HttpSession session, Model model,RedirectAttributes ra) {
         log.info("PostMapping login -{}", admin);
         LoginFlag flag = adminService.findAdmin(admin, session);
         if (flag == LoginFlag.SUCCESS) {
             log.info("login success!!");
+            ra.addFlashAttribute("msg","로그인성공");
             return "redirect:/admin";
         }
         model.addAttribute("loginMsg", flag);

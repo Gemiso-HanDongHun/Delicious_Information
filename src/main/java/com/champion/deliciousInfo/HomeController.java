@@ -11,8 +11,7 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
     @GetMapping("/food-main")
-    public String home(Model model, HttpSession session) {
-//        System.out.println("홈 컨트롤러 실행중");
+    public String home() {
         return "food/food-main";
 
     }
