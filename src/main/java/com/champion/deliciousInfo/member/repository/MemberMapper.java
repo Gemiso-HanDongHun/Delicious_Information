@@ -15,7 +15,6 @@ public interface MemberMapper {
     // 체크값: 중복검사대상 값
     int isDuplicate(Map<String, Object> checkMap);
 
-
     Member findUser(String account);
 
 }

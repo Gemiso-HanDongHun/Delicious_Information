@@ -24,7 +24,7 @@
             height: 970px;
         }
 
-        .boxed-page .loginform {
+        .boxed-page .signupform {
             width: 30%;
             height: 690px;
             position: relative;
@@ -38,13 +38,13 @@
             padding: 20px
         }
 
-        .boxed-page .loginform .login .title {
+        .boxed-page .signupform .signup .title {
             width: 50%;
             margin: auto;
 
         }
 
-        .boxed-page .loginform .login .title h1 {
+        .boxed-page .signupform .signup .title h1 {
             text-align: center;
             font-size: 1vw;
             margin-bottom: 30px;
@@ -87,7 +87,7 @@
             margin-left: 20px;
         }
 
-        #user_number {
+        #password_check {
             width: 90%;
             height: 40px;
             display: block;
@@ -101,7 +101,7 @@
             margin: 15px auto;
         }
 
-        .boxed-page .loginform #login, .boxed-page .loginform #signup-btn {
+        .boxed-page .signupform #signup, .boxed-page .signupform #signup-btn {
             width: 90%;
             height: 5vh;
             display: block;
@@ -110,14 +110,14 @@
             border-radius: 2em;
         }
 
-        .boxed-page .loginform #login:hover, .boxed-page .loginform #signup-btn:hover {
+        .boxed-page .signupform #signup:hover, .boxed-page .signupform #signup-btn:hover {
             cursor: pointer;
             background: #bcbcbc;
             font-weight: 700;
             color: #ffffff;
         }
 
-        .boxed-page .loginform p {
+        .boxed-page .signupform p {
             width: 90%;
             display: block;
             margin: auto;
@@ -180,38 +180,34 @@
     </nav>
 
     <form id="signupForm">
-<%--    <form action="/member/sign-up" name="signup" id="signUpForm" method="post style="margin-bottom: 0;">--%>
+        <section class="signupform">
 
-
-        <section class="loginform">
-
-            <div class="login">
+            <div class="signup">
                 <div class="title">
                     <h1>회원가입</h1>
                 </div>
-                <p style="text-align: left; "><strong>이름<span class="import" id="nameChk">(필수 정보)</span></strong></p>
+                <p style="text-align: left; "><strong>이름<span class="import" id="nameChk"></span></strong></p>
                 <input type="text" id="user_name" name="name" value="" placeholder="이름을 입력해주세요">
 
-                <p style="text-align: left; "><strong>아이디<span class="import" id="idChk">(필수 정보)</span></strong></p>
+                <p style="text-align: left; "><strong>아이디<span class="import" id="idChk"></span></strong></p>
                 <input type="text" id="user_id" name="account" placeholder="아이디를 입력해주세요">
 
-                <p style="text-align: left; "><strong>비밀번호<span class="import" id="pwChk">(필수 정보)</span></strong></p>
+                <p style="text-align: left; "><strong>비밀번호<span class="import" id="pwChk"></span></strong></p>
                 <input type="password" id="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
 
-                <p style="text-align: left; "><strong>휴대전화<span class="import" id="phonecheck">(필수 정보)</span></strong>
-                </p>
-                <input type="text" id="user_number" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
+                <p style="text-align: left; "><strong>비밀번호 확인<span class="import" id="pwChk2"></span></strong></p>
+                <input type="text" id="password_check" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
 
                 <p style="text-align: left;"><strong>이메일(선택)</strong></p>
                 <input type="email" id="email" name="email" value="" placeholder="이메일을 입력해주세요">
 
-                <p style="text-align: left; "><strong>성별<span class="import">(필수 정보)</span></strong></p>
-                <td><input type="radio" id="man" name="gender" value="남" placeholder="">남</td>
-                <td><input type="radio" id="woman" name="gender" value="여" placeholder="">여</td>
+                <p style="text-align: left; "><strong>성별<span class="import" id="genderChk"></span></strong></p>
+                <input type="radio" id="man" name="gender" value="남" checked>남
+                <input type="radio" id="woman" name="gender" value="여">여
                 </br></br>
             </div>
 
-            <div class="loginbt">
+            <div class="signupbt">
                 <button type="button" id="signup-btn"><strong>가입하기</strong></button>
             </div>
 
@@ -219,252 +215,218 @@
     </form>
 </div>
 
+<!-- jQuery -->
+<script src="/adminLTE/plugins/jquery/jquery.min.js"></script>
+
 <script>
 
-
-    const $id = document.querySelector("#user_id");
-    const $pw = document.querySelector("#password");
-    const $phone = document.querySelector("#user_number");
-    const $name = document.querySelector("#user_name");
-
-    const $signupButton = document.querySelector("button[type=button]");
-    const $form = document.querySelector("#signupForm");
-
-
-    function isValiDate() {
-
-        if ($name.value.trim() == "") {
-            alert("이름은 필수 입력사항 입니다");
-            return false;
-
-        } else if ($id.value.trim() == "") {
-            alert("아이디는 필수 입력사항 입니다");
-            return false;
-
-        } else if ($pw.value.trim() == "") {
-            alert("비밀번호는 필수 입력사항 입니다.")
-            return false;
-
-        } else if ($phone.value.trim() == "") {
-            alert("번호는 필수 입력사항 입니다.")
-            return false;
-
-        } else if ($name.value.trim() == "") {
-            alert("이름은 필수 입력사항 입니다.")
-            return false;
-        }
-        return true;
-    }
-
-
-    $signupButton.addEventListener("click", function () {
-        if (isValiDate()) {
-            $form.action = "/member/sign-up";
-            $form.method = "post";
-            $form.submit();
-        }
-    });
-
-    $pw.addEventListener("keydown", e => {
-        if (e.keyCode == 13) {
-            if (isValiDate()) {
-                $form.action = "/member/sign-up";
-                $form.method = "post";
-                $form.submit();
-            }
-        }
-    });
-
-    const singupMsg = '${singupMsg}';
-    if (singupMsg === 'FAIL') {
-        alert('필수 정보를 입력해야 합니다');
-    }
-
-    const warning = '${message}';
-    console.log('message: ', warning);
-    if (warning === 'no-login') {
-        alert('필수 정보 입력 후 가입할 수 있습니다');
-    }
-
-    // const $regForm = $('#signUpForm');
-    //
-    // $('#signup-btn').on('click', e => {
-    //
-    //     if (!checkArr.includes(false)) {
-    //         $regForm.submit();
-    //     } else {
-    //         alert('입력란을 다시 확인하세요!');
-    //     }
-    // });
-
-
     // 회원가입 폼 검증
-    // $(document).ready(function () {
+    $(document).ready(function () {
 
-    // //입력값 검증 정규표현식
-    // const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
-    // const getPwCheck = RegExp(
-    //     /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
-    // const getName = RegExp(/^[가-힣]+$/);
-    // const getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-    // 입력값 검증 배열
-    // 1: 아이디,  2: 비번, 3: 성별, 4: 이름, 5: 번호
-    // const checkArr = [false, false, false];
-    //
-    // // 1. 아이디 검증
-    // const $idInput = $('#user_id');
-    //
-    // $idInput.on('keyup', e => {
-    //
-    //     // 아이디를 입력하지 않은 경우
-    //     if ($idInput.val().trim() === '') {
-    //         $idInput.css('border-color', 'red');
-    //         $('#idChk').html('<b class="c-red">[아이디는 필수 정보입니다.]</b>');
-    //         checkArr[0] = false;
-    //     }
-    //     //
-    //     //     // 아이디를 패턴에 맞지 않게 입력하였을 경우
-    //     //     // test() 메서드는 정규표현식을 검증하여 입력값이 표현식과
-    //     // // 일치하면 true, 일치하지 않으면 false를 리턴
-    //     // else if (!getIdCheck.test($idInput.val())) {
-    //     //     $idInput.css('border-color', 'red');
-    //     //     $('#idChk').html('<b class="c-red">[영문, 숫자로 4~14자 사이로 작성하세요!]</b>');
-    //     //     checkArr[0] = false;
-    //     // }
-    //
-    //     // 아이디 중복 확인 검증
-    //     // else {
-    //     //
-    //     //     fetch('/member/check?type=account&value=' + $idInput.val())   // 비동기로 type과 value를 받는다
-    //     //         .then(res => res.text())
-    //     //         .then(flag => {
-    //     //             console.log('flag:', flag);
-    //     //             if (flag === 'true') {
-    //     //                 $idInput.css('border-color', 'red');
-    //     //                 $('#idChk').html('<b class="c-red">[중복된 아이디입니다.]</b>');
-    //     //                 checkArr[0] = false;
-    //     //             } else {
-    //     //                 // 정상적으로 입력한 경우
-    //     //                 $idInput.css('border-color', 'skyblue');
-    //     //                 $('#idChk').html('<b class="c-blue">[사용가능한 아이디입니다.]</b>');
-    //     //                 checkArr[0] = true;
-    //     //             }
-    //     //         });
-    //     // }
-    //
-    // }); //end id check event
-    //
-    // //2. 패스워드 입력값 검증.
-    // $('#password').on('keyup', function () {
-    //     //비밀번호 공백 확인
-    //     if ($("#password").val() === "") {
-    //         $('#password').css('border-color', 'red');
-    //         $('#pwChk').html('<b class="c-red">[패스워드는 필수정보!]</b>');
-    //         checkArr[1] = false;
-    //     }
-    //     //비밀번호 유효성검사
-    //     // else if (!getPwCheck.test($("#password").val()) || $("#password").val().length < 8) {
-    //     //     $('#password').css('border-color', 'red');
-    //     //     $('#pwChk').html('<b class="c-red">[특수문자 포함 8자이상]</b>');
-    //     //     checkArr[1] = false;
-    //     // } else {
-    //     //     $('#password').css('border-color', 'skyblue');
-    //     //     $('#pwChk').html('<b class="c-blue">[참 잘했어요]</b>');
-    //     //     checkArr[1] = true;
-    //     // }
-    // });
-    //
-    // //패스워드 확인란 입력값 검증.
-    // // $('#password_check').on('keyup', function () {
-    // //     //비밀번호 확인란 공백 확인
-    // //     if ($("#password_check").val() === "") {
-    // //         $('#password_check').css('border-color', 'red');
-    // //         $('#pwChk2').html('<b class="c-red">[패스워드확인은 필수정보!]</b>');
-    // //         checkArr[2] = false;
-    // //     }
-    // //     //비밀번호 확인란 유효성검사
-    // //     else if ($("#password").val() !== $("#password_check").val()) {
-    // //         $('#password_check').css('border-color', 'red');
-    // //         $('#pwChk2').html('<b class="c-red">[위에랑 똑같이!!]</b>');
-    // //         checkArr[2] = false;
-    // //     } else {
-    // //         $('#password_check').css('border-color', 'skyblue');
-    // //         $('#pwChk2').html('<b class="c-blue">[참 잘했어요]</b>');
-    // //         checkArr[2] = true;
-    // //     }
-    // // });
-    //
-    // //이름 입력값 검증.
-    // $('#user_name').on('keyup', function () {
-    //     //이름값 공백 확인
-    //     if ($("#user_name").val() === "") {
-    //         $('#user_name').css('border-color', 'red');
-    //         $('#nameChk').html('<b class="c-red">[이름은 필수정보!]</b>');
-    //         checkArr[2] = false;
-    //     }
-    //     //이름값 유효성검사
-    //     // else if (!getName.test($("#user_name").val())) {
-    //     //     $('#user_name').css('border-color', 'red');
-    //     //     $('#nameChk').html('<b class="c-red">[이름은 한글로 ~]</b>');
-    //     //     checkArr[3] = false;
-    //     // } else {
-    //     //     $('#user_name').css('border-color', 'skyblue');
-    //     //     $('#nameChk').html('<b class="c-blue">[참 잘했어요]</b>');
-    //     //     checkArr[3] = true;
-    //     // }
-    // });
-    //
-    // // 성별 입력값 검증
-    //
-    // //이메일 입력값 검증.
-    // // const $emailInput = $('#user_email');
-    // // $emailInput.on('keyup', function () {
-    // //     //이메일값 공백 확인
-    // //     if ($emailInput.val() == "") {
-    // //         $emailInput.css('border-color', 'red');
-    // //         $('#emailChk').html('<b class="c-red">[이메일은 필수정보에요!]</b>');
-    // //         checkArr[4] = false;
-    // //     }
-    // //     //이메일값 유효성검사
-    // //     else if (!getMail.test($emailInput.val())) {
-    // //         $emailInput.css('border-color', 'red');
-    // //         $('#emailChk').html('<b class="c-red">[이메일 형식 몰라?]</b>');
-    // //         checkArr[4] = false;
-    // //     } else {
-    // //
-    // //         //이메일 중복확인 비동기 통신
-    // //         fetch('/member/check?type=email&value=' + $emailInput.val())
-    // //             .then(res => res.text())
-    // //             .then(flag => {
-    // //                 //console.log(flag);
-    // //                 if (flag === 'true') {
-    // //                     $emailInput.css('border-color', 'red');
-    // //                     $('#emailChk').html(
-    // //                         '<b class="c-red">[이메일이 중복되었습니다!]</b>');
-    // //                     checkArr[4] = false;
-    // //                 } else {
-    // //                     $emailInput.css('border-color', 'skyblue');
-    // //                     $('#emailChk').html(
-    // //                         '<b class="c-blue">[사용가능한 이메일입니다.]</b>'
-    // //                     );
-    // //                     checkArr[4] = true;
-    // //                 }
-    // //             });
-    // //     }
-    // // });
-    //
-    // // 회원가입 양식 서버로 전송하는 클릭 이벤트
-    // const $regForm = $('#signUpForm');
-    //
-    // $('#signup-btn').on('click', e => {
-    //
-    //     if (!checkArr.includes(false)) {
-    //         $regForm.submit();
-    //     } else {
-    //         alert('입력란을 다시 확인하세요!');
-    //     }
-    // });
-    // });
+        //입력값 검증 정규표현식
+        // const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
+        const getIdCheck = RegExp(/^[a-zA-Z0-9]{1,15}$/);
+        const getPwCheck = RegExp(
+            /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
+        const getName = RegExp(/^[가-힣]+$/);
+        const getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+
+        // 입력값 검증 배열
+        // 1: 이름, 4: 아이디, 2: 비번, 3: 비번확인, 5: 이메일
+        const checkArr = [false, false, false, false];
+
+        // 1. 아이디 검증
+        const $idInput = $('#user_id');
+
+        $idInput.on('keyup', e => {
+
+            // 아이디를 입력하지 않은 경우
+            if ($idInput.val().trim() === '') {
+                $idInput.css('border-color', 'orangered');
+                $('#idChk').html('<b class="c-red">(필수 정보)</b>');
+                checkArr[0] = false;
+            }
+
+                // 아이디를 패턴에 맞지 않게 입력하였을 경우
+                // test() 메서드는 정규표현식을 검증하여 입력값이 표현식과
+            // 일치하면 true, 일치하지 않으면 false를 리턴
+            else if (!getIdCheck.test($idInput.val())) {
+                $idInput.css('border-color', 'red');
+                $('#idChk').html('<b class="c-red">(영문, 숫자로 작성)</b>');
+                checkArr[0] = false;
+            }
+
+            // 아이디 중복 확인 검증
+            else {
+
+                fetch('/member/check?type=account&value=' + $idInput.val())   // 비동기로 type과 value를 받는다
+                    .then(res => res.text())
+                    .then(flag => {
+                        console.log('flag:', flag);
+                        if (flag === 'true') {
+                            $idInput.css('border-color', 'orangered');
+                            $('#idChk').html('<b class="c-red">(사용중인 아이디)</b>');
+                            checkArr[0] = false;
+                        } else {
+                            // 정상적으로 입력한 경우
+                            $idInput.css('border-color', 'black');
+                            $('#idChk').html('<b class="c-blue">(사용가능)</b>');
+                            checkArr[0] = true;
+
+                        }
+
+                        console.log("아이디 " + checkArr[0]);
+                    });
+            }
+
+        }); //end id check event
+
+        //2. 패스워드 입력값 검증.
+        $('#password').on('keyup', function () {
+            //비밀번호 공백 확인
+            if ($("#password").val() === "") {
+                $('#password').css('border-color', 'orangered');
+                $('#pwChk').html('<b class="c-red">(필수 정보)</b>');
+                checkArr[1] = false;
+            }
+                //비밀번호 유효성검사
+                // else if (!getPwCheck.test($("#password").val()) || $("#password").val().length < 8) {
+                //     $('#password').css('border-color', 'red');
+                //     $('#pwChk').html('<b class="c-red">[특수문자 포함 8자이상]</b>');
+                //     checkArr[1] = false;
+            // }
+
+            else {
+                $('#password').css('border-color', 'black');
+                $('#pwChk').html('<b class="c-blue"></b>');
+                checkArr[1] = true;
+
+            }
+
+            console.log("비밀번호 입력 " + checkArr[1]);
+
+        });
+
+        //패스워드 확인란 입력값 검증.
+        $('#password_check').on('keyup', function () {
+            //비밀번호 확인란 공백 확인
+            if ($("#password_check").val() === "") {
+                $('#password_check').css('border-color', 'orangered');
+                $('#pwChk2').html('<b class="c-red">(필수 정보)</b>');
+                checkArr[2] = false;
+            }
+
+            //비밀번호 확인란 유효성검사
+            else if ($("#password").val() !== $("#password_check").val()) {
+                $('#password_check').css('border-color', 'orangered');
+                $('#pwChk2').html('<b class="c-red">(비밀번호 불일치)</b>');
+                checkArr[2] = false;
+
+            } else {
+                $('#password_check').css('border-color', 'black');
+                $('#pwChk2').html('<b class="c-blue">(일치)</b>');
+                checkArr[2] = true;
+            }
+
+            console.log("비밀번호 중복 " + checkArr[2]);
+        });
+
+
+        //이름 입력값 검증.
+        $('#user_name').on('keyup', function () {
+            //이름값 공백 확인
+            if ($("#user_name").val() === "") {
+                $('#user_name').css('border-color', 'red');
+                $('#nameChk').html('<b class="c-red">(필수 정보)</b>');
+                checkArr[3] = false;
+            }
+                //이름값 유효성검사
+                // else if (!getName.test($("#user_name").val())) {
+                //     $('#user_name').css('border-color', 'red');
+                //     $('#nameChk').html('<b class="c-red"></b>');
+                //     checkArr[3] = false;
+            // }
+
+            else {
+                $('#user_name').css('border-color', 'skyblue');
+                $('#nameChk').html('<b class="c-blue"></b>');
+                checkArr[3] = true;
+
+            }
+
+            console.log("이름 " + checkArr[3]);
+
+        });
+
+        //이메일 입력값 검증.
+        // const $emailInput = $('#user_email');
+        // $emailInput.on('keyup', function () {
+        //     //이메일값 공백 확인
+        //     if ($emailInput.val() == "") {
+        //         $emailInput.css('border-color', 'red');
+        //         $('#emailChk').html('<b class="c-red"></b>');
+        //         checkArr[3] = true;
+        //     }
+        //     //이메일값 유효성검사
+        //     else if (!getMail.test($emailInput.val())) {
+        //         $emailInput.css('border-color', 'red');
+        //         $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
+        //         checkArr[3] = false;
+        //     } else {
+        //
+        //         //이메일 중복확인 비동기 통신
+        //         fetch('/member/check?type=email&value=' + $emailInput.val())
+        //             .then(res => res.text())
+        //             .then(flag => {
+        //                 //console.log(flag);
+        //                 if (flag === 'true') {
+        //                     $emailInput.css('border-color', 'orangered');
+        //                     $('#emailChk').html(
+        //                         '<b class="c-red">(이메일이 중복)</b>');
+        //                     checkArr[3] = false;
+        //                 } else {
+        //                     $emailInput.css('border-color', 'black');
+        //                     $('#emailChk').html(
+        //                         '<b class="c-blue"></b>'
+        //                     );
+        //                     checkArr[3] = true;
+        //                 }
+        //             });
+        //     }
+        // });
+
+
+        //
+        //
+        // if($("input[name=gender]:radio:checked").length < 1){
+        //
+        //     $('#genderChk').html('<b class="c-red">(필수 정보)</b>');
+        //
+        //     checkArr[4]=false;
+        //
+        // } else{
+        //     $('#genderChk').html('<b class="c-red"></b>');
+        //     checkArr[4]=true;
+        // }
+        //
+
+
+        // 회원가입 양식 서버로 전송하는 클릭 이벤트
+        const $regForm = document.querySelector("#signupForm")
+
+        $('#signup-btn').on('click', e => {
+
+            if (!checkArr.includes(false)) {
+                $regForm.action = "/member/sign-up";
+                $regForm.method = "post";
+                $regForm.submit();
+                // $regForm.submit();
+            } else {
+                alert('입력형식을 준수해 주세요');
+            }
+        });
+
+    }); // end jQuery
 
 </script>
 

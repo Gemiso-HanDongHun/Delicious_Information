@@ -7,8 +7,8 @@
 
     <!-- 회원 가입 기능   -->
     <insert id="register">
-      INSERT INTO member(account, password,gender, email, grade, name, phone)
-      VALUES (#{account}, #{password}, #{gender}, #{email}, #{grade}, #{name}, #{phone} )
+      INSERT INTO member(account, password,gender, email, grade, name)
+      VALUES (#{account}, #{password}, #{gender}, #{email}, #{grade}, #{name})
     </insert>
 
     <!-- 중복체크 기능 (아이디, 이메일)   -->
