@@ -183,13 +183,12 @@
         }
 
 
-        div.flex-column li p {
+        div.flex-column li p#title {
             position: relative;
             text-align: center;
             right: 165px;
             font-size: 35px;
             /*background-color: rebeccapurple;*/
-
         }
 
         .page-item.active .page-link {
@@ -227,12 +226,33 @@
         div.sign{
             margin-left:250px;
         }
-        div.flex-column li.sign a {
+        div.flex-column li.sign a, div.flex-column li.sign p {
             width:90px;
             position: relative;
             margin-right: 10px;
             padding-top: 45px;
         }
+
+
+        #loginAccount {
+            width:100px;
+            display: block;
+            font-size: 15px;
+            padding: 0;
+            margin:45px auto;
+            right: 100px;
+        }
+
+        #loginAccount:hover {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        #sign-out:hover {
+            color: #f44336;
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -262,28 +282,28 @@
                         </li>
 
                         <li>
-                            <p>𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
+                            <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                         </li>
 
-
-
-                        <li class="nav-item dropdown">
-                        </li>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column sign " >
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-in" href="/member/login">Sign-in</a>
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">Sign-in</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-up" href="/member/sign-up">Sign-up</a>
                             </li>
                         </c:if>
 
+
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" href="/member/sign-out">Sign-out</a>
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.account}님</a>
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" onclick="signOut()">Sign-out</a>
                             </li>
                         </c:if>
                     </div>
@@ -445,6 +465,17 @@
     const $reset = document.querySelector("#reset");
     const $searchk = document.querySelector("#searchk");
     let checkTotal = 0;
+
+
+    document.getElementById("sign-out").onclick = function() {signOut()};
+    var link = '/member/sign-out';
+
+    function signOut() {
+        if(confirm('로그아웃하시겠습니까?')) {
+            location.href=link;
+        }
+    }
+
 
     function appendPageActive() {
 

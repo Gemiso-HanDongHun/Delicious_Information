@@ -211,15 +211,18 @@
 </div>
 
 <script>
+
     const $id = document.querySelector("#memberid");
     const $pw = document.querySelector("#memberps");
     const $loginButton = document.querySelector("#login");
     const $form = document.querySelector("#form1");
+
+
+
+
     const loginMsg = '${loginMsg}';
 
     function isValiDate(){
-
-
         if($id.value.trim()=="") {
             alert("아이디를 입력해주세요");
             return false;
@@ -227,9 +230,7 @@
             alert("비밀번호를 입력해주세요");
             return false;
         }
-
         return true;
-
     }
 
     if (loginMsg === 'NO_ACC') {
@@ -239,13 +240,16 @@
     }
 
 
-    $loginButton.addEventListener("click", function () {
-         if (isValiDate()){
-            $form.action="/member/login";
-            $form.method="post";
-            $form.submit();
-        }
-    });
+        $loginButton.addEventListener("click", function () {
+
+            if (isValiDate()) {
+                $form.action = "/member/sign-in";
+                $form.method = "post";
+                $form.submit();
+
+            }
+        });
+
 
 
 

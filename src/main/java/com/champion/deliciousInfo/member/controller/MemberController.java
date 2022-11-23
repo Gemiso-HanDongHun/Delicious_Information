@@ -33,9 +33,9 @@ public class MemberController {
     private final KakaoService kakaoService;
 
     // 로그인 폼 요청
-    @GetMapping("/login")
+    @GetMapping("/sign-in")
     public String home(Model model, HttpSession session, HttpServletRequest request) {
-        log.info("/member/login GET! - forwarding to sign-in.jsp - {}");
+        log.info("/member/sign-in GET! - forwarding to sign-in.jsp - {}");
 
         // 요청 정보 헤더 안에는 Referer라는 키가 있는데
         // 여기 안에는 이 페이지로 진입할 때 어디에서 왔는지 URI정보가 들어있음.
@@ -49,8 +49,8 @@ public class MemberController {
         return "member/login";
     }
 
-    //login 처리 요청
-    @PostMapping("/login")
+    //sign-in 처리 요청
+    @PostMapping("/sign-in")
     public String signIn(LoginDTO inputData, Model model, HttpSession session) {
 
         log.info("/member/sign-in POST - {}", inputData);
@@ -86,7 +86,7 @@ public class MemberController {
         log.info("/member/sign-up POST ! - {}", member);
         boolean flag = memberService.signUp(member);
         ra.addFlashAttribute("msg", "reg-success");
-        return flag ? "redirect:/member/login" : "redirect:/member/sign-up";
+        return flag ? "redirect:/member/sign-in" : "redirect:/member/sign-up";
     }
 
     // 아이디, 이메일 중복확인 비동기 요청 처리
@@ -137,9 +137,9 @@ public class MemberController {
         return "redirect:/member/sign-in";
     }
 
-    @GetMapping("/login-test")
+    @GetMapping("/sign-in-test")
     public String loginTest(){
-        return "food/logintest";
+        return "food/sign-intest";
     }
 
 }
