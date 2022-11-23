@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DelicousInfo-admin</title>
 
-    <%@include file="include/food-list/food-list-css.jsp" %>
+    <%@include file="../include/food-list/food-list-css.jsp" %>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -20,11 +20,11 @@
 
 
     <!-- header -->
-    <%@include file="./include/header.jsp" %>
+    <%@include file="../include/header.jsp" %>
     <!-- /header -->
 
     <!-- Main Sidebar Container -->
-    <%@include file="./include/sidebar.jsp" %>
+    <%@include file="../include/sidebar.jsp" %>
     <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -128,11 +128,6 @@
 
                                     </div>
 
-
-
-
-
-
                                     <div class="form-group">
                                         <label for="file">Food Image</label>
                                         <div class="input-group">
@@ -175,10 +170,10 @@
     <!-- /.content-wrapper -->
 
     <!--footer -->
-    <%@ include file="./include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
     <!--/footer-->
 </div>
-<%@ include file="include/food-list/food-list-js.jsp" %>
+<%@ include file="../include/food-list/food-list-js.jsp" %>
 <script src="/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
     const $button = document.querySelector("button");
@@ -205,7 +200,7 @@
         if(isValidate()){
             const $form = document.querySelector("form");
             $form.method = "post";
-            $form.action = "/admin/write";
+            $form.action = "/admin/food/write";
             $form.encoding = "multipart/form-data";
             $form.submit();
         }

@@ -88,10 +88,23 @@ DB 설계
 
 # Version 3.0
 1. client 
-    + 영양제 추천 nutrient.jsp 에 영양제만 vitaminA, vitaminC, vitaminE 
-    + 로그인, 회원 가입 
-    + 카카오로그인 
-   
+    + 영양제 추천 nutrient.jsp 에 영양제만 vitaminA, vitaminC, vitaminE o 
+    + 로그인, 회원 가입 o 
+    + 카카오로그인 o
+
+# Version 4.0
+1. client 
+    + 자유게시판 댓글 o 1 테이블 
+    + 정보게시판 list랑 거의 비슷함 댓글 o 2 테이블 
+    + 건의게시판 댓글 x 3 테이블
+    + 
+    + 등록 수정 삭제 권한 detail 
+# Version 5.0
+1. client 
+    + 댓글에 댓글
+    + 마이페이지
+2. admin
+    + 건의 문의 게시판 관리
 
 
 
@@ -120,6 +133,8 @@ lemoncoat :
 추가 service추가 mapper추가 추천 영양제 보여주기 완료
 
 11.22 - kakoLogin 구현 afterLogininterceptor 구현
+
+11.23 - admin 페이지 member관리 페이지 완성 등급 수정및 회원삭제
 
 goill : 
 

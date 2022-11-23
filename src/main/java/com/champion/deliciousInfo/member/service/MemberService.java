@@ -1,6 +1,8 @@
 package com.champion.deliciousInfo.member.service;
 
 import com.champion.deliciousInfo.admin.service.LoginFlag;
+import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.member.dto.LoginDTO;
 import com.champion.deliciousInfo.member.repository.MemberMapper;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.champion.deliciousInfo.member.service.MemberLoginFlag.*;
@@ -20,6 +23,7 @@ import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
 @Log4j2
 @RequiredArgsConstructor
 public class MemberService {
+
 
     private final MemberMapper memberMapper;
     private final BCryptPasswordEncoder encoder;
@@ -79,4 +83,36 @@ public class MemberService {
             return NO_ACC;
         }
     }
+
+    public List<Member> findAll(){
+        List<Member> memberList = memberMapper.findAll();
+
+        return memberList;
+    }
+
+    public Map<String, Object> search(Search search) {
+        log.info("findAll service start");
+
+        Map<String, Object> findDataMap = new HashMap<>();
+
+        List<Food> memberList = memberMapper.search(search);
+
+        findDataMap.put("mList", memberList);
+        findDataMap.put("tc", memberMapper.getTotalCount(search));
+
+        return findDataMap;
+    }
+
+    public boolean modifyGrade(Member member){
+        log.info("modifyGrade start");
+        boolean flag = memberMapper.modifyGrade(member);
+        return flag;
+    }
+
+    public boolean remove(Member member){
+        log.info("memberService remove start");
+        boolean flag=memberMapper.remove(member);
+        return flag;
+    }
+
 }

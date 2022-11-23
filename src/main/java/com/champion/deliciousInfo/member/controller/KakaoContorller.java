@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,7 +24,7 @@ public class KakaoContorller {
     private final KakaoService kakaoService;
 
     @GetMapping(KAKAO_REDIRECT_URI)
-    public String kakaoLogin(String code, HttpSession session) throws Exception {
+    public String kakaoLogin(String code, HttpSession session, RedirectAttributes ra) throws Exception {
         log.info("{} GET!! code - {}", KAKAO_REDIRECT_URI, code);
 
 
@@ -46,6 +47,7 @@ public class KakaoContorller {
             session.setAttribute("profile_path", userInfo.getProfileImg());
             session.setAttribute(LOGIN_FROM, KAKAO);
             session.setAttribute("accessToken", accessToken);
+            ra.addFlashAttribute("msg","로그인 성공");
             return "redirect:/food/list";
         }
 

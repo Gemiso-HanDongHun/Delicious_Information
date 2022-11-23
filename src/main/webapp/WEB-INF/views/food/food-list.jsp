@@ -290,10 +290,10 @@
                     <div class="d-flex flex-lg-row flex-column sign " >
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-in" href="/member/sign-in">Sign-in</a>
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-up" href="/member/sign-up">Sign-up</a>
+                                <a class="nav-link" id="sign-up" href="/member/sign-up">회원가입</a>
                             </li>
                         </c:if>
 
@@ -303,7 +303,7 @@
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.account}님</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" onclick="signOut()">Sign-out</a>
+                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
                             </li>
                         </c:if>
                     </div>
@@ -466,13 +466,16 @@
     const $searchk = document.querySelector("#searchk");
     let checkTotal = 0;
 
+    const msg = '${msg}';
+    console.log(msg);
+    if (msg !== '') {
+        alert(msg);
+    }
 
-    document.getElementById("sign-out").onclick = function() {signOut()};
-    var link = '/member/sign-out';
 
     function signOut() {
         if(confirm('로그아웃하시겠습니까?')) {
-            location.href=link;
+            location.href='/member/sign-out';
         }
     }
 
@@ -558,7 +561,7 @@
             });
     };
 
-    $searchk.onclick =e =>{ //선택한 음식들 검색 버튼 클릭시
+    $searchk.onclick = e =>{ //선택한 음식들 검색 버튼 클릭시
       location.href="/food/select-nutrient";
     };
 

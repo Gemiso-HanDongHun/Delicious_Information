@@ -18,11 +18,11 @@
     </div>
 
     <!-- header -->
-    <%@include file="./include/header.jsp"%>
+    <%@include file="include/header.jsp"%>
     <!-- /header -->
 
     <!-- Main Sidebar Container -->
-   <%@include file="./include/sidebar.jsp"%>
+   <%@include file="include/sidebar.jsp"%>
    <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -946,7 +946,7 @@
     <!-- / content-wrapper -->
 
     <!--footer -->
-    <%@ include file="./include/footer.jsp" %>
+    <%@ include file="include/footer.jsp" %>
     <!--/footer-->
 </div>
 <!-- ./wrapper -->

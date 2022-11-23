@@ -14,6 +14,5 @@ public class Member {
     private String grade = "silver";
     private String email;
     private String gender;
-    private String phone;
     private String name;
 }

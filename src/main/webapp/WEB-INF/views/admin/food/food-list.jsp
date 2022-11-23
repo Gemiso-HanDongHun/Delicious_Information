@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DelicousInfo-admin</title>
 
-    <%@include file="include/food-list/food-list-css.jsp" %>
+    <%@include file="../include/food-list/food-list-css.jsp" %>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -19,11 +19,11 @@
     </div>
 
     <!-- header -->
-    <%@include file="./include/header.jsp" %>
+    <%@include file="../include/header.jsp" %>
     <!-- /header -->
 
     <!-- Main Sidebar Container -->
-    <%@include file="./include/sidebar.jsp" %>
+    <%@include file="../include/sidebar.jsp" %>
     <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/">Home</a></li>
                             <li class="breadcrumb-item active">DataTables</li>
                         </ol>
                     </div>
@@ -78,7 +78,7 @@
                                     <c:forEach var="food" items="${foodList}">
                                         <tr>
                                             <td>${food.foodNo}</td>
-                                            <td><a href="/admin/detail/${food.foodNo}">${food.name}</a></td>
+                                            <td><a href="/admin/food/detail/${food.foodNo}">${food.name}</a></td>
                                             <td>${food.kcal}</td>
                                         </tr>
                                     </c:forEach>
@@ -98,20 +98,20 @@
                                             <ul class="pagination">
                                                 <c:if test="${pm.prev}">
                                                     <li class="paginate_button page-item previous" id="example1_previous">
-                                                        <a class="page-link" href="/admin/food?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
+                                                        <a class="page-link" href="/admin/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
                                                     </li>
                                                 </c:if>
 
                                                 <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
                                                     <li class="paginate_button page-item " data-page-num="${n}">
                                                         <a class="page-link"
-                                                           href="/admin/food?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>
+                                                           href="/admin/food/list?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>
                                                     </li>
                                                 </c:forEach>
 
                                                 <c:if test="${pm.next}">
                                                     <li class="paginate_button page-item next" id="example1_next">
-                                                        <a class="page-link" href="/admin/food?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}&keyword=${s.keyword}">next</a>
+                                                        <a class="page-link" href="/admin/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}&keyword=${s.keyword}">next</a>
                                                     </li>
                                                 </c:if>
                                             </ul>
@@ -173,10 +173,10 @@
     <!-- /.modal -->
 
     <!--footer -->
-    <%@ include file="./include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
     <!--/footer-->
 </div>
-<%@ include file="include/food-list/food-list-js.jsp" %>
+<%@ include file="../include/food-list/food-list-js.jsp" %>
 <script src="/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
     function isExcel() {
@@ -196,7 +196,7 @@
     const $button = document.querySelectorAll("button");
     const $excelButton = document.querySelector("#excelSubmit");
     $button[0].onclick = function () {
-        location.href = "/admin/write"
+        location.href = "/admin/food/write"
     };
     $button[1].onclick = e => {
         this.blur();
@@ -206,7 +206,7 @@
         if (isExcel()) {
             const $form = document.querySelector("form");
             $form.method = "post";
-            $form.action = "/admin/write/excel"
+            $form.action = "/admin/food/write/excel"
             $form.encoding = "multipart/form-data";
             $form.submit();
         } else {

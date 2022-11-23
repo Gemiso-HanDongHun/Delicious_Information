@@ -51,7 +51,7 @@ public class MemberController {
 
     //sign-in 처리 요청
     @PostMapping("/sign-in")
-    public String signIn(LoginDTO inputData, Model model, HttpSession session) {
+    public String signIn(LoginDTO inputData, Model model, HttpSession session,RedirectAttributes ra) {
 
         log.info("/member/sign-in POST - {}", inputData);
 
@@ -61,11 +61,12 @@ public class MemberController {
         if (flag == MemberLoginFlag.SUCCESS) {
             log.info("login success!!");
             String redirectURI = (String) session.getAttribute("redirectURI");
+            ra.addFlashAttribute("msg","로그인 성공");
             log.info("redirectUri ={}",redirectURI);
             if(redirectURI!=null) {
                 return "redirect:" + redirectURI;
             }else{
-                return "redirect:/food/list";
+                return "redirect:/member/sign-in";
             }
         }
         model.addAttribute("loginMsg", flag);
@@ -85,7 +86,12 @@ public class MemberController {
     public String signUp(Member member, RedirectAttributes ra) {
         log.info("/member/sign-up POST ! - {}", member);
         boolean flag = memberService.signUp(member);
-        ra.addFlashAttribute("msg", "reg-success");
+        if(flag){
+            ra.addFlashAttribute("msg", "회원가입 성공");
+        }else{
+            ra.addFlashAttribute("msg", "회원가입 실패");
+        }
+
         return flag ? "redirect:/member/sign-in" : "redirect:/member/sign-up";
     }
 
@@ -100,7 +106,7 @@ public class MemberController {
     }
 
     @GetMapping("/sign-out")
-    public String signOut(HttpServletRequest request) throws Exception {
+    public String signOut(HttpServletRequest request,RedirectAttributes ra) throws Exception {
 
         HttpSession session = request.getSession();
 
@@ -132,6 +138,7 @@ public class MemberController {
 
             // 2. 세션을 무효화한다.
             session.invalidate();
+            ra.addFlashAttribute("msg","로그아웃");
             return "redirect:/food/list";
         }
         return "redirect:/member/sign-in";

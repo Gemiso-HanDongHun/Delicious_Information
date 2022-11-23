@@ -5,10 +5,27 @@
 
 <mapper namespace="com.champion.deliciousInfo.member.repository.MemberMapper">
 
+    <resultMap id="memberMap" type="com.champion.deliciousInfo.member.domain.Member">
+        <id column="account" property="account" />
+        <result property="password" column="password"/>
+        <result property="grade" column="grade"/>
+        <result property="email" column="email"/>
+        <result property="gender" column="gender"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+
+    <sql id="search">
+        <if test="type == 'account'">WHERE account LIKE CONCAT('%', #{keyword}, '%')</if>
+        <if test="type == 'name'">WHERE name LIKE CONCAT('%', #{keyword}, '%')</if>
+        <if test="type == 'grade'">WHERE grade LIKE CONCAT('%', #{keyword}, '%')</if>
+        <if test="type == 'email'">WHERE email LIKE CONCAT('%', #{keyword}, '%')</if>
+        <if test="type == 'gender'">WHERE gender LIKE CONCAT('%', #{keyword}, '%')</if>
+    </sql>
+
     <!-- 회원 가입 기능   -->
     <insert id="register">
       INSERT INTO member(account, password,gender, email, grade, name)
-      VALUES (#{account}, #{password}, #{gender}, #{email}, #{grade}, #{name})
+      VALUES (#{account}, #{password}, #{gender}, #{email}, #{grade}, #{name} )
     </insert>
 
     <!-- 중복체크 기능 (아이디, 이메일)   -->
@@ -25,13 +42,40 @@
 
     </select>
 
-    <!-- 회원 조회 기능   -->
-    <select id="findUser" resultType="com.champion.deliciousInfo.member.domain.Member">
+    <!-- 특정 회원 조회 기능   -->
+    <select id="findUser" resultMap="memberMap">
 
         SELECT *
         FROM member
         WHERE account = #{account}
 
     </select>
+
+    <!--모든 회원 조회-->
+    <select id="findAll" resultMap="memberMap">
+        SELECT *
+        FROM memeber
+    </select>
+
+    <select id="search" resultMap="memberMap">
+        SELECT  *
+        FROM member
+        <include refid="search" />
+        LIMIT #{start}, #{amount}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM member
+        <include refid="search" />
+    </select>
+
+    <update id="modifyGrade">
+        update member set grade=#{grade} where account=#{account}
+    </update>
+
+    <delete id="remove">
+        delete from member where account=#{account}
+    </delete>
 
 </mapper>

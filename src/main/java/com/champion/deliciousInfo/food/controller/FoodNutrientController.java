@@ -26,8 +26,6 @@ public class FoodNutrientController {
 
     private final FoodNutrientService foodNutrientService;
 
-    private final FoodService foodService;
-
     private final SupplementService supplementService;
 
     // 영양분 정보 상세 조회

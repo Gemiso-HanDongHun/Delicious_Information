@@ -217,6 +217,11 @@
     const $loginButton = document.querySelector("#login");
     const $form = document.querySelector("#form1");
 
+    const msg = '${msg}';
+    console.log(msg);
+    if (msg !== '') {
+        alert(msg);
+    }
 
 
 

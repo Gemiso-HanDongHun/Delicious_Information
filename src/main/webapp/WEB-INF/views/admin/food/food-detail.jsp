@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DelicousInfo-admin</title>
 
-    <%@include file="include/food-list/food-list-css.jsp" %>
+    <%@include file="../include/food-list/food-list-css.jsp" %>
     <style>
         label#foodNo {
             font-size: 20px;
@@ -25,11 +25,11 @@
 
 
     <!-- header -->
-    <%@include file="./include/header.jsp" %>
+    <%@include file="../include/header.jsp" %>
     <!-- /header -->
 
     <!-- Main Sidebar Container -->
-    <%@include file="./include/sidebar.jsp" %>
+    <%@include file="../include/sidebar.jsp" %>
     <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -204,10 +204,10 @@
     <!-- /.content-wrapper -->
 
     <!--footer -->
-    <%@ include file="./include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
     <!--/footer-->
 </div>
-<%@ include file="./include/food-list/food-list-js.jsp" %>
+<%@ include file="../include/food-list/food-list-js.jsp" %>
 <script src="/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <script>
