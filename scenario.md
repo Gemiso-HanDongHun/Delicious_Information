@@ -23,10 +23,41 @@ account password grade email gender phone
 ## Board
 1. 자유
 2. 회워용 리스트 게시판 추천 -> list.jsp 업데이트 -> vip -> 영양소 제품 하나줘 (정보)
-3. 건의/문의사항 
+3. 건의/문의사항
 
-DB 설계
-음식ID, 음식명, Kcal, 사진명
+## freeBoard board/free-board.jsp
+* board_no
+* title
+* writer (member account)
+* content
+* regdate
+* hit
+
+## infoBoard board/info-board.jsp
+* board_no
+* title
+* writer (member account)
+* content
+* regdate
+* hit
+* foodNo(지가 생성) (새로운 food테이블 foodNutirent)
+* 추천
+* 비추천
+
+## suggestionBoard board/suggest-board
+* board_no
+* title
+* writer (member account)
+* content
+* regdate 
+* hit
+* 추천
+* 비추천
+
+board.freeboardController
+
+
+
 
 영양소( 탄수화물, 단백질, 지방, 비타민 A, D, E, K, C),
 ## nutrient(영양제)
