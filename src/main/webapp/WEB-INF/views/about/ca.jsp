@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/about/css/about.css">
 
     <style>
+
         div.boxed-page section.top-area div.img {
             width: 40%;
             height: 100%;
@@ -23,6 +24,9 @@
             background-repeat: no-repeat;
         }
 
+        div.boxed-page{
+            height: 980px;
+        }
 
     </style>
 </head>

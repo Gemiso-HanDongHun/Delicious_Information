@@ -42,15 +42,17 @@ URL: https://gettemplates.co
 
     <style>
         .flex-column {
-            /*background-color: pink;*/
             margin-top: 40px;
-            /*margin-left: 0px;*/
-            font-size: 17px;
+            /*font-size: 17px;*/
         }
 
         div.flex-column li a {
-            /*background-color: pink;*/
             margin: 50px;
+            margin-top: 40px;
+        }
+
+        div.flex-column li a#list{
+            margin-left: 65px;
         }
 
         div.img-2 {
@@ -151,7 +153,7 @@ URL: https://gettemplates.co
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/food/list">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>

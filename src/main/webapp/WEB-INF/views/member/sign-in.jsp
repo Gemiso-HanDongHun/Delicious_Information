@@ -21,7 +21,7 @@
         }
 
         .boxed-page {
-            height: 90vh;
+            height: 970px;
         }
 
         .boxed-page .loginform {
@@ -110,6 +110,18 @@
             width: 90%;
             display: block;
             margin: 20px auto;
+        }
+
+        div.loginbt{
+            margin-top: 20px;
+        }
+
+        div.p{
+            margin-top: 30px;
+        }
+
+        div.kakao{
+            margin-top: 30px;
         }
     </style>
 </head>

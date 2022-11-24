@@ -160,7 +160,7 @@
                         </li>
 
                         <li class="nav-item dropdown" id="nav-li">
-                            <a class="nav-link dropdown-to" href="/member/login">
+                            <a class="nav-link dropdown-to" href="/member/sign-in">
                                 로그인
                             </a>
                         </li>
@@ -196,7 +196,7 @@
                 <input type="password" id="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
 
                 <p style="text-align: left; "><strong>비밀번호 확인<span class="import" id="pwChk2"></span></strong></p>
-                <input type="text" id="password_check" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
+                <input type="password" id="password_check" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
 
                 <p style="text-align: left;"><strong>이메일(선택)</strong></p>
                 <input type="email" id="email" name="email" value="" placeholder="이메일을 입력해주세요">

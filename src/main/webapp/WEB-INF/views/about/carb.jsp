@@ -21,6 +21,11 @@
             background-size: /*353px 390px*/100% 100%;
             background-repeat: no-repeat;
         }
+
+        div.boxed-page{
+            height: 980px;
+        }
+
     </style>
 
 </head>

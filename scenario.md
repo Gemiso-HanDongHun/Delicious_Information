@@ -57,8 +57,6 @@ account password grade email gender phone
 board.freeboardController
 
 
-
-
 영양소( 탄수화물, 단백질, 지방, 비타민 A, D, E, K, C),
 ## nutrient(영양제)
 * name
@@ -219,3 +217,5 @@ luycin
 11.22 : 회원가입 디자인, 기능 수정완료 현재 유효성 alert창으로 구현
 
 11.23 : 회원가입 기능 칸을 채우지 않았을 경우 알림메시지등 구현 완료
+
+11.24 : freeboard.jsp(자유게시판) 기능 구현시작 진행중

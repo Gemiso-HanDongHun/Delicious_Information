@@ -38,7 +38,6 @@
             color: #f4ede5;
         }
 
-
         .img-2 {
             width: 17%;
             height: 600px;
@@ -47,7 +46,6 @@
             margin-top: 11px;
 
         }
-
 
         div.boxed-page {
             min-height: 960px;
@@ -182,13 +180,11 @@
             padding-top: 45px;
         }
 
-
         div.flex-column li p#title {
             position: relative;
             text-align: center;
             right: 165px;
             font-size: 35px;
-            /*background-color: rebeccapurple;*/
         }
 
         .page-item.active .page-link {
@@ -205,9 +201,7 @@
             z-index: 10;
             padding: 10px;
 
-
         }
-
 
         .boxed-page aside.aside .side-bar-list {
             min-width: 200px;
@@ -216,8 +210,6 @@
             border: solid 10px #f4ede5;
             padding: 10px;
             margin-left: 70px;
-            /*margin-top: 30px;*/
-
         }
 
         .boxed-page aside.aside .side-bar-list .myList {
@@ -232,7 +224,6 @@
             margin-right: 10px;
             padding-top: 45px;
         }
-
 
         #loginAccount {
             width:100px;
@@ -252,6 +243,12 @@
             color: #f44336;
             cursor: pointer;
         }
+
+        li.active2{
+            width: 165px;
+            margin-left: 40px;
+        }
+
 
     </style>
 
@@ -273,7 +270,7 @@
                         <%--                        </a>--%>
                     </li>
                     <div class="d-flex flex-lg-row flex-column">
-                        <li class="nav-item active">
+                        <li class="nav-item active2">
                             <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
                         </li>
 
@@ -308,9 +305,6 @@
                         </c:if>
                     </div>
 
-
-
-
                 </ul>
 
                 <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">--%>
@@ -342,7 +336,6 @@
          style="background-image: url(/resto/img/steak.jpg);"> <%-- 이미지요소 --%>
 
     </div>
-
 
     <table class="test">
         <tr>
@@ -400,6 +393,8 @@
             <button type="button" class="btn btn-info" id="searchk" >검색</button>
         </div>
     </aside>
+
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -418,7 +413,7 @@
         );
     }
 
-    function Getbr() { //뛰어쓰기
+    function Getbr() { //띄어쓰기
         return (
             <br/>
         );

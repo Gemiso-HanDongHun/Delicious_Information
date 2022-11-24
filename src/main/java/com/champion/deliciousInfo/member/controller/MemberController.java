@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import static com.champion.deliciousInfo.member.domain.OAuthValue.*;
@@ -46,7 +45,7 @@ public class MemberController {
         model.addAttribute("kakaoRedirect", KAKAO_REDIRECT_URI);
         session.setAttribute("redirectURI", referer);
 
-        return "member/login";
+        return "member/sign-in";
     }
 
     //sign-in 처리 요청
@@ -70,7 +69,7 @@ public class MemberController {
             }
         }
         model.addAttribute("loginMsg", flag);
-        return "member/login";
+        return "member/sign-in";
 
     }
 
