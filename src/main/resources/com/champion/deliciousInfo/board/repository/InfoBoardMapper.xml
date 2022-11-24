@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.champion.deliciousInfo.board.infoboard.repository.InfoBoardMapper">
+<mapper namespace="com.champion.deliciousInfo.board.repository.InfoBoardMapper">
 
-    <resultMap id="infoBoardMap" type="com.champion.deliciousInfo.board.infoboard.domain.InfoBoard">
+    <resultMap id="infoBoardMap" type="com.champion.deliciousInfo.board.domain.InfoBoard">
         <id property="foodName" column="food_name"/>
         <id property="regdate" column="reg_date"/>
     </resultMap>

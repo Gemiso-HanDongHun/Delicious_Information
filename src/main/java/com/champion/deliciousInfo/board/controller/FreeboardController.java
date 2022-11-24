@@ -22,7 +22,7 @@ public class FreeboardController {
 
     private final FreeboardService freeboardService;
 
-    @GetMapping("/free-board")
+    @GetMapping("/freeBoard")
     public String list(Model model, @ModelAttribute("s") Search search) {
         log.info("controller request /food/list GET! - search: {}", search);
         Map<String, Object> freeboardMap = freeboardService.search(search);

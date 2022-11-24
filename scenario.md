@@ -166,6 +166,8 @@ lemoncoat :
 11.23 - admin 페이지 member관리 페이지 완성 등급 수정및 회원삭제
 
 
+11.24 - sboardController 생성 write및 findall생성 Sboard-write, sboard-list.jsp 작성
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

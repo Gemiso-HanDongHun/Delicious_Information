@@ -1,8 +1,7 @@
-package com.champion.deliciousInfo.board.infoboard.repository;
+package com.champion.deliciousInfo.board.repository;
 
-import com.champion.deliciousInfo.board.infoboard.domain.InfoBoard;
+import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.common.search.Search;
-import com.champion.deliciousInfo.food.domain.Food;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

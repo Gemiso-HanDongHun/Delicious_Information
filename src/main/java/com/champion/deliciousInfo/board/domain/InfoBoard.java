@@ -1,4 +1,4 @@
-package com.champion.deliciousInfo.board.infoboard.domain;
+package com.champion.deliciousInfo.board.domain;
 
 import lombok.*;
 

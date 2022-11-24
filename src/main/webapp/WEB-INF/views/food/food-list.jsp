@@ -391,6 +391,7 @@
         <div class="aside-down d-flex justify-content-center">
             <button type="button" class="btn btn-info" id="reset" >초기화</button>
             <button type="button" class="btn btn-info" id="searchk" >검색</button>
+            <button onclick="location.href='/board/suggestionBoard'">게시판</button>
         </div>
     </aside>
 
