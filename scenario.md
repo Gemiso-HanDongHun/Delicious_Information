@@ -165,6 +165,7 @@ lemoncoat :
 
 11.23 - admin 페이지 member관리 페이지 완성 등급 수정및 회원삭제
 
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 
@@ -179,15 +180,17 @@ goill :
       
 11.16 : 영양 정보 상세 페이지 작성중 about/carb.jsp, FoodAboutController
 
-11:17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중 
+11.17 : about 페이지들 완성, FoodAboutController 완성 , about_nav 수정중 
 
-11:18 : resources에 css파일 생성 및 about 페이지 디자인 수정 완료 
+11.18 : resources에 css파일 생성 및 about 페이지 디자인 수정 완료 
 
-11:21 : login 페이지 제작 및 수정중
+11.21 : login 페이지 제작 및 수정중
 
-11:22 : login 페이지 처리 및 검증 완료
+11.22 : login 페이지 처리 및 검증 완료
 
-11:23 : list 페이지 및 login 페이지 수정
+11.23 : list 페이지 및 login 페이지 수정
+
+11.24 : infoboard 패키지 및 하위 파일 작성 중
 
 luycin
 

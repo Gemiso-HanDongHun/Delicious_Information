@@ -9,6 +9,7 @@
 /* 바디 하단 패딩으로 띄우기 */
 div.boxed-page {
     padding-bottom: 25px;
+    height: 965px;
 }
 
 /* 네비바  전체 */
@@ -95,7 +96,7 @@ div.boxed-page section.top-area {
     width: 50%;
     height: 420px;
     padding: 20px;
-    margin:15px auto 15px;
+    margin:70px auto 15px;
     overflow: hidden;
 }
 
