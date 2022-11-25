@@ -38,13 +38,16 @@
             color: #f4ede5;
         }
 
+
         .img-2 {
             width: 17%;
             height: 600px;
             position: absolute;
             left: 130px;
             margin-top: 11px;
+
         }
+
 
         div.boxed-page {
             min-height: 960px;
@@ -223,9 +226,11 @@
         .boxed-page aside.aside .side-bar-list .myList {
             text-align: center;
         }
+
         div.sign{
-            margin-left:250px;
+            margin-left:100px;
         }
+
         div.flex-column li.sign a, div.flex-column li.sign p {
             width:90px;
             position: relative;
@@ -251,6 +256,29 @@
         #sign-out:hover {
             color: #f44336;
             cursor: pointer;
+        }
+        #sgboard {
+            display: block;
+            width: 80px;
+            margin-right: 50px;
+            color: #0c0c0d;
+        }
+
+        #sgboard:hover {
+            cursor: pointer;
+            color: #f44336;
+        }
+
+        #freeboard {
+            display: block;
+            width: 80px;
+            margin-right: 0;
+            color: #0c0c0d;
+        }
+
+        #freeboard:hover {
+            cursor: pointer;
+            color: #f44336;
         }
 
         #boardwriter {
@@ -307,6 +335,12 @@
                             <p id="title">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓲𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
                         </li>
 
+                        <li class="nav-item">
+                            <a id="sgboard" href="/board/suggestionBoard">건의게시판</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="freeboard" href="/board/freeBoard">자유게시판</a>
+                        </li>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column sign " >
@@ -350,15 +384,18 @@
     </div>
 
 
+
+
     <table class="test">
         <tr>
             <th style="width:10%">No</th>
-            <th style="width:20%">음식명</th>
-            <th style="width:20%">작성자</th>
-            <th style="width:20%">작성일</th>
-            <th style="width:10%">조회수</th>
-            <th style="width:10%">추천</th>
-            <th style="width:10%">비추천</th>
+            <th style="width:15%">음식명</th>
+            <th style="width:15%">작성자</th>
+            <th style="width:15%">내용</th>
+            <th style="width:15%">작성일</th>
+            <th style="width:5%">조회수</th>
+            <th style="width:5%">추천</th>
+            <th style="width:5%">비추천</th>
         </tr>
 
         <c:forEach var="b" items="${infoList}">
@@ -366,6 +403,7 @@
                 <td>${b.infoNo}</td>
                 <td onclick="location.href='/board/infoDetail/${b.infoNo}'">${b.foodName}</td>
                 <td>${b.writer}</td>
+                <td>${b.content}</td>
                 <td>${b.regdate}</td>
                 <td>${b.hit}</td>
                 <td>${b.good}</td>
