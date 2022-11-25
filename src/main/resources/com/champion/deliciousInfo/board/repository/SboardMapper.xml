@@ -9,8 +9,32 @@
         <id column="board_no" property="boardNo" />
     </resultMap>
 
+    <sql id="search">
+        <if test="keyword != null"> WHERE title LIKE CONCAT('%', #{keyword}, '%')
+         or writer LIKE CONCAT('%', #{keyword}, '%')</if>
+    </sql>
+
+    <!-- 전체 목록 조회 -->
     <select id="findAll" resultMap="sboardMap">
-        select * from s_board
+        select * from s_board order by regdate desc
+    </select>
+
+    <select id="findOne" resultMap="sboardMap">
+        select * from s_board where board_no=#{boardNo}
+    </select>
+    <!-- 전체 목록 조회 -->
+    <select id="search" resultMap="sboardMap">
+        SELECT  *
+        FROM s_board
+        <include refid="search" />
+        ORDER BY board_no DESC
+        LIMIT #{start}, #{amount}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM s_board
+        <include refid="search" />
     </select>
 
     <!-- 회원 가입 -->

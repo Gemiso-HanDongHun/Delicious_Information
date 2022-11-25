@@ -2,11 +2,15 @@ package com.champion.deliciousInfo.board.service;
 
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.repository.SboardMapper;
+import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.food.domain.Food;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Log4j2
@@ -20,6 +24,25 @@ public class SboardService {
         List<Sboard> sboardList = sboardMapper.findAll();
         return sboardList;
     }
+    public Map<String, Object> search(Search search) {
+        log.info("sboard findALL service start");
+
+        Map<String, Object> findDataMap = new HashMap<>();
+
+        List<Sboard> sboardList = sboardMapper.search(search);
+
+        findDataMap.put("sl", sboardList);
+        findDataMap.put("tc", sboardMapper.getTotalCount(search));
+
+        return findDataMap;
+    }
+
+    public Sboard findOne(Long boardNo){
+        log.info("sboard findOne service start");
+        Sboard foundOne = sboardMapper.findOne(boardNo);
+        return foundOne;
+    }
+
     public boolean regist(Sboard sboard){
         log.info("sboard reigst start -{}",sboard);
         boolean flag = sboardMapper.regist(sboard);

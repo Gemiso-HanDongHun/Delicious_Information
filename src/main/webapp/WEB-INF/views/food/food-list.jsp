@@ -163,28 +163,7 @@
             box-shadow: none;
         }
 
-        div.flex-column li {
-            padding-top: 35px;
-        }
 
-        div.flex-column li a {
-            position: relative;
-            margin-right: 140px;
-            padding-top: 45px;
-        }
-
-        li.nav-item #about {
-            position: relative;
-            margin-right: 400px;
-            padding-top: 45px;
-        }
-
-        div.flex-column li p#title {
-            position: relative;
-            text-align: center;
-            right: 165px;
-            font-size: 35px;
-        }
 
         .page-item.active .page-link {
             z-index: 1;
@@ -214,15 +193,7 @@
         .boxed-page aside.aside .side-bar-list .myList {
             text-align: center;
         }
-        div.sign{
-            margin-left:250px;
-        }
-        div.flex-column li.sign a, div.flex-column li.sign p {
-            width:90px;
-            position: relative;
-            margin-right: 10px;
-            padding-top: 45px;
-        }
+
 
         #loginAccount {
             width:100px;
@@ -243,10 +214,6 @@
             cursor: pointer;
         }
 
-        li.active2{
-            width: 165px;
-            margin-left: 40px;
-        }
 
 
     </style>
@@ -254,21 +221,16 @@
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
-<%@include file="./include/side_nav.jsp" %>
+
 
 <div class="boxed-page">
 
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <li class="nav-item only-desktop">
-                        <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
-                        <%--                            <span class="lnr lnr-menu"></span>--%>
-                        <%--                        </a>--%>
-                    </li>
-                    <div class="d-flex flex-lg-row flex-column">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
                             <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
                         </li>
@@ -277,13 +239,12 @@
                             <a class="nav-link" id="about" href="/food-about">About</a>
                         </li>
 
-                        <li>
-                            <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
-                        </li>
-
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column sign " >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx" >
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
@@ -303,19 +264,7 @@
                             </li>
                         </c:if>
                     </div>
-
                 </ul>
-
-                <%--                <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="/">--%>
-                <%--                    <img src="/resto/img/logo.png" alt="">--%>
-                <%--                </a>--%>
-               <%-- <ul class="navbar-nav d-flex justify-content-between">
-                    <div class="d-flex flex-lg-row flex-column">
-                        </li>
-                    </div>
-                    <li class="nav-item">
-                    </li>
-                </ul>--%>
             </div>
         </div>
     </nav>
