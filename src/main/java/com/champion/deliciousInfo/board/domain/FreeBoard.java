@@ -2,24 +2,18 @@ package com.champion.deliciousInfo.board.domain;
 
 import lombok.*;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
-@Setter
-@Getter
+@Getter @Setter @ToString
 @AllArgsConstructor
-@ToString
 @NoArgsConstructor
 @Builder
-public class Freeboard {
+public class FreeBoard {
 
-    // 테이블 컬럼 필드
-    private int freeboardNo;
+    private int freeboard_no;
     private String writer;
     private String title;
     private String content;
-    private int viewCnt;
-    private Date regDate;
-
+    private int view_cnt;
+    private Date reg_date;
 }

@@ -299,12 +299,12 @@
 
         <c:forEach var="fb" items="${fbList}">
             <tr>
-                <td>${fb.freeboardNo}</td>
+                <td>${fb.freeboard_no}</td>
                 <td>${fb.title}</td>
                 <td>${fb.writer}</td>
                 <td>${fb.content}</td>
-                <td>${fb.regDate}</td>
-                <td>${fb.viewCnt}</td>
+                <td>${fb.reg_date}</td>
+                <td>${fb.view_cnt}</td>
             </tr>
         </c:forEach>
     </table>
