@@ -44,7 +44,6 @@
             position: absolute;
             left: 130px;
             margin-top: 11px;
-
         }
 
         div.boxed-page {

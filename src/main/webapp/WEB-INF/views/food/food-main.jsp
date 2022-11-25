@@ -40,7 +40,6 @@ URL: https://gettemplates.co
     <style>
         div.boxed-page {
             height: 975px;
-
         }
 
         div.container {

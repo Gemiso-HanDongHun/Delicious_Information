@@ -38,16 +38,13 @@
             color: #f4ede5;
         }
 
-
         .img-2 {
             width: 17%;
             height: 600px;
             position: absolute;
             left: 130px;
             margin-top: 11px;
-
         }
-
 
         div.boxed-page {
             min-height: 960px;
@@ -351,8 +348,6 @@
     <div class="buttonDiv">
         <button type="button" id="boardwriter" onclick="location.href='/board/infoform'">작성</button>
     </div>
-
-
 
 
     <table class="test">

@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.board.repository;
 
 import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.common.search.Search;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,5 +10,11 @@ import java.util.List;
 public interface FreeBoardMapper {
 
     List<FreeBoard> findAll();
+
+    List<FreeBoard> search(Search search);
+
+    int getTotalCount(Search search);
+
+//    FreeBoard findOne(int freeboardNo);
 
 }

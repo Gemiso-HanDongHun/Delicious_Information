@@ -41,6 +41,7 @@ URL: https://gettemplates.co
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
     <style>
+
         .flex-column {
             margin-top: 40px;
             /*font-size: 17px;*/

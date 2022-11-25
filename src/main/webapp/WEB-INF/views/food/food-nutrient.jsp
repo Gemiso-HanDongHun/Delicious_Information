@@ -45,7 +45,6 @@ URL: https://gettemplates.co
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 
-
 </head>
 <body data-spy="scroll" data-target="#navbar">
 <%--<div id="side-nav" class="sidenav">

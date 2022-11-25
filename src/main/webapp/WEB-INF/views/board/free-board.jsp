@@ -11,8 +11,13 @@
     <style>
 
         div.boxed-page {
-            min-height: 960px;
+            height: 100vh;
+            background-image: url(/resto/img/background2.png);
+            background-size: cover;
+            /*background-color: #ffffff;*/
+            /*background-color: rgba( 255, 255, 255, 0.5 );*/
         }
+
 
         /* 외부 폰트 사용 */
         @font-face {
@@ -208,7 +213,6 @@
             margin-left: 41px;
         }
 
-
     </style>
 
 </head>
@@ -281,19 +285,17 @@
                 <span class="lnr lnr-magnifier"></span>
             </a>
 
-
         </form>
 
     </div>
 
-
     <table class="test">
         <tr>
             <th style="width:5%">No</th>
-            <th style="width:18%">제목</th>
+            <th style="width:15%">제목</th>
             <th style="width:12%">작성자</th>
-            <th style="width:40%">내용</th>
-            <th style="width:19%">날짜</th>
+            <th style="width:36%">내용</th>
+            <th style="width:26%">날짜</th>
             <th style="width:6%">조회수</th>
         </tr>
 
@@ -309,37 +311,92 @@
         </c:forEach>
     </table>
 
-    <%--    <div class="bottom_section d-flex justify-content-center">--%>
-    <%--        <nav class="bottom_nav">--%>
-    <%--            <ul class="pagination">--%>
-    <%--                <c:if test="${pm.prev}">--%>
-    <%--                    <li class="page-item">--%>
-    <%--                        <a class="page-link"--%>
-    <%--                           href="/food/list?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>--%>
-    <%--                    </li>--%>
-    <%--                </c:if>--%>
+    <div class="bottom_section d-flex justify-content-center">
+        <nav class="bottom_nav">
+            <ul class="pagination">
+                <c:if test="${pm.prev}">
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/board/freeBoard?pageNum=${fbpm.beginPage-1}&amount=${fbpm.page.amount}&keyword=${s.keyword}">prev</a>
+                    </li>
+                </c:if>
 
-    <%--                <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">--%>
-    <%--                    <li class="paginate_button page-item " data-page-num="${n}">--%>
-    <%--                        <a class="page-link"--%>
-    <%--                           href="/food/list?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>--%>
-    <%--                    </li>--%>
-    <%--                </c:forEach>--%>
+                <c:forEach var="n" begin="${fbpm.beginPage}" end="${fbpm.endPage}" step="1">
+                    <li class="paginate_button page-item " data-page-num="${n}">
+                        <a class="page-link"
+                           href="/board/freeBoard?pageNum=${n}&amount=${fbpm.page.amount}&keyword=${s.keyword}">${n}</a>
+                    </li>
+                </c:forEach>
 
-    <%--                <c:if test="${pm.next}">--%>
-    <%--                    <li class="page-item"><a class="page-link"--%>
-    <%--                                             href="/food/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}&keyword=${s.keyword}">next</a>--%>
-    <%--                    </li>--%>
-    <%--                </c:if>--%>
-    <%--            </ul>--%>
-    <%--        </nav>--%>
-    <%--    </div>--%>
+                <c:if test="${fbpm.next}">
+                    <li class="page-item"><a class="page-link"
+                                             href="/board/freeBoard?pageNum=${fbpm.endPage + 1}&amount=${fbpm.page.amount}&keyword=${s.keyword}">next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
+    </div>
+
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script>
+    const $searchButton = document.querySelector("#side-search-open");
+    const $inputName = document.querySelector("#inputName");
+    const $table = document.querySelector("table");
+    const $reset = document.querySelector("#reset");
+    const $searchk = document.querySelector("#searchk");
+    let checkTotal = 0;
+
+    const msg = '${msg}';
+    console.log(msg);
+    if (msg !== '') {
+        alert(msg);
+    }
+
+    function signOut() {
+        if (confirm('로그아웃하시겠습니까?')) {
+            location.href = '/member/sign-out';
+        }
+    }
+
+    function appendPageActive() {
+        // 현재 내가 보고 있는 페이지 넘버
+        const curPageNum = '${fbpm.page.pageNum}';
+        // console.log("현재페이지: ", curPageNum);
+
+        // 페이지 li태그들을 전부 확인해서
+        // 현재 위치한 페이지 넘버와 텍스트컨텐츠가 일치하는
+        // li를 찾아서 class active 부여
+        const $ul = document.querySelector('.pagination');
+        for (let $li of [...$ul.children]) {
+            if (curPageNum === $li.dataset.pageNum) {
+                $li.classList.add('active');
+                break;
+            }
+        }
+    }
+
+    $searchButton.onclick = e => { //검색창 버튼
+        location.href = "/board/infoBoard?keyword=" + $inputName.value;
+    };
+
+    /*
+        $(function () { //onload되면
+            *appendPageActive();*
+            fetch('/api/foods/')
+                .then(res => res.json())
+                .then(myList => {
+                    showFoodData(myList);
+                });
+        });*/
+
+</script>
+
 
 </body>
 </html>
