@@ -3,19 +3,21 @@ package com.champion.deliciousInfo.board.controller;
 
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.service.SboardService;
+import com.champion.deliciousInfo.common.paging.Page;
+import com.champion.deliciousInfo.common.paging.PageMaker;
+import com.champion.deliciousInfo.common.search.Search;
 import com.champion.deliciousInfo.member.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
 
@@ -29,10 +31,12 @@ public class SuggestBoardController {
 
 
     @GetMapping("")
-    public String getList(Model model){
+    public String getList(Model model, @ModelAttribute("s") Search search){
         log.info("GetMapping board/sboard/list forwarding to sboard-list.jsp");
-        List<Sboard> sboardList = sboardService.findAll();
-        model.addAttribute("sl",sboardList);
+        Map<String, Object> sboardMap = sboardService.search(search);
+        PageMaker pm = new PageMaker(new Page(search.getPageNum(),search.getAmount()), (Integer) sboardMap.get("tc"));
+        model.addAttribute("sl",sboardMap.get("sl") );
+        model.addAttribute("pm", pm);
         log.info("sl-{}",model.getAttribute("sl"));
         return "board/sboard-list";
     }
@@ -53,6 +57,14 @@ public class SuggestBoardController {
         ra= flag? ra.addFlashAttribute("msg","등록성공")
                 : ra.addFlashAttribute("msg","등록실패");
         return "redirect:/board/suggestionBoard";
+    }
+
+    @GetMapping("/detail/{boardNo}")
+    public String getContent(@PathVariable Long boardNo,Model model){
+        log.info("GetMapping board/suggestionBoard/detail/{}", boardNo);
+        Sboard foundOne = sboardService.findOne(boardNo);
+        model.addAttribute("sb",foundOne);
+        return "board/sboard-detail";
     }
 
 

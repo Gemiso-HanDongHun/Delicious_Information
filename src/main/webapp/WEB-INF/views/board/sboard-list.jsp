@@ -5,14 +5,8 @@
 <html lang="ko">
 
 <head>
-    <%@include file="../about/include/header_css.jsp" %>
-    <link rel="stylesheet" href="/about/css/about.css">
-
+    <%@include file="../food/include/header_css.jsp" %>
     <style>
-
-        div.flex-column p.maintext {
-            margin-left: 105px;
-        }
 
         .boxed-page {
             height: 970px;
@@ -21,6 +15,7 @@
         section.board{
             margin-top: 100px;
         }
+
         table.suggest-board{
             width: 70%;
             border: 20px solid #f4ede5;
@@ -29,7 +24,6 @@
             padding: 24px;
             background: #f4ede5;
             line-height: 202%;
-            z-index: 1000;
             text-align: center;
         }
         table.suggest-board tr {
@@ -37,6 +31,7 @@
         }
         table.suggest-board td a{
             cursor: pointer;
+            color: skyblue;
         }
 
         button#regist{
@@ -51,13 +46,13 @@
             background-color: #f4ede5;
         }
 
-
-
         button.btn-info:hover{
             color: #f4ede5;
         }
 
-
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
 
 
 
@@ -67,34 +62,63 @@
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
-<%@include file="../about/include/side_nav.jsp" %>
-
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <div class="d-flex flex-lg-row flex-column">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/food-main">free <span class="sr-only">(current)</span></a>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
+                            <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food-about">info</a>
+                            <a class="nav-link" id="about" href="/food-about">About</a>
                         </li>
 
-                        <li>
-                            <p class="maintext">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</p>
-                        </li>
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/board/sboard/list">suggest</a>
-                        </li>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" d="navibarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    게시판
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       onclick="location.href='/food/about/carb'">탄수화물</a>
+                                    <a class="dropdown-item"
+                                       onclick="location.href='/food/about/protein'">단백질</a>
+                                    <a class="dropdown-item"
+                                       onclick="location.href='/food/about/fat'">지방</a>
+                                </div>
+
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
+                            </li>
+                        </c:if>
+
+
+                        <c:if test="${!empty loginUser}">
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                            </li>
+                        </c:if>
                     </div>
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
 
@@ -116,7 +140,7 @@
                 <td><a><i class="far fa-thumbs-up"></i></a></td>
                 <td><a><i class="far fa-thumbs-down"></i></a></td>
                 <td>${s.boardNo}</td>
-                <td>${s.title}</td>
+                <td><a href="/board/suggestionBoard/detail/${s.boardNo}" >${s.title}</a></td>
                 <td>${s.writer}</td>
                 <td>${s.regdate}</td>
                 <td>${s.hit}</td>
@@ -124,8 +148,38 @@
             </c:forEach>
 
         </table>
-        <button type="button" class="btn btn-info" onclick="location.href='/board/suggestionBoard/write'" id="regist" >등록</button>
+
+
+
     </section>
+    <div class="bottom_section d-flex justify-content-center">
+        <nav class="bottom_nav">
+            <ul class="pagination">
+                <c:if test="${pm.prev}">
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/board/suggestionBoard?pageNum=${pm.beginPage-1}&amount=${pm.page.amount}&keyword=${s.keyword}">prev</a>
+                    </li>
+                </c:if>
+
+                <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
+                    <li class="paginate_button page-item " data-page-num="${n}">
+                        <a class="page-link"
+                           href="/board/suggestionBoard?pageNum=${n}&amount=${pm.page.amount}&keyword=${s.keyword}">${n}</a>
+                    </li>
+                </c:forEach>
+
+                <c:if test="${pm.next}">
+                    <li class="page-item"><a class="page-link"
+                                             href="/board/suggestionBoard?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}&keyword=${s.keyword}">next</a>
+                    </li>
+                </c:if>
+            </ul>
+        </nav>
+    </div>
+    <c:if test="${!empty loginUser}">
+        <button type="button" class="btn btn-info" onclick="location.href='/board/suggestionBoard/write'" id="regist" >등록</button>
+    </c:if>
 
 </div>
 <script>
