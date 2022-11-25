@@ -296,7 +296,7 @@
 
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.account}님</a>
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
