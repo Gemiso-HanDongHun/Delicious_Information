@@ -1,0 +1,34 @@
+div.boxed-page {
+    min-height: 960px;
+}
+
+#navbar-header #ulwidth.navbar-nav{
+    width:100%;
+}
+
+
+div.flex-column li {
+    padding-top: 35px;
+}
+
+div.flex-column li a {
+    position: relative;
+    padding-top: 45px;
+}
+
+li.nav-item #about {
+    padding-top: 45px;
+}
+
+div  p#title {
+    padding-top: 45px;
+    font-size: 40px;
+}
+
+div.widthpx{
+    width:300px;
+}
+div.titlewidth{
+    width: 300px;
+    text-align: center;
+}
