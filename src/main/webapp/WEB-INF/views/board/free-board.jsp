@@ -213,6 +213,26 @@
             margin-left: 41px;
         }
 
+        div.buttonDiv {
+            position: absolute;
+            width: 120px;
+            height: 45px;
+            top: 212px;
+            margin-left: 65%;
+
+        }
+
+        button#boardwriter{
+            border-radius: 1.5rem;
+            border: solid 5px #f4ede5;
+            padding: 5px;
+            background-color : #f4ede5;
+            width: 70px;
+            cursor: pointer;
+
+        }
+
+
     </style>
 
 </head>
@@ -279,7 +299,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 내용을 적어주세요" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>
@@ -288,6 +308,11 @@
         </form>
 
     </div>
+
+    <div class="buttonDiv">
+        <button type="button" id="boardwriter" onclick="location.href='/board/freeboard-write'">글작성</button>
+    </div>
+
 
     <table class="test">
         <tr>

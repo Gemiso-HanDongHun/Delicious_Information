@@ -346,7 +346,7 @@
     </div>
 
     <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/infoform'">작성</button>
+        <button type="button" id="boardwriter" onclick="location.href='/board/freeboard-write'">글작성</button>
     </div>
 
 

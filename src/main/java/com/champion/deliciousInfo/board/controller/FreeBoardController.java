@@ -35,5 +35,12 @@ public class FreeBoardController {
         return "board/free-board";
     }
 
+    @GetMapping("/freeboard-write")
+    public String getWriteForm(){
+        log.info("Getmapping board/freeboard/write forwarding to sboard-write.jsp");
+
+        return "board/freeboard-write";
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.board.service;
 
 import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.repository.FreeBoardMapper;
 import com.champion.deliciousInfo.common.search.Search;
 import lombok.RequiredArgsConstructor;
@@ -40,4 +41,12 @@ public class FreeBoardService {
 
         return findDataMap;
     }
+
+    public boolean regist(FreeBoard freeBoard){
+        log.info("sboard reigst start -{}",freeBoard);
+        boolean flag = freeBoardMapper.regist(freeBoard);
+        return flag;
+    }
+
+
 }
