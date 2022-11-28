@@ -363,7 +363,7 @@
         <c:forEach var="sb" items="${sl}">
             <tr>
                 <td>${sb.boardNo}</td>
-                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}</td>
+                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}[${sb.replyCount}]</td>
                 <td>${sb.writer}</td>
                 <td>${sb.regdate}</td>
                 <td>${sb.hit}</td>

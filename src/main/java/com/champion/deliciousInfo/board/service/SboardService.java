@@ -5,6 +5,7 @@ import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.SboardMapper;
 import com.champion.deliciousInfo.common.search.Search;
 import com.champion.deliciousInfo.food.domain.Food;
+import com.champion.deliciousInfo.reply.repository.ReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,8 @@ public class SboardService {
 
     private final SboardMapper sboardMapper;
 
+    private final ReplyMapper replyMapper;
+
     public List<Sboard> findAll(){
         log.info("sboard findALL start");
         List<Sboard> sboardList = sboardMapper.findAll();
@@ -32,6 +35,7 @@ public class SboardService {
         Map<String, Object> findDataMap = new HashMap<>();
 
         List<Sboard> sboardList = sboardMapper.search(search);
+        processConverting(sboardList);
 
         findDataMap.put("sl", sboardList);
         findDataMap.put("tc", sboardMapper.getTotalCount(search));
@@ -75,6 +79,15 @@ public class SboardService {
         return member;
     }
 
+    private void processConverting(List<Sboard> boardList) {
+        for (Sboard b : boardList) {
+            setReplyCount(b);
+        }
+    }
+
+    private void setReplyCount(Sboard b) {
+        b.setReplyCount(replyMapper.getReplyCount(b.getBoardNo()));
+    }
 
 
 }

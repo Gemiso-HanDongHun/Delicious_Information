@@ -169,6 +169,8 @@ lemoncoat :
 
 11.25 - sboard detail 및 header수정
 
+11.28 - 11.28 - sboard 수정 삭제 및 reply 수정 삭제 등록 구현
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

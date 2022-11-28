@@ -15,4 +15,6 @@ public class Sboard {
     private String content;
     private Date regdate;
     private int hit;
+
+    private int replyCount;
 }

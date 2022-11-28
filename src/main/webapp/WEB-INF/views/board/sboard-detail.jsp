@@ -7,6 +7,9 @@
 <head>
     <%@include file="../about/include/header_css.jsp" %>
     <link rel="stylesheet" href="/about/css/about.css">
+    <!-- jquery -->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+
     <!-- include summernote css/js -->
 
     <style>
@@ -61,7 +64,8 @@
         }
 
         #replies{
-
+            width:50%;
+            margin:auto;
         }
     </style>
 
@@ -218,12 +222,11 @@
 
 
 
-<%--    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"--%>
-<%--         style="background-image: url(/resto/img/testi-bg.jpg);"> &lt;%&ndash; 이미지요소 &ndash;%&gt;--%>
 
-<%--    </div>--%>
 </div>
 </body>
+<!-- bootstrap js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 <script>
     const $modBtn = document.getElementById('mod-btn');
     const $delBtn = document.getElementById('del-btn');
@@ -365,7 +368,7 @@
                     "       <div class='col-md-6'>" + rep.replyText + "</div>" +
                     "       <div class='offset-md-2 col-md-4 text-right'>";
 
-                if (currentAccount === rep.replyWriter || grade === 'ADMIN') {
+                if (currentAccount === rep.replyWriter || grade === 'admin') {
                     tag +=
                         "         <a id='replyModBtn' class='btn btn-sm btn-outline-dark' data-bs-toggle='modal' data-bs-target='#replyModifyModal'>수정</a>&nbsp;" +
                         "         <a id='replyDelBtn' class='btn btn-sm btn-outline-dark' href='#'>삭제</a>";
