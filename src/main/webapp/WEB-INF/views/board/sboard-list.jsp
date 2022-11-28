@@ -9,7 +9,7 @@
     <style>
 
         .boxed-page {
-            height: 970px;
+            min-height: 970px;
         }
 
         section.board{
@@ -55,6 +55,90 @@
         }
 
 
+        div.buttonDiv {
+            position: absolute;
+            width: 120px;
+            height: 45px;
+            top: 170px;
+            margin-left: 65%;
+        }
+
+        div.div_search {
+            width: 21%;
+            margin: 70px 0 30px 40%;
+            display: flex;
+            border-radius: 1em;
+            font-size: 0.8vw;
+            border: 2px solid #000000;
+            line-height: 180%;
+            padding-left: 10px;
+            /*background-color: #005cbf;*/
+        }
+
+        div.div_search form {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* 서치바 영역 */
+        div.div_search input[type=text] {
+            width: 100%;
+            height: 40px;
+            border: 0px;
+
+        }
+
+        div.div_search input[type=text]:focus {
+            outline: none;
+        }
+
+        div.div_search a {
+            padding: 8px 8px 2px;
+        }
+
+        #boardwriter {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+        }
+        #boardwriter:hover {
+            color: #fff;
+            background-color: lightgray;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        #nav-li #navbarDropdown {
+            width: 100px;
+            padding-top: 60px;
+            margin-top: 45px;
+            position: absolute;
+        }
+
+
+        #navbar-header .dropdown .dropdown-menu {
+            top: 80%;
+            display: none;
+        }
+
+        #navbar-header .dropdown{
+            top:65%;
+            height: 1px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown{
+            padding-top: 0px;
+            top:-34px;
+            position: relative;
+        }
+
+
+
 
 
 
@@ -83,22 +167,22 @@
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
-                        <c:if test="${empty loginUser}">
                             <li class="nav-item dropdown" id="nav-li">
-                                <a class="nav-link dropdown-toggle" d="navibarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     게시판
                                 </a>
                                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                       onclick="location.href='/food/about/carb'">탄수화물</a>
+                                       onclick="location.href='/board/freeBoard'">자유게시판</a>
                                     <a class="dropdown-item"
-                                       onclick="location.href='/food/about/protein'">단백질</a>
+                                       onclick="location.href='/board/infoBoard'">정보게시판</a>
                                     <a class="dropdown-item"
-                                       onclick="location.href='/food/about/fat'">지방</a>
+                                       onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
                                 </div>
 
                             </li>
+                        <c:if test="${empty loginUser}">i
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
@@ -110,7 +194,7 @@
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
                             </li>
                         </c:if>
                     </div>
@@ -118,6 +202,22 @@
             </div>
         </div>
     </nav>
+
+
+    <div class="div_search">
+        <form id="searchForm">
+            <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
+                   value="${s.keyword}">
+            <a id="side-search-open" class="nav-link" href="#">
+                <span class="lnr lnr-magnifier"></span>
+            </a>
+
+        </form>
+    </div>
+
+    <div class="buttonDiv">
+        <button type="button" id="boardwriter" onclick="location.href='/board/infoform'">작성</button>
+    </div>
 
 
 

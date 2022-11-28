@@ -108,6 +108,7 @@ public class MemberController {
     public String signOut(HttpServletRequest request,RedirectAttributes ra) throws Exception {
 
         HttpSession session = request.getSession();
+        String referer = request.getHeader("Referer");
 
         if (isLogin(session)) {
 
@@ -138,7 +139,11 @@ public class MemberController {
             // 2. 세션을 무효화한다.
             session.invalidate();
             ra.addFlashAttribute("msg","로그아웃");
-            return "redirect:/food/list";
+            if(referer!=null) {
+                return "redirect:" + referer;
+            }else{
+                return "redirect:/food/list";
+            }
         }
         return "redirect:/member/sign-in";
     }

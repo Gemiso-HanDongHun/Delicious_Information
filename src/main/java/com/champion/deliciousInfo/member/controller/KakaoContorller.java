@@ -48,7 +48,12 @@ public class KakaoContorller {
             session.setAttribute(LOGIN_FROM, KAKAO);
             session.setAttribute("accessToken", accessToken);
             ra.addFlashAttribute("msg","로그인 성공");
-            return "redirect:/food/list";
+            String redirectURI = (String) session.getAttribute("redirectURI");
+            if(redirectURI!=null) {
+                return "redirect:" + redirectURI;
+            }else{
+                return "redirect:/food/list";
+            }
         }
 
         return "redirect:/member/login";
