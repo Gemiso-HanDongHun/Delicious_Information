@@ -42,4 +42,29 @@
         insert into s_board(title, writer,content) values (#{title},#{writer},#{content})
     </insert>
 
+    <delete id="remove">
+        DELETE FROM s_board
+        WHERE board_no=#{boardNo}
+    </delete>
+
+    <update id="modify">
+        UPDATE s_board
+        SET  title=#{title}, content=#{content}
+        WHERE board_no=#{boardNo}
+    </update>
+
+    <select id="findMemberByBoardNo" resultType="com.champion.deliciousInfo.board.dto.ValidateMemberDTO">
+
+        SELECT account, grade
+        FROM member
+        WHERE account = (
+            SELECT writer
+            FROM s_board
+            WHERE board_no = #{boardNo}
+        )
+
+    </select>
+
+
+
 </mapper>

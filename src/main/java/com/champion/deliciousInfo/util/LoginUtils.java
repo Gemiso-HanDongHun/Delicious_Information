@@ -1,5 +1,7 @@
 package com.champion.deliciousInfo.util;
 
+import com.champion.deliciousInfo.member.domain.Member;
+
 import javax.servlet.http.HttpSession;
 
 public class LoginUtils {
@@ -12,6 +14,11 @@ public class LoginUtils {
     // 로그인했는지 알려주기~~
     public static boolean isLogin(HttpSession session) {
         return session.getAttribute(LOGIN_FLAG) != null;
+    }
+
+    public static String getCurrentMemberAccount(HttpSession session) {
+        Member member = (Member) session.getAttribute(LOGIN_FLAG);
+        return member.getAccount();
     }
 
 

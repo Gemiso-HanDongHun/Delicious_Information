@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.util.List;
@@ -60,11 +62,51 @@ public class SuggestBoardController {
     }
 
     @GetMapping("/detail/{boardNo}")
-    public String getContent(@PathVariable Long boardNo,Model model){
+    public String getContent(@PathVariable Long boardNo,Model model, @ModelAttribute("p") Page page){
         log.info("GetMapping board/suggestionBoard/detail/{}", boardNo);
         Sboard foundOne = sboardService.findOne(boardNo);
         model.addAttribute("sb",foundOne);
         return "board/sboard-detail";
+    }
+
+    // 게시물 삭제 확인 요청
+    @GetMapping("/delete")
+    public String delete(@ModelAttribute("boardNo") Long boardNo, Model model) {
+
+        log.info("controller request /board/delete GET! - bno: {}", boardNo);
+
+        model.addAttribute("validate", sboardService.getMember(boardNo));
+
+        return "board/sboard-process-delete";
+    }
+
+    // 게시물 삭제 확정 요청
+    @PostMapping("/delete")
+    public String delete(Long boardNo) {
+        log.info("controller request /board/delete POST! - bno: {}", boardNo);
+
+        return sboardService.removeService(boardNo) ? "redirect:/board/suggestionBoard" : "redirect:/food-main";
+    }
+
+    // 수정 화면 요청
+    @GetMapping("/modify")
+    public String modify(Long boardNo, Model model) {
+        log.info("controller request /board/modify GET! - bno: {}", boardNo);
+        Sboard sboard = sboardService.findOne(boardNo);
+        log.info("find article: {}", sboard);
+
+        model.addAttribute("sb", sboard);
+        model.addAttribute("validate", sboardService.getMember(boardNo));
+
+        return "board/sboard-modify";
+    }
+
+    // 수정 처리 요청
+    @PostMapping("/modify")
+    public String modify(Sboard board) {
+        log.info("controller request /board/modify POST! - {}", board);
+        boolean flag = sboardService.modifyService(board);
+        return flag ? "redirect:/board/suggestionBoard/detail/" + board.getBoardNo() : "redirect:/food-main";
     }
 
 

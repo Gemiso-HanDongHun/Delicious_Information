@@ -9,9 +9,10 @@
     <style>
 
         .boxed-page {
-            min-height: 970px;
+            min-height: 100vh;
+            background-image: url(/resto/img/pasta.jpg);
+            background-size: cover;
         }
-
         section.board{
             margin-top: 100px;
         }
@@ -137,6 +138,79 @@
             position: relative;
         }
 
+        div.bottom_section ul li a {
+            color: black;
+        }
+
+        /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+            background: lightgray;
+            color: #ffff;
+        }
+
+        /* List CSS */
+        /* 테이블 전체 */
+        .test {
+            width: 70%;
+            border: 2px solid #f4ede5;
+            border-radius: 1.5em;
+            border-collapse: separate;
+            margin: auto;
+            padding: 24px;
+            background: #f4ede5;
+            line-height: 202%;
+            z-index: 1000;
+        }
+
+        /* 내부 tr 배경 */
+        table.test tr {
+            background: #ffffff;
+        }
+
+        /* th 중앙 정렬 및 외부 폰트 */
+        div.boxed-page table th {
+            text-align: center;
+            /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
+            font-weight: 700;
+        }
+
+        /* td 중앙 정렬 */
+        div.boxed-page table td {
+            text-align: center;
+        }
+
+        /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
+        div.boxed-page table td:nth-child(2):hover {
+            cursor: pointer;
+            background: lightgray;
+            color: #ffff;
+        }
+
+        /* 목록 전체 영역 */
+        div.bottom_section {
+            padding-bottom: 1px;
+            margin-top: 25px;
+            margin-bottom: 2px;
+            color: black;
+        }
+
+        /* a태그 폰트 설정 */
+        div.bottom_section ul li a {
+            color: black;
+        }
+
+        /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+            background: lightgray;
+            color: #ffff;
+        }
+
+        /* a태그 포커스 삭제*/
+        div.bottom_section nav.bottom_nav ul li a.page-link:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+
 
 
 
@@ -222,36 +296,26 @@
 
 
 
-    <section class="board d-flex justify-content-center">
-        <table class="suggest-board">
-            <thead>
-                    <tr>
-                        <th style="width: 5%">추천</th>
-                        <th style="width: 5%">비추천</th>
-                        <th style="width: 5%">No</th>
-                        <th style="width: 43%">제목</th>
-                        <th style="width: 15%">작성자</th>
-                        <th style="width: 20%">작성일</th>
-                        <th style="width: 5%">조회수</th>
-                    </tr>
-            </thead>
-            <c:forEach var="s" items="${sl}">
+    <table class="test">
+        <tr>
+            <th style="width:10%">No</th>
+            <th style="width:45%">제목</th>
+            <th style="width:15%">작성자</th>
+            <th style="width:25%">작성일</th>
+            <th style="width:5%">조회수</th>
+        </tr>
+
+        <c:forEach var="sb" items="${sl}">
             <tr>
-                <td><a><i class="far fa-thumbs-up"></i></a></td>
-                <td><a><i class="far fa-thumbs-down"></i></a></td>
-                <td>${s.boardNo}</td>
-                <td><a href="/board/suggestionBoard/detail/${s.boardNo}" >${s.title}</a></td>
-                <td>${s.writer}</td>
-                <td>${s.regdate}</td>
-                <td>${s.hit}</td>
+                <td>${sb.boardNo}</td>
+                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}</td>
+                <td>${sb.writer}</td>
+                <td>${sb.regdate}</td>
+                <td>${sb.hit}</td>
             </tr>
-            </c:forEach>
+        </c:forEach>
+    </table>
 
-        </table>
-
-
-
-    </section>
     <div class="bottom_section d-flex justify-content-center">
         <nav class="bottom_nav">
             <ul class="pagination">
@@ -277,9 +341,8 @@
             </ul>
         </nav>
     </div>
-    <c:if test="${!empty loginUser}">
-        <button type="button" class="btn btn-info" onclick="location.href='/board/suggestionBoard/write'" id="regist" >등록</button>
-    </c:if>
+
+
 
 </div>
 <script>

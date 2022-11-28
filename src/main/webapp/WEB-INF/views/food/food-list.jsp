@@ -191,14 +191,14 @@
             text-align: center;
         }
 
-        #loginAccount {
-            width:100px;
-            display: block;
-            font-size: 15px;
-            padding: 0;
-            margin:45px auto;
-            right: 100px;
-        }
+        /*#loginAccount {*/
+        /*    width:100px;*/
+        /*    display: block;*/
+        /*    font-size: 15px;*/
+        /*    padding: 0;*/
+        /*    margin:45px auto;*/
+        /*    right: 100px;*/
+        /*}*/
 
         #loginAccount:hover {
             color: #f44336;

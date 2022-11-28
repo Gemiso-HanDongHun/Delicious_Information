@@ -10,8 +10,8 @@
 
         .boxed-page {
             min-height: 100vh;
-            /*background-image: url(/resto/img/coffee.jpg);*/
-            /*background-size: cover;*/
+            background-image: url(/resto/img/coffee.jpg);
+            background-size: cover;
             /*background-color: #ffffff;*/
             /*background-color: rgba( 255, 255, 255, 0.5 );*/
         }
@@ -139,6 +139,8 @@
             padding-top: 0px;
             top: -34px;
             position: relative;
+            background:#FFFFFF;
+            border-radius: 1em;
         }
 
         ul.pagination {

@@ -1,0 +1,109 @@
+create database delicious_info;
+show databases;
+use delicious_info;
+create table food
+(
+    food_no INT auto_increment,
+    name varchar(20) not null,
+    kcal int(5)  not null,
+    img varchar(30) not null,
+    constraint food_pk
+        primary key (food_no)
+);
+create table food_nutrient
+(
+    nutrient_no  int auto_increment primary key ,
+    carbohydrate float(7, 2),
+    protein      float(7, 2),
+    fat          float(7, 2),
+    vitamin_a float(7, 2),
+    vitamin_c float(7, 2),
+    vitamin_e float(7, 2),
+    calcium float(7, 2),
+    iron float(7, 2),
+    magnesium float(7, 2),
+    sodium float(7,2),
+    omega float(7,2),
+    food_no int not null,
+    constraint food_nutrient_fk
+        foreign key  (food_no) references food(food_no)
+);
+insert into food (name, kcal, img) values ('김치', 38, null);
+insert into food (name, kcal, img) values ('김치', 38, '22.jpg');
+insert into food_nutrient(carbohydrate, protein, fat, vitamin_a, vitamin_c,
+                          vitamin_e, calcium, iron, magnesium, sodium, omega, food_no)
+values (20,12,3,4,6,7,8,2,3,0,2,1);
+select * from food,food_nutrient where food.food_no=food_nutrient.food_no;
+create table admin(
+    admin_no int auto_increment primary key,
+    account varchar(10) unique not null,
+    password varchar(100) not null
+);
+insert into admin(account,password) values ('admin','test');
+update admin set password ='$2a$10$WjMcsylulsx/EudTJF3f9eVJU/cvKQa..ARh9HgXqO2gkSt4KavmS' where account ='admin';
+delete from admin;
+insert into food (name, kcal, img) values ('밥', 200, '22.jpg');
+select * from admin;
+update food_nutrient set carbohydrate=2, protein=3, fat=4,
+                                 vitamin_a=5,vitamin_c=6,
+                                 vitamin_e=7, calcium=8,iron=9,
+                                 magnesium=11,sodium=10,omega=12
+where food_no=47;
+select * from food;
+select * from food,food_nutrient
+where food.food_no=food_nutrient.food_no;
+update food_nutrient set carbohydrate=2, protein=3, fat=4,
+                                 vitamin_a=5,vitamin_c=6,
+                                 vitamin_e=7, calcium=8,iron=9,
+                                 magnesium=11,sodium=10,omega=12
+where food_no=1;
+SELECT * FROM food_nutrient;
+select * from food_nutrient RIGHT OUTER JOIN food
+                                             ON food.food_no=food_nutrient.food_no;
+select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium, iron, magnesium, sodium, omega,  food_no, name, kcal, img from food_nutrient RIGHT OUTER JOIN food
+                                             ON food.food_no=food_nutrient.food_no;
+select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium, iron, magnesium, sodium, omega,  food.food_no, name, kcal, img from food_nutrient RIGHT OUTER JOIN food
+                                             ON food.food_no=food_nutrient.food_no;
+select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium, iron, magnesium, sodium, omega,  food.food_no as food_no, name, kcal, img from food_nutrient RIGHT OUTER JOIN food
+                                             ON food.food_no=food_nutrient.food_no;
+select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e,
+       calcium, iron, magnesium, sodium, omega,
+       food.food_no as food_no, name, kcal, img
+from food_nutrient RIGHT OUTER JOIN food
+where food_no=1;
+delete from food_nutrient;
+delete from food;
+ALTER TABLE food AUTO_INCREMENT=1;
+ALTER TABLE food_nutrient AUTO_INCREMENT=1;
+select * from food_nutrient where carbohydrate<3;
+create table nutrient (
+    nutrient_no int primary key auto_increment,
+    name varchar(20) not null,
+    category varchar(20) not null,
+    quantity float(7,2)
+);
+
+create table s_board (
+    board_no int(10) auto_increment primary key,
+    title varchar(40) not null,
+    writer varchar(30) ,
+    content text,
+    regdate datetime default current_timestamp,
+    hit int(5)/*,
+    constraint s_board_member_foreign_key foreign key  (writer)
+                     references member(account) ON DELETE
+                     SET NULL*/
+);
+create table s_tbl_reply
+(
+    reply_no int(10) primary key auto_increment,
+    reply_text varchar(1000),
+    reply_writer varchar(50),
+    reply_date datetime default current_timestamp(),
+    board_no int(10),
+    constraint fk_sboard_s_reply foreign key (board_no)
+    references s_board(board_no) on delete cascade
+);
+
+
+drop table s_board;

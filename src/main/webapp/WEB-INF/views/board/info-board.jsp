@@ -9,8 +9,12 @@
     <%@include file="../food/include/header_css.jsp" %>
 
     <style>
+
+
         .boxed-page {
-            min-height: 970px;
+            min-height: 100vh;
+            background-image: url(/resto/img/pasta.jpg);
+            background-size: cover;
         }
 
         /* 외부 폰트 사용 */
