@@ -20,24 +20,37 @@
             margin-top: 30px;
         }
 
-        table.free-board {
-            width: 60%;
+        .free-board {
+            width: 70%;
             border: 20px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: separate;
-            padding: 9px;
+            padding: 10px;
             background: #f4ede5;
             line-height: 202%;
             text-align: center;
         }
 
+
+
         table.free-board tr {
             background: #ffffff;
         }
 
+        /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+            background: lightgray;
+            color: #ffff;
+        }
+
         table.free-board td a {
             cursor: pointer;
-            color: skyblue;
+            color: black;
+        }
+
+        /* a태그 폰트 설정 */
+        div.bottom_section ul li a {
+            color: black;
         }
 
         button#regist {
@@ -78,7 +91,6 @@
             line-height: 180%;
             padding-left: 10px;
             margin-top: 110px;
-            /*background-color: #005cbf;*/
         }
 
         div.div_search form {
@@ -105,20 +117,20 @@
             padding: 8px 8px 2px;
         }
 
-        #boardwriter {
-            width: 120px;
-            height: 45px;
-            border: 0;
-            border-radius: 2em;
-            margin-top: 40px;
-        }
+        /*#boardwriter {*/
+        /*    width: 120px;*/
+        /*    height: 45px;*/
+        /*    border: 0;*/
+        /*    border-radius: 2em;*/
+        /*    margin-bottom: 40px;*/
+        /*}*/
 
-        #boardwriter:hover {
-            color: #fff;
-            background-color: lightgray;
-            cursor: pointer;
-            font-weight: 700;
-        }
+        /*#boardwriter:hover {*/
+        /*    color: #fff;*/
+        /*    background-color: lightgray;*/
+        /*    cursor: pointer;*/
+        /*    font-weight: 700;*/
+        /*}*/
 
         input#inputName {
             padding: 10px;
@@ -137,11 +149,71 @@
 
         #navbar-header .dropdown a#navibarDropdown {
             padding-top: 0px;
-            top: -34px;
+            top: -38px;
             position: relative;
-            background:#FFFFFF;
+            background: #FFFFFF;
             border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
         }
+
+        #navbar-header .active2 a#home {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .active3 a#list {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-in {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-out {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#loginAccount {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+
+        /*div#board-drop{*/
+        /*    background-color: #FFFFFF;*/
+        /*}*/
+
+
 
         ul.pagination {
             margin-top: 15px;
@@ -183,11 +255,12 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food/list">List</a>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
@@ -200,7 +273,7 @@
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                게시판
+                                자유게시판
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
@@ -214,14 +287,14 @@
                         </li>
 
                         <c:if test="${empty loginUser}">
-                            <li class="nav-item sign">
+                            <li class="nav-item sign active4">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
                         </c:if>
 
 
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign">
+                            <li class="nav-item sign active5">
                                 <a class="nav-link" id="loginAccount"
                                    onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
@@ -251,14 +324,15 @@
         </form>
     </div>
 
-    <div class="buttonDiv">
-        <button type="button" id="boardwriter" style="background-color: #f4ede5"
-                onclick="location.href='/board/freeboard-write'">글작성
-        </button>
-    </div>
+<%--    <div class="buttonDiv">--%>
+<%--        <button type="button" id="boardwriter" style="background-color: #f4ede5"--%>
+<%--                onclick="location.href='/board/freeboard-write'">글작성--%>
+<%--        </button>--%>
+<%--    </div>--%>
 
     <section class="board d-flex justify-content-center">
         <table class="free-board">
+
             <%--            <thead>--%>
             <tr>
                 <th style="width:5%">No</th>
@@ -269,12 +343,13 @@
                 <th style="width:6%">조회수</th>
             </tr>
             <%--            </thead>--%>
+
             <c:forEach var="fb" items="${fbList}">
                 <tr>
-                    <td >${fb.freeboard_no}</td>
+                    <td>${fb.freeboard_no}</td>
                     <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.title}</a></td>
-                    <td>${fb.writer}</td>
-                    <td>${fb.content}</td>
+                    <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.writer}</a></td>
+                    <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.content}</a></td>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>
                 </tr>

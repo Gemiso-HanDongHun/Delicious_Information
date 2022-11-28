@@ -73,6 +73,7 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
+            margin-top: 110px;
             /*background-color: #005cbf;*/
         }
 
@@ -161,9 +162,66 @@
 
         #navbar-header .dropdown a#navibarDropdown{
             padding-top: 0px;
-            top:-34px;
+            top: -38px;
             position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
         }
+
+        #navbar-header .active2 a#home {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .active3 a#list {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-in {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-out {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#loginAccount {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+
 
         #navbar-header .dropdown:hover {
             cursor: pointer;
@@ -220,11 +278,11 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food-about">About</a>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food-about">List</a>
                         </li>
 
                     </div>
@@ -236,7 +294,7 @@
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                게시판
+                                정보 게시판
                             </a>
                             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
@@ -249,14 +307,14 @@
 
                         </li>
                         <c:if test="${empty loginUser}">
-                            <li class="nav-item sign">
+                            <li class="nav-item sign active4">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
                         </c:if>
 
 
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign">
+                            <li class="nav-item sign active5">
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
@@ -280,9 +338,10 @@
         </form>
     </div>
 
-    <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>
-    </div>
+
+<%--    <div class="buttonDiv">--%>
+<%--        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>--%>
+<%--    </div>--%>
 
 
 

@@ -159,10 +159,11 @@
         <button type="button" class="btn btn-info" id="regist">등록</button>
     </div>
 
-    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-         style="background-image: url(/resto/img/testi-bg.jpg);"> <%-- 이미지요소 --%>
+<%--    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"--%>
+<%--         style="background-image: url(/resto/img/testi-bg.jpg);"> &lt;%&ndash; 이미지요소 &ndash;%&gt;--%>
 
-    </div>
+<%--    </div>--%>
+
 </div>
 </body>
 <script>
