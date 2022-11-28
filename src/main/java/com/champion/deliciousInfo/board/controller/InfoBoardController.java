@@ -1,5 +1,7 @@
 package com.champion.deliciousInfo.board.controller;
 
+import com.champion.deliciousInfo.board.domain.InfoBoard;
+import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.service.InfoBoardService;
 import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.common.paging.PageMaker;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
@@ -32,6 +35,16 @@ public class InfoBoardController {
         model.addAttribute("inpm", pm);
         return "board/info-board";
     }
+
+    @GetMapping("/detail/{infoNo}")
+    public String getContent(@PathVariable Long infoNo, Model model, @ModelAttribute("p") Page page){
+        log.info("GetMapping board/suggestionBoard/detail/{}", infoNo);
+        InfoBoard findOne = service.findOne(infoNo);
+        model.addAttribute("fo",findOne);
+        return "board/info-board-detail";
+    }
+
+
 
     @GetMapping("/write")
     public String write() {

@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.board.service;
 
 import com.champion.deliciousInfo.board.domain.InfoBoard;
+import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.repository.InfoBoardMapper;
 import com.champion.deliciousInfo.common.search.Search;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +25,10 @@ public class InfoBoardService {
     }
 
 
-    public InfoBoard findOne(int infoNo) {
-        InfoBoard infoBoard = boardMapper.findOne(infoNo);
-        return infoBoard;
+    public InfoBoard findOne(Long infoNo){
+        log.info("InfoBoard findOne service start");
+        InfoBoard findOne = boardMapper.findOne(infoNo);
+        return findOne;
     }
 
     public Map<String, Object> search(Search search) {

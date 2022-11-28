@@ -197,6 +197,8 @@ goill :
 
 11:25 : infoBoard 디자인 마무리 및 nav 통일하는 작업
 
+11:28 : infoBoard 수정 및 write, detail, update 작성 및 수정중
+
 luycin
 
 11.08 : 음식 성분 영양분 정보 DB에서 가져오는 것 구현 테스트 완료. 

@@ -73,6 +73,7 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
+            background: #ffffff;
             margin-top: 110px;
             /*background-color: #005cbf;*/
         }

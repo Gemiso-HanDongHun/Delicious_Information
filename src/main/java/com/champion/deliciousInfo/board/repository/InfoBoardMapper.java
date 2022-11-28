@@ -13,6 +13,8 @@ public interface InfoBoardMapper {
 
     List<InfoBoard> search(Search search);
 
+    InfoBoard findOne(Long infoNo);
+
     //검색 조회 count 처리
     int getTotalCount(Search search);
 
