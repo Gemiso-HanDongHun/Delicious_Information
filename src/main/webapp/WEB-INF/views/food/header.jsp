@@ -7,7 +7,6 @@
 <head>
 
     <%@include file="./include/header_css.jsp" %>
-
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 

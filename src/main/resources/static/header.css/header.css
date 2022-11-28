@@ -6,11 +6,9 @@ div.boxed-page {
     width:100%;
 }
 
-
 div.flex-column li {
     padding-top: 35px;
 }
-
 div.flex-column li a {
     position: relative;
     padding-top: 45px;
@@ -31,4 +29,8 @@ div.widthpx{
 div.titlewidth{
     width: 300px;
     text-align: center;
+}
+
+#navbar-header .dropdown .dropdown-menu {
+    display: none;
 }

@@ -17,21 +17,13 @@ import java.util.Map;
 @Controller
 @Log4j2
 @RequiredArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/board/infoBoard")
 public class InfoBoardController {
 
     private final InfoBoardService service;
 
 
-    /*@GetMapping("/infoBoard")
-    public String boardMain() {
-        return "board/info-board";
-    }
-*/
-
-
-
-    @GetMapping("/infoBoard")
+    @GetMapping("")
     public String list(Model model, @ModelAttribute("s") Search search) {
         log.info("controller request /board/infoBoard GET! - search: {}", search);
         Map<String, Object> infoMap = service.search(search);
@@ -39,5 +31,15 @@ public class InfoBoardController {
         model.addAttribute("infoList",infoMap.get("infoList") );
         model.addAttribute("inpm", pm);
         return "board/info-board";
+    }
+
+    @GetMapping("/write")
+    public String write() {
+        return "board/info-board-write";
+    }
+
+    @GetMapping("/update")
+    public String detail() {
+        return "board/info-board-update";
     }
 }

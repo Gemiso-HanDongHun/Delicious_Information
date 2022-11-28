@@ -9,48 +9,8 @@
     <%@include file="../food/include/header_css.jsp" %>
 
     <style>
-
-        button#reset{
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            margin-left: 90px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        button#searchk{
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            margin-left: 10px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        button.btn-info:hover{
-            color: #f4ede5;
-        }
-
-
-        .img-2 {
-            width: 17%;
-            height: 600px;
-            position: absolute;
-            left: 130px;
-            margin-top: 11px;
-
-        }
-
-
-        div.boxed-page {
-            min-height: 960px;
+        .boxed-page {
+            min-height: 970px;
         }
 
         /* 외부 폰트 사용 */
@@ -167,33 +127,6 @@
             box-shadow: none;
         }
 
-        div.flex-column li {
-            padding-top: 35px;
-        }
-
-        div.flex-column li a {
-            position: relative;
-            margin-right: 140px;
-            padding-top: 45px;
-        }
-
-        li.nav-item #about {
-            position: relative;
-            margin-right: 400px;
-            padding-top: 45px;
-        }
-
-
-        div.flex-column li p#title {
-            position: relative;
-            text-align: center;
-            right: 165px;
-            font-size: 30px;
-            width: 150px;
-            padding-top: 15px;
-            /*background-color: rebeccapurple;*/
-        }
-
         .page-item.active .page-link {
             z-index: 1;
             color: #fff;
@@ -201,52 +134,37 @@
             border-color: lightgray;
         }
 
-        .boxed-page aside.aside {
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0;
+        }
+
+        #nav-li #navbarDropdown {
+            width: 100px;
+            padding-top: 60px;
+            margin-top: 45px;
             position: absolute;
-            top: 25%;
-            left: 70%;
-            z-index: 10;
-            padding: 10px;
-
-
         }
 
-
-        .boxed-page aside.aside .side-bar-list {
-            min-width: 200px;
-            background: #FFFFFF;
-            border-radius: 1.5rem;
-            border: solid 10px #f4ede5;
-            padding: 10px;
-            margin-left: 70px;
-            /*margin-top: 30px;*/
-
+        #navbar-header .dropdown .dropdown-menu {
+            top: 80%;
+            display: none;
         }
 
-        .boxed-page aside.aside .side-bar-list .myList {
-            text-align: center;
+        #navbar-header .dropdown{
+            top:65%;
+            height: 1px;
         }
 
-        div.sign{
-            margin-left:100px;
-        }
-
-        div.flex-column li.sign a, div.flex-column li.sign p {
-            width:90px;
+        #navbar-header .dropdown a#navibarDropdown{
+            padding-top: 0px;
+            top:-34px;
             position: relative;
-            margin-right: 10px;
-            padding-top: 45px;
         }
 
-
-        #loginAccount {
-            width:100px;
-            display: block;
-            font-size: 15px;
-            padding: 0;
-            margin:45px auto;
-            right: 100px;
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
         }
+
 
         #loginAccount:hover {
             color: #f44336;
@@ -257,29 +175,7 @@
             color: #f44336;
             cursor: pointer;
         }
-        #sgboard {
-            display: block;
-            width: 80px;
-            margin-right: 50px;
-            color: #0c0c0d;
-        }
 
-        #sgboard:hover {
-            cursor: pointer;
-            color: #f44336;
-        }
-
-        #freeboard {
-            display: block;
-            width: 80px;
-            margin-right: 0;
-            color: #0c0c0d;
-        }
-
-        #freeboard:hover {
-            cursor: pointer;
-            color: #f44336;
-        }
 
         #boardwriter {
             width: 120px;
@@ -308,22 +204,18 @@
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
-<%@include file="../food/include/side_nav.jsp" %>
+
 
 <div class="boxed-page">
+
 
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <li class="nav-item only-desktop">
-                        <%--                        <a class="nav-link" id="side-nav-open" href="#">--%>
-                        <%--                            <span class="lnr lnr-menu"></span>--%>
-                        <%--                        </a>--%>
-                    </li>
-                    <div class="d-flex flex-lg-row flex-column">
-                        <li class="nav-item active">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
                             <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
                         </li>
 
@@ -331,35 +223,40 @@
                             <a class="nav-link" id="about" href="/food-about">About</a>
                         </li>
 
-                        <li>
-                            <p id="title">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓲𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
-                        </li>
-
-                        <li class="nav-item">
-                            <a id="sgboard" href="/board/suggestionBoard">건의게시판</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="freeboard" href="/board/freeBoard">자유게시판</a>
-                        </li>
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓘𝓷𝓯𝓸 𝓑𝓸𝓪𝓻𝓭</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column sign " >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                게시판
+                            </a>
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
+                            </div>
+
+                        </li>
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
-                            </li>
-                            <li class="nav-item sign">
-                                <a class="nav-link" id="sign-up" href="/member/sign-up">회원가입</a>
                             </li>
                         </c:if>
 
 
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.account}님</a>
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
                             </li>
                         </c:if>
                     </div>
@@ -380,7 +277,7 @@
     </div>
 
     <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/freeboard-write'">글작성</button>
+        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>
     </div>
 
 
@@ -401,7 +298,7 @@
         <c:forEach var="b" items="${infoList}">
             <tr>
                 <td>${b.infoNo}</td>
-                <td onclick="location.href='/board/infoDetail/${b.infoNo}'">${b.foodName}</td>
+                <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}</td>
                 <td>${b.writer}</td>
                 <td>${b.content}</td>
                 <td>${b.regdate}</td>
