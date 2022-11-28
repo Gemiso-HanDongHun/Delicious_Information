@@ -17,12 +17,14 @@
         from freeboard;
     </select>
 
-    <sql id="search">
+    <select id="findone" resultMap="freeboardMap">
+        select * from freeboard where freeboard_no = #{freeboard_no}
+    </select>
 
+    <sql id="search">
         <if test="keyword != null">
             WHERE title Like CONCAT('%', #{keyword}, '%')
         </if>
-
     </sql>
 
     <select id="search" resultMap="freeboardMap">
@@ -40,9 +42,8 @@
     </select>
 
     <insert id="regist">
-        Insert Into freeboard values (title, writer, content) values(#{title}, #{writer}, #{content})
-
+        insert into freeboard(title, writer, content)
+        values (#{title}, #{writer}, #{content})
     </insert>
-
 
 </mapper>

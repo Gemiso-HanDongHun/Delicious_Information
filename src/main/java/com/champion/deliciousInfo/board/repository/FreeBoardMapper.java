@@ -18,4 +18,6 @@ public interface FreeBoardMapper {
 
     boolean regist(FreeBoard freeBoard);
 
+    FreeBoard findone(int freeboard_no);
+
 }

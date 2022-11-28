@@ -116,7 +116,6 @@
             align-items: center;
         }
 
-
         /* 서치바 영역 */
         div.div_search input[type=text] {
             width: 100%;
@@ -163,8 +162,6 @@
             box-shadow: none;
         }
 
-
-
         .page-item.active .page-link {
             z-index: 1;
             color: #fff;
@@ -194,7 +191,6 @@
             text-align: center;
         }
 
-
         #loginAccount {
             width:100px;
             display: block;
@@ -213,7 +209,6 @@
             color: #f44336;
             cursor: pointer;
         }
-
 
 
     </style>

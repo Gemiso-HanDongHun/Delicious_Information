@@ -48,5 +48,12 @@ public class FreeBoardService {
         return flag;
     }
 
+    public FreeBoard findone(int freeboard_no){
+        log.info("start findoneservice");
+        FreeBoard ffindone = freeBoardMapper.findone(freeboard_no);
+
+        return ffindone;
+    }
+
 
 }

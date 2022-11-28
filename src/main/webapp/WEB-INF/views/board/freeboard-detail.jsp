@@ -12,54 +12,19 @@
     <style>
 
         div.flex-column p.maintext {
-            margin-left: 105px;
+              margin-left: 105px;
         }
 
         .boxed-page {
             height: 970px;
         }
 
-        section.board{
-            margin-top: 100px;
-        }
 
-        table.free-board{
-            width: 70%;
-            border: 20px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            padding: 24px;
-            background: #f4ede5;
-            line-height: 202%;
-            z-index: 1000;
-            text-align: center;
-        }
-        table.free-board tr {
-            background: #ffffff;
-        }
-        table.free-board td a{
-            cursor: pointer;
-        }
-
-        button#regist{
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            margin-left: 90px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        button.btn-info:hover{
-            color: #f4ede5;
-        }
 
         .boxed-page {
             min-height: 970px;
         }
+
         button#regist{
             background-color: #f4ede5;
             color: black;
@@ -71,6 +36,7 @@
             position:absolute;
             left:68%;
         }
+
 
         button.btn-info:hover{
             color: #f4ede5;
@@ -111,8 +77,15 @@
         div.liParent li{
             text-align: center;
         }
+        input.form-control:disabled {
+          background: #FFFFFF;
+        }
 
+        textarea.form-control:disabled {
+          background: #FFFFFF;
+        }
     </style>
+
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
@@ -137,7 +110,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/board/sboard/list">free</a>
+                            <a class="nav-link" id="foodlist" href="/board/sboard/list">suggest</a>
                         </li>
                     </div>
                 </ul>
@@ -145,19 +118,19 @@
         </div>
     </nav>
     <div class="wrapper">
-        <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-            <div class="title col-12"><h1>자유게시판</h1></div><br/>
-            <form id="writeForm" class="col-12" action="/board/freeBoard/write" method="post">
-                <div class="form-group">
-                    <input type="text" id="title-input" class="form-control col-12" name="title" placeholder="제목을 입력해주세요">
-                    <br/>
-                    <textarea class="form-control col-12"name="content" placeholder="내용을 입력해주세요" rows="20"></textarea>
-                </div>
-            </form>
+    <section class="d-flex align-items-center flex-column col-5 wrapcontent">
+    <div class="title col-12"><h1>자유 게시판</h1></div><br/>
+    <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
+            <div class="form-group">
+                <input type="text" id="title-input" class="form-control col-12" name="title" value="${fd.title}" disabled><br/>
+                <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${fd.writer}" disabled><br/>
+                <textarea class="form-control col-12"rows="20" disabled>${fd.content}</textarea>
+            </div>
+    </form>
 
-        </section>
-        <button type="button" class="btn btn-info" id="regist">등록</button>
-    </div>
+<%--    </section>--%>
+<%--        <button type="button" class="btn btn-info" id="regist">등록</button>--%>
+<%--    </div>--%>
 
     <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
          style="background-image: url(/resto/img/testi-bg.jpg);"> <%-- 이미지요소 --%>
@@ -166,14 +139,5 @@
 </div>
 </body>
 <script>
-    const $writeButton = document.querySelector("#regist");
-    $writeButton.onclick=e=>{
-        const $writeForm =document.querySelector("#writeForm");
-        $writeForm.method="post";
-        $writeForm.action="/board/freeboard-write";
-        $writeForm.submit();
-
-    };
-
 </script>
 </html>
