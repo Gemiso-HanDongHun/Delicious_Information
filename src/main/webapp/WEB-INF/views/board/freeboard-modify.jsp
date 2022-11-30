@@ -11,58 +11,20 @@
 
     <style>
 
-
-          div.flex-column p.maintext {
-              margin-left: 105px;
-          }
+        div.flex-column p.maintext {
+            margin-left: 105px;
+        }
 
         .boxed-page {
-            height: 970px;
+            min-height: 100vh;
+            background-image: url(/resto/img/coffee.jpg);
+            background-size: cover;
         }
-
-        section.board{
-            margin-top: 100px;
-        }
-        table.suggest-board{
-            width: 70%;
-            border: 20px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            padding: 24px;
-            background: #f4ede5;
-            line-height: 202%;
-            z-index: 1000;
-            text-align: center;
-        }
-        table.suggest-board tr {
-            background: #ffffff;
-        }
-        table.suggest-board td a{
-            cursor: pointer;
-        }
-
-        button#regist{
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            margin-left: 90px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-
-
-        button.btn-info:hover{
-            color: #f4ede5;
-        }
-
 
         .boxed-page {
             min-height: 970px;
         }
+
         button#regist{
             background-color: #f4ede5;
             color: black;
@@ -75,8 +37,6 @@
             left:68%;
         }
 
-
-
         button.btn-info:hover{
             color: #f4ede5;
         }
@@ -87,6 +47,7 @@
             position:absolute;
             top: 25%;
         }
+
         section.wrapcontent{
             padding: 20px 20px 10px;
             border-radius: 1.5em;
@@ -116,9 +77,15 @@
         div.liParent li{
             text-align: center;
         }
+        input.form-control:disabled {
+            background: #FFFFFF;
+        }
 
-
+        textarea.form-control:disabled {
+            background: #FFFFFF;
+        }
     </style>
+
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
@@ -143,7 +110,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/board/sboard/list">suggest</a>
+                            <a class="nav-link" id="foodlist" href="/board/free-board">suggest</a>
                         </li>
                     </div>
                 </ul>
@@ -151,35 +118,47 @@
         </div>
     </nav>
     <div class="wrapper">
-    <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-    <div class="title col-12"><h1>문의/건의 게시판</h1></div><br/>
-    <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
-            <div class="form-group">
-                    <input type="text" id="title-input" class="form-control col-12" name="title" placeholder="제목을 입력해주세요">
-                <br/>
-                <textarea class="form-control col-12"name="content" placeholder="문의사항을 입력해주세요" rows="20"></textarea>
-            </div>
-    </form>
+        <section class="d-flex align-items-center flex-column col-5 wrapcontent">
+            <div class="title col-12"><h1>자유게시판</h1></div><br/>
+            <form id="modifyForm" class="col-12">
+                <div class="form-group">
+                    <input type="hidden" name="freeboardNo" value="${fb.freeboardNo}">
+                    <input type="text" id="title-input" class="form-control col-12" name="title" value="${fb.title}" ><br/>
+                    <textarea class="form-control col-12"rows="20" name="content">${fb.content}</textarea>
+                </div>
+            </form>
 
-    </section>
-        <button type="button" class="btn btn-info" id="regist">등록</button>
+        </section>
+        <div class="btn-group btn-group-lg custom-btn-group" role="group">
+            <button id="mod-btn" type="button" class="btn btn-warning">완료</button>
+            <button id="list-btn" type="button" class="btn btn-dark">목록</button>
+        </div>
     </div>
 
-    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-         style="background-image: url(/resto/img/testi-bg.jpg);"> <%-- 이미지요소 --%>
+<%--    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"--%>
+<%--         style="background-image: url(/resto/img/testi-bg.jpg);"> &lt;%&ndash; 이미지요소 &ndash;%&gt;--%>
 
-    </div>
+<%--    </div>--%>
 </div>
 </body>
 <script>
-    const $writeButton = document.querySelector("#regist");
-    $writeButton.onclick=e=>{
-        const $writeForm =document.querySelector("#writeForm");
-        $writeForm.method="post";
-        $writeForm.action="/board/suggestionBoard/write";
-        $writeForm.submit();
+    const $modBtn = document.getElementById('mod-btn');
+    const $listBtn = document.getElementById('list-btn');
 
+    //수정버튼
+    $modBtn.onclick = e => {
+        if(confirm("정말로 수정 하시겠습니까?")){
+            const $form = document.getElementById('modifyForm');
+            $form.action="/board/freeboard-modify";
+            $form.method="post";
+            $form.submit();
+        }
+    };
 
+    //목록버튼
+    $listBtn.onclick = e => {
+        console.log('목록버튼 클릭!');
+        location.href = '/board/freeBoard';
     };
 
 </script>

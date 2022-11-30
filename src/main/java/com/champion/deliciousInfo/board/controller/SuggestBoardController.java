@@ -109,5 +109,4 @@ public class SuggestBoardController {
         return flag ? "redirect:/board/suggestionBoard/detail/" + board.getBoardNo() : "redirect:/food-main";
     }
 
-
 }

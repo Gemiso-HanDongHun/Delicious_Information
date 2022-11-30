@@ -40,30 +40,71 @@ public class FreeBoardController {
     }
 
     @GetMapping("/freeboard-write")
-    public String getWriteForm(){
-        log.info("Getmapping board/freeboard/write forwarding to sboard-write.jsp");
+    public String getWriteForm() {
+        log.info("Getmapping board/freeboard/write forwarding to freeboard-write.jsp");
 
         return "board/freeboard-write";
     }
 
     @PostMapping("/freeboard-write")
-    public String write(FreeBoard freeBoard, HttpSession session, RedirectAttributes ra){
-        log.info("Postmapping board/freeboard/write -{}",freeBoard);
+    public String write(FreeBoard freeBoard, HttpSession session, RedirectAttributes ra) {
+        log.info("Postmapping board/freeboard/write -{}", freeBoard);
         Member member = (Member) session.getAttribute(LOGIN_FLAG);
         freeBoard.setWriter(member.getAccount());
         boolean flag = freeBoardService.regist(freeBoard);
-        ra= flag? ra.addFlashAttribute("msg","등록성공")
-                : ra.addFlashAttribute("msg","등록실패");
-        return "redirect:board/freeBoard";
+        ra = flag ? ra.addFlashAttribute("msg", "등록성공")
+                : ra.addFlashAttribute("msg", "등록실패");
+        return "redirect:/board/freeBoard";
     }
 
-    @GetMapping("freeboard-detail/{freeboard_no}")
-    public String detail(@PathVariable int freeboard_no, Model model){
-        log.info("GetMapping board/freeboard-detail/{}", freeboard_no);
-        FreeBoard freeBoard = freeBoardService.findone(freeboard_no);
-        model.addAttribute("fd", freeBoard);
+    //상세보기
+    @GetMapping("freeboard-detail/{freeboardNo}")
+    public String detail(@PathVariable int freeboardNo, Model model, @ModelAttribute("p") Page page) {
+        log.info("GetMapping board/freeboard-detail/{}", freeboardNo);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo);
+        model.addAttribute("fb", freeBoard);
 
         return "board/freeboard-detail";
+    }
+
+    // 게시물 삭제 확인 요청
+    @GetMapping("/freeboard-delete")
+    public String delete(@ModelAttribute("freeboardNo") int freeboardNo, Model model) {
+
+        log.info("controller request /board/delete GET! - bno: {}", freeboardNo);
+
+        model.addAttribute("validate", freeBoardService.getMember(freeboardNo));
+
+        return "board/freeboard-process-delete";
+    }
+
+    // 게시물 삭제 확정 요청
+    @PostMapping("/freeboard-delete")
+    public String delete(int freeboardNo) {
+        log.info("controller request /board/delete POST! - bno: {}", freeboardNo);
+
+        return freeBoardService.removeService(freeboardNo) ? "redirect:/board/freeBoard" : "redirect:/food-main";
+    }
+
+    // 수정 화면 요청
+    @GetMapping("/freeboard-modify")
+    public String modify(int freeboardNo, Model model) {
+        log.info("controller request /freeboard-modify GET! - bno: {}", freeboardNo);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo);
+        log.info("find article: {}", freeBoard);
+
+        model.addAttribute("fb", freeBoard);
+        model.addAttribute("validate", freeBoardService.getMember(freeboardNo));
+
+        return "board/freeboard-modify";
+    }
+
+    // 수정 처리 요청
+    @PostMapping("/freeboard-modify")
+    public String modify(FreeBoard freeBoard) {
+        log.info("controller request /board/modify POST! - {}", freeBoard);
+        boolean flag = freeBoardService.modify(freeBoard);
+        return flag ? "redirect:/board/freeboard-detail/" + freeBoard.getFreeboardNo() : "redirect:/food-main";
     }
 
 }

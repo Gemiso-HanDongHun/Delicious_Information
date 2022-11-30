@@ -73,9 +73,7 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            background: #ffffff;
             margin-top: 110px;
-            /*background-color: #005cbf;*/
         }
 
         div.div_search form {
@@ -105,7 +103,7 @@
 
         /* 서치 아이콘 */
         span.lnr-magnifier {
-            font-size: 25px;
+            font-size: 20px;
         }
 
         /* 목록 전체 영역 */
@@ -149,6 +147,11 @@
             padding-top: 60px;
             margin-top: 45px;
             position: absolute;
+        }
+
+        input#inputName {
+            padding: 10px;
+            opacity: 0.5;
         }
 
         #navbar-header .dropdown .dropdown-menu {
@@ -295,7 +298,7 @@
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                정보 게시판
+                                정보게시판
                             </a>
                             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"

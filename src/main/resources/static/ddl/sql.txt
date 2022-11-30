@@ -94,6 +94,7 @@ create table s_board (
                      references member(account) ON DELETE
                      SET NULL*/
 );
+
 create table s_tbl_reply
 (
     reply_no int(10) primary key auto_increment,

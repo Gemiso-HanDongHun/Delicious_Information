@@ -10,7 +10,7 @@
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/pasta.jpg);
+            /*background-image: url(/resto/img/flower.jpg);*/
             background-size: cover;
         }
         section.board{
@@ -101,26 +101,15 @@
             padding: 8px 8px 2px;
         }
 
-        /*#boardwriter {*/
-        /*    width: 120px;*/
-        /*    height: 45px;*/
-        /*    border: 0;*/
-        /*    border-radius: 2em;*/
-        /*}*/
-        #boardwriter:hover {
-            color: #fff;
-            background-color: lightgray;
-            cursor: pointer;
-            font-weight: 700;
+        /* 서치 아이콘 */
+        span.lnr-magnifier {
+            font-size: 20px;
         }
 
-        #nav-li #navbarDropdown {
-            width: 100px;
-            padding-top: 60px;
-            margin-top: 45px;
-            position: absolute;
+        input#inputName {
+            padding: 10px;
+            opacity: 0.5;
         }
-
 
         #navbar-header .dropdown .dropdown-menu {
             top: 80%;
@@ -267,10 +256,6 @@
         }
 
 
-
-
-
-
     </style>
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
@@ -299,7 +284,7 @@
                             <li class="nav-item dropdown" id="nav-li">
                                 <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    게시판
+                                    건의/문의게시판
                                 </a>
                                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"

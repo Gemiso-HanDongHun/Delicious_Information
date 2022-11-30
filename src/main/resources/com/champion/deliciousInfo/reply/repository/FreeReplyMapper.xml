@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.reply.repository.FreeReplyMapper">
+
+    <resultMap id="replyMap" type="com.champion.deliciousInfo.reply.domain.FreeReply">
+        <result property="replyNo" column="reply_no"/>
+        <result property="replyText" column="reply_text"/>
+        <result property="replyWriter" column="reply_writer"/>
+        <result property="replyDate" column="reply_date"/>
+        <result property="fboardNo" column="fboard_no"/>
+    </resultMap>
+
+
+    <insert id="save">
+        insert into f_tbl_reply
+            (reply_text, reply_writer, fboard_no)
+        VALUES (#{replyText}, #{replyWriter}, #{fboardNo})
+    </insert>
+
+    <!-- 댓글 수정 -->
+    <update id="modify">
+        UPDATE f_tbl_reply
+        SET reply_text = #{replyText}
+        WHERE reply_no = #{replyNo}
+    </update>
+
+    <!-- 댓글 한건 삭제-->
+    <delete id="remove">
+        DELETE
+        FROM f_tbl_reply
+        WHERE reply_no = #{replyNo}
+    </delete>
+
+    <!-- 댓글 여러개 삭제 -->
+    <delete id="removeAll">
+        DELETE
+        FROM f_tbl_reply
+        WHERE fboard_no = #{fboardNo}
+    </delete>
+
+    <!-- 한건 검색 -->
+    <select id="findOne" resultMap="replyMap">
+        SELECT *
+        FROM f_tbl_reply
+        WHERE reply_no = #{replyNo}
+    </select>
+
+    <!--    댓글 목록 조회-->
+    <select id=" findAll" resultMap="replyMap">
+        SELECT *
+        FROM f_tbl_reply
+        WHERE fboard_no = #{fboardNo}
+        ORDER BY reply_no
+            LIMIT #{page.start}, #{page.amount}
+    </select>
+
+    <select id="getReplyContent" resultType="int">
+        SELECT COUNT(*)
+        FROM f_tbl_reply
+        WHERE fboard_no = #{fboardNo}
+    </select>
+
+</mapper>

@@ -16,7 +16,9 @@
         }
 
         .boxed-page {
-            height: 970px;
+            min-height: 100vh;
+            background-image: url(/resto/img/coffee.jpg);
+            background-size: cover;
         }
 
         section.board{
@@ -144,10 +146,11 @@
             </div>
         </div>
     </nav>
+
     <div class="wrapper">
         <section class="d-flex align-items-center flex-column col-5 wrapcontent">
             <div class="title col-12"><h1>자유게시판</h1></div><br/>
-            <form id="writeForm" class="col-12" action="/board/freeBoard/write" method="post">
+            <form id="writeForm" class="col-12"  method="post">
                 <div class="form-group">
                     <input type="text" id="title-input" class="form-control col-12" name="title" placeholder="제목을 입력해주세요">
                     <br/>

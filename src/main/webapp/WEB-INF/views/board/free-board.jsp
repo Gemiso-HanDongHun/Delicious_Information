@@ -5,15 +5,15 @@
 <html lang="ko">
 
 <head>
+
     <%@include file="../food/include/header_css.jsp" %>
+
     <style>
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/coffee.jpg);
+            /*background-image: url(/resto/img/coffee.jpg);*/
             background-size: cover;
-            /*background-color: #ffffff;*/
-            /*background-color: rgba( 255, 255, 255, 0.5 );*/
         }
 
         section.board {
@@ -22,16 +22,14 @@
 
         .free-board {
             width: 70%;
-            border: 20px solid #f4ede5;
+            border: 20px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
             padding: 10px;
-            background: #f4ede5;
+            background: whitesmoke;
             line-height: 202%;
             text-align: center;
         }
-
-
 
         table.free-board tr {
             background: #ffffff;
@@ -117,20 +115,22 @@
             padding: 8px 8px 2px;
         }
 
-        /*#boardwriter {*/
-        /*    width: 120px;*/
-        /*    height: 45px;*/
-        /*    border: 0;*/
-        /*    border-radius: 2em;*/
-        /*    margin-bottom: 40px;*/
-        /*}*/
 
-        /*#boardwriter:hover {*/
-        /*    color: #fff;*/
-        /*    background-color: lightgray;*/
-        /*    cursor: pointer;*/
-        /*    font-weight: 700;*/
-        /*}*/
+
+        #boardwriter {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            margin-bottom: 40px;
+        }
+
+        #boardwriter:hover {
+            color: #fff;
+            background-color: lightgray;
+            cursor: pointer;
+            font-weight: 700;
+        }
 
         input#inputName {
             padding: 10px;
@@ -212,8 +212,6 @@
         /*div#board-drop{*/
         /*    background-color: #FFFFFF;*/
         /*}*/
-
-
 
         ul.pagination {
             margin-top: 15px;
@@ -324,11 +322,11 @@
         </form>
     </div>
 
-<%--    <div class="buttonDiv">--%>
-<%--        <button type="button" id="boardwriter" style="background-color: #f4ede5"--%>
-<%--                onclick="location.href='/board/freeboard-write'">글작성--%>
-<%--        </button>--%>
-<%--    </div>--%>
+    <div class="buttonDiv">
+        <button type="button" id="boardwriter" style="background-color: #f4ede5"
+                onclick="location.href='/board/freeboard-write'">글작성
+        </button>
+    </div>
 
     <section class="board d-flex justify-content-center">
         <table class="free-board">
@@ -338,7 +336,7 @@
                 <th style="width:5%">No</th>
                 <th style="width:15%">제목</th>
                 <th style="width:12%">작성자</th>
-                <th style="width:36%">내용</th>
+<%--                <th style="width:36%">내용</th>--%>
                 <th style="width:26%">날짜</th>
                 <th style="width:6%">조회수</th>
             </tr>
@@ -346,10 +344,10 @@
 
             <c:forEach var="fb" items="${fbList}">
                 <tr>
-                    <td>${fb.freeboard_no}</td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.title}</a></td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.writer}</a></td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboard_no}">${fb.content}</a></td>
+                    <td>${fb.freeboardNo}</td>
+                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.title}</a></td>
+                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.writer}</a></td>
+<%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>
                 </tr>

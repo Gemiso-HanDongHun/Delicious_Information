@@ -15,7 +15,7 @@
     <style>
 
         div.flex-column p.maintext {
-              margin-left: 105px;
+            margin-left: 105px;
         }
 
 
@@ -26,21 +26,23 @@
         }
 
 
-
-        section.wrapcontent{
+        section.wrapcontent {
             padding: 20px 20px 10px;
             border-radius: 1.5em;
             margin: 100px auto 0px;
-            background:#f4ede5;
+            background: #f4ede5;
         }
-        div.title{
+
+        div.title {
             background: #f4ede5;
             padding-left: 0px;
         }
-        #writeForm{
+
+        #writeForm {
             padding: 0px;
         }
-        h1{
+
+        h1 {
             font-weight: 600;
             font-size: 24px;
         }
@@ -50,22 +52,24 @@
             height: 600px;
             position: absolute;
             left: 130px;
-            top:25%
+            top: 25%
         }
-        div.liParent li{
+
+        div.liParent li {
             text-align: center;
         }
+
         input.form-control:disabled {
-          background: #FFFFFF;
+            background: #FFFFFF;
         }
 
         textarea.form-control:disabled {
-          background: #FFFFFF;
+            background: #FFFFFF;
         }
 
-        #replies{
-            width:50%;
-            margin:auto;
+        #replies {
+            width: 50%;
+            margin: auto;
         }
     </style>
 
@@ -103,16 +107,20 @@
 
 
     <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-    <div class="title col-12"><h1>문의/건의 게시판</h1></div><br/>
-    <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
+        <div class="title col-12"><h1>문의/건의 게시판</h1></div>
+        <br/>
+        <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
             <div class="form-group">
-                <input type="text" id="title-input" class="form-control col-12" name="title" value="${sb.title}" disabled><br/>
-                <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${sb.writer}" disabled><br/>
-                <textarea class="form-control col-12"rows="20" disabled>${sb.content}</textarea>
+                <input type="text" id="title-input" class="form-control col-12" name="title" value="${sb.title}"
+                       disabled><br/>
+                <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${sb.writer}"
+                       disabled><br/>
+                <textarea class="form-control col-12" rows="20" disabled>${sb.content}</textarea>
             </div>
-    </form>
+        </form>
 
     </section>
+
     <div class="btn-group btn-group-lg custom-btn-group" role="group">
 
         <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'ADMIN'}">
@@ -125,66 +133,65 @@
     <!-- 댓글 영역 -->
 
     <div id="replies" class="row">
-            <div class="offset-md-1 col-md-10">
-                <!-- 댓글 쓰기 영역 -->
-                <div class="card">
-                    <div class="card-body">
+        <div class="offset-md-1 col-md-10">
+            <!-- 댓글 쓰기 영역 -->
+            <div class="card">
+                <div class="card-body">
 
-                        <c:if test="${empty loginUser}">
-                            <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
-                        </c:if>
+                    <c:if test="${empty loginUser}">
+                        <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
+                    </c:if>
 
-                        <c:if test="${not empty loginUser}">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="form-group">
-                                        <label for="newReplyText" hidden>댓글 내용</label>
-                                        <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
-                                                  placeholder="댓글을 입력해주세요."></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="newReplyWriter" hidden>댓글 작성자</label>
-                                        <input id="newReplyWriter" name="replyWriter" type="text"
-                                               value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
-                                               readonly style="margin-bottom: 6px;">
-                                        <button id="replyAddBtn" type="button"
-                                                class="btn btn-dark form-control">등록</button>
-                                    </div>
+                    <c:if test="${not empty loginUser}">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="newReplyText" hidden>댓글 내용</label>
+                                    <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
+                                              placeholder="댓글을 입력해주세요."></textarea>
                                 </div>
                             </div>
-                        </c:if>
-                    </div>
-                </div> <!-- end reply write -->
-
-                <!--댓글 내용 영역-->
-                <div class="card">
-                    <!-- 댓글 내용 헤더 -->
-                    <div class="card-header text-white m-0" style="background: #343A40;">
-                        <div class="float-left">댓글 (<span id="replyCnt">0</span>)</div>
-                    </div>
-
-                    <!-- 댓글 내용 바디 -->
-                    <div id="replyCollapse" class="card">
-                        <div id="replyData">
-                            <!--
-                            < JS로 댓글 정보 DIV삽입 >
-                        -->
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="newReplyWriter" hidden>댓글 작성자</label>
+                                    <input id="newReplyWriter" name="replyWriter" type="text"
+                                           value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
+                                           readonly style="margin-bottom: 6px;">
+                                    <button id="replyAddBtn" type="button"
+                                            class="btn btn-dark form-control">등록
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                    </c:if>
+                </div>
+            </div> <!-- end reply write -->
 
-                        <!-- 댓글 페이징 영역 -->
-                        <ul class="pagination justify-content-center">
-                            <!--
-                            < JS로 댓글 페이징 DIV삽입 >
-                        -->
-                        </ul>
+            <!--댓글 내용 영역-->
+            <div class="card">
+                <!-- 댓글 내용 헤더 -->
+                <div class="card-header text-white m-0" style="background: #343A40;">
+                    <div class="float-left">댓글 (<span id="replyCnt">0</span>)</div>
+                </div>
+
+                <!-- 댓글 내용 바디 -->
+                <div id="replyCollapse" class="card">
+                    <div id="replyData">
+                        <!--
+                        < JS로 댓글 정보 DIV삽입 >
+                    -->
                     </div>
-                </div> <!-- end reply content -->
-            </div>
-        </div> <!-- end replies row -->
 
-
+                    <!-- 댓글 페이징 영역 -->
+                    <ul class="pagination justify-content-center">
+                        <!--
+                        < JS로 댓글 페이징 DIV삽입 >
+                    -->
+                    </ul>
+                </div>
+            </div> <!-- end reply content -->
+        </div>
+    </div> <!-- end replies row -->
 
 
     <!-- 댓글 수정 모달 -->
@@ -212,15 +219,14 @@
                 <div class="modal-footer">
                     <button id="replyModBtn" type="button" class="btn btn-dark">수정</button>
                     <button id="modal-close" type="button" class="btn btn-danger"
-                            data-bs-dismiss="modal">닫기</button>
+                            data-bs-dismiss="modal">닫기
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- end replyModifyModal -->
-
-
 
 
 </div>
@@ -297,10 +303,10 @@
             ampm = '새벽';
         }
         //숫자가 1자리일 경우 2자리로 변환
-        (month < 10) ? month = '0' + month: month;
-        (day < 10) ? day = '0' + day: day;
-        (hour < 10) ? hour = '0' + hour: hour;
-        (minute < 10) ? minute = '0' + minute: minute;
+        (month < 10) ? month = '0' + month : month;
+        (day < 10) ? day = '0' + day : day;
+        (hour < 10) ? hour = '0' + hour : hour;
+        (minute < 10) ? minute = '0' + minute : minute;
         return year + "-" + month + "-" + day + " " + ampm + " " + hour + ":" + minute;
     }
 
@@ -387,7 +393,6 @@
 
         // 페이지 렌더링
         makePageDOM(maker);
-
 
 
     }
@@ -564,7 +569,6 @@
     }
 
 
-
     // 메인 실행부
     (function () {
 
@@ -582,8 +586,6 @@
 
         // 댓글 수정 완료 버튼 이벤트 처리
         replyModifyEvent();
-
-
 
 
     })();

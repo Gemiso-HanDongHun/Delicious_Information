@@ -10,7 +10,7 @@ import java.util.Date;
 @Builder
 public class FreeBoard {
 
-    private int freeboard_no;
+    private int freeboardNo;
     private String writer;
     private String title;
     private String content;
