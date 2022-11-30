@@ -31,8 +31,8 @@ public class ReplyApiController {
     // 댓글 목록 요청
     @GetMapping("")
     public Map<String, Object> list(Long boardNo, Page page) {
+        page.setAmount(5);
         log.info("/api/v1/replies GET! bno={}, page={}", boardNo, page);
-
         Map<String, Object> replies = replyService.getList(boardNo, page);
 
         return replies;

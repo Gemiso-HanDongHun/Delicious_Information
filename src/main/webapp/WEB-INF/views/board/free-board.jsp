@@ -9,6 +9,9 @@
     <%@include file="../food/include/header_css.jsp" %>
 
     <style>
+        body{
+            background: whitesmoke;
+        }
 
         .boxed-page {
             min-height: 100vh;

@@ -21,8 +21,8 @@
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/pasta.jpg);
-            background-size: cover;
+            /*background-image: url(/resto/img/pasta.jpg);
+            background-size: cover;*/
         }
 
 
