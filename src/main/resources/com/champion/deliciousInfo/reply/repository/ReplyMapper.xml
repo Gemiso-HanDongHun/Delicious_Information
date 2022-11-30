@@ -6,18 +6,17 @@
 <mapper namespace="com.champion.deliciousInfo.reply.repository.ReplyMapper">
 
     <resultMap id="replyMap" type="com.champion.deliciousInfo.reply.domain.Reply">
-        <result property="replyNo" column="reply_no" />
-        <result property="replyText" column="reply_text" />
-        <result property="replyWriter" column="reply_writer" />
-        <result property="replyDate" column="reply_date" />
-        <result property="boardNo" column="board_no" />
+        <result property="replyNo" column="reply_no"/>
+        <result property="replyText" column="reply_text"/>
+        <result property="replyWriter" column="reply_writer"/>
+        <result property="replyDate" column="reply_date"/>
+        <result property="boardNo" column="board_no"/>
     </resultMap>
 
     <insert id="save">
         INSERT INTO s_tbl_reply
-        (reply_text, reply_writer, board_no)
-        VALUES
-        (#{replyText}, #{replyWriter}, #{boardNo})
+            (reply_text, reply_writer, board_no)
+        VALUES (#{replyText}, #{replyWriter}, #{boardNo})
     </insert>
 
     <!--  댓글 수정  -->
@@ -29,19 +28,22 @@
 
     <!--  댓글 삭제  -->
     <delete id="remove">
-        DELETE FROM s_tbl_reply
+        DELETE
+        FROM s_tbl_reply
         WHERE reply_no = #{replyNo}
     </delete>
 
     <!--  댓글 전체 삭제  -->
     <delete id="removeAll">
-        DELETE FROM s_tbl_reply
+        DELETE
+        FROM s_tbl_reply
         WHERE board_no = #{boardNo}
     </delete>
 
     <!--  댓글 개별조회  -->
     <select id="findOne" resultMap="replyMap">
-        SELECT * FROM s_tbl_reply
+        SELECT *
+        FROM s_tbl_reply
         WHERE reply_no = #{replyNo}
     </select>
 
@@ -59,7 +61,7 @@
         <!--        )-->
         <!--        WHERE rn BETWEEN (#{page.pageNum} - 1) * #{page.amount} + 1 AND (#{page.pageNum} * #{page.amount})-->
 
-        SELECT  *
+        SELECT *
         FROM s_tbl_reply
         WHERE board_no = #{boardNo}
         ORDER BY reply_no
@@ -69,7 +71,7 @@
     <select id="getReplyCount" resultType="int">
         SELECT COUNT(*)
         FROM s_tbl_reply
-        WHERE board_no=#{boardNo}
+        WHERE board_no = #{boardNo}
     </select>
 
 </mapper>

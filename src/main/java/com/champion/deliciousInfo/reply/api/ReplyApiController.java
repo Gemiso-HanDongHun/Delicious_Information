@@ -34,7 +34,6 @@ public class ReplyApiController {
         page.setAmount(5);
         log.info("/api/v1/replies GET! bno={}, page={}", boardNo, page);
         Map<String, Object> replies = replyService.getList(boardNo, page);
-
         return replies;
     }
 

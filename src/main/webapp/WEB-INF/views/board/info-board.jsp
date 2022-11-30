@@ -10,11 +10,12 @@
 
     <style>
 
+        body{
+            background-color: whitesmoke;
+        }
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/pasta.jpg);
-            background-size: cover;
         }
 
         /* 외부 폰트 사용 */
@@ -29,12 +30,12 @@
         /* 테이블 전체 */
         .test {
             width: 70%;
-            border: 2px solid #f4ede5;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: #f4ede5;
+            background: whitesmoke;
             line-height: 202%;
             z-index: 1000;
         }

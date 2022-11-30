@@ -16,4 +16,6 @@ public class FreeBoard {
     private String content;
     private int view_cnt;
     private Date reg_date;
+
+    private int replyCount;
 }

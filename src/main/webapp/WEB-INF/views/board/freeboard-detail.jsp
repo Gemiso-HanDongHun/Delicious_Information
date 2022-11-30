@@ -305,10 +305,10 @@
 
     //원본 글 번호
     const bno = '${fb.freeboardNo}';
-    // console.log('bno:', bno);
+    console.log('bno:', bno);
 
     // 댓글 요청 URL
-    const URL = '/api/v1/replies';
+    const URL = '/api/v1/freereplies';
 
     //날짜 포맷 변환 함수
     function formatDate(datetime) {
@@ -433,10 +433,10 @@
     // 댓글 목록을 서버로부터 비동기요청으로 불러오는 함수
     function showReplies(pageNum = 1) {
 
-        fetch(URL + '?boardNo=' + bno + '&pageNum=' + pageNum)
+        fetch(URL + '?fboardNo=' + bno + '&pageNum=' + pageNum)
             .then(res => res.json())
             .then(replyMap => {
-                // console.log(replyMap.replyList);
+                console.log(replyMap.replyList);
                 makeReplyDOM(replyMap);
             });
     }
@@ -475,7 +475,7 @@
         const replyData = {
             replyWriter: $writerInput.value,
             replyText: $contentInput.value,
-            boardNo: bno
+            fboardNo : bno
         };
 
         // POST요청을 위한 요청 정보 객체

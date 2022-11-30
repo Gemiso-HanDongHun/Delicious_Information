@@ -14,11 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.util.List;
+
 import java.util.Map;
 
 import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
@@ -33,39 +31,39 @@ public class SuggestBoardController {
 
 
     @GetMapping("")
-    public String getList(Model model, @ModelAttribute("s") Search search){
+    public String getList(Model model, @ModelAttribute("s") Search search) {
         log.info("GetMapping board/sboard/list forwarding to sboard-list.jsp");
         Map<String, Object> sboardMap = sboardService.search(search);
-        PageMaker pm = new PageMaker(new Page(search.getPageNum(),search.getAmount()), (Integer) sboardMap.get("tc"));
-        model.addAttribute("sl",sboardMap.get("sl") );
+        PageMaker pm = new PageMaker(new Page(search.getPageNum(), search.getAmount()), (Integer) sboardMap.get("tc"));
+        model.addAttribute("sl", sboardMap.get("sl"));
         model.addAttribute("pm", pm);
-        log.info("sl-{}",model.getAttribute("sl"));
+        log.info("sl-{}", model.getAttribute("sl"));
         return "board/sboard-list";
     }
 
     @GetMapping("/write")
-    public String getWriteForm(){
+    public String getWriteForm() {
         log.info("Getmapping board/sboard/write forwarding to sboard-write.jsp");
 
         return "board/sboard-write";
     }
 
     @PostMapping("/write")
-    public String write(Sboard sboard, HttpSession session, RedirectAttributes ra){
-        log.info("Postmapping board/sboard/write -{}",sboard);
+    public String write(Sboard sboard, HttpSession session, RedirectAttributes ra) {
+        log.info("Postmapping board/sboard/write -{}", sboard);
         Member member = (Member) session.getAttribute(LOGIN_FLAG);
         sboard.setWriter(member.getAccount());
         boolean flag = sboardService.regist(sboard);
-        ra= flag? ra.addFlashAttribute("msg","등록성공")
-                : ra.addFlashAttribute("msg","등록실패");
+        ra = flag ? ra.addFlashAttribute("msg", "등록성공")
+                : ra.addFlashAttribute("msg", "등록실패");
         return "redirect:/board/suggestionBoard";
     }
 
     @GetMapping("/detail/{boardNo}")
-    public String getContent(@PathVariable Long boardNo,Model model, @ModelAttribute("p") Page page){
+    public String getContent(@PathVariable Long boardNo, Model model, @ModelAttribute("p") Page page) {
         log.info("GetMapping board/suggestionBoard/detail/{}", boardNo);
         Sboard foundOne = sboardService.findOne(boardNo);
-        model.addAttribute("sb",foundOne);
+        model.addAttribute("sb", foundOne);
         return "board/sboard-detail";
     }
 

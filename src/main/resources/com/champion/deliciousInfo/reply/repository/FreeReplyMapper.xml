@@ -49,7 +49,7 @@
     </select>
 
     <!--    댓글 목록 조회-->
-    <select id=" findAll" resultMap="replyMap">
+    <select id="findAll" resultMap="replyMap">
         SELECT *
         FROM f_tbl_reply
         WHERE fboard_no = #{fboardNo}
@@ -57,7 +57,7 @@
             LIMIT #{page.start}, #{page.amount}
     </select>
 
-    <select id="getReplyContent" resultType="int">
+    <select id="getReplyCount" resultType="int">
         SELECT COUNT(*)
         FROM f_tbl_reply
         WHERE fboard_no = #{fboardNo}

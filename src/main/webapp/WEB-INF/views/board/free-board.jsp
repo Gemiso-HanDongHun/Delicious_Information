@@ -10,7 +10,7 @@
 
     <style>
         body{
-            background: whitesmoke;
+            background-color: whitesmoke;
         }
 
         .boxed-page {
@@ -326,7 +326,7 @@
     </div>
 
     <div class="buttonDiv">
-        <button type="button" id="boardwriter" style="background-color: #f4ede5"
+        <button type="button" id="boardwriter" style="background-color: whitesmoke"
                 onclick="location.href='/board/freeboard-write'">글작성
         </button>
     </div>
@@ -334,7 +334,6 @@
     <section class="board d-flex justify-content-center">
         <table class="free-board">
 
-            <%--            <thead>--%>
             <tr>
                 <th style="width:5%">No</th>
                 <th style="width:15%">제목</th>
@@ -343,12 +342,11 @@
                 <th style="width:26%">날짜</th>
                 <th style="width:6%">조회수</th>
             </tr>
-            <%--            </thead>--%>
 
             <c:forEach var="fb" items="${fbList}">
                 <tr>
                     <td>${fb.freeboardNo}</td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.title}</a></td>
+                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.title}[${fb.replyCount}]</a></td>
                     <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.writer}</a></td>
 <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>

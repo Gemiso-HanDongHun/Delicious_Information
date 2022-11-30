@@ -5,6 +5,7 @@ import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.FreeBoardMapper;
 import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.reply.repository.FreeReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -23,13 +24,7 @@ public class FreeBoardService {
 
     private final FreeBoardMapper freeBoardMapper;
 
-    // 게시물 전체 조회 요청 중간 처리
-//    public List<FreeBoard> findAll() {
-//
-//        log.info("findAll service start");
-//        List<FreeBoard> freeboardList = freeBoardMapper.findAll();
-//        return freeboardList;
-//    }
+    private final FreeReplyMapper freeReplyMapper;
 
     public Map<String, Object> search(Search search) {
         log.info("search service start");
@@ -37,6 +32,7 @@ public class FreeBoardService {
         Map<String, Object> findDataMap = new HashMap<>();
 
         List<FreeBoard> freeBoardList = freeBoardMapper.search(search);
+        processConverting(freeBoardList);
 
         findDataMap.put("fbList", freeBoardList);
         findDataMap.put("tc", freeBoardMapper.getTotalCount(search));
@@ -80,5 +76,16 @@ public class FreeBoardService {
         boolean remove = freeBoardMapper.remove(freeboardNo);
         return remove;
     }
+
+    private void processConverting(List<FreeBoard> freeBoardList){
+        for (FreeBoard f : freeBoardList){
+            setReplyCount(f);
+        }
+    }
+
+    private void setReplyCount(FreeBoard f){
+        f.setReplyCount(freeReplyMapper.getReplyCount((long) f.getFreeboardNo()));
+    }
+
 
 }
