@@ -5,14 +5,17 @@
 <html lang="ko">
 
 <head>
-    <%@include file="../about/include/header_css.jsp" %>
-    <link rel="stylesheet" href="/about/css/about.css">
+    <%@include file="../food/include/header_css.jsp" %>
+
     <!-- jquery -->
     <script src="/js/jquery-3.3.1.min.js"></script>
 
     <!-- include summernote css/js -->
 
     <style>
+        body{
+            background:whitesmoke;
+        }
 
         div.flex-column p.maintext {
             margin-left: 105px;
@@ -30,11 +33,11 @@
             padding: 20px 20px 10px;
             border-radius: 1.5em;
             margin: 100px auto 0px;
-            background: #f4ede5;
+            background: whitesmoke;
         }
 
         div.title {
-            background: #f4ede5;
+            background: whitesmoke;
             padding-left: 0px;
         }
 
@@ -71,6 +74,72 @@
             width: 50%;
             margin: auto;
         }
+
+        #navbar-header .dropdown .dropdown-menu {
+            top: 80%;
+            display: none;
+        }
+
+        #navbar-header .dropdown{
+            top:65%;
+            height: 1px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown{
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown2{
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .active2 a#home {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .active3 a#list {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
+
+        li a#sign-in {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
     </style>
 
 </head>
@@ -81,29 +150,74 @@
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <div class="d-flex flex-lg-row flex-column liParent">
-                        <li class="nav-item active d-flex justify-content-center ">
-                            <a class="nav-link" href="/food-main">free <span class="sr-only">(current)</span></a>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
+                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food-about">info</a>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food-about">List</a>
                         </li>
 
-                        <li>
-                            <p class="maintext">𝓓𝓮𝓵𝓲𝓬𝓲𝓸𝓾𝓼 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</p>
-                        </li>
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓢𝓾𝓰𝓰𝓮𝓼𝓽𝓲𝓸𝓷</p>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/board/sboard/list">suggest</a>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                문의게시판
+                            </a>
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
+
                         </li>
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item sign active4">
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
+                            </li>
+                        </c:if>
+
+
+                        <c:if test="${!empty loginUser}">
+                            <%--<li class="nav-item sign active5">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
+                            </li>
+                        </c:if>
                     </div>
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
     <section class="d-flex align-items-center flex-column col-5 wrapcontent">

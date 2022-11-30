@@ -175,6 +175,17 @@
             padding-left: 25px;
             padding-right: 25px;
         }
+        #navbar-header .dropdown a#navibarDropdown2{
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
 
         #navbar-header .active2 a#home {
             position: relative;
@@ -216,15 +227,7 @@
             padding-right: 25px;
         }
 
-        li a#loginAccount {
-            position: relative;
-            top: 40px;
-            background: #FFFFFF;
-            border-radius: 1em;
-            padding: 6px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }
+
 
 
 
@@ -233,14 +236,15 @@
         }
 
 
-        #loginAccount:hover {
-            color: #f44336;
-            cursor: pointer;
-        }
+
 
         #sign-out:hover {
             color: #f44336;
             cursor: pointer;
+        }
+
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0px;
         }
 
 
@@ -292,7 +296,7 @@
 
                     </div>
                     <div class="flex-column titlewidth justify-content-center">
-                        <p id="title">𝓘𝓷𝓯𝓸 𝓑𝓸𝓪𝓻𝓭</p>
+                        <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
@@ -307,7 +311,7 @@
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/infoBoard'">정보게시판</a>
                                 <a class="dropdown-item"
-                                   onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
                             </div>
 
                         </li>
@@ -319,11 +323,25 @@
 
 
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign active5">
+                            <%--<li class="nav-item sign active5">
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
                             </li>
                         </c:if>
                     </div>

@@ -10,6 +10,8 @@
 
         body{
             background: whitesmoke;
+        }body{
+            background: whitesmoke;
         }
 
         .boxed-page {
@@ -34,14 +36,14 @@
 
         div.div_search {
             width: 21%;
-            margin: 20px 0 30px 40%;
+            margin: 70px 0 30px 40%;
             display: flex;
             border-radius: 1em;
             font-size: 0.8vw;
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            margin-top: 60px;
+            margin-top: 110px;
         }
 
         div.div_search form {
@@ -156,25 +158,9 @@
             padding-right: 25px;
         }
 
-       /* li a#sign-out {
-            position: relative;
-            top: 40px;
-            background: #FFFFFF;
-            border-radius: 1em;
-            padding: 6px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }*/
 
-        li a#loginAccount {
-            position: relative;
-            top: 40px;
-            background: #FFFFFF;
-            border-radius: 1em;
-            padding: 6px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }
+
+
 
         div.bottom_section ul li a {
             color: black;

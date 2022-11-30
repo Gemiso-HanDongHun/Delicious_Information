@@ -171,6 +171,8 @@ lemoncoat :
 
 11.28 - 11.28 - sboard 수정 삭제 및 reply 수정 삭제 등록 구현
 
+11.30 - 게시판 헤더 수정 및 BoardInterceptor 생성
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

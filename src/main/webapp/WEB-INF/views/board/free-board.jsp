@@ -9,6 +9,11 @@
     <%@include file="../food/include/header_css.jsp" %>
 
     <style>
+
+        /* 서치 아이콘 */
+        span.lnr-magnifier {
+            font-size: 20px;
+        }
         body{
             background-color: whitesmoke;
         }
@@ -70,9 +75,7 @@
             color: #f4ede5;
         }
 
-        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
-            padding-top: 0px;
-        }
+
 
         div.buttonDiv {
             position: absolute;
@@ -140,6 +143,10 @@
             opacity: 0.5;
         }
 
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
         #navbar-header .dropdown .dropdown-menu {
             top: 80%;
             display: none;
@@ -151,6 +158,17 @@
         }
 
         #navbar-header .dropdown a#navibarDropdown {
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown2{
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -191,30 +209,10 @@
             padding-right: 25px;
         }
 
-        li a#sign-out {
-            position: relative;
-            top: 40px;
-            background: #FFFFFF;
-            border-radius: 1em;
-            padding: 6px;
-            padding-left: 25px;
-            padding-right: 25px;
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0px;
         }
 
-        li a#loginAccount {
-            position: relative;
-            top: 40px;
-            background: #FFFFFF;
-            border-radius: 1em;
-            padding: 6px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }
-
-
-        /*div#board-drop{*/
-        /*    background-color: #FFFFFF;*/
-        /*}*/
 
         ul.pagination {
             margin-top: 15px;
@@ -249,34 +247,31 @@
 
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
-
-
         <div class="container">
+
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span
-                                    class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food/list">List</a>
+                            <a class="nav-link" id="list" href="/food-about">List</a>
                         </li>
 
                     </div>
                     <div class="flex-column titlewidth justify-content-center">
-                        <p id="title">𝓕𝓻𝓮𝓮 𝓑𝓸𝓪𝓻𝓭</p>
+                        <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
-
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 자유게시판
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/freeBoard'">자유게시판</a>
                                 <a class="dropdown-item"
@@ -286,7 +281,6 @@
                             </div>
 
                         </li>
-
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign active4">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
@@ -295,12 +289,25 @@
 
 
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign active5">
-                                <a class="nav-link" id="loginAccount"
-                                   onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                            <%--<li class="nav-item sign active5">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
                             </li>
                         </c:if>
                     </div>

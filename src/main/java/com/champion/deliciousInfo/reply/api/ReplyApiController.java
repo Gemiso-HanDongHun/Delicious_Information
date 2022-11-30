@@ -37,7 +37,6 @@ public class ReplyApiController {
         return replies;
     }
 
-
     // 댓글 등록 요청
     @PostMapping("")
     public String create(@RequestBody Reply reply, HttpSession session) {

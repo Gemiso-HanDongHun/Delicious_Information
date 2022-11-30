@@ -8,10 +8,14 @@
   <%@include file="../food/include/header_css.jsp" %>
   <style>
 
+    body{
+      background: whitesmoke;
+    }
+
     .boxed-page {
       min-height: 100vh;
-      background-image: url(/resto/img/pasta.jpg);
-      background-size: cover;
+    /*  background-image: url(/resto/img/pasta.jpg);
+      background-size: cover;*/
     }
 
     div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
@@ -51,9 +55,9 @@
       padding: 10px;
       margin: 50px auto;
       box-sizing: border-box;
-      border: 2px solid #f4ede5;
+      border: 2px solid whitesmoke;
       border-radius: 1.5em;
-      background: #f4ede5;
+      background: whitesmoke;
     }
 
     div.main-board section.main-write div input:focus {
@@ -136,6 +140,43 @@
       cursor: pointer;
       font-weight: 700;
     }
+
+    #navbar-header .dropdown .dropdown-menu {
+      top: 80%;
+      display: none;
+    }
+
+    #navbar-header .dropdown {
+      top: 65%;
+      height: 1px;
+    }
+
+    div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+      padding-top: 0px;
+    }
+
+    #navbar-header .dropdown a#navibarDropdown {
+      padding-top: 0px;
+      top: -38px;
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 1em;
+      padding: 6px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    #navbar-header .dropdown a#navibarDropdown2{
+      padding-top: 0px;
+      top: -38px;
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 1em;
+      padding: 6px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
   </style>
 </head>
 
@@ -143,27 +184,28 @@
 <div class="boxed-page">
   <nav id="navbar-header" class="navbar navbar-expand-lg">
     <div class="container">
+
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
           <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
             <li class="nav-item active2">
-              <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" id="about" href="/food-about">About</a>
+            <li class="nav-item active3">
+              <a class="nav-link" id="list" href="/food-about">List</a>
             </li>
 
           </div>
           <div class="flex-column titlewidth justify-content-center">
-            <p id="title">𝓘𝓷𝓯𝓸 𝓑𝓸𝓪𝓻𝓭</p>
+            <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
           </div>
 
           <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
             <li class="nav-item dropdown" id="nav-li">
               <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                게시판
+                정보게시판
               </a>
               <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                 <a class="dropdown-item"
@@ -171,23 +213,37 @@
                 <a class="dropdown-item"
                    onclick="location.href='/board/infoBoard'">정보게시판</a>
                 <a class="dropdown-item"
-                   onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
+                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
               </div>
 
             </li>
             <c:if test="${empty loginUser}">
-              <li class="nav-item sign">
+              <li class="nav-item sign active4">
                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
               </li>
             </c:if>
 
 
             <c:if test="${!empty loginUser}">
-              <li class="nav-item sign">
-                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+              <%--<li class="nav-item sign active5">
+                  <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
               </li>
               <li class="nav-item sign">
-                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                  <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+              </li>--%>
+
+              <li class="nav-item dropdown" id="nav-li">
+                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ${loginUser.name}님
+                </a>
+                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item"
+                     href="/member/info/${loginUser.account}">마이 페이지</a>
+                  <a class="dropdown-item"
+                     id="sign-out" href="/member/sign-out">로그아웃</a>
+                </div>
+
               </li>
             </c:if>
           </div>
@@ -195,6 +251,7 @@
       </div>
     </div>
   </nav>
+
 
   <div class="main-board">
     <section class="main-write">
