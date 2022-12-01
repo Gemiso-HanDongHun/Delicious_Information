@@ -35,6 +35,7 @@
         LIMIT #{start}, #{amount}
     </select>
 
+
     <select id="getTotalCount" resultType="int">
         SELECT COUNT(*)
         FROM freeboard
