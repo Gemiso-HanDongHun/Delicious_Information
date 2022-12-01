@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.reply.repository.InfoReplyMapper">
+
+    <resultMap id="replyMap" type="com.champion.deliciousInfo.reply.domain.InfoReply">
+        <result property="replyNo" column="reply_no"/>
+        <result property="replyText" column="reply_text"/>
+        <result property="replyWriter" column="reply_writer"/>
+        <result property="replyDate" column="reply_date"/>
+        <result property="infoNo" column="info_no"/>
+    </resultMap>
+
+
+    <insert id="save">
+        insert into info_tbl_reply
+            (reply_text, reply_writer, fboard_no)
+        VALUES (#{replyText}, #{replyWriter}, #{infoNo})
+    </insert>
+
+    <!-- 댓글 수정 -->
+    <update id="modify">
+        UPDATE info_tbl_reply
+        SET reply_text = #{replyText}
+        WHERE reply_no = #{replyNo}
+    </update>
+
+    <!-- 댓글 한건 삭제-->
+    <delete id="remove">
+        DELETE
+        FROM info_tbl_reply
+        WHERE reply_no = #{replyNo}
+    </delete>
+
+    <!-- 댓글 전체 삭제 -->
+    <delete id="removeAll">
+        DELETE
+        FROM info_tbl_reply
+        WHERE fboard_no = #{fboardNo}
+    </delete>
+
+    <!-- 한건 검색 -->
+    <select id="findOne" resultMap="replyMap">
+        SELECT *
+        FROM info_tbl_reply
+        WHERE reply_no = #{replyNo}
+    </select>
+
+    <!--    댓글 목록 조회-->
+    <select id="findAll" resultMap="replyMap">
+        SELECT *
+        FROM info_tbl_reply
+        WHERE info_no = #{infoNo}
+        ORDER BY reply_no
+            LIMIT #{page.start}, #{page.amount}
+    </select>
+
+    <select id="getReplyCount" resultType="int">
+        SELECT COUNT(*)
+        FROM info_tbl_reply
+        WHERE info_no = #{infoNo}
+    </select>
+
+</mapper>
