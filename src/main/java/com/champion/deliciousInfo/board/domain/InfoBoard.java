@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.domain;
 
+import com.champion.deliciousInfo.mfood.domain.MfoodNutrient;
 import lombok.*;
 
 @Setter @Getter @ToString
@@ -18,4 +19,6 @@ public class InfoBoard {
 
 
     private int replyCount;
+
+    private int mfoodNutrient;
 }

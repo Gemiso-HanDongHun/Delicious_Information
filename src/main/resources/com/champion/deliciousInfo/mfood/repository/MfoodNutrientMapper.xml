@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.mfood.repository.MfoodNutrientMapper">
+
+    <resultMap id="mfoodNutrientMap" type="com.champion.deliciousInfo.mfood.domain.MfoodNutrient">
+
+        <id column="nutrient_no" property="nutrientNo" />
+        <result property="carbohydrate" column="carbohydrate"/>
+        <result property="protein" column="protein"/>
+        <result property="fat" column="fat"/>
+        <result property="vitaminA" column="vitamin_a"/>
+        <result property="vitaminC" column="vitamin_c"/>
+        <result property="vitaminE" column="vitamin_e"/>
+        <result property="calcium" column="calcium"/>
+        <result property="iron" column="iron"/>
+        <result property="magnesium" column="magnesium"/>
+        <result property="sodium" column="sodium"/>
+        <result property="omega" column="omega"/>
+        <association property="mfood"
+                     column="food_no" javaType="com.champion.deliciousInfo.mfood.domain.Mfood"
+                     select="com.champion.deliciousInfo.mfood.repository.MfoodMapper.findOne" />
+
+    </resultMap>
+
+
+    <select id="findOne" resultMap="mfoodNutrientMap">
+        select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e,
+               calcium, iron, magnesium, sodium, omega,
+               food_no
+        from m_food_nutrient
+        where nutrient_no=#{mfoodNutrient}
+    </select>
+
+<!--
+    <select id="findOne" resultMap="mfoodNutrientMap">
+        select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e,
+               calcium, iron, magnesium, sodium, omega,
+               m_food.food_no as food_no, name, kcal
+        from m_food_nutrient RIGHT OUTER JOIN m_food
+        on m_food_nutrient.food_no = m_food.food_no
+        where m_food.food_no=#{foodNo}
+    </select>-->
+
+
+    <insert id="save">
+        insert into m_food_nutrient
+        (carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium,
+         iron, magnesium, sodium, omega, food_no)
+        values (#{carbohydrate},#{protein},#{fat},#{vitaminA},#{vitaminC},#{vitaminE},#{calcium}
+        ,#{iron},#{magnesium},#{sodium},#{omega},LAST_INSERT_ID())
+    </insert>
+
+    <update id="modify">
+        UPDATE m_food_nutrient SET carbohydrate=#{carbohydrate},protein=#{protein}, fat=#{fat},
+                                 vitamin_a=#{vitaminA},vitamin_c=#{vitaminC},
+                                 vitamin_e=#{vitaminE}, calcium=#{calcium},iron=#{iron},
+                                 magnesium=#{magnesium},sodium=#{sodium},omega=#{omega}
+        WHERE nutrient_no=#{nutrientNo}
+    </update>
+
+    <delete id="remove">
+
+        delete from m_food_nutrient where nutrient_no=#{nutrientNo}
+
+    </delete>
+
+
+</mapper>

@@ -23,7 +23,7 @@ public interface InfoBoardMapper {
     //검색 조회 count 처리
     int getTotalCount(Search search);
 
-    /*boolean regist(Sboard sboard);*/
+    boolean regist(InfoBoard infoBoard);
 
     boolean remove(Long infoNo);
 

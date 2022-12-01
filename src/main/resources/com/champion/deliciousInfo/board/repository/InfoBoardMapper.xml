@@ -9,6 +9,7 @@
         <id property="infoNo" column="info_no"/>
         <id property="foodName" column="food_name"/>
         <id property="regdate" column="reg_date"/>
+        <id property="mfoodNutrient" column="m_food_nutrient_no"/>
     </resultMap>
 
     <!-- 동적 SQL 코드 재사용하기   -->
@@ -30,7 +31,7 @@
     </select>
 
     <select id="findOne" resultMap="infoBoardMap">
-        select * from infoboard where info_no=#{infoNo}
+      select * from infoboard where info_no=#{infoNo}
     </select>
 
      <!--<select id="getTotalCount" resultType="int">
@@ -44,9 +45,10 @@
         <include refid="search" />
     </select>
 
-    <!--<insert id="regist">
-        insert into infoboard(title, writer,content) values (#{title},#{writer},#{content})
-    </insert>-->
+    <insert id="regist">
+        insert into infoboard(food_name, writer,content,m_food_nutrient_no)
+        values (#{foodName},#{writer},#{content},LAST_INSERT_ID())
+    </insert>
 
 
     <update id="modify" >

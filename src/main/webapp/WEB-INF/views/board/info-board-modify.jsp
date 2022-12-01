@@ -215,63 +215,65 @@
 
                     <div class="form-group1 foodKcal">
                         <label for="foodKcal">칼로리</label>
-                        <input type="number" class="form-control" name="foodKcal" id="foodKcal" placeholder="kcal">
+                        <input type="number" class="form-control" name="kcal" id="foodKcal" value="${mn.mfood.kcal}" placeholder="kcal">
                     </div>
 
                     <div class="form-group1 sodium">
                         <label for="sodium">나트륨</label>
-                        <input type="number" class="form-control" name="sodium" id="sodium">
+                        <input type="number" class="form-control" name="sodium" value="${mn.sodium}" id="sodium">
                     </div>
                 </div>
 
                 <div class="area2">
                     <div class="form-group2 carbohydrate">
                         <label for="carbohydrate">탄수화물</label>
-                        <input type="number" class="form-control" name="carbohydrate" id="carbohydrate">
+                        <input type="number" class="form-control" name="carbohydrate" value="${mn.carbohydrate}" id="carbohydrate">
                     </div>
 
                     <div class="form-group2 protein">
                         <label for="protein">단백질</label>
-                        <input type="number" class="form-control" name="protein" id="protein">
+                        <input type="number" class="form-control" name="protein" value="${mn.protein}" id="protein">
                     </div>
 
                     <div class="form-group2 fat">
                         <label for="fat">지방</label>
-                        <input type="number" class="form-control" name="fat" id="fat">
+                        <input type="number" class="form-control" name="fat" value="${mn.fat}" id="fat">
                     </div>
                 </div>
 
                 <div class="area3">
                     <div class="form-group3 vitaminA">
                         <label for="vitaminA">비타민 A</label>
-                        <input type="number" class="form-control" name="vitaminA" id="vitaminA">
+                        <input type="number" class="form-control" name="vitaminA" value="${mn.vitaminA}" id="vitaminA">
                     </div>
 
                     <div class="form-group3 vitaminC">
                         <label for="vitaminC">비타민 C</label>
-                        <input type="number" class="form-control" name="vitaminC" id="vitaminC">
+                        <input type="number" class="form-control" name="vitaminC" value="${mn.vitaminC}" id="vitaminC">
                     </div>
 
                     <div class="form-group3 vitaminE">
                         <label for="vitaminE">비타민 E</label>
-                        <input type="number" class="form-control" name="vitaminE" id="vitaminE">
+                        <input type="number" class="form-control" name="vitaminE" value="${mn.vitaminE}" id="vitaminE">
                     </div>
                 </div>
 
                 <div class="area4">
                     <div class="form-group4 calcium">
                         <label for="calcium">칼슘</label>
-                        <input type="number" class="form-control" name="calcium" id="calcium">
+                        <input type="number" class="form-control" name="calcium" value="${mn.calcium}" id="calcium">
                     </div>
 
                     <div class="form-group4 iron">
                         <label for="iron">철분</label>
-                        <input type="number" class="form-control" name="iron" id="iron">
+                        <input type="number" class="form-control" name="iron" value="${mn.iron}" id="iron">
                     </div>
 
                     <div class="form-group4 magnesium">
                         <label for="magnesium">마그네슘</label>
-                        <input type="number" class="form-control" name="magnesium" id="magnesium">
+                        <input type="number" class="form-control" name="magnesium" value="${mn.magnesium}" id="magnesium">
+                        <input type="hidden" class="form-control" name="nutrientNo" value="${mn.nutrientNo}" id="nutrientNo">
+                        <input type="hidden" class="form-control" name="foodNo" value="${mn.mfood.foodNo}" id="foodNo">
                     </div>
                 </div>
 

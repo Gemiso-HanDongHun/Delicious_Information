@@ -204,7 +204,7 @@
                     <h1>추가할 음식을 작성해 주세요</h1>
                 </div>
 
-                <form>
+                <form id="mfood">
 
                     <div class="area1">
                         <div class="form-group1 foodName ">
@@ -214,7 +214,7 @@
 
                         <div class="form-group1 foodKcal">
                             <label for="foodKcal">칼로리</label>
-                            <input type="number" class="form-control" name="foodKcal" id="foodKcal" placeholder="kcal">
+                            <input type="number" class="form-control" name="kcal" id="foodKcal" placeholder="kcal">
                         </div>
 
                         <div class="form-group1 sodium">
@@ -280,7 +280,7 @@
                     </div>
 
                     <div class="area6">
-                        <button type="button">작성 완료</button>
+                        <button type="button" id="regist">작성 완료</button>
                         <button type="reset">초기화</button>
                         <button type="button" onclick="location.href='/board/infoBoard'">목록으로</button>
                     </div>
@@ -294,5 +294,15 @@
 
 
 </body>
+<script>
+    const $regist = document.querySelector("#regist");
+    $regist.onclick=e=>{
+        const $info = document.querySelector("#mfood");
+        $info.action="/board/infoBoard/write"
+        $info.method="post";
+        $info.submit();
+    }
+
+</script>
 
 </html>

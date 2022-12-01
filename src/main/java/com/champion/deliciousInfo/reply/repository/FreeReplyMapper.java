@@ -24,11 +24,11 @@ public interface FreeReplyMapper {
 
     // 댓글 개별 조회
     FreeReply findOne(Long replyNo);
-    //
-    //    List<FreeReply> findAll(@Param("fboardNo") Long fboardNo
-    //            , @Param("page") Page page);
-    //
-    //    // 댓글 수 조회
+
+    List<FreeReply> findAll(@Param("fboardNo") Long fboardNo
+            , @Param("page") Page page);
+
+        // 댓글 수 조회
     int getReplyCount(Long fboardNo);
 
 }

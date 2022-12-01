@@ -5,6 +5,10 @@ import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.InfoBoardMapper;
 import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.mfood.domain.Mfood;
+import com.champion.deliciousInfo.mfood.domain.MfoodNutrient;
+import com.champion.deliciousInfo.mfood.repository.MfoodMapper;
+import com.champion.deliciousInfo.mfood.repository.MfoodNutrientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -25,17 +29,34 @@ public class InfoBoardService {
 
     private final InfoBoardMapper boardMapper;
 
+    private final MfoodNutrientMapper mfoodNutrientMapper;
+
+    private final MfoodMapper mfoodMapper;
+
     public List<InfoBoard> findAllService() {
         List<InfoBoard> infoBoardList = boardMapper.findAll();
         return infoBoardList;
     }
 
+    public boolean regist(InfoBoard infoBoard) {
+        boolean flag = boardMapper.regist(infoBoard);
+        return flag;
 
-    public InfoBoard findOne(Long infoNo, HttpServletRequest request, HttpServletResponse response){
+    }
+
+
+    public Map<String, Object> findOne(Long infoNo, HttpServletRequest request, HttpServletResponse response){
         log.info("InfoBoard findOne service start");
         InfoBoard findOne = boardMapper.findOne(infoNo);
+        MfoodNutrient one = mfoodNutrientMapper.findOne(findOne);
+        log.info("mfoodNutrient-{}",one);
+
+        Map<String, Object> findDataMap = new HashMap<>();
         makeViewCount(infoNo,  response, request);
-        return findOne;
+
+        findDataMap.put("ib",findOne);
+        findDataMap.put("mn",one);
+        return findDataMap;
     }
 
     private void makeViewCount(Long infoNo, HttpServletResponse response, HttpServletRequest request) {
@@ -66,9 +87,15 @@ public class InfoBoardService {
         return findDataMap;
     }
 
-    public boolean modifyService(InfoBoard infoBoard) {
+    @Transactional
+    public boolean modifyService(InfoBoard infoBoard, MfoodNutrient mfoodNutrient, Mfood mfood) {
         log.info("modify service start - {}", infoBoard);
-        return boardMapper.modify(infoBoard);
+        log.info("modify service start - {}", mfoodNutrient);
+        log.info("modify service start - {}", mfood);
+        boolean flag = mfoodNutrientMapper.modify(mfoodNutrient);
+        boolean flag2 = mfoodMapper.modify(mfood);
+        boolean flag3 = boardMapper.modify(infoBoard);
+        return flag&&flag2&&flag3;
     }
 
     @Transactional
