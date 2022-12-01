@@ -16,7 +16,7 @@
 
     <insert id="save">
         insert into info_tbl_reply
-            (reply_text, reply_writer, fboard_no)
+            (reply_text, reply_writer, info_no)
         VALUES (#{replyText}, #{replyWriter}, #{infoNo})
     </insert>
 

@@ -8,10 +8,12 @@
     <%@include file="../food/include/header_css.jsp" %>
     <style>
 
+        body{
+            background: whitesmoke;
+        }
+
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/pasta.jpg);
-            background-size: cover;
         }
 
         div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
@@ -51,9 +53,9 @@
             padding: 10px;
             margin: 50px auto;
             box-sizing: border-box;
-            border: 2px solid #f4ede5;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
-            background: #f4ede5;
+            background: whitesmoke;
         }
 
         div.main-board section.main-write div input:focus {

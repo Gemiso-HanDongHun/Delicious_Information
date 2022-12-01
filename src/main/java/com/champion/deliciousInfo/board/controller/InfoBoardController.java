@@ -38,8 +38,8 @@ public class InfoBoardController {
     public String getContent(@PathVariable Long infoNo, Model model, @ModelAttribute("p") Page page
             , HttpServletRequest request, HttpServletResponse response){
         log.info("GetMapping board/suggestionBoard/detail/{}", infoNo);
-        InfoBoard findOne = service.findOne(infoNo,request,response);
-        model.addAttribute("fo",findOne);
+        InfoBoard infoBoard = service.findOne(infoNo,request,response);
+        model.addAttribute("fo",infoBoard);
         return "board/info-board-detail";
     }
 
