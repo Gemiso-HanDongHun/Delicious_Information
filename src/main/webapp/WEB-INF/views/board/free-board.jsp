@@ -14,7 +14,8 @@
         span.lnr-magnifier {
             font-size: 20px;
         }
-        body{
+
+        body {
             background-color: whitesmoke;
         }
 
@@ -90,7 +91,6 @@
         }
 
 
-
         div.buttonDiv {
             position: absolute;
             width: 120px;
@@ -134,7 +134,6 @@
         div.div_search a {
             padding: 8px 8px 2px;
         }
-
 
 
         #boardwriter {
@@ -182,7 +181,7 @@
             padding-right: 25px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown2{
+        #navbar-header .dropdown a#navibarDropdown2 {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -223,7 +222,7 @@
             padding-right: 25px;
         }
 
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
 
@@ -267,7 +266,8 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
@@ -279,13 +279,13 @@
                         <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 자유게시판
                             </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/freeBoard'">자유게시판</a>
                                 <a class="dropdown-item"
@@ -315,7 +315,7 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ${loginUser.name}님
                                 </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
                                        href="/member/info/${loginUser.account}">마이 페이지</a>
                                     <a class="dropdown-item"
@@ -359,7 +359,7 @@
                 <th style="width:5%">No</th>
                 <th style="width:22%">제목</th>
                 <th style="width:9%">작성자</th>
-<%--                <th style="width:36%">내용</th>--%>
+                <%--                <th style="width:36%">내용</th>--%>
                 <th style="width:22%">작성일</th>
                 <th style="width:6%">조회수</th>
             </tr>
@@ -369,7 +369,7 @@
                     <td>${fb.freeboardNo}</td>
                     <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.title}[${fb.replyCount}]</a></td>
                     <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.writer}</a></td>
-<%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
+                        <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>
                 </tr>

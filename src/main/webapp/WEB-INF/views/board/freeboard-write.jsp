@@ -5,100 +5,137 @@
 <html lang="ko">
 
 <head>
-    <%@include file="../about/include/header_css.jsp" %>
-    <link rel="stylesheet" href="/about/css/about.css">
-    <!-- include summernote css/js -->
+    <%@include file="../food/include/header_css.jsp" %>
 
     <style>
+        body {
+            background-color: whitesmoke;
+        }
 
-        div.flex-column p.maintext {
-            margin-left: 105px;
+
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
+        #navbar-header .dropdown .dropdown-menu {
+            top: 80%;
+            display: none;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown {
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown2 {
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown {
+            top: 65%;
+            height: 1px;
         }
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/coffee.jpg);
-            background-size: cover;
         }
 
-        section.board{
-            margin-top: 100px;
-        }
 
-        table.free-board{
-            width: 70%;
-            border: 20px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            padding: 24px;
-            background: #f4ede5;
-            line-height: 202%;
-            z-index: 1000;
-            text-align: center;
-        }
         table.free-board tr {
             background: #ffffff;
         }
-        table.free-board td a{
+
+        table.free-board td a {
             cursor: pointer;
         }
 
-        button#regist{
-            background-color: #f4ede5;
+        button#regist {
+            background-color: whitesmoke;
             color: black;
-            margin: 10px;
-            margin-left: 90px;
-
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
             /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
+            border: 1px solid whitesmoke;
             padding: 5px;
-            background-color: #f4ede5;
+            background-color: whitesmoke;
         }
 
-        button.btn-info:hover{
-            color: #f4ede5;
+        button#regist:hover{
+            /*color: orangered;*/
+            background-color: lightgray;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+
+        button.btn-info:hover {
+            color: whitesmoke;
         }
 
         .boxed-page {
             min-height: 970px;
         }
-        button#regist{
-            background-color: #f4ede5;
+
+        button#regist {
+            background-color: whitesmoke;
             color: black;
             margin: 10px;
             /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
+            border: 1px solid whitesmoke;
             padding: 5px;
-            background-color: #f4ede5;
-            position:absolute;
-            left:68%;
+            background-color: whitesmoke;
+            position: absolute;
+            left: 64%;
         }
 
-        button.btn-info:hover{
-            color: #f4ede5;
+        button.btn-info:hover {
+            color: whitesmoke;
         }
 
-        div.wrapper{
-            width:100%;
-            margin:auto;
-            position:absolute;
-            top: 25%;
+        div.wrapper {
+            width: 100%;
+            /*margin: auto;*/
+            position: absolute;
+            top: 20%;
         }
-        section.wrapcontent{
+
+        section.wrapcontent {
             padding: 20px 20px 10px;
             border-radius: 1.5em;
 
-            margin:auto;
-            background:#f4ede5;
+            margin: auto;
+            background: whitesmoke;
         }
-        div.title{
-            background: #f4ede5;
+
+        div.title {
+            background: whitesmoke;
             padding-left: 0px;
         }
-        #writeForm{
+
+        #writeForm {
             padding: 0px;
         }
-        h1{
+
+        h1 {
             font-weight: 600;
             font-size: 24px;
         }
@@ -108,11 +145,17 @@
             height: 600px;
             position: absolute;
             left: 130px;
-            top:25%
+            top: 25%
         }
-        div.liParent li{
+
+        div.liParent li {
             text-align: center;
         }
+
+        div.col-12 {
+            text-align: center;
+        }
+
 
     </style>
 </head>
@@ -123,38 +166,86 @@
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <div class="d-flex flex-lg-row flex-column liParent">
-                        <li class="nav-item active d-flex justify-content-center ">
-                            <a class="nav-link" href="/food-main">free <span class="sr-only">(current)</span></a>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food-about">info</a>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food-about">List</a>
                         </li>
 
-                        <li>
-                            <p class="maintext">𝓕𝓻𝓮𝓮 𝓑𝓸𝓪𝓻𝓭</p>
-                        </li>
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="foodlist" href="/board/sboard/list">free</a>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                자유게시판
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
+
                         </li>
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item sign active4">
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
+                            </li>
+                        </c:if>
+
+
+                        <c:if test="${!empty loginUser}">
+                            <%--<li class="nav-item sign active5">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                            </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
+                            </li>
+                        </c:if>
                     </div>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <div class="wrapper">
         <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-            <div class="title col-12"><h1>자유게시판</h1></div><br/>
-            <form id="writeForm" class="col-12"  method="post">
+            <div class="title col-12"><h1>자유게시판 글쓰기</h1></div>
+            <br/>
+            <form id="writeForm" class="col-12" method="post">
                 <div class="form-group">
-                    <input type="text" id="title-input" class="form-control col-12" name="title" placeholder="제목을 입력해주세요">
+                    <input type="text" id="title-input" class="form-control col-12" name="title"
+                           placeholder="제목을 입력해주세요">
                     <br/>
-                    <textarea class="form-control col-12"name="content" placeholder="내용을 입력해주세요" rows="20"></textarea>
+                    <textarea class="form-control col-12" name="content" placeholder="내용을 입력해주세요" rows="20"></textarea>
                 </div>
             </form>
 
@@ -162,19 +253,19 @@
         <button type="button" class="btn btn-info" id="regist">등록</button>
     </div>
 
-<%--    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"--%>
-<%--         style="background-image: url(/resto/img/testi-bg.jpg);"> &lt;%&ndash; 이미지요소 &ndash;%&gt;--%>
+    <%--    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"--%>
+    <%--         style="background-image: url(/resto/img/testi-bg.jpg);"> &lt;%&ndash; 이미지요소 &ndash;%&gt;--%>
 
-<%--    </div>--%>
+    <%--    </div>--%>
 
 </div>
 </body>
 <script>
     const $writeButton = document.querySelector("#regist");
-    $writeButton.onclick=e=>{
-        const $writeForm =document.querySelector("#writeForm");
-        $writeForm.method="post";
-        $writeForm.action="/board/freeboard-write";
+    $writeButton.onclick = e => {
+        const $writeForm = document.querySelector("#writeForm");
+        $writeForm.method = "post";
+        $writeForm.action = "/board/freeboard-write";
         $writeForm.submit();
 
     };
