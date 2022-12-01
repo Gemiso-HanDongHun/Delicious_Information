@@ -58,6 +58,14 @@
             background: whitesmoke;
         }
 
+        div.main-board section.main-write div.h1-title {
+            width: 50%;
+            margin: auto;
+        }
+        div.main-board section.main-write div.h1-title #h1-title {
+            text-align: center;
+        }
+
         div.main-board section.main-write div input:focus {
             outline: none;
             box-shadow: none;
@@ -105,13 +113,15 @@
         }
 
         div.main-board section.main-write div.area4 div.form-group4 {
-            width: 30%;
+            width: 22%;
             float: left;
+
         }
 
         div.main-board section.main-write div.area4 div.calcium,
-        div.main-board section.main-write div.area4 div.iron {
-            margin-right: 5%;
+        div.main-board section.main-write div.area4 div.iron,
+        div.main-board section.main-write div.area4 div.magnesium {
+            margin-right: 4%;
         }
 
         div.main-board section.main-write div.area5 {
@@ -200,8 +210,8 @@
 
         <div class="main-board">
             <section class="main-write">
-                <div>
-                    <h1>추가할 음식을 작성해 주세요</h1>
+                <div class="h1-title">
+                    <h1 id="h1-title">음식 추가</h1>
                 </div>
 
                 <form id="mfood">
@@ -271,6 +281,11 @@
                         <div class="form-group4 magnesium">
                             <label for="magnesium">마그네슘</label>
                             <input type="number" class="form-control" name="magnesium" id="magnesium">
+                        </div>
+
+                        <div class="form-group4 omega">
+                            <label for="omega">오메가3</label>
+                            <input type="number" class="form-control" name="omega" id="omega">
                         </div>
                     </div>
 

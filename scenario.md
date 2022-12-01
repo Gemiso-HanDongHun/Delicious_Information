@@ -199,9 +199,11 @@ goill :
 
 11.24 : infoboard 패키지 및 하위 파일 작성 중
 
-11:25 : infoBoard 디자인 마무리 및 nav 통일하는 작업
+11.25 : infoBoard 디자인 마무리 및 nav 통일하는 작업
 
-11:28 : infoBoard 수정 및 write, detail, update 작성 및 수정중
+11.28 : infoBoard 수정 및 write, detail, update 작성 및 수정중
+
+12.01 : infoBoard jsp 수정 및 리스트 작성, 수정, 삭제 그리고 댓글 기능 추가
 
 luycin
 

@@ -358,10 +358,11 @@
         </form>
     </div>
 
-
-    <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">글쓰기</button>
-    </div>
+    <c:if test="${!empty loginUser}">
+        <div class="buttonDiv">
+            <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">글쓰기</button>
+        </div>
+    </c:if>
 
 
 

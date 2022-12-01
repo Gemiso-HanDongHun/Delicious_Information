@@ -64,6 +64,14 @@
       background: whitesmoke;
     }
 
+    div.main-board section.main-write div.h1-title {
+      width: 50%;
+      margin: auto;
+    }
+    div.main-board section.main-write div.h1-title #h1-title {
+      text-align: center;
+    }
+
     div.main-board section.main-write div input:focus {
       outline: none;
       box-shadow: none;
@@ -111,13 +119,15 @@
     }
 
     div.main-board section.main-write div.area4 div.form-group4 {
-      width: 30%;
+      width: 22%;
       float: left;
+
     }
 
     div.main-board section.main-write div.area4 div.calcium,
-    div.main-board section.main-write div.area4 div.iron {
-      margin-right: 5%;
+    div.main-board section.main-write div.area4 div.iron,
+    div.main-board section.main-write div.area4 div.magnesium {
+      margin-right: 4%;
     }
 
     div.main-board section.main-write div.area5 {
@@ -259,8 +269,8 @@
 
   <div class="main-board">
     <section class="main-write">
-      <div>
-        <h1>상세 정보</h1>
+      <div class="h1-title">
+        <h1 id="h1-title">상세 정보</h1>
       </div>
 
       <form>
@@ -331,6 +341,11 @@
             <label for="magnesium">마그네슘</label>
             <input type="number" class="form-control" name="magnesium" value="${mn.magnesium}"  id="magnesium" disabled>
           </div>
+
+          <div class="form-group4 omega">
+            <label for="omega">오메가3</label>
+            <input type="number" class="form-control" name="omega" value="${mn.omega}"  id="omega" disabled>
+          </div>
         </div>
 
         <div class="area5">
@@ -339,8 +354,10 @@
         </div>
 
         <div class="area6">
+        <c:if test="${!empty loginUser}">
           <button type="button" id="regist">수정하기</button>
           <button type="button" id="delete">삭제하기</button>
+        </c:if>
           <button type="button" id="goList" onclick="location.href='/board/infoBoard'">목록으로</button>
         </div>
       </form>
