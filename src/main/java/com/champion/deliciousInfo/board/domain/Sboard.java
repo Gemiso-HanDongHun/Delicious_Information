@@ -13,7 +13,7 @@ public class Sboard {
     private String title;
     private String writer;
     private String content;
-    private Date regdate;
+    private String regdate;
     private int hit;
 
     private int replyCount;

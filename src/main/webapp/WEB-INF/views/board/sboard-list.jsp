@@ -175,7 +175,7 @@
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 50%;
+            width: 43%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -314,7 +314,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 제목을 입력하세요" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>
@@ -332,11 +332,11 @@
 
     <table class="test">
         <tr>
-            <th style="width:10%">No</th>
-            <th style="width:45%">제목</th>
-            <th style="width:15%">작성자</th>
-            <th style="width:25%">작성일</th>
-            <th style="width:5%">조회수</th>
+            <th style="width:5%">No</th>
+            <th style="width:22%">제목</th>
+            <th style="width:9%">작성자</th>
+            <th style="width:22%">작성일</th>
+            <th style="width:6%">조회수</th>
         </tr>
 
         <c:forEach var="sb" items="${sl}">

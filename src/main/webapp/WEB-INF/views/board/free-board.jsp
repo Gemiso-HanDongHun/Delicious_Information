@@ -29,15 +29,29 @@
         }
 
         .free-board {
-            width: 50%;
-            border: 20px solid whitesmoke;
+            width: 43%;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
-            padding: 10px;
+            margin: auto;
+            padding: 24px;
             background: whitesmoke;
             line-height: 202%;
+            z-index: 1000;
+        }
+
+        /* th 중앙 정렬 및 외부 폰트 */
+        div.boxed-page table th {
+            text-align: center;
+            /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
+            font-weight: 700;
+        }
+
+        /* td 중앙 정렬 */
+        div.boxed-page table td {
             text-align: center;
         }
+
 
         table.free-board tr {
             background: #ffffff;
@@ -128,11 +142,11 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-bottom: 40px;
+            margin-top: 40px;
         }
 
         #boardwriter:hover {
-            color: #fff;
+            color: orangered;
             background-color: lightgray;
             cursor: pointer;
             font-weight: 700;
@@ -323,7 +337,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="검색하고 싶은 내용을 입력하세요" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 제목을 입력하세요" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>
@@ -334,7 +348,7 @@
 
     <div class="buttonDiv">
         <button type="button" id="boardwriter" style="background-color: whitesmoke"
-                onclick="location.href='/board/freeboard-write'">글작성
+                onclick="location.href='/board/freeboard-write'">글쓰기
         </button>
     </div>
 
@@ -346,7 +360,7 @@
                 <th style="width:22%">제목</th>
                 <th style="width:9%">작성자</th>
 <%--                <th style="width:36%">내용</th>--%>
-                <th style="width:22%">날짜</th>
+                <th style="width:22%">작성일</th>
                 <th style="width:6%">조회수</th>
             </tr>
 
