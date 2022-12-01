@@ -29,7 +29,7 @@
         }
 
         .free-board {
-            width: 70%;
+            width: 50%;
             border: 20px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -343,10 +343,10 @@
 
             <tr>
                 <th style="width:5%">No</th>
-                <th style="width:15%">제목</th>
-                <th style="width:12%">작성자</th>
+                <th style="width:22%">제목</th>
+                <th style="width:9%">작성자</th>
 <%--                <th style="width:36%">내용</th>--%>
-                <th style="width:26%">날짜</th>
+                <th style="width:22%">날짜</th>
                 <th style="width:6%">조회수</th>
             </tr>
 

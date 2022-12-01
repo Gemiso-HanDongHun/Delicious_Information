@@ -11,15 +11,14 @@
         <result property="view_cnt" column="view_cnt"/>
     </resultMap>
 
+
     <select id="findAll" resultMap="freeboardMap">
         select *
         from freeboard;
     </select>
 
     <select id="findone" resultMap="freeboardMap">
-        select *
-        from freeboard
-        where freeboardNo = #{freeboardNo}
+        select * from freeboard where freeboardNo = #{freeboardNo}
     </select>
 
     <sql id="search">
@@ -39,36 +38,11 @@
         SELECT COUNT(*)
         FROM freeboard
         <include refid="search"/>
-
     </select>
 
     <insert id="regist">
         insert into freeboard(title, writer, content)
         values (#{title}, #{writer}, #{content})
     </insert>
-
-    <update id="modify">
-        UPDATE freeboard
-        SET title=#{title},
-            content=#{content}
-        WHERE freeboardNo = #{freeboardNo}
-    </update>
-
-    <delete id="remove">
-        DELETE
-        FROM freeboard
-        WHERE freeboardNo = #{freeboardNo}
-
-    </delete>
-
-    <select id="findMemberByfreeBoardNo" resultType="com.champion.deliciousInfo.board.dto.ValidateMemberDTO">
-        select account, grade
-        from member
-        where account = (select writer
-                         from freeboard
-                         where freeboardNo = #{freeboardNo})
-
-    </select>
-
 
 </mapper>

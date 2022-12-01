@@ -175,7 +175,7 @@
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 70%;
+            width: 50%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;

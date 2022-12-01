@@ -29,7 +29,7 @@
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 70%;
+            width: 50%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -374,7 +374,7 @@
             <th style="width:10%">No</th>
             <th style="width:15%">음식명</th>
             <th style="width:15%">작성자</th>
-            <th style="width:15%">내용</th>
+<%--            <th style="width:15%">내용</th>--%>
             <th style="width:15%">작성일</th>
             <th style="width:5%">조회수</th>
             <th style="width:5%">추천</th>
@@ -386,7 +386,7 @@
                 <td>${b.infoNo}</td>
                 <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}</td>
                 <td>${b.writer}</td>
-                <td>${b.content}</td>
+<%--                <td>${b.content}</td>--%>
                 <td>${b.regdate}</td>
                 <td>${b.hit}</td>
                 <td>${b.good}</td>
