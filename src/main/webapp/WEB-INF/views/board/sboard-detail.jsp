@@ -133,7 +133,7 @@
             padding-right: 25px;
         }
 
-        div p {
+        div p#p1, p#p2, p#p3 {
             font-weight: 800;
             margin-left: 8px;
         }
@@ -292,7 +292,7 @@
         <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
             <div class="form-group">
 
-                <p>제목</p>
+                <p id="p1">제목</p>
                 <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'ADMIN'}">
                     <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
                     <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
@@ -300,10 +300,10 @@
 
                 <input type="text" id="title-input" class="form-control col-12" name="title" value="${sb.title}"
                        disabled><br/>
-                <p>작성자</p>
+                <p id="p2">작성자</p>
                 <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${sb.writer}"
                        disabled><br/>
-                <p>문의내용</p>
+                <p id="p3">문의내용</p>
                 <textarea class="form-control col-12" rows="13" disabled>${sb.content}</textarea>
             </div>
         </form>

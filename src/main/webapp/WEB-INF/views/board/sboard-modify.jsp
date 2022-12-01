@@ -30,7 +30,7 @@
             margin-top: 20px;
         }
 
-        div p {
+        div p#p1, p#p2 {
             font-weight: 800;
             margin-left: 8px;
         }
@@ -198,11 +198,11 @@
             <br/>
             <form id="modifyForm" class="col-12">
                 <div class="form-group">
-                    <p>제목(수정)</p>
+                    <p id="p1">제목(수정)</p>
                     <input type="hidden" name="boardNo" value="${sb.boardNo}">
                     <input type="text" id="title-input" class="form-control col-12" name="title"
                            value="${sb.title}"><br/>
-                    <p>문의내용(수정)</p>
+                    <p id="p2">문의내용(수정)</p>
                     <textarea class="form-control col-12" rows="15" name="content">${sb.content}</textarea>
                 </div>
             </form>

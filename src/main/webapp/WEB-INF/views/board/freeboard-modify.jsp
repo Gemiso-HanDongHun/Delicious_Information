@@ -28,7 +28,7 @@
             text-align: center;
         }
 
-        div p {
+        div p#p1, p#p2 {
             font-weight: 800;
             margin-left: 8px;
         }
@@ -201,11 +201,11 @@
             <br/>
             <form id="modifyForm" class="col-12">
                 <div class="form-group">
-                    <p>제목(수정)</p>
+                    <p id="p1">제목(수정)</p>
                     <input type="hidden" name="freeboardNo" value="${fb.freeboardNo}">
                     <input type="text" id="title-input" class="form-control col-12" name="title"
                            value="${fb.title}"><br/>
-                    <p>내용(수정)</p>
+                    <p id="p2">내용(수정)</p>
                     <textarea class="form-control col-12" rows="15" name="content">${fb.content}</textarea>
                 </div>
             </form>

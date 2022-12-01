@@ -114,7 +114,7 @@
             padding: 0px;
         }
 
-        div p{
+        div p#p1, p#p2{
             font-weight: 800;
             margin-left: 8px;
         }
@@ -222,11 +222,11 @@
             <br/>
             <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
                 <div class="form-group">
-                    <p>제목</p>
+                    <p id="p1">제목</p>
                     <input type="text" id="title-input" class="form-control col-12" name="title"
                            placeholder="제목을 입력해주세요">
                     <br/>
-                    <p>내용</p>
+                    <p id="p2">내용</p>
                     <textarea class="form-control col-12" name="content" placeholder="문의사항을 입력해주세요"
                               rows="16"></textarea>
                 </div>

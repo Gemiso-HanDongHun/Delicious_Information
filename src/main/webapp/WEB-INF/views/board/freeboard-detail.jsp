@@ -100,7 +100,7 @@
             text-align: center;
         }
 
-        div p {
+        div p#p1, p#p2, p#p3 {
             font-weight: 800;
             margin-left: 8px;
         }
@@ -251,17 +251,17 @@
         <br/>
         <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
             <div class="form-group">
-                <p>제목</p>
+                <p id="p1">제목</p>
                 <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'ADMIN'}">
                     <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
                     <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
                 </c:if>
                 <input type="text" id="title-input" class="form-control col-12" name="title" value="${fb.title}"
                        disabled><br/>
-                <p>작성자</p>
+                <p id="p2">작성자</p>
                 <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${fb.writer}"
                        disabled><br/>
-                <p>내용</p>
+                <p id="p3">내용</p>
                 <textarea class="form-control col-12" rows="13" disabled>${fb.content}</textarea>
             </div>
         </form>
