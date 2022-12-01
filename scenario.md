@@ -173,6 +173,8 @@ lemoncoat :
 
 11.30 - 게시판 헤더 수정 및 BoardInterceptor 생성
 
+12.01 - infoboard write detail modify 수정 mfoodmapper와 mfoodnutrient생성
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 
