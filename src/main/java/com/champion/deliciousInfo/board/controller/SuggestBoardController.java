@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -60,9 +62,10 @@ public class SuggestBoardController {
     }
 
     @GetMapping("/detail/{boardNo}")
-    public String getContent(@PathVariable Long boardNo, Model model, @ModelAttribute("p") Page page) {
+    public String getContent(@PathVariable Long boardNo, Model model, @ModelAttribute("p") Page page
+            , HttpServletResponse response, HttpServletRequest request) {
         log.info("GetMapping board/suggestionBoard/detail/{}", boardNo);
-        Sboard foundOne = sboardService.findOne(boardNo);
+        Sboard foundOne = sboardService.findOne(boardNo,response,request);
         model.addAttribute("sb", foundOne);
         return "board/sboard-detail";
     }
@@ -88,9 +91,9 @@ public class SuggestBoardController {
 
     // 수정 화면 요청
     @GetMapping("/modify")
-    public String modify(Long boardNo, Model model) {
+    public String modify(Long boardNo, Model model, HttpServletResponse response, HttpServletRequest request) {
         log.info("controller request /board/modify GET! - bno: {}", boardNo);
-        Sboard sboard = sboardService.findOne(boardNo);
+        Sboard sboard = sboardService.findOne(boardNo,response,request);
         log.info("find article: {}", sboard);
 
         model.addAttribute("sb", sboard);

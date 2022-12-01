@@ -17,6 +17,9 @@ public interface InfoBoardMapper {
 
     InfoBoard findOne(Long infoNo);
 
+    // 조회수 상승 처리
+    void upViewCount(Long infoNo);
+
     //검색 조회 count 처리
     int getTotalCount(Search search);
 

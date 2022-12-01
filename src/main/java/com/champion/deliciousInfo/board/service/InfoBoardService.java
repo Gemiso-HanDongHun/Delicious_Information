@@ -9,7 +9,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.WebUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,10 +31,26 @@ public class InfoBoardService {
     }
 
 
-    public InfoBoard findOne(Long infoNo){
+    public InfoBoard findOne(Long infoNo, HttpServletRequest request, HttpServletResponse response){
         log.info("InfoBoard findOne service start");
         InfoBoard findOne = boardMapper.findOne(infoNo);
+        makeViewCount(infoNo,  response, request);
         return findOne;
+    }
+
+    private void makeViewCount(Long infoNo, HttpServletResponse response, HttpServletRequest request) {
+        // 쿠키를 조회 - 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        Cookie foundCookie = WebUtils.getCookie(request, "b" + infoNo);
+
+        if (foundCookie == null) {
+            boardMapper.upViewCount(infoNo);
+
+            Cookie cookie = new Cookie("b" + infoNo, String.valueOf(infoNo));// 쿠키 생성
+            cookie.setMaxAge(60); // 쿠키 수명 설정
+            cookie.setPath("/board/infoBoard/detail"); // 쿠키 작동 범위
+
+            response.addCookie(cookie); // 클라이언트에 쿠키 전송
+        }
     }
 
     public Map<String, Object> search(Search search) {

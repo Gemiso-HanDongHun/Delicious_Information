@@ -6,7 +6,7 @@
 <mapper namespace="com.champion.deliciousInfo.board.repository.FreeBoardMapper">
 
     <resultMap id="freeboardMap" type="com.champion.deliciousInfo.board.domain.FreeBoard">
-        <result property="freeboard_no" column="freeboard_no"/>
+        <result property="freeboardNo" column="freeboardNo"/>
         <result property="reg_date" column="reg_date"/>
         <result property="view_cnt" column="view_cnt"/>
     </resultMap>
@@ -17,7 +17,9 @@
     </select>
 
     <select id="findone" resultMap="freeboardMap">
-        select * from freeboard where freeboard_no = #{freeboard_no}
+        select *
+        from freeboard
+        where freeboardNo = #{freeboardNo}
     </select>
 
     <sql id="search">
@@ -29,7 +31,7 @@
     <select id="search" resultMap="freeboardMap">
         SELECT * FROM freeboard
         <include refid="search"/>
-        ORDER BY freeboard_no DESC
+        ORDER BY freeboardNo DESC
         LIMIT #{start}, #{amount}
     </select>
 
@@ -37,12 +39,41 @@
         SELECT COUNT(*)
         FROM freeboard
         <include refid="search"/>
-
     </select>
 
     <insert id="regist">
         insert into freeboard(title, writer, content)
         values (#{title}, #{writer}, #{content})
     </insert>
+
+    <update id="modify">
+        UPDATE freeboard
+        SET title=#{title},
+            content=#{content}
+        WHERE freeboardNo = #{freeboardNo}
+    </update>
+
+    <delete id="remove">
+        DELETE
+        FROM freeboard
+        WHERE freeboardNo = #{freeboardNo}
+
+    </delete>
+
+    <select id="findMemberByfreeBoardNo" resultType="com.champion.deliciousInfo.board.dto.ValidateMemberDTO">
+        select account, grade
+        from member
+        where account = (select writer
+                         from freeboard
+                         where freeboardNo = #{freeboardNo})
+
+    </select>
+
+    <update id="upViewCount">
+        UPDATE freeboard
+        SET view_cnt = view_cnt + 1
+        WHERE freeboardNo=#{freeboardNo}
+    </update>
+
 
 </mapper>

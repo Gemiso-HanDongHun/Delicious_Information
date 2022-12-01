@@ -21,6 +21,10 @@ public interface FreeBoardMapper {
 
     FreeBoard findone(int freeboardNo);
 
+    // 조회수 상승 처리
+    void upViewCount(int freeboardNo);
+
+
     boolean modify(FreeBoard freeBoard);
 
     boolean remove (int freeboardNo);

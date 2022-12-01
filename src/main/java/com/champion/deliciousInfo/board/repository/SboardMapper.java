@@ -25,4 +25,7 @@ public interface SboardMapper {
 
     // 게시물 번호로 게시글 작성자의 계정명과 권한 가져오기
     ValidateMemberDTO findMemberByBoardNo(Long boardNo);
+
+    // 조회수 상승 처리
+    void upViewCount(Long boardNo);
 }

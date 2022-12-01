@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -59,9 +61,10 @@ public class FreeBoardController {
 
     //상세보기
     @GetMapping("freeboard-detail/{freeboardNo}")
-    public String detail(@PathVariable int freeboardNo, Model model, @ModelAttribute("p") Page page) {
+    public String detail(@PathVariable int freeboardNo, Model model, @ModelAttribute("p") Page page
+            , HttpServletResponse response, HttpServletRequest request) {
         log.info("GetMapping board/freeboard-detail/{}", freeboardNo);
-        FreeBoard freeBoard = freeBoardService.findone(freeboardNo);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo,request,response);
         model.addAttribute("fb", freeBoard);
 
         return "board/freeboard-detail";
@@ -88,9 +91,10 @@ public class FreeBoardController {
 
     // 수정 화면 요청
     @GetMapping("/freeboard-modify")
-    public String modify(int freeboardNo, Model model) {
+    public String modify(int freeboardNo, Model model
+            , HttpServletResponse response, HttpServletRequest request) {
         log.info("controller request /freeboard-modify GET! - bno: {}", freeboardNo);
-        FreeBoard freeBoard = freeBoardService.findone(freeboardNo);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo,request,response);
         log.info("find article: {}", freeBoard);
 
         model.addAttribute("fb", freeBoard);

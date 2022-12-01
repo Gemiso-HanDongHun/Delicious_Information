@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @Controller
@@ -33,9 +35,10 @@ public class InfoBoardController {
     }
 
     @GetMapping("/detail/{infoNo}")
-    public String getContent(@PathVariable Long infoNo, Model model, @ModelAttribute("p") Page page){
+    public String getContent(@PathVariable Long infoNo, Model model, @ModelAttribute("p") Page page
+            , HttpServletRequest request, HttpServletResponse response){
         log.info("GetMapping board/suggestionBoard/detail/{}", infoNo);
-        InfoBoard findOne = service.findOne(infoNo);
+        InfoBoard findOne = service.findOne(infoNo,request,response);
         model.addAttribute("fo",findOne);
         return "board/info-board-detail";
     }
@@ -65,9 +68,9 @@ public class InfoBoardController {
     }
 
     @GetMapping("/modify")
-    public String modify(Long infoNo, Model model) {
+    public String modify(Long infoNo, Model model, HttpServletRequest request, HttpServletResponse response) {
         log.info("controller request /board/modify GET! - bno: {}", infoNo);
-        InfoBoard infoBoard = service.findOne(infoNo);
+        InfoBoard infoBoard = service.findOne(infoNo,request,response);
         log.info("find article: {}", infoBoard);
 
         model.addAttribute("fo", infoBoard);

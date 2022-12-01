@@ -10,7 +10,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.WebUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,10 +47,26 @@ public class SboardService {
         return findDataMap;
     }
 
-    public Sboard findOne(Long boardNo){
+    public Sboard findOne(Long boardNo, HttpServletResponse response, HttpServletRequest request){
         log.info("sboard findOne service start");
         Sboard foundOne = sboardMapper.findOne(boardNo);
+        makeViewCount(boardNo,  response, request);
         return foundOne;
+    }
+
+    private void makeViewCount(Long boardNo, HttpServletResponse response, HttpServletRequest request) {
+        // 쿠키를 조회 - 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
+
+        if (foundCookie == null) {
+            sboardMapper.upViewCount(boardNo);
+
+            Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));// 쿠키 생성
+            cookie.setMaxAge(60); // 쿠키 수명 설정
+            cookie.setPath("/board/suggestionBoard/detail"); // 쿠키 작동 범위
+
+            response.addCookie(cookie); // 클라이언트에 쿠키 전송
+        }
     }
 
     public boolean regist(Sboard sboard){

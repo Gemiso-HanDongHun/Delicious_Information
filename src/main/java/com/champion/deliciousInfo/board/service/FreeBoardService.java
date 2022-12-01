@@ -10,7 +10,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.WebUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.AttributedString;
 import java.util.HashMap;
 import java.util.List;
@@ -46,11 +50,27 @@ public class FreeBoardService {
         return flag;
     }
 
-    public FreeBoard findone(int freeboardNo) {
+    public FreeBoard findone(int freeboardNo, HttpServletRequest request, HttpServletResponse response) {
         log.info("start findoneservice");
         FreeBoard ffindone = freeBoardMapper.findone(freeboardNo);
 
+        makeViewCount(freeboardNo,  response, request);
         return ffindone;
+    }
+
+    private void makeViewCount(int boardNo, HttpServletResponse response, HttpServletRequest request) {
+        // 쿠키를 조회 - 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
+
+        if (foundCookie == null) {
+            freeBoardMapper.upViewCount(boardNo);
+
+            Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));// 쿠키 생성
+            cookie.setMaxAge(60); // 쿠키 수명 설정
+            cookie.setPath("/board/freeboard-detail"); // 쿠키 작동 범위
+
+            response.addCookie(cookie); // 클라이언트에 쿠키 전송
+        }
     }
 
     // 자유게시판 수정
