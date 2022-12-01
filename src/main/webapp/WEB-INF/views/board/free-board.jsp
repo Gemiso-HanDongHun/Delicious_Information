@@ -30,7 +30,7 @@
         }
 
         .free-board {
-            width: 43%;
+            width: 40%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -72,22 +72,6 @@
         /* a태그 폰트 설정 */
         div.bottom_section ul li a {
             color: black;
-        }
-
-        button#regist {
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            margin-left: 90px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-        }
-
-        button.btn-info:hover {
-            color: #f4ede5;
         }
 
 
@@ -134,7 +118,6 @@
         div.div_search a {
             padding: 8px 8px 2px;
         }
-
 
         #boardwriter {
             width: 120px;
@@ -271,7 +254,7 @@
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>

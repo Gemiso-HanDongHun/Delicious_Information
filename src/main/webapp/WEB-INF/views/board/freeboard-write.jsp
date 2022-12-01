@@ -12,7 +12,6 @@
             background-color: whitesmoke;
         }
 
-
         div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
@@ -57,7 +56,6 @@
             min-height: 100vh;
         }
 
-
         table.free-board tr {
             background: #ffffff;
         }
@@ -66,21 +64,8 @@
             cursor: pointer;
         }
 
-        button#regist {
-            background-color: whitesmoke;
-            color: black;
-            width: 120px;
-            height: 45px;
-            border: 0;
-            border-radius: 2em;
-            /*border-radius: 2em;*/
-            border: 1px solid whitesmoke;
-            padding: 5px;
-            background-color: whitesmoke;
-        }
 
         button#regist:hover{
-            /*color: orangered;*/
             background-color: lightgray;
             cursor: pointer;
             font-weight: 700;
@@ -98,13 +83,17 @@
         button#regist {
             background-color: whitesmoke;
             color: black;
-            margin: 10px;
-            /*border-radius: 2em;*/
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
             border: 1px solid whitesmoke;
             padding: 5px;
             background-color: whitesmoke;
             position: absolute;
             left: 64%;
+            margin-top: 30px;
+            left: 61%;
         }
 
         button.btn-info:hover {
@@ -124,6 +113,7 @@
 
             margin: auto;
             background: whitesmoke;
+            width: 37%;
         }
 
         div.title {
@@ -140,20 +130,21 @@
             font-size: 24px;
         }
 
-        .img-2 {
-            width: 17%;
-            height: 600px;
-            position: absolute;
-            left: 130px;
-            top: 25%
-        }
-
         div.liParent li {
             text-align: center;
         }
 
         div.col-12 {
             text-align: center;
+        }
+
+        div p{
+            font-weight: 800;
+            margin-left: 8px;
+        }
+
+        p#title{
+            font-weight: 16;
         }
 
 
@@ -176,7 +167,7 @@
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
@@ -242,10 +233,12 @@
             <br/>
             <form id="writeForm" class="col-12" method="post">
                 <div class="form-group">
+                    <p>제목</p>
                     <input type="text" id="title-input" class="form-control col-12" name="title"
                            placeholder="제목을 입력해주세요">
                     <br/>
-                    <textarea class="form-control col-12" name="content" placeholder="내용을 입력해주세요" rows="20"></textarea>
+                    <p>내용</p>
+                    <textarea class="form-control col-12" name="content" placeholder="내용을 입력해주세요" rows="16"></textarea>
                 </div>
             </form>
 

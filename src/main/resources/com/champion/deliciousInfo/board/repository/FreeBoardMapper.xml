@@ -68,7 +68,6 @@
                          from freeboard
                          where freeboardNo = #{freeboardNo})
 
-
     </select>
 
     <update id="upViewCount">

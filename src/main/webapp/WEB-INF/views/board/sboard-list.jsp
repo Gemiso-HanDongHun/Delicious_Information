@@ -8,30 +8,28 @@
     <%@include file="../food/include/header_css.jsp" %>
     <style>
 
-        body{
+        body {
             background: whitesmoke;
-        }body{
+        }
+
+        body {
             background: whitesmoke;
         }
 
         .boxed-page {
             min-height: 100vh;
-            /*background-image: url(/resto/img/pasta.jpg);*/
-            /*background-size: cover;*/
         }
 
-
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
-
 
         div.buttonDiv {
             position: absolute;
             width: 120px;
             height: 45px;
-            top: 155px;
-            margin-left: 65%;
+            top: 170px;
+            margin-left: 63%;
         }
 
         div.div_search {
@@ -53,7 +51,6 @@
             justify-content: center;
             align-items: center;
         }
-
 
         /* 서치바 영역 */
         div.div_search input[type=text] {
@@ -77,10 +74,11 @@
             border: 0;
             border-radius: 2em;
             margin-top: 40px;
+            background-color: whitesmoke;
         }
 
         #boardwriter:hover {
-            color: #fff;
+            color: orangered;
             background-color: lightgray;
             cursor: pointer;
             font-weight: 700;
@@ -93,22 +91,21 @@
 
         input#inputName {
             padding: 10px;
+            padding: 10px;
             opacity: 0.5;
         }
-
-
 
         #navbar-header .dropdown .dropdown-menu {
             top: 80%;
             display: none;
         }
 
-        #navbar-header .dropdown{
-            top:65%;
+        #navbar-header .dropdown {
+            top: 65%;
             height: 1px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown{
+        #navbar-header .dropdown a#navibarDropdown {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -119,7 +116,7 @@
             padding-right: 25px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown2{
+        #navbar-header .dropdown a#navibarDropdown2 {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -160,10 +157,6 @@
             padding-right: 25px;
         }
 
-
-
-
-
         div.bottom_section ul li a {
             color: black;
         }
@@ -177,7 +170,7 @@
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 43%;
+            width: 40%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -237,6 +230,10 @@
             box-shadow: none;
         }
 
+        p#title {
+            font-weight: 16;
+        }
+
 
     </style>
 </head>
@@ -250,7 +247,8 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
@@ -262,22 +260,22 @@
                         <p id="title">𝓢𝓾𝓰𝓰𝓮𝓼𝓽𝓲𝓸𝓷</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
-                            <li class="nav-item dropdown" id="nav-li">
-                                <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    문의게시판
-                                </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                       onclick="location.href='/board/freeBoard'">자유게시판</a>
-                                    <a class="dropdown-item"
-                                       onclick="location.href='/board/infoBoard'">정보게시판</a>
-                                    <a class="dropdown-item"
-                                       onclick="location.href='/board/suggestionBoard'">문의게시판</a>
-                                </div>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                문의게시판
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
 
-                            </li>
+                        </li>
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign active4">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
@@ -298,7 +296,7 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ${loginUser.name}님
                                 </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
                                        href="/member/info/${loginUser.account}">마이 페이지</a>
                                     <a class="dropdown-item"
@@ -326,10 +324,8 @@
     </div>
 
     <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/suggestionBoard/write'">작성</button>
+        <button type="button" id="boardwriter" onclick="location.href='/board/suggestionBoard/write'">글쓰기</button>
     </div>
-
-
 
 
     <table class="test">

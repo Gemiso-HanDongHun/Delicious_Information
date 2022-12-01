@@ -8,8 +8,6 @@
 
     <%@include file="../food/include/header_css.jsp" %>
 
-
-
     <!-- jquery -->
     <script src="/js/jquery-3.3.1.min.js"></script>
 
@@ -17,52 +15,22 @@
 
     <style>
 
-      /*  div.flex-column p.maintext {
-            margin-left: 105px;
-        }*/
-      body{
-          background:whitesmoke;
-      }
+        body {
+            background: whitesmoke;
+        }
 
         .boxed-page {
             min-height: 100vh;
-           /* background-image: url(/resto/img/coffee.jpg);
-            background-size: cover;*/
         }
 
-        .boxed-page {
-            min-height: 970px;
-        }
-
-        button#regist {
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
-            position: absolute;
-            left: 68%;
-        }
-
-
-        button.btn-info:hover {
-            color: #f4ede5;
-        }
-
-        div.wrapper {
-            width: 100%;
-            margin: auto;
-            position: absolute;
-            top: 25%;
+        section#middle {
+            width: 37%;
         }
 
         section.wrapcontent {
             padding: 20px 20px 10px;
             border-radius: 1.5em;
-
-            margin: auto;
+            margin: 100px auto 0px;
             background: whitesmoke;
         }
 
@@ -78,14 +46,6 @@
         h1 {
             font-weight: 600;
             font-size: 24px;
-        }
-
-        .img-2 {
-            width: 17%;
-            height: 600px;
-            position: absolute;
-            left: 130px;
-            top: 25%
         }
 
         div.liParent li {
@@ -110,7 +70,7 @@
             height: 1px;
         }
 
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
 
@@ -125,7 +85,7 @@
             padding-right: 25px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown2{
+        #navbar-header .dropdown a#navibarDropdown2 {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -136,12 +96,82 @@
             padding-right: 25px;
         }
 
+        div.col-12 {
+            text-align: center;
+        }
+
+        div p {
+            font-weight: 800;
+            margin-left: 8px;
+        }
+
+        #mod-btn {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            margin-top: 40px;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            font-weight: 800;
+            position: absolute;
+            top: -11%;
+            left: 60%;
+            z-index: 2000;
+        }
+
+        #mod-btn:hover {
+            color: orangered;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        #del-btn {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            margin-top: 40px;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            font-weight: 800;
+            position: absolute;
+            top: -11%;
+            left: 80%;
+            z-index: 2000;
+            color: black;
+        }
+
+        #del-btn:hover {
+            color: orangered;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        div#mod-btn, #del-btn {
+            margin-left: 7px;
+        }
+
+        #replies {
+            width: 46%;
+            margin: auto;
+        }
+
+        div#replies {
+            margin-top: 70px;
+        }
+
+        p#title {
+            font-weight: 16;
+        }
+
+
     </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-
-<%--<%@include file="../about/include/side_nav.jsp" %>--%>
 
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
@@ -151,11 +181,12 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
@@ -163,13 +194,13 @@
                         <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 자유게시판
                             </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/freeBoard'">자유게시판</a>
                                 <a class="dropdown-item"
@@ -199,7 +230,7 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ${loginUser.name}님
                                 </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
                                        href="/member/info/${loginUser.account}">마이 페이지</a>
                                     <a class="dropdown-item"
@@ -214,129 +245,130 @@
         </div>
     </nav>
 
-    <div class="wrapper">
-        <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-            <div class="title col-12"><h1>자유 게시판</h1></div>
-            <br/>
-            <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
-                <div class="form-group">
-                    <input type="text" id="title-input" class="form-control col-12" name="title" value="${fb.title}"
-                           disabled><br/>
-                    <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${fb.writer}"
-                           disabled><br/>
-                    <textarea class="form-control col-12" rows="20" disabled>${fb.content}</textarea>
-                </div>
-            </form>
-        </section>
 
-        <div class="btn-group btn-group-lg custom-btn-group" role="group">
+    <section class="d-flex align-items-center flex-column col-5 wrapcontent" id="middle">
+        <div class="title col-12"><h1></h1></div>
+        <br/>
+        <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
+            <div class="form-group">
+                <p>제목</p>
+                <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'ADMIN'}">
+                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
+                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
+                </c:if>
+                <input type="text" id="title-input" class="form-control col-12" name="title" value="${fb.title}"
+                       disabled><br/>
+                <p>작성자</p>
+                <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${fb.writer}"
+                       disabled><br/>
+                <p>내용</p>
+                <textarea class="form-control col-12" rows="13" disabled>${fb.content}</textarea>
+            </div>
+        </form>
+    </section>
 
-            <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'ADMIN'}">
-                <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
-                <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
-            </c:if>
-            <button id="list-btn" type="button" class="btn btn-dark">목록</button>
-        </div>
 
-        <!-- 댓글 영역 -->
+    <!-- 댓글 영역 -->
 
-        <div id="replies" class="row">
-            <div class="offset-md-1 col-md-10">
-                <!-- 댓글 쓰기 영역 -->
-                <div class="card">
-                    <div class="card-body">
+    <div id="replies" class="row">
+        <div class="offset-md-1 col-md-10">
+            <!-- 댓글 쓰기 영역 -->
+            <div class="card">
+                <div class="card-body">
 
-                        <c:if test="${empty loginUser}">
-                            <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
-                        </c:if>
+                    <c:if test="${empty loginUser}">
+                        <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
+                    </c:if>
 
-                        <c:if test="${not empty loginUser}">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="form-group">
-                                        <label for="newReplyText" hidden>댓글 내용</label>
-                                        <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
-                                                  placeholder="댓글을 입력해주세요."></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="newReplyWriter" hidden>댓글 작성자</label>
-                                        <input id="newReplyWriter" name="replyWriter" type="text"
-                                               value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
-                                               readonly style="margin-bottom: 6px;">
-                                        <button id="replyAddBtn" type="button"
-                                                class="btn btn-dark form-control">등록
-                                        </button>
-                                    </div>
+                    <c:if test="${not empty loginUser}">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="newReplyText" hidden>댓글 내용</label>
+                                    <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
+                                              placeholder="댓글을 입력해주세요."></textarea>
                                 </div>
                             </div>
-                        </c:if>
-                    </div>
-                </div> <!-- end reply write -->
-
-                <!--댓글 내용 영역-->
-                <div class="card">
-                    <!-- 댓글 내용 헤더 -->
-                    <div class="card-header text-white m-0" style="background: #343A40;">
-                        <div class="float-left">댓글 (<span id="replyCnt">0</span>)</div>
-                    </div>
-
-                    <!-- 댓글 내용 바디 -->
-                    <div id="replyCollapse" class="card">
-                        <div id="replyData">
-                            <!--
-                            < JS로 댓글 정보 DIV삽입 >
-                        -->
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="newReplyWriter" hidden>댓글 작성자</label>
+                                    <input id="newReplyWriter" name="replyWriter" type="text"
+                                           value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
+                                           readonly style="margin-bottom: 6px;">
+                                    <button id="replyAddBtn" type="button"
+                                            class="btn btn-dark form-control"
+                                            style="background: whitesmoke; color: black">등록
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                    </c:if>
+                </div>
+            </div> <!-- end reply write -->
 
-                        <!-- 댓글 페이징 영역 -->
-                        <ul class="pagination justify-content-center">
-                            <!--
-                            < JS로 댓글 페이징 DIV삽입 >
-                        -->
-                        </ul>
+            <!--댓글 내용 영역-->
+            <div class="card">
+                <!-- 댓글 내용 헤더 -->
+                <div class="card-header text-white m-0" style="background: whitesmoke">
+                    <div class="float-left" style="color: black; font-weight: 700">댓글 (<span id="replyCnt">0</span>)
                     </div>
-                </div> <!-- end reply content -->
-            </div>
-        </div> <!-- end replies row -->
+                </div>
 
-
-        <!-- 댓글 수정 모달 -->
-        <div class="modal fade bd-example-modal-lg" id="replyModifyModal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header" style="background: #343A40; color: white;">
-                        <h4 class="modal-title">댓글 수정하기</h4>
-                        <button type="button" class="close text-white" data-bs-dismiss="modal">X</button>
+                <!-- 댓글 내용 바디 -->
+                <div id="replyCollapse" class="card">
+                    <div id="replyData">
+                        <!--
+                        < JS로 댓글 정보 DIV삽입 >
+                    -->
                     </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input id="modReplyId" type="hidden">
-                            <label for="modReplyText" hidden>댓글내용</label>
-                            <textarea id="modReplyText" class="form-control" placeholder="수정할 댓글 내용을 입력하세요."
-                                      rows="3"></textarea>
-                        </div>
-                    </div>
+                    <!-- 댓글 페이징 영역 -->
+                    <ul class="pagination justify-content-center">
+                        <!--
+                        < JS로 댓글 페이징 DIV삽입 >
+                    -->
+                    </ul>
+                </div>
+            </div> <!-- end reply content -->
+        </div>
+    </div> <!-- end replies row -->
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button id="replyModBtn" type="button" class="btn btn-dark">수정</button>
-                        <button id="modal-close" type="button" class="btn btn-danger"
-                                data-bs-dismiss="modal">닫기
-                        </button>
+
+    <!-- 댓글 수정 모달 -->
+    <div class="modal fade bd-example-modal-lg" id="replyModifyModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" style="background: #343A40; color: white;">
+                    <h4 class="modal-title">댓글 수정하기</h4>
+                    <button type="button" class="close text-white" data-bs-dismiss="modal">X</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="modReplyId" type="hidden">
+                        <label for="modReplyText" hidden>댓글내용</label>
+                        <textarea id="modReplyText" class="form-control" placeholder="수정할 댓글 내용을 입력하세요."
+                                  rows="3"></textarea>
                     </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button id="replyModBtn" type="button" class="btn btn-dark">수정</button>
+                    <button id="modal-close" type="button" class="btn btn-danger"
+                            data-bs-dismiss="modal">닫기
+                    </button>
                 </div>
             </div>
         </div>
-
-        <!-- end replyModifyModal -->
-
     </div>
+
+    <!-- end replyModifyModal -->
+
+
 </div>
 </body>
 
@@ -551,7 +583,7 @@
         const replyData = {
             replyWriter: $writerInput.value,
             replyText: $contentInput.value,
-            fboardNo : bno
+            fboardNo: bno
         };
 
         // POST요청을 위한 요청 정보 객체

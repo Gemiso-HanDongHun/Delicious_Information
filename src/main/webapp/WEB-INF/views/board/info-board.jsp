@@ -234,9 +234,6 @@
             cursor: pointer;
         }
 
-
-
-
         #sign-out:hover {
             color: #f44336;
             cursor: pointer;
@@ -246,16 +243,16 @@
             padding-top: 0px;
         }
 
-
         #boardwriter {
             width: 120px;
             height: 45px;
             border: 0;
             border-radius: 2em;
             margin-top: 40px;
+            background-color: whitesmoke;
         }
         #boardwriter:hover {
-            color: #fff;
+            color: orangered;
             background-color: lightgray;
             cursor: pointer;
             font-weight: 700;
@@ -266,7 +263,7 @@
             width: 120px;
             height: 45px;
             top: 170px;
-            margin-left: 65%;
+            margin-left: 63%;
         }
 
 

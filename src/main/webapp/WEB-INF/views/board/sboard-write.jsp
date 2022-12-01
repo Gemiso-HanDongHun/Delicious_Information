@@ -7,30 +7,52 @@
 <head>
     <%@include file="../food/include/header_css.jsp" %>
     <style>
+        body{
+            background-color: whitesmoke;
+        }
 
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
 
-        div.flex-column p.maintext {
-            margin-left: 105px;
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
+        #navbar-header .dropdown .dropdown-menu {
+            top: 80%;
+            display: none;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown {
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown a#navibarDropdown2 {
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .dropdown {
+            top: 65%;
+            height: 1px;
         }
 
         .boxed-page {
             min-height: 100vh;
-        }
-
-        section.board {
-            margin-top: 100px;
-        }
-
-        table.suggest-board {
-            width: 70%;
-            border: 20px solid #f4ede5;
-            border-radius: 1.5em;
-            border-collapse: separate;
-            padding: 24px;
-            background: #f4ede5;
-            line-height: 202%;
-            z-index: 1000;
-            text-align: center;
         }
 
         table.suggest-board tr {
@@ -42,49 +64,36 @@
         }
 
         button#regist {
-            background-color: #f4ede5;
+            background-color: whitesmoke;
             color: black;
-            margin: 10px;
-            margin-left: 90px;
-
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            border: 1px solid whitesmoke;
             padding: 5px;
-            background-color: #f4ede5;
-        }
-
-
-        button.btn-info:hover {
-            color: #f4ede5;
-        }
-
-
-        .boxed-page {
-            min-height: 970px;
-        }
-
-        button#regist {
-            background-color: #f4ede5;
-            color: black;
-            margin: 10px;
-            /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
-            padding: 5px;
-            background-color: #f4ede5;
+            background-color: whitesmoke;
             position: absolute;
-            left: 68%;
+            left: 64%;
+            margin-top: 30px;
+            left: 61%;
         }
 
+        button#regist:hover{
+            background-color: lightgray;
+            cursor: pointer;
+            font-weight: 700;
+        }
 
         button.btn-info:hover {
-            color: #f4ede5;
+            color: whitesmoke;
         }
 
         div.wrapper {
             width: 100%;
-            margin: auto;
+            /*margin: auto;*/
             position: absolute;
-            top: 25%;
+            top: 20%;
         }
 
         section.wrapcontent {
@@ -92,11 +101,12 @@
             border-radius: 1.5em;
 
             margin: auto;
-            background: #f4ede5;
+            background: whitesmoke;
+            width: 37%;
         }
 
         div.title {
-            background: #f4ede5;
+            background: whitesmoke;
             padding-left: 0px;
         }
 
@@ -104,21 +114,26 @@
             padding: 0px;
         }
 
+        div p{
+            font-weight: 800;
+            margin-left: 8px;
+        }
+
         h1 {
             font-weight: 600;
             font-size: 24px;
         }
 
-        .img-2 {
-            width: 17%;
-            height: 600px;
-            position: absolute;
-            left: 130px;
-            top: 25%
-        }
-
         div.liParent li {
             text-align: center;
+        }
+
+        div.col-12 {
+            text-align: center;
+        }
+
+        p#title{
+            font-weight: 16;
         }
 
 
@@ -142,19 +157,19 @@
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
                     <div class="flex-column titlewidth justify-content-center">
-                        <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
+                        <p id="title">𝓢𝓾𝓰𝓰𝓮𝓼𝓽𝓲𝓸𝓷</p>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                자유게시판
+                                문의게시판
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
@@ -203,15 +218,17 @@
 
     <div class="wrapper">
         <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-            <div class="title col-12"><h1>문의/건의 게시판</h1></div>
+            <div class="title col-12"><h1>문의게시판 글쓰기</h1></div>
             <br/>
             <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
                 <div class="form-group">
+                    <p>제목</p>
                     <input type="text" id="title-input" class="form-control col-12" name="title"
                            placeholder="제목을 입력해주세요">
                     <br/>
+                    <p>내용</p>
                     <textarea class="form-control col-12" name="content" placeholder="문의사항을 입력해주세요"
-                              rows="20"></textarea>
+                              rows="16"></textarea>
                 </div>
             </form>
 
@@ -219,10 +236,6 @@
         <button type="button" class="btn btn-info" id="regist">등록</button>
     </div>
 
-    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-         style="background-image: url(/resto/img/testi-bg.jpg);"> <%-- 이미지요소 --%>
-
-    </div>
 </div>
 </body>
 <script>

@@ -13,21 +13,21 @@
     <!-- include summernote css/js -->
 
     <style>
-        body{
-            background:whitesmoke;
+        body {
+            background: whitesmoke;
         }
 
         div.flex-column p.maintext {
             margin-left: 105px;
         }
 
+        section#middle {
+            width: 37%;
+        }
 
         .boxed-page {
             min-height: 100vh;
-            /*background-image: url(/resto/img/pasta.jpg);
-            background-size: cover;*/
         }
-
 
         section.wrapcontent {
             padding: 20px 20px 10px;
@@ -48,14 +48,6 @@
         h1 {
             font-weight: 600;
             font-size: 24px;
-        }
-
-        .img-2 {
-            width: 17%;
-            height: 600px;
-            position: absolute;
-            left: 130px;
-            top: 25%
         }
 
         div.liParent li {
@@ -80,12 +72,12 @@
             display: none;
         }
 
-        #navbar-header .dropdown{
-            top:65%;
+        #navbar-header .dropdown {
+            top: 65%;
             height: 1px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown{
+        #navbar-header .dropdown a#navibarDropdown {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -96,7 +88,7 @@
             padding-right: 25px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown2{
+        #navbar-header .dropdown a#navibarDropdown2 {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -126,10 +118,10 @@
             padding-left: 25px;
             padding-right: 25px;
         }
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
-
 
         li a#sign-in {
             position: relative;
@@ -140,6 +132,80 @@
             padding-left: 25px;
             padding-right: 25px;
         }
+
+        div p {
+            font-weight: 800;
+            margin-left: 8px;
+        }
+
+        div.col-12 {
+            text-align: center;
+        }
+
+        #mod-btn {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            margin-top: 40px;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            font-weight: 800;
+            position: absolute;
+            top: -11%;
+            left: 60%;
+            z-index: 2000;
+        }
+
+        #mod-btn:hover {
+            color: orangered;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        #del-btn {
+            width: 120px;
+            height: 45px;
+            border: 0;
+            border-radius: 2em;
+            margin-top: 40px;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            font-weight: 800;
+            position: absolute;
+            top: -11%;
+            left: 80%;
+            z-index: 2000;
+            color: black;
+        }
+
+        #del-btn:hover {
+            color: orangered;
+            background-color: lightgrey;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        div#mod-btn, #del-btn {
+            margin-left: 7px;
+        }
+
+        #replies {
+            width: 46%;
+            margin: auto;
+        }
+
+        div#replies {
+            margin-top: 70px;
+
+        }
+
+        p#title{
+            font-weight: 16;
+        }
+
+
     </style>
 
 </head>
@@ -155,11 +221,12 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
@@ -167,13 +234,13 @@
                         <p id="title">𝓢𝓾𝓰𝓰𝓮𝓼𝓽𝓲𝓸𝓷</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 문의게시판
                             </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/freeBoard'">자유게시판</a>
                                 <a class="dropdown-item"
@@ -203,7 +270,7 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ${loginUser.name}님
                                 </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
                                        href="/member/info/${loginUser.account}">마이 페이지</a>
                                     <a class="dropdown-item"
@@ -219,30 +286,29 @@
     </nav>
 
 
-
-    <section class="d-flex align-items-center flex-column col-5 wrapcontent">
-        <div class="title col-12"><h1>문의/건의 게시판</h1></div>
+    <section class="d-flex align-items-center flex-column col-5 wrapcontent" id="middle">
+        <div class="title col-12"><h1></h1></div>
         <br/>
         <form id="writeForm" class="col-12" action="/board/sboard/write" method="post">
             <div class="form-group">
+
+                <p>제목</p>
+                <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'ADMIN'}">
+                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
+                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
+                </c:if>
+
                 <input type="text" id="title-input" class="form-control col-12" name="title" value="${sb.title}"
                        disabled><br/>
+                <p>작성자</p>
                 <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${sb.writer}"
                        disabled><br/>
-                <textarea class="form-control col-12" rows="20" disabled>${sb.content}</textarea>
+                <p>문의내용</p>
+                <textarea class="form-control col-12" rows="13" disabled>${sb.content}</textarea>
             </div>
         </form>
 
     </section>
-
-    <div class="btn-group btn-group-lg custom-btn-group" role="group">
-
-        <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'ADMIN'}">
-            <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
-            <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
-        </c:if>
-        <button id="list-btn" type="button" class="btn btn-dark">목록</button>
-    </div>
 
     <!-- 댓글 영역 -->
 
@@ -272,7 +338,8 @@
                                            value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
                                            readonly style="margin-bottom: 6px;">
                                     <button id="replyAddBtn" type="button"
-                                            class="btn btn-dark form-control">등록
+                                            class="btn btn-dark form-control"
+                                            style="background: whitesmoke; color: black">등록
                                     </button>
                                 </div>
                             </div>
@@ -281,11 +348,13 @@
                 </div>
             </div> <!-- end reply write -->
 
+
             <!--댓글 내용 영역-->
             <div class="card">
                 <!-- 댓글 내용 헤더 -->
-                <div class="card-header text-white m-0" style="background: #343A40;">
-                    <div class="float-left">댓글 (<span id="replyCnt">0</span>)</div>
+                <div class="card-header text-white m-0" style="background:whitesmoke;">
+                    <div class="float-left" style="color: black; font-weight: 700">댓글 (<span id="replyCnt">0</span>)
+                    </div>
                 </div>
 
                 <!-- 댓글 내용 바디 -->
@@ -314,7 +383,7 @@
             <div class="modal-content">
 
                 <!-- Modal Header -->
-                <div class="modal-header" style="background: #343A40; color: white;">
+                <div class="modal-header" style="background: whitesmoke; color: white;">
                     <h4 class="modal-title">댓글 수정하기</h4>
                     <button type="button" class="close text-white" data-bs-dismiss="modal">X</button>
                 </div>
