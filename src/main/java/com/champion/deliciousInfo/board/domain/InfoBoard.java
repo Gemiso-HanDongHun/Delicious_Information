@@ -16,4 +16,6 @@ public class InfoBoard {
     private int good;
     private int bad;
 
+
+    private int replyCount;
 }

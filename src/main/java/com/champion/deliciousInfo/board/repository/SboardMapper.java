@@ -12,8 +12,8 @@ import java.util.List;
 public interface SboardMapper {
 
     List<Sboard> findAll();
-    Sboard findOne(Long boardNo);
     List<Sboard> search(Search search);
+    Sboard findOne(Long boardNo);
 
     int getTotalCount(Search search);
     boolean regist(Sboard sboard);

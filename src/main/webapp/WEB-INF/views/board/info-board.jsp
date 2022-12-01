@@ -291,7 +291,7 @@
                         </li>
 
                         <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food-about">List</a>
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
@@ -362,9 +362,9 @@
     </div>
 
 
-<%--    <div class="buttonDiv">--%>
-<%--        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>--%>
-<%--    </div>--%>
+    <div class="buttonDiv">
+        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>
+    </div>
 
 
 

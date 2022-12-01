@@ -202,12 +202,13 @@
                 <h1>수정 및 삭제</h1>
             </div>
 
-            <form>
+            <form id="modifyForm2">
 
                 <div class="area1">
-                    <div class="form-group1 foodName ">
+                    <div class="form-group1 foodName">
+                        <input type="hidden" name="infoNo" value="${fo.infoNo}">
                         <label for="foodName" >음식 이름</label>
-                        <input type="text" class="form-control" name="name" id="foodName">
+                        <input type="text" class="form-control" name="foodName" id="foodName" value="${fo.foodName}">
                     </div>
 
                     <div class="form-group1 foodKcal">
@@ -274,21 +275,33 @@
 
                 <div class="area5">
                     <label for="content">내용</label>
-                    <textarea type="text" class="form-control" name="content" id="content"></textarea>
-                </div>
-
-                <div class="area6">
-                    <button type="button">수정하기</button>
+                    <textarea type="text" class="form-control" name="content" id="content">${fo.content}</textarea>
                 </div>
             </form>
+
+            <div class="area6">
+                <button type="button" id="regist">수정하기</button>
+            </div>
         </section>
     </div>
 
 </div>
-
-
-
-
 </body>
 
+<script>
+    const $modBtn = document.getElementById('regist');
+
+    //수정버튼
+    $modBtn.onclick = e => {
+        if(confirm("정말로 수정 하시겠습니까?")){
+            const $form = document.getElementById('modifyForm2');
+            $form.action="/board/infoBoard/modify";
+            $form.method="post";
+            $form.submit();
+        }
+    };
+
+
+
+</script>
 </html>

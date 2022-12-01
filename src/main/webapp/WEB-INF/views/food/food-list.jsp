@@ -29,8 +29,8 @@
             margin-left: 10px;
 
             /*border-radius: 2em;*/
-            border: 1px solid #f4ede5;
             padding: 5px;
+            border: 1px solid #f4ede5;
             background-color: #f4ede5;
         }
 
@@ -92,6 +92,8 @@
         /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
         div.boxed-page table td:nth-child(2):hover {
             cursor: pointer;
+            background: lightgray;
+            color: #ffff;
         }
 
         /* 서치 div 영역 */
@@ -209,6 +211,21 @@
             color: #f44336;
             cursor: pointer;
         }
+
+        #board {
+            border: 1px solid #f4ede5;
+            background-color: #f4ede5;
+            border-radius: 12%;
+            padding: 5px;
+            margin: 10px;
+            font-weight: 600;
+        }
+
+        #board:hover {
+            cursor: pointer;
+        }
+
+
 
 
     </style>
@@ -334,7 +351,7 @@
         <div class="aside-down d-flex justify-content-center">
             <button type="button" class="btn btn-info" id="reset" >초기화</button>
             <button type="button" class="btn btn-info" id="searchk" >검색</button>
-            <button onclick="location.href='/board/suggestionBoard'">게시판</button>
+            <button type="button" onclick="location.href='/board/suggestionBoard'"  id="board">게시판</button>
         </div>
     </aside>
 

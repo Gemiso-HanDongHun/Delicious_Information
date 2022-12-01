@@ -331,12 +331,12 @@
 
         <div class="area5">
           <label for="content">내용</label>
-          <textarea type="text" class="form-control" name="content" id="content" disabled></textarea>
+          <textarea type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
         </div>
 
         <div class="area6">
-          <button type="button">수정하기</button>
-          <button type="button">삭제하기</button>
+          <button type="button" id="regist">수정하기</button>
+          <button type="button" id="delete">삭제하기</button>
         </div>
       </form>
     </section>
@@ -348,5 +348,30 @@
 
 
 </body>
+<script>
+  const $modBtn = document.getElementById('regist');
+  const $delBtn = document.getElementById('delete');
 
+  if ($modBtn !== null) {
+    //수정버튼
+    $modBtn.onclick = e => {
+      location.href = '/board/infoBoard/modify?infoNo=${fo.infoNo}';
+    };
+  }
+
+  if ($delBtn !== null) {
+    //삭제버튼
+    $delBtn.onclick = e => {
+      if (!confirm('정말 삭제하시겠습니까?')) {
+        return;
+      }
+      location.href = '/board/infoBoard/delete?infoNo=${fo.infoNo}';
+    };
+  }
+  //목록버튼
+  /*$listBtn.onclick = e => {
+    console.log('목록버튼 클릭!');
+    location.href = '/board/suggestionBoard?pageNum=${p.pageNum}&amount=${p.amount}';
+  };*/
+</script>
 </html>

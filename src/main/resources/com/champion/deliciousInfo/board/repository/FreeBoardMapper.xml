@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.board.repository.FreeBoardMapper">
+
+    <resultMap id="freeboardMap" type="com.champion.deliciousInfo.board.domain.FreeBoard">
+        <result property="freeboard_no" column="freeboard_no"/>
+        <result property="reg_date" column="reg_date"/>
+        <result property="view_cnt" column="view_cnt"/>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="freeboardMap">
+        select *
+        from freeboard;
+    </select>
+
+    <select id="findone" resultMap="freeboardMap">
+        select * from freeboard where freeboard_no = #{freeboard_no}
+    </select>
+
+    <sql id="search">
+        <if test="keyword != null">
+            WHERE title Like CONCAT('%', #{keyword}, '%')
+        </if>
+    </sql>
+
+    <select id="search" resultMap="freeboardMap">
+        SELECT * FROM freeboard
+        <include refid="search"/>
+        ORDER BY freeboard_no DESC
+        LIMIT #{start}, #{amount}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM freeboard
+        <include refid="search"/>
+
+    </select>
+
+    <insert id="regist">
+        insert into freeboard(title, writer, content)
+        values (#{title}, #{writer}, #{content})
+    </insert>
+
+</mapper>

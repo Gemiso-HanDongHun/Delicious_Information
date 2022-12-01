@@ -43,27 +43,32 @@
         <include refid="search" />
     </select>
 
-    <!--<insert id="save">
-        INSERT INTO food
-            (name, kcal, img)
-        values
-            (#{name},#{kcal},#{img})
-    </insert>
+    <!--<insert id="regist">
+        insert into infoboard(title, writer,content) values (#{title},#{writer},#{content})
+    </insert>-->
 
-    <update id="modify">
-        update food set name=#{name},kcal=#{kcal}
-        where food_no=#{foodNo}
-    </update>
 
-    <update id="modifyFile">
-        update food set name=#{name},kcal=#{kcal},img=#{img}
-        where food_no=#{foodNo}
+    <update id="modify" >
+        UPDATE infoboard
+        SET  food_name=#{foodName}, content=#{content}
+        WHERE infoNo=#{infoNo}
     </update>
 
     <delete id="remove">
-        delete from food where food_no=#{foodNo}
-    </delete>-->
+        DELETE FROM infoboard
+        WHERE infoNo=#{infoNo}
+    </delete>
 
+    <select id="findMemberByBoardNo" resultType="com.champion.deliciousInfo.board.dto.ValidateMemberDTO">
 
+        SELECT account, grade
+        FROM member
+        WHERE account = (
+            SELECT writer
+            FROM infoboard
+            WHERE infoNo = #{infoNo}
+        )
+
+    </select>
 
 </mapper>
