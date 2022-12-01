@@ -69,6 +69,7 @@
 
     </select>
 
+
     <update id="upViewCount">
         UPDATE freeboard
         SET view_cnt = view_cnt + 1
