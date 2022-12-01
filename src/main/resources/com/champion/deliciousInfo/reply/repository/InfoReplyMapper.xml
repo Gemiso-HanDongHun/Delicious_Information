@@ -38,7 +38,7 @@
     <delete id="removeAll">
         DELETE
         FROM info_tbl_reply
-        WHERE fboard_no = #{fboardNo}
+        WHERE info_no = #{infoNo}
     </delete>
 
     <!-- 한건 검색 -->

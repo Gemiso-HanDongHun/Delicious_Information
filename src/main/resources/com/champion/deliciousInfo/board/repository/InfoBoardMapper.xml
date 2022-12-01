@@ -6,6 +6,7 @@
 <mapper namespace="com.champion.deliciousInfo.board.repository.InfoBoardMapper">
 
     <resultMap id="infoBoardMap" type="com.champion.deliciousInfo.board.domain.InfoBoard">
+        <id property="infoNo" column="info_no"/>
         <id property="foodName" column="food_name"/>
         <id property="regdate" column="reg_date"/>
     </resultMap>
@@ -24,12 +25,12 @@
         SELECT  *
         FROM infoboard
         <include refid="search" />
-        ORDER BY infoNo DESC
+        ORDER BY info_no DESC
         LIMIT #{start}, #{amount}
     </select>
 
     <select id="findOne" resultMap="infoBoardMap">
-        select * from infoboard where infoNo=#{infoNo}
+        select * from infoboard where info_no=#{infoNo}
     </select>
 
      <!--<select id="getTotalCount" resultType="int">
@@ -51,12 +52,12 @@
     <update id="modify" >
         UPDATE infoboard
         SET  food_name=#{foodName}, content=#{content}
-        WHERE infoNo=#{infoNo}
+        WHERE info_no=#{infoNo}
     </update>
 
     <delete id="remove">
         DELETE FROM infoboard
-        WHERE infoNo=#{infoNo}
+        WHERE info_no=#{infoNo}
     </delete>
 
     <select id="findMemberByBoardNo" resultType="com.champion.deliciousInfo.board.dto.ValidateMemberDTO">
@@ -66,7 +67,7 @@
         WHERE account = (
             SELECT writer
             FROM infoboard
-            WHERE infoNo = #{infoNo}
+            WHERE info_no = #{infoNo}
         )
 
     </select>
@@ -74,7 +75,7 @@
     <update id="upViewCount">
         UPDATE infoboard
         SET hit = hit + 1
-        WHERE infoNo=#{infoNo}
+        WHERE info_no=#{infoNo}
     </update>
 
 

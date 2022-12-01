@@ -219,7 +219,6 @@
 
         li a#sign-out {
             position: relative;
-            top: 40px;
             background: #FFFFFF;
             border-radius: 1em;
             padding: 6px;
@@ -364,7 +363,7 @@
 
 
     <div class="buttonDiv">
-        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">작성</button>
+        <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">글쓰기</button>
     </div>
 
 
@@ -375,11 +374,8 @@
             <th style="width:5%">No</th>
             <th style="width:22%">음식명</th>
             <th style="width:9%">작성자</th>
-<%--            <th style="width:15%">내용</th>--%>
             <th style="width:22%">작성일</th>
             <th style="width:6%">조회수</th>
-<%--            <th style="width:5%">추천</th>--%>
-<%--            <th style="width:5%">비추천</th>--%>
         </tr>
 
         <c:forEach var="b" items="${infoList}">
@@ -387,11 +383,8 @@
                 <td>${b.infoNo}</td>
                 <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}</td>
                 <td>${b.writer}</td>
-<%--                <td>${b.content}</td>--%>
                 <td>${b.regdate}</td>
                 <td>${b.hit}</td>
-<%--                <td>${b.good}</td>--%>
-<%--                <td>${b.bad}</td>--%>
             </tr>
         </c:forEach>
     </table>
