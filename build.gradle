@@ -9,15 +9,6 @@ war {
 	archiveName 'ROOT.war'
 }
 
-
-war {
-	archiveName 'ROOT.war'
-}
-
-war {
-	archiveName 'ROOT.war'
-}
-
 bootWar.enabled = false;
 war.enabled = true;
 
