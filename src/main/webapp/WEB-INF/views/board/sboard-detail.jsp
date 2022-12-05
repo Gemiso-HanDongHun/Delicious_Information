@@ -293,7 +293,7 @@
             <div class="form-group">
 
                 <p id="p1">제목</p>
-                <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'ADMIN'}">
+                <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'admin'}">
                     <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
                     <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
                 </c:if>

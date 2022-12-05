@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.service;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
 import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
@@ -9,6 +10,7 @@ import com.champion.deliciousInfo.mfood.domain.Mfood;
 import com.champion.deliciousInfo.mfood.domain.MfoodNutrient;
 import com.champion.deliciousInfo.mfood.repository.MfoodMapper;
 import com.champion.deliciousInfo.mfood.repository.MfoodNutrientMapper;
+import com.champion.deliciousInfo.reply.repository.InfoReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,8 @@ import java.util.Map;
 public class InfoBoardService {
 
     private final InfoBoardMapper boardMapper;
+
+    private final InfoReplyMapper infoReplyMapper;
 
     private final MfoodNutrientMapper mfoodNutrientMapper;
 
@@ -80,6 +84,7 @@ public class InfoBoardService {
         Map<String, Object> findDataMap = new HashMap<>();
 
         List<InfoBoard> infoBoardList = boardMapper.search(search);
+        processConverting(infoBoardList);
 
         findDataMap.put("infoList", infoBoardList);
         findDataMap.put("tc", boardMapper.getTotalCount(search));
@@ -114,5 +119,15 @@ public class InfoBoardService {
         ValidateMemberDTO member = boardMapper.findMemberByBoardNo(infoNo);
         if(member == null) member = new ValidateMemberDTO();
         return member;
+    }
+
+    private void processConverting(List<InfoBoard> infoBoardList){
+        for (InfoBoard f : infoBoardList){
+            setReplyCount(f);
+        }
+    }
+
+    private void setReplyCount(InfoBoard f){
+        f.setReplyCount(infoReplyMapper.getReplyCount((long) f.getInfoNo()));
     }
 }

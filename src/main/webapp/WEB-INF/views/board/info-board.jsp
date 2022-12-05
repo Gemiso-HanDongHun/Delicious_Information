@@ -369,7 +369,7 @@
         <c:forEach var="b" items="${infoList}">
             <tr>
                 <td>${b.infoNo}</td>
-                <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}</td>
+                <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}[${b.replyCount}]</td>
                 <td>${b.writer}</td>
                 <td>${b.regdate}</td>
                 <td>${b.hit}</td>
