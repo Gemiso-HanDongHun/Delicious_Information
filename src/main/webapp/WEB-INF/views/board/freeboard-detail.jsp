@@ -252,7 +252,7 @@
         <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
             <div class="form-group">
                 <p id="p1">제목</p>
-                <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'ADMIN'}">
+                <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'admin'}">
                     <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
                     <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
                 </c:if>
@@ -499,7 +499,7 @@
         let tag = '';
 
         if (replyList === null || replyList.length === 0) {
-            tag += "<div id='replyContent' class='card-body'>댓글이 아직 없습니다! ㅠㅠ</div>";
+            tag += "<div id='replyContent' class='card-body'></div>";
 
         } else {
             for (let rep of replyList) {

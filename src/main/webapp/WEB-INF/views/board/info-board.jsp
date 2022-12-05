@@ -18,18 +18,10 @@
             min-height: 100vh;
         }
 
-        /* 외부 폰트 사용 */
-        @font-face {
-            font-family: 'BMDOHYEON';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 43%;
+            width: 40%;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
@@ -363,8 +355,6 @@
             <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">글쓰기</button>
         </div>
     </c:if>
-
-
 
 
     <table class="test">
