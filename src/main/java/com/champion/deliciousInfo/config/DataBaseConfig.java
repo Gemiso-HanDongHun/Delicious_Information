@@ -16,6 +16,7 @@ public class DataBaseConfig {
     private String userName;
     @Value("${aws.rds_password}")
     private String password;
+
     @Value("${aws.rds_url}")
     private String url;
 
