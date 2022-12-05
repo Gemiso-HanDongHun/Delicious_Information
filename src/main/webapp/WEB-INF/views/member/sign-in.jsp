@@ -201,7 +201,7 @@
             </div>
 
             <div class="kakao">
-                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAppKey}&redirect_uri=http://localhost:8276${kakaoRedirect}&response_type=code">
+                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAppKey}&redirect_uri=http://35.79.166.220:8276${kakaoRedirect}&response_type=code">
                     <img src="/images/kakao_login_large_wide.png" alt="카카오 로그인">
                 </a>
             </div>
