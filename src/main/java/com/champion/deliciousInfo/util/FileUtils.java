@@ -16,8 +16,8 @@ public class FileUtils {
 
     // MIME TYPE 설정을 위한 맵 만들기
     private static final Map<String, MediaType> mediaMap;
-    public static final String UPLOAD_PATH = "D:\\sl_kss\\upload";
-    public static final String UPLOAD_EXCEL_PATH = "D:\\sl_kss\\upload\\excel";
+    public static final String UPLOAD_PATH = "/usr/local/upload";
+    public static final String UPLOAD_EXCEL_PATH = "/usr/local/upload/excel";
 
     static {
         mediaMap = new HashMap<>();

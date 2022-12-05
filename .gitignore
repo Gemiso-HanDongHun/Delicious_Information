@@ -1,4 +1,5 @@
 /src/main/resources/data_info.properties
+/src/main/resources/aws_rds_info.properties
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar

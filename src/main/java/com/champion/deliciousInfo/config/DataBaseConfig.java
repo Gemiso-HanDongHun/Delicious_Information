@@ -10,13 +10,13 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:data_info.properties")
+@PropertySource("classpath:aws_rds_info.properties")
 public class DataBaseConfig {
-    @Value("${local.db.userName}")
+    @Value("${aws.rds.db.userName}")
     private String userName;
-    @Value("${local.db.password}")
+    @Value("${aws.rds.db.password}")
     private String password;
-    @Value("${local.db.url}")
+    @Value("${aws.rds.db.url}")
     private String url;
 
     @Bean
