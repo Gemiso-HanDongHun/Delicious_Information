@@ -5,8 +5,9 @@ plugins {
 	id 'war'
 }
 
-bootWar.enabled = false; //bootWar 와 충돌 (내장톰캣)
-war.enabled=true; //외장 톰갯
+bootWar.enabled = false;
+war.enabled = true;
+
 
 group = 'com.champion'
 version = '0.0.1-SNAPSHOT'
@@ -54,6 +55,6 @@ dependencies {
 }
 
 tasks.named('test') {
-//	useJUnitPlatform()
+	/*useJUnitPlatform()*/
 	exclude '**/*'
 }

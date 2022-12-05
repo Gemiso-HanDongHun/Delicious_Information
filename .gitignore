@@ -1,4 +1,6 @@
 /src/main/resources/data_info.properties
+/src/main/resources/aws_info_goill1524.properties
+
 /src/main/resources/data_aws.properties
 /src/main/resources/aws_rds_info.properties
 .gradle
