@@ -175,6 +175,8 @@ lemoncoat :
 
 12.01 - infoboard write detail modify 수정 mfoodmapper와 mfoodnutrient생성
 
+12.05 : aws 배포 및 오류 수정
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 
@@ -208,6 +210,7 @@ goill :
 12.01 : infoBoard jsp 수정 및 리스트 작성, 수정, 삭제 그리고 댓글 기능 추가
 
 12.05 : aws 설정 및 infoBoard 수정
+
 
 luycin
 
