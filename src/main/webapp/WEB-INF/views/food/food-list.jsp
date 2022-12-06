@@ -43,25 +43,42 @@
             height: 600px;
             position: absolute;
             left: 130px;
-            margin-top: 11px;
+            margin: 11px 0 0 0;
             border: 2px solid #f4ede5;
             border-radius: 1.5em;
             border-collapse: collapse;
             background: #f4ede5;
             line-height: 202%;
-            padding: 20px;
+            padding: 15px;
+
+        }
+
+        div.side-t div.fBaordTitle {
+            width: 80%;
+            margin: auto;
+        }
+
+        div.side-t div.fBaordTitle h1 {
+            text-align: center;
         }
 
         table.side-t-main {
-            order-radius: 1.5em;
-            border-collapse: collapse;
-            background: #ffffff;
+            width: 100%;
+            border-radius: 1.5em;
+            border-collapse: separate;
             line-height: 202%;
-            padding: 20px;
         }
 
-        table.side-t-main tr,td {
+        table.side-t-main td, table.side-t-main th {
+            display: block;
+            width: 100%;
+            height: 36px;
             background: #ffffff;
+            border: 1px solid #f4ede5;
+        }
+
+        table.side-t-main th {
+            text-align: center;
         }
 
         div.boxed-page {
@@ -96,14 +113,14 @@
         }
 
         /* th 중앙 정렬 및 외부 폰트 */
-        div.boxed-page table th {
+        div.boxed-page table.test th {
             text-align: center;
             /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
             font-weight: 700;
         }
 
         /* td 중앙 정렬 */
-        div.boxed-page table td {
+        div.boxed-page table.test td {
             text-align: center;
         }
 
@@ -310,20 +327,20 @@
         </form>
     </div>
 
-    <div class=" align-items-center justify-content-center justify-content-md-end side-t"> <%-- 이미지요소 --%>
-        <table class="side-t-main">
+    <div class="side-t"> <%-- 이미지요소 --%>
             <div class="fBaordTitle">
-                <h1>자유게시판</h1>
+                <h1>𝓕𝓻𝓮𝓮𝓭𝓸𝓶</h1>
             </div>
+        <table class="side-t-main">
 
             <tr>
-                <th>제목</th>
+                <th style="width:100%">제목</th>
             </tr>
 
-            <c:forEach var="af" items="${AllfbList}" begin="0" end="14">
+            <c:forEach var="af" items="${AllfbList}" begin="0" end="11">
             <tr>
                 <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                <td onclick="location.href='/board/freeboard-detail/${af.freeboardNo}'">${af.title}</td>
+                <td style="width:100%" onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.title}</td>
             </tr>
             </c:forEach>
         </table>
