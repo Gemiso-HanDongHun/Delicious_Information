@@ -10,8 +10,13 @@
 
     <style>
 
-        button#reset{
-            background-color: #f4ede5;
+        body {
+            /*background-color: whitesmoke;*/
+            margin: 0px;
+        }
+
+        button#reset {
+            background-color: whitesmoke;
             color: black;
             margin: 10px;
             margin-left: 90px;
@@ -22,20 +27,20 @@
             background-color: #f4ede5;
         }
 
-        button#searchk{
-            background-color: #f4ede5;
+        button#searchk {
+            background-color: whitesmoke;
             color: black;
             margin: 10px;
             margin-left: 10px;
 
             /*border-radius: 2em;*/
             padding: 5px;
-            border: 1px solid #f4ede5;
-            background-color: #f4ede5;
+            border: 1px solid whitesmoke;
+            background-color: whitesmoke;
         }
 
-        button.btn-info:hover{
-            color: #f4ede5;
+        button.btn-info:hover {
+            color: whitesmoke;
         }
 
         .side-t {
@@ -44,10 +49,10 @@
             position: absolute;
             left: 130px;
             margin: 11px 0 0 0;
-            border: 2px solid #f4ede5;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: collapse;
-            background: #f4ede5;
+            background: whitesmoke;
             line-height: 202%;
             padding: 15px;
 
@@ -74,7 +79,7 @@
             width: 100%;
             height: 36px;
             background: #ffffff;
-            border: 1px solid #f4ede5;
+            border: 1px solid whitesmoke;
         }
 
         table.side-t-main th {
@@ -83,6 +88,9 @@
 
         div.boxed-page {
             min-height: 960px;
+            background-image: url(/resto/img/coffee.jpg);
+            background-size: cover;
+            margin: 0px;
         }
 
         /* 외부 폰트 사용 */
@@ -97,19 +105,19 @@
         /* 테이블 전체 */
         .test {
             width: 35%;
-            border: 2px solid #f4ede5;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: #f4ede5;
+            background: whitesmoke;
             line-height: 202%;
             z-index: 1000;
         }
 
         /* 내부 tr 배경 */
         table.test tr {
-            background: #ffffff;
+            /*background: #ffffff;*/
         }
 
         /* th 중앙 정렬 및 외부 폰트 */
@@ -141,8 +149,9 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            /*background-color: #005cbf;*/
+            background-color: white;
             margin-bottom: 30px;
+            opacity: 0.5;
         }
 
         div.div_search form {
@@ -219,7 +228,7 @@
             min-width: 200px;
             background: #FFFFFF;
             border-radius: 1.5rem;
-            border: solid 10px #f4ede5;
+            border: solid 10px whitesmoke;
             padding: 10px;
             margin-left: 70px;
         }
@@ -248,8 +257,8 @@
         }
 
         #board {
-            border: 1px solid #f4ede5;
-            background-color: #f4ede5;
+            border: 1px solid whitesmoke;
+            background-color: whitesmoke;
             border-radius: 12%;
             padding: 5px;
             margin: 10px;
@@ -260,14 +269,15 @@
             cursor: pointer;
         }
 
-
+        div li {
+            font-weight: 800;
+        }
 
 
     </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-
 
 
 <div class="boxed-page">
@@ -291,7 +301,7 @@
                         <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx" >
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <c:if test="${empty loginUser}">
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
@@ -304,7 +314,8 @@
 
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">
-                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                                <a class="nav-link" id="loginAccount"
+                                   onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
@@ -328,9 +339,9 @@
     </div>
 
     <div class="side-t"> <%-- 이미지요소 --%>
-            <div class="fBaordTitle">
-                <h1>𝓕𝓻𝓮𝓮𝓭𝓸𝓶</h1>
-            </div>
+        <div class="fBaordTitle">
+            <h1>𝓕𝓻𝓮𝓮𝓭𝓸𝓶</h1>
+        </div>
         <table class="side-t-main">
 
             <tr>
@@ -338,10 +349,11 @@
             </tr>
 
             <c:forEach var="af" items="${AllfbList}" begin="0" end="11">
-            <tr>
-                <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                <td style="width:100%" onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.title}</td>
-            </tr>
+                <tr>
+                    <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
+                    <td style="width:100%"
+                        onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.title}</td>
+                </tr>
             </c:forEach>
         </table>
     </div>
@@ -392,15 +404,15 @@
 
     <aside class="aside">
         <div class="side-bar-list">
-            <div class="myList">내가 선택한 음식(100g) </div>
+            <div class="myList">내가 선택한 음식(100g)</div>
             <div id="mine">
 
             </div>
         </div>
         <div class="aside-down d-flex justify-content-center">
-            <button type="button" class="btn btn-info" id="reset" >초기화</button>
-            <button type="button" class="btn btn-info" id="searchk" >검색</button>
-            <button type="button" onclick="location.href='/board/suggestionBoard'"  id="board">게시판</button>
+            <button type="button" class="btn btn-info" id="reset">초기화</button>
+            <button type="button" class="btn btn-info" id="searchk">검색</button>
+            <%--            <button type="button" onclick="location.href='/board/suggestionBoard'"  id="board">게시판</button>--%>
         </div>
     </aside>
 
@@ -479,8 +491,8 @@
 
 
     function signOut() {
-        if(confirm('로그아웃하시겠습니까?')) {
-            location.href='/member/sign-out';
+        if (confirm('로그아웃하시겠습니까?')) {
+            location.href = '/member/sign-out';
         }
     }
 
@@ -566,8 +578,8 @@
             });
     };
 
-    $searchk.onclick = e =>{ //선택한 음식들 검색 버튼 클릭시
-      location.href="/food/select-nutrient";
+    $searchk.onclick = e => { //선택한 음식들 검색 버튼 클릭시
+        location.href = "/food/select-nutrient";
     };
 
 

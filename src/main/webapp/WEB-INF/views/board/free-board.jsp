@@ -17,12 +17,14 @@
 
         body {
             background-color: whitesmoke;
+
         }
 
         .boxed-page {
             min-height: 100vh;
-            /*background-image: url(/resto/img/coffee.jpg);*/
+            background-image: url(/resto/img/black.jpg);
             background-size: cover;
+            margin: 0px;
         }
 
         section.board {
@@ -30,13 +32,14 @@
         }
 
         .free-board {
-            width: 40%;
-            border: 2px solid whitesmoke;
+            width: 70%;
+            /*border: 2px solid whitesmoke;*/
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: whitesmoke;
+            /*background: whitesmoke;*/
+            /*background: lightgrey;*/
             line-height: 202%;
             z-index: 1000;
         }
@@ -52,10 +55,13 @@
         div.boxed-page table td {
             text-align: center;
         }
+        div li {
+            font-weight: 800;
+        }
 
 
-        table.free-board tr {
-            background: #ffffff;
+        table.free-board th {
+            /*background: #ffffff;*/
         }
 
         /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
@@ -136,7 +142,7 @@
 
         input#inputName {
             padding: 10px;
-            opacity: 0.5;
+            opacity: 0.2;
         }
 
         div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
@@ -157,7 +163,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -168,7 +174,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -178,7 +184,7 @@
         #navbar-header .active2 a#home {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -188,7 +194,7 @@
         #navbar-header .active3 a#list {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -198,7 +204,7 @@
         li a#sign-in {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -236,6 +242,7 @@
         /*    font-size: 0.8vw;*/
         /*    border: 2px solid lightgray;*/
         /*}*/
+
 
     </style>
 </head>
@@ -339,12 +346,12 @@
         <table class="free-board">
 
             <tr>
-                <th style="width:5%">No</th>
-                <th style="width:22%">제목</th>
-                <th style="width:9%">작성자</th>
+                <th style="width:10%">No</th>
+                <th style="width:33%">제목</th>
+                <th style="width:19%">작성자</th>
                 <%--                <th style="width:36%">내용</th>--%>
-                <th style="width:22%">작성일</th>
-                <th style="width:6%">조회수</th>
+                <th style="width:27%">작성일</th>
+                <th style="width:11%">조회수</th>
             </tr>
 
             <c:forEach var="fb" items="${fbList}">

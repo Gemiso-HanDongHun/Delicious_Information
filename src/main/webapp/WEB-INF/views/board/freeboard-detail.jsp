@@ -186,6 +186,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+
                         <li class="nav-item active2">
                             <a class="nav-link" id="home" href="/food-main">Home<span
                                     class="sr-only">(current)</span></a>
@@ -196,16 +197,19 @@
                         </li>
 
                     </div>
+
                     <div class="flex-column titlewidth justify-content-center">
                         <p id="title">𝓕𝓻𝓮𝓮𝓭𝓸𝓶</p>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
                         <li class="nav-item dropdown" id="nav-li">
+
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 자유게시판
                             </a>
+
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/freeBoard'">자유게시판</a>
@@ -265,7 +269,7 @@
                 <input type="text" id="writer-input" class="form-control col-12" name="writer" value="${fb.writer}"
                        disabled><br/>
                 <p id="p3">내용</p>
-                <textarea class="form-control col-12" rows="13" disabled>${fb.content}</textarea>
+                <textarea class="form-control col-12" rows="13"  disabled>${fb.content}</textarea>
 
                 <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'admin'}">
                     <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
