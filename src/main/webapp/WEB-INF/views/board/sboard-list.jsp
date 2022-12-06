@@ -14,6 +14,10 @@
 
         .boxed-page {
             min-height: 100vh;
+            background-image: url("/images/food-image2.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+            margin: 0;
         }
 
         div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
@@ -105,7 +109,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -116,7 +120,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -126,7 +130,7 @@
         #navbar-header .active2 a#home {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -136,7 +140,7 @@
         #navbar-header .active3 a#list {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -146,7 +150,7 @@
         li a#sign-in {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -179,7 +183,7 @@
 
         /* 내부 tr 배경 */
         table.test tr {
-            background: #ffffff;
+           /* background: #ffffff;*/
         }
 
         /* th 중앙 정렬 및 외부 폰트 */
@@ -328,11 +332,11 @@
 
     <table class="test">
         <tr>
-            <th style="width:5%">No</th>
-            <th style="width:22%">제목</th>
-            <th style="width:9%">작성자</th>
-            <th style="width:22%">작성일</th>
-            <th style="width:6%">조회수</th>
+            <th style="width:10%">No</th>
+            <th style="width:33%">제목</th>
+            <th style="width:19%">작성자</th>
+            <th style="width:27%">작성일</th>
+            <th style="width:11%">조회수</th>
         </tr>
 
         <c:forEach var="sb" items="${sl}">

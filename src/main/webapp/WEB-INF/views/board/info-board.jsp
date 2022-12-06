@@ -25,7 +25,7 @@
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 50%;
+            width: 40%;
             border: 2px solid rgb(246, 245, 243);
             border-radius: 1.5em;
             border-collapse: separate;
@@ -360,11 +360,11 @@
 
     <table class="test">
         <tr>
-            <th style="width:5%">No</th>
-            <th style="width:22%">음식명</th>
-            <th style="width:9%">작성자</th>
-            <th style="width:22%">작성일</th>
-            <th style="width:6%">조회수</th>
+            <th style="width:10%">No</th>
+            <th style="width:33%">음식명</th>
+            <th style="width:19%">작성자</th>
+            <th style="width:27%">작성일</th>
+            <th style="width:11%">조회수</th>
         </tr>
 
         <c:forEach var="b" items="${infoList}">

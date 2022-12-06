@@ -22,9 +22,10 @@
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/images/food-image2.jpg);
-            background-size: cover;
-            margin: 0px;
+            background-image: url("/images/food-image2.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+            margin: 0;
         }
 
         section.board {
@@ -32,13 +33,13 @@
         }
 
         .free-board {
-            width: 70%;
-            /*border: 2px solid whitesmoke;*/
+            width: 40%;
+            border: 2px solid whitesmoke;
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            /*background: whitesmoke;*/
+            background: whitesmoke;
             /*background: lightgrey;*/
             line-height: 202%;
             z-index: 1000;
@@ -243,6 +244,7 @@
         /*    border: 2px solid lightgray;*/
         /*}*/
 
+
     </style>
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
@@ -345,9 +347,9 @@
         <table class="free-board">
 
             <tr>
-                <th style="width:5%">No</th>
-                <th style="width:22%">제목</th>
-                <th style="width:9%">작성자</th>
+                <th style="width:10%">No</th>
+                <th style="width:33%">제목</th>
+                <th style="width:19%">작성자</th>
                 <%--                <th style="width:36%">내용</th>--%>
                 <th style="width:27%">작성일</th>
                 <th style="width:11%">조회수</th>

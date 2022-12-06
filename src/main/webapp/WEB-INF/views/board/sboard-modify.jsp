@@ -19,6 +19,10 @@
 
         .boxed-page {
             min-height: 970px;
+            background-image: url("/images/food-image2.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+            margin: 0;
         }
 
         div.col-12 {
@@ -75,7 +79,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -86,7 +90,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
