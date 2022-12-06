@@ -346,7 +346,7 @@
         </table>
     </div>
 
-    <table class="test">
+    <table class="test" id="foodtable">
         <tr>
             <th style="width:25%">No</th>
             <th style="width:40%">음식명</th>
@@ -466,7 +466,7 @@
 <script>
     const $searchButton = document.querySelector("#side-search-open");
     const $inputName = document.querySelector("#inputName");
-    const $table = document.querySelector("table");
+    const $table = document.querySelector("#foodtable");
     const $reset = document.querySelector("#reset");
     const $searchk = document.querySelector("#searchk");
     let checkTotal = 0;

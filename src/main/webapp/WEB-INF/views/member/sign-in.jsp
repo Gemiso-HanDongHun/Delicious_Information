@@ -257,15 +257,25 @@
     }
 
 
-        $loginButton.addEventListener("click", function () {
+    $loginButton.addEventListener("click", function () {
 
+        if (isValiDate()) {
+            $form.action = "/member/sign-in";
+            $form.method = "post";
+            $form.submit();
+
+        }
+    });
+
+    $pw.addEventListener("keydown",function (e){
+        if(e.keyCode=='13'){
             if (isValiDate()) {
                 $form.action = "/member/sign-in";
                 $form.method = "post";
                 $form.submit();
-
             }
-        });
+        }
+    });
 
 
 
