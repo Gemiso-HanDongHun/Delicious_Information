@@ -34,6 +34,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
         registry.addInterceptor(boardInterceptor)
                 .addPathPatterns("/board/suggestionBoard/*")
                 .excludePathPatterns("/board/suggestionBoard", "/board/suggestionBoard/detail");
+        // 게시판 인터셉터 설정
+        registry.addInterceptor(boardInterceptor)
+                .addPathPatterns("/board/suggestionBoard/*")
+                .excludePathPatterns("/board/suggestionBoard", "/board/suggestionBoard/detail");
+
 
 
 
