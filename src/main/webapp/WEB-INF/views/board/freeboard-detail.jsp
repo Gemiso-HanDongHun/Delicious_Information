@@ -110,14 +110,18 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-top: 40px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             background-color: whitesmoke;
             border: 1px solid black;
             font-weight: 800;
-            position: absolute;
-            top: -11%;
-            left: 60%;
+            /*position: absolute;*/
+            /*top: 97%;*/
+            /*left: 80%;*/
             z-index: 2000;
+
+            float: right;
+            margin-right: 5px;
         }
 
         #mod-btn:hover {
@@ -132,13 +136,15 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-top: 40px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             background-color: whitesmoke;
             border: 1px solid black;
             font-weight: 800;
-            position: absolute;
-            top: -11%;
-            left: 80%;
+            /*position: absolute;*/
+            /*top: 97%;*/
+            /*left: 80%;*/
+            float: right;
             z-index: 2000;
             color: black;
         }
@@ -252,10 +258,7 @@
         <form id="writeForm" class="col-12" action="/board/freeboard-write" method="post">
             <div class="form-group">
                 <p id="p1">제목</p>
-                <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'admin'}">
-                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
-                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
-                </c:if>
+
                 <input type="text" id="title-input" class="form-control col-12" name="title" value="${fb.title}"
                        disabled><br/>
                 <p id="p2">작성자</p>
@@ -263,6 +266,12 @@
                        disabled><br/>
                 <p id="p3">내용</p>
                 <textarea class="form-control col-12" rows="13" disabled>${fb.content}</textarea>
+
+                <c:if test="${loginUser.account == fb.writer || loginUser.grade == 'admin'}">
+                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
+                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
+                </c:if>
+
             </div>
         </form>
     </section>

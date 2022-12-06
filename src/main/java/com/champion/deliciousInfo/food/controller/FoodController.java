@@ -1,5 +1,7 @@
 package com.champion.deliciousInfo.food.controller;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.board.service.FreeBoardService;
 import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.common.search.Search;
@@ -13,8 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.awt.*;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -25,6 +30,7 @@ public class FoodController {
 
     private final FoodService service;
 
+    private final FreeBoardService freeBoardService;
 
     // 전체 목록 가져오기
     @GetMapping("/list")
@@ -32,17 +38,12 @@ public class FoodController {
         log.info("controller request /food/list GET! - search: {}", search);
         Map<String, Object> foodMap = service.search(search);
         PageMaker pm = new PageMaker(new Page(search.getPageNum(),search.getAmount()), (Integer) foodMap.get("tc"));
+        List<FreeBoard> freeBoardList = freeBoardService.findAllService();
         model.addAttribute("fList",foodMap.get("fList") );
+        model.addAttribute("AllfbList", freeBoardList);
         model.addAttribute("pm", pm);
         return "food/food-list";
     }
 
-    // 한개 상세정보 가져오기
-    /*@GetMapping("/listOne")
-    public String listOne(Model model, int foodNo) {
-        Food food = service.getListOne(foodNo);
-        model.addAttribute("fOne", food);
-        return null;
-    }*/
 
 }

@@ -38,12 +38,30 @@
             color: #f4ede5;
         }
 
-        .img-2 {
+        .side-t {
             width: 17%;
             height: 600px;
             position: absolute;
             left: 130px;
             margin-top: 11px;
+            border: 2px solid #f4ede5;
+            border-radius: 1.5em;
+            border-collapse: collapse;
+            background: #f4ede5;
+            line-height: 202%;
+            padding: 20px;
+        }
+
+        table.side-t-main {
+            order-radius: 1.5em;
+            border-collapse: collapse;
+            background: #ffffff;
+            line-height: 202%;
+            padding: 20px;
+        }
+
+        table.side-t-main tr,td {
+            background: #ffffff;
         }
 
         div.boxed-page {
@@ -292,9 +310,23 @@
         </form>
     </div>
 
-    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-         style="background-image: url(/resto/img/steak.jpg);"> <%-- 이미지요소 --%>
+    <div class=" align-items-center justify-content-center justify-content-md-end side-t"> <%-- 이미지요소 --%>
+        <table class="side-t-main">
+            <div class="fBaordTitle">
+                <h1>자유게시판</h1>
+            </div>
 
+            <tr>
+                <th>제목</th>
+            </tr>
+
+            <c:forEach var="af" items="${AllfbList}" begin="0" end="14">
+            <tr>
+                <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
+                <td onclick="location.href='/board/freeboard-detail/${af.freeboardNo}'">${af.title}</td>
+            </tr>
+            </c:forEach>
+        </table>
     </div>
 
     <table class="test">

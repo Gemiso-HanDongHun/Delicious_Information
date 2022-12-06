@@ -39,22 +39,88 @@
 
         #navbar-header .dropdown a#navibarDropdown{
             padding-top: 0px;
-            top:-34px;
+            top: -38px;
             position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
         }
+        #navbar-header .dropdown a#navibarDropdown2{
+            padding-top: 0px;
+            top: -38px;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+
+        #navbar-header .active2 a#home {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        #navbar-header .active3 a#list {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-in {
+            position: relative;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        li a#sign-out {
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1em;
+            padding: 6px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
 
         #navbar-header .dropdown:hover {
             cursor: pointer;
         }
 
+        #sign-out:hover {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+            padding-top: 0px;
+        }
+
         div.main-board {
-            width: 50%;
-            padding: 10px;
+            width: 37%;
+            padding: 20px;
             margin: 50px auto;
             box-sizing: border-box;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             background: whitesmoke;
+            margin-top: 50px;
         }
 
         div.main-board section.main-write div.h1-title {
@@ -63,6 +129,10 @@
         }
         div.main-board section.main-write div.h1-title #h1-title {
             text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 15px;
         }
 
         div.main-board section.main-write div input:focus {
@@ -137,8 +207,20 @@
         }
 
         div.main-board section.main-write div.area6 button {
-            border: 2px solid lightgray;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            margin-top: 45px;
+            margin-bottom: 10px;
+            background-color: whitesmoke;
             border-radius: 2em;
+            /*border: 1px solid black;*/
+            font-weight: 800;
+            float: right;
+            z-index: 2000;
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         div.main-board section.main-write div.area6 button:hover {
@@ -152,29 +234,32 @@
 
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 <div class="boxed-page">
+
+
     <nav id="navbar-header" class="navbar navbar-expand-lg">
         <div class="container">
+
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="/food-about">About</a>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food/list">List</a>
                         </li>
 
                     </div>
                     <div class="flex-column titlewidth justify-content-center">
-                        <p id="title">𝓘𝓷𝓯𝓸 𝓑𝓸𝓪𝓻𝓭</p>
+                        <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
                     </div>
 
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
                         <li class="nav-item dropdown" id="nav-li">
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                게시판
+                                정보게시판
                             </a>
                             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"
@@ -182,23 +267,37 @@
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/infoBoard'">정보게시판</a>
                                 <a class="dropdown-item"
-                                   onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
                             </div>
 
                         </li>
                         <c:if test="${empty loginUser}">
-                            <li class="nav-item sign">
+                            <li class="nav-item sign active4">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
                         </c:if>
 
 
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign">
+                            <%--<li class="nav-item sign active5">
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
                             </li>
                         </c:if>
                     </div>
@@ -210,7 +309,7 @@
     <div class="main-board">
         <section class="main-write">
             <div class="h1-title">
-                <h1 id="h1-title">수정 및 삭제</h1>
+                <h1 id="h1-title">정보게시판(수정)</h1>
             </div>
 
             <form id="modifyForm2">
@@ -298,7 +397,7 @@
             </form>
 
             <div class="area6">
-                <button type="button" id="regist">수정하기</button>
+                <button type="button" id="modify">수정완료</button>
             </div>
         </section>
     </div>
@@ -307,7 +406,7 @@
 </body>
 
 <script>
-    const $modBtn = document.getElementById('regist');
+    const $modBtn = document.getElementById('modify');
 
     //수정버튼
     $modBtn.onclick = e => {

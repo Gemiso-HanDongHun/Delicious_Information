@@ -219,9 +219,6 @@
         }
 
 
-
-
-
         #navbar-header .dropdown:hover {
             cursor: pointer;
         }
