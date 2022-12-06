@@ -43,8 +43,20 @@
         }
 
         div.custom-btn-group {
-            left: 61%;
-            margin-top: 20px;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            margin-top: 45px;
+            margin-bottom: 10px;
+            background-color: whitesmoke;
+            border-radius: 2em;
+            /*border: 1px solid black;*/
+            font-weight: 800;
+            float: right;
+            z-index: 2000;
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         div.title {
@@ -210,19 +222,20 @@
                 </div>
             </form>
 
+            <div class=btn-modify >
+                <button id="mod-btn" type="button" class="btn btn-warning"
+                        style="background-color: whitesmoke; font-weight: 600">수정완료
+                </button>
+            </div>
+
         </section>
-        <div class="btn-group btn-group-lg custom-btn-group" role="group">
-            <button id="mod-btn" type="button" class="btn btn-warning"
-                    style="background-color: whitesmoke; font-weight: 600">수정완료
-            </button>
-        </div>
+
     </div>
 
 </div>
 </body>
 <script>
     const $modBtn = document.getElementById('mod-btn');
-    const $listBtn = document.getElementById('list-btn');
 
     //수정버튼
     $modBtn.onclick = e => {
@@ -234,11 +247,6 @@
         }
     };
 
-    //목록버튼
-    $listBtn.onclick = e => {
-        console.log('목록버튼 클릭!');
-        location.href = '/board/freeBoard';
-    };
 
 </script>
 </html>

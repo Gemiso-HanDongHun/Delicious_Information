@@ -48,13 +48,14 @@
         }
 
         div.main-board {
-            width: 50%;
-            padding: 10px;
+            width: 37%;
+            padding: 20px;
             margin: 50px auto;
             box-sizing: border-box;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
             background: whitesmoke;
+            margin-top: 50px;
         }
 
         div.main-board section.main-write div.h1-title {
@@ -63,6 +64,10 @@
         }
         div.main-board section.main-write div.h1-title #h1-title {
             text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 15px;
         }
 
         div.main-board section.main-write div input:focus {
@@ -137,8 +142,20 @@
         }
 
         div.main-board section.main-write div.area6 button {
-            border: 2px solid lightgray;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            margin-top: 45px;
+            margin-bottom: 10px;
+            background-color: whitesmoke;
             border-radius: 2em;
+            /*border: 1px solid black;*/
+            font-weight: 800;
+            float: right;
+            z-index: 2000;
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         div.main-board section.main-write div.area6 button:hover {
@@ -182,7 +199,7 @@
                                 <a class="dropdown-item"
                                    onclick="location.href='/board/infoBoard'">정보게시판</a>
                                 <a class="dropdown-item"
-                                   onclick="location.href='/board/suggestionBoard'">건의/문의게시판</a>
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
                             </div>
 
                         </li>
@@ -210,7 +227,7 @@
     <div class="main-board">
         <section class="main-write">
             <div class="h1-title">
-                <h1 id="h1-title">수정 및 삭제</h1>
+                <h1 id="h1-title">정보게시판(수정)</h1>
             </div>
 
             <form id="modifyForm2">
@@ -298,7 +315,7 @@
             </form>
 
             <div class="area6">
-                <button type="button" id="regist">수정하기</button>
+                <button type="button" id="modify">수정완료</button>
             </div>
         </section>
     </div>
@@ -307,7 +324,7 @@
 </body>
 
 <script>
-    const $modBtn = document.getElementById('regist');
+    const $modBtn = document.getElementById('modify');
 
     //수정버튼
     $modBtn.onclick = e => {

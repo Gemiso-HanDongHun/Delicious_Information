@@ -63,7 +63,7 @@
         }
 
         #replies {
-            width: 50%;
+            width: 46%;
             margin: auto;
         }
 
@@ -147,14 +147,18 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-top: 40px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             background-color: whitesmoke;
             border: 1px solid black;
             font-weight: 800;
-            position: absolute;
-            top: -11%;
-            left: 60%;
+            /*position: absolute;*/
+            /*top: 97%;*/
+            /*left: 80%;*/
             z-index: 2000;
+
+            float: right;
+            margin-right: 5px;
         }
 
         #mod-btn:hover {
@@ -169,13 +173,15 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-top: 40px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             background-color: whitesmoke;
             border: 1px solid black;
             font-weight: 800;
-            position: absolute;
-            top: -11%;
-            left: 80%;
+            /*position: absolute;*/
+            /*top: 97%;*/
+            /*left: 80%;*/
+            float: right;
             z-index: 2000;
             color: black;
         }
@@ -293,10 +299,7 @@
             <div class="form-group">
 
                 <p id="p1">제목</p>
-                <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'admin'}">
-                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
-                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
-                </c:if>
+
 
                 <input type="text" id="title-input" class="form-control col-12" name="title" value="${sb.title}"
                        disabled><br/>
@@ -305,6 +308,13 @@
                        disabled><br/>
                 <p id="p3">문의내용</p>
                 <textarea class="form-control col-12" rows="13" disabled>${sb.content}</textarea>
+
+                <c:if test="${loginUser.account == sb.writer || loginUser.grade == 'admin'}">
+                    <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
+                    <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
+                </c:if>
+
+
             </div>
         </form>
 
