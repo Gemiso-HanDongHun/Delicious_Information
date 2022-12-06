@@ -8,7 +8,7 @@
     <%@include file="../food/include/header_css.jsp" %>
     <style>
 
-        body{
+        body {
             background: whitesmoke;
         }
 
@@ -16,7 +16,7 @@
             min-height: 100vh;
         }
 
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0;
         }
 
@@ -32,12 +32,12 @@
             display: none;
         }
 
-        #navbar-header .dropdown{
-            top:65%;
+        #navbar-header .dropdown {
+            top: 65%;
             height: 1px;
         }
 
-        #navbar-header .dropdown a#navibarDropdown{
+        #navbar-header .dropdown a#navibarDropdown {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -47,7 +47,8 @@
             padding-left: 25px;
             padding-right: 25px;
         }
-        #navbar-header .dropdown a#navibarDropdown2{
+
+        #navbar-header .dropdown a#navibarDropdown2 {
             padding-top: 0px;
             top: -38px;
             position: relative;
@@ -108,14 +109,14 @@
             cursor: pointer;
         }
 
-        div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
         }
 
 
         div.main-board {
-            width: 50%;
-            padding: 10px;
+            width: 37%;
+            padding: 20px;
             margin: 50px auto;
             box-sizing: border-box;
             border: 2px solid whitesmoke;
@@ -127,8 +128,13 @@
             width: 50%;
             margin: auto;
         }
+
         div.main-board section.main-write div.h1-title #h1-title {
             text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 15px;
         }
 
         div.main-board section.main-write div input:focus {
@@ -152,7 +158,7 @@
         }
 
         div.main-board section.main-write div.area1 div.foodName,
-        div.main-board section.main-write div.area1 div.foodKcal{
+        div.main-board section.main-write div.area1 div.foodKcal {
             margin-right: 5%;
         }
 
@@ -163,7 +169,7 @@
         }
 
         div.main-board section.main-write div.area2 div.carbohydrate,
-        div.main-board section.main-write div.area2 div.protein{
+        div.main-board section.main-write div.area2 div.protein {
             margin-right: 5%;
         }
 
@@ -173,7 +179,7 @@
         }
 
         div.main-board section.main-write div.area3 div.vitaminA,
-        div.main-board section.main-write div.area3 div.vitaminC{
+        div.main-board section.main-write div.area3 div.vitaminC {
             margin-right: 5%;
         }
 
@@ -203,8 +209,20 @@
         }
 
         div.main-board section.main-write div.area6 button {
-            border: 2px solid lightgray;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            margin-top: 45px;
+            margin-bottom: 10px;
+            background-color: whitesmoke;
             border-radius: 2em;
+            /*border: 1px solid black;*/
+            font-weight: 800;
+            float: right;
+            z-index: 2000;
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         div.main-board section.main-write div.area6 button:hover {
@@ -217,185 +235,185 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-    <div class="boxed-page">
+<div class="boxed-page">
 
-        <nav id="navbar-header" class="navbar navbar-expand-lg">
-            <div class="container">
+    <nav id="navbar-header" class="navbar navbar-expand-lg">
+        <div class="container">
 
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
-                        <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
-                            <li class="nav-item active2">
-                                <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
+                            <a class="nav-link" id="home" href="/food-main">Home<span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food/list">List</a>
+                        </li>
+
+                    </div>
+                    <div class="flex-column titlewidth justify-content-center">
+                        <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
+                    </div>
+
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                정보게시판
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
+
+                        </li>
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item sign active4">
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
+                        </c:if>
 
-                            <li class="nav-item active3">
-                                <a class="nav-link" id="list" href="/food/list">List</a>
+
+                        <c:if test="${!empty loginUser}">
+                            <%--<li class="nav-item sign active5">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
                             </li>
+                            <li class="nav-item sign">
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
 
-                        </div>
-                        <div class="flex-column titlewidth justify-content-center">
-                            <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
-                        </div>
-
-                        <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
                             <li class="nav-item dropdown" id="nav-li">
-                                <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    정보게시판
+                                        ${loginUser.name}님
                                 </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                       onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
                                     <a class="dropdown-item"
-                                       onclick="location.href='/board/infoBoard'">정보게시판</a>
-                                    <a class="dropdown-item"
-                                       onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
                                 </div>
 
                             </li>
-                            <c:if test="${empty loginUser}">
-                                <li class="nav-item sign active4">
-                                    <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
-                                </li>
-                            </c:if>
-
-
-                            <c:if test="${!empty loginUser}">
-                                <%--<li class="nav-item sign active5">
-                                    <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
-                                </li>
-                                <li class="nav-item sign">
-                                    <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
-                                </li>--%>
-
-                                <li class="nav-item dropdown" id="nav-li">
-                                    <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            ${loginUser.name}님
-                                    </a>
-                                    <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item"
-                                           href="/member/info/${loginUser.account}">마이 페이지</a>
-                                        <a class="dropdown-item"
-                                           id="sign-out" href="/member/sign-out">로그아웃</a>
-                                    </div>
-
-                                </li>
-                            </c:if>
-                        </div>
-                    </ul>
-                </div>
+                        </c:if>
+                    </div>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="main-board">
-            <section class="main-write">
-                <div class="h1-title">
-                    <h1 id="h1-title">음식 추가</h1>
+    <div class="main-board">
+        <section class="main-write">
+            <div class="h1-title">
+                <h1 id="h1-title">음식 영양성분 추가</h1>
+            </div>
+
+            <form id="mfood">
+
+                <div class="area1">
+                    <div class="form-group1 foodName ">
+                        <label for="foodName">음식 이름</label>
+                        <input type="text" class="form-control" name="name" id="foodName" value="">
+                    </div>
+
+                    <div class="form-group1 foodKcal">
+                        <label for="foodKcal">칼로리</label>
+                        <input type="number" class="form-control" name="kcal" id="foodKcal" placeholder="kcal">
+                    </div>
+
+                    <div class="form-group1 sodium">
+                        <label for="sodium">나트륨</label>
+                        <input type="number" class="form-control" name="sodium" id="sodium">
+                    </div>
                 </div>
 
-                <form id="mfood">
-
-                    <div class="area1">
-                        <div class="form-group1 foodName ">
-                            <label for="foodName">음식 이름</label>
-                            <input type="text" class="form-control" name="name" id="foodName" value="">
-                        </div>
-
-                        <div class="form-group1 foodKcal">
-                            <label for="foodKcal">칼로리</label>
-                            <input type="number" class="form-control" name="kcal" id="foodKcal" placeholder="kcal">
-                        </div>
-
-                        <div class="form-group1 sodium">
-                            <label for="sodium">나트륨</label>
-                            <input type="number" class="form-control" name="sodium" id="sodium">
-                        </div>
+                <div class="area2">
+                    <div class="form-group2 carbohydrate">
+                        <label for="carbohydrate">탄수화물</label>
+                        <input type="number" class="form-control" name="carbohydrate" id="carbohydrate">
                     </div>
 
-                    <div class="area2">
-                        <div class="form-group2 carbohydrate">
-                            <label for="carbohydrate">탄수화물</label>
-                            <input type="number" class="form-control" name="carbohydrate" id="carbohydrate">
-                        </div>
-
-                        <div class="form-group2 protein">
-                            <label for="protein">단백질</label>
-                            <input type="number" class="form-control" name="protein" id="protein">
-                        </div>
-
-                        <div class="form-group2 fat">
-                            <label for="fat">지방</label>
-                            <input type="number" class="form-control" name="fat" id="fat">
-                        </div>
+                    <div class="form-group2 protein">
+                        <label for="protein">단백질</label>
+                        <input type="number" class="form-control" name="protein" id="protein">
                     </div>
 
-                    <div class="area3">
-                        <div class="form-group3 vitaminA">
-                            <label for="vitaminA">비타민 A</label>
-                            <input type="number" class="form-control" name="vitaminA" id="vitaminA">
-                        </div>
+                    <div class="form-group2 fat">
+                        <label for="fat">지방</label>
+                        <input type="number" class="form-control" name="fat" id="fat">
+                    </div>
+                </div>
 
-                        <div class="form-group3 vitaminC">
-                            <label for="vitaminC">비타민 C</label>
-                            <input type="number" class="form-control" name="vitaminC" id="vitaminC">
-                        </div>
-
-                        <div class="form-group3 vitaminE">
-                            <label for="vitaminE">비타민 E</label>
-                            <input type="number" class="form-control" name="vitaminE" id="vitaminE">
-                        </div>
+                <div class="area3">
+                    <div class="form-group3 vitaminA">
+                        <label for="vitaminA">비타민 A</label>
+                        <input type="number" class="form-control" name="vitaminA" id="vitaminA">
                     </div>
 
-                    <div class="area4">
-                        <div class="form-group4 calcium">
-                            <label for="calcium">칼슘</label>
-                            <input type="number" class="form-control" name="calcium" id="calcium">
-                        </div>
-
-                        <div class="form-group4 iron">
-                            <label for="iron">철분</label>
-                            <input type="number" class="form-control" name="iron" id="iron">
-                        </div>
-
-                        <div class="form-group4 magnesium">
-                            <label for="magnesium">마그네슘</label>
-                            <input type="number" class="form-control" name="magnesium" id="magnesium">
-                        </div>
-
-                        <div class="form-group4 omega">
-                            <label for="omega">오메가3</label>
-                            <input type="number" class="form-control" name="omega" id="omega">
-                        </div>
+                    <div class="form-group3 vitaminC">
+                        <label for="vitaminC">비타민 C</label>
+                        <input type="number" class="form-control" name="vitaminC" id="vitaminC">
                     </div>
 
-                    <div class="area5">
-                        <label for="content">내용</label>
-                        <textarea type="text" class="form-control" name="content" id="content"></textarea>
+                    <div class="form-group3 vitaminE">
+                        <label for="vitaminE">비타민 E</label>
+                        <input type="number" class="form-control" name="vitaminE" id="vitaminE">
+                    </div>
+                </div>
+
+                <div class="area4">
+                    <div class="form-group4 calcium">
+                        <label for="calcium">칼슘</label>
+                        <input type="number" class="form-control" name="calcium" id="calcium">
                     </div>
 
-                    <div class="area6">
-                        <button type="button" id="regist">작성 완료</button>
-                        <button type="reset">초기화</button>
-                        <button type="button" onclick="location.href='/board/infoBoard'">목록으로</button>
+                    <div class="form-group4 iron">
+                        <label for="iron">철분</label>
+                        <input type="number" class="form-control" name="iron" id="iron">
                     </div>
-                </form>
-            </section>
-        </div>
 
+                    <div class="form-group4 magnesium">
+                        <label for="magnesium">마그네슘</label>
+                        <input type="number" class="form-control" name="magnesium" id="magnesium">
+                    </div>
+
+                    <div class="form-group4 omega">
+                        <label for="omega">오메가3</label>
+                        <input type="number" class="form-control" name="omega" id="omega">
+                    </div>
+                </div>
+
+                <div class="area5">
+                    <label for="content">내용</label>
+                    <textarea type="text" class="form-control" name="content" id="content"></textarea>
+                </div>
+
+
+                <div class="area6">
+                    <button type="button" id="regist" style="font-size: 14px; margin-left : 20px">등록</button>
+                    <button type="reset" style="font-size: 14px; ">초기화</button>
+                </div>
+            </form>
+
+        </section>
     </div>
 
-
+</div>
 
 
 </body>
 <script>
     const $regist = document.querySelector("#regist");
-    $regist.onclick=e=>{
+    $regist.onclick = e => {
         const $info = document.querySelector("#mfood");
-        $info.action="/board/infoBoard/write"
-        $info.method="post";
+        $info.action = "/board/infoBoard/write"
+        $info.method = "post";
         $info.submit();
     }
 

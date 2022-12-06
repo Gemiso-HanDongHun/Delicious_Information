@@ -56,7 +56,7 @@
 
     div.main-board {
       width: 37%;
-      padding: 10px;
+      padding: 20px;
       margin: 50px auto;
       box-sizing: border-box;
       border: 2px solid whitesmoke;
@@ -418,7 +418,7 @@
           <label for="content">내용</label>
           <textarea  style="background-color: white"  type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
 
-          <c:if test="${!empty loginUser}">
+          <c:if test="${loginUser.account == fo.writer || loginUser.grade == 'admin'}">
             <button type="button" id="delete" >삭제</button>
             <button type="button" id="modify" >수정</button>
           </c:if>

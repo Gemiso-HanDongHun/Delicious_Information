@@ -399,6 +399,7 @@
             <div class="area6">
                 <button type="button" id="modify">수정완료</button>
             </div>
+
         </section>
     </div>
 
