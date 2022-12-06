@@ -1,6 +1,7 @@
 package com.champion.deliciousInfo.board.service;
 
 import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.FreeBoardMapper;
@@ -29,6 +30,12 @@ public class FreeBoardService {
     private final FreeBoardMapper freeBoardMapper;
 
     private final FreeReplyMapper freeReplyMapper;
+
+    public List<FreeBoard> findAllService() {
+        List<FreeBoard> freeBoardList = freeBoardMapper.findAll();
+        return freeBoardList;
+    }
+
 
     public Map<String, Object> search(Search search) {
         log.info("search service start");

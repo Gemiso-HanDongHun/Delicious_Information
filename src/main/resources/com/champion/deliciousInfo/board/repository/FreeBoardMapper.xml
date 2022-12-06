@@ -11,9 +11,14 @@
         <result property="view_cnt" column="view_cnt"/>
     </resultMap>
 
+    <sql id="search">
+        <if test="keyword != null">
+            WHERE title Like CONCAT('%', #{keyword}, '%')
+        </if>
+    </sql>
+
     <select id="findAll" resultMap="freeboardMap">
-        select *
-        from freeboard;
+        SELECT * FROM freeboard ORDER BY freeboardNo DESC
     </select>
 
     <select id="findone" resultMap="freeboardMap">
@@ -22,11 +27,6 @@
         where freeboardNo = #{freeboardNo}
     </select>
 
-    <sql id="search">
-        <if test="keyword != null">
-            WHERE title Like CONCAT('%', #{keyword}, '%')
-        </if>
-    </sql>
 
     <select id="search" resultMap="freeboardMap">
         SELECT * FROM freeboard

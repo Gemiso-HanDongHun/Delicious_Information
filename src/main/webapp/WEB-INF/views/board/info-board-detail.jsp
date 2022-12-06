@@ -265,36 +265,36 @@
   <nav id="navbar-header" class="navbar navbar-expand-lg">
     <div class="container">
 
-      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
-          <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
-            <li class="nav-item active2">
-              <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
-            </li>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                        <li class="nav-item active2">
+                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                        </li>
 
-            <li class="nav-item active3">
-              <a class="nav-link" id="list" href="/food-about">List</a>
-            </li>
+                        <li class="nav-item active3">
+                            <a class="nav-link" id="list" href="/food/list">List</a>
+                        </li>
 
           </div>
           <div class="flex-column titlewidth justify-content-center">
             <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
           </div>
 
-          <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
-            <li class="nav-item dropdown" id="nav-li">
-              <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                정보게시판
-              </a>
-              <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                <a class="dropdown-item"
-                   onclick="location.href='/board/freeBoard'">자유게시판</a>
-                <a class="dropdown-item"
-                   onclick="location.href='/board/infoBoard'">정보게시판</a>
-                <a class="dropdown-item"
-                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
-              </div>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                정보게시판
+                            </a>
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
 
             </li>
             <c:if test="${empty loginUser}">
@@ -312,17 +312,17 @@
                   <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
               </li>--%>
 
-              <li class="nav-item dropdown" id="nav-li">
-                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${loginUser.name}님
-                </a>
-                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item"
-                     href="/member/info/${loginUser.account}">마이 페이지</a>
-                  <a class="dropdown-item"
-                     id="sign-out" href="/member/sign-out">로그아웃</a>
-                </div>
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
 
               </li>
             </c:if>
