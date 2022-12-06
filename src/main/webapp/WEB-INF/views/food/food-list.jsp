@@ -88,9 +88,10 @@
 
         div.boxed-page {
             min-height: 960px;
-            background-image: url(/resto/img/coffee.jpg);
-            background-size: cover;
-            margin: 0px;
+            background-image: url("/images/food-image2.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+            margin: 0;
         }
 
         /* 외부 폰트 사용 */
@@ -349,11 +350,10 @@
             </tr>
 
             <c:forEach var="af" items="${AllfbList}" begin="0" end="11">
-                <tr>
-                    <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                    <td style="width:100%"
-                        onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.title}</td>
-                </tr>
+            <tr>
+                <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
+                <td style="width:100%" onclick="location.href='/board/freeBoard'">${af.title}</td>
+            </tr>
             </c:forEach>
         </table>
     </div>

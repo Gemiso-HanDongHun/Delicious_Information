@@ -16,25 +16,29 @@
 
         .boxed-page {
             min-height: 100vh;
+            background-image: url("/images/food-image2.jpg");
+            background-size: /*353px 390px*/100% 100%;
+            background-repeat: no-repeat;
+            margin: 0;
         }
 
         /* List CSS */
         /* 테이블 전체 */
         .test {
-            width: 40%;
-            border: 2px solid whitesmoke;
+            width: 50%;
+            border: 2px solid rgb(246, 245, 243);
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: whitesmoke;
+            background: rgb(246, 245, 243);
             line-height: 202%;
             z-index: 1000;
         }
 
         /* 내부 tr 배경 */
         table.test tr {
-            background: #ffffff;
+           /* background: #ffffff;*/
         }
 
         /* th 중앙 정렬 및 외부 폰트 */
@@ -161,7 +165,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -171,7 +175,7 @@
             padding-top: 0px;
             top: -38px;
             position: relative;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -182,7 +186,7 @@
         #navbar-header .active2 a#home {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+            /*background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -192,7 +196,7 @@
         #navbar-header .active3 a#list {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -202,7 +206,7 @@
         li a#sign-in {
             position: relative;
             top: 40px;
-            background: #FFFFFF;
+          /*  background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
@@ -211,7 +215,7 @@
 
         li a#sign-out {
             position: relative;
-            background: #FFFFFF;
+           /* background: #FFFFFF;*/
             border-radius: 1em;
             padding: 6px;
             padding-left: 25px;
