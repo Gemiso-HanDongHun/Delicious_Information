@@ -391,7 +391,7 @@
     if ($modBtn !== null) {
         //수정버튼
         $modBtn.onclick = e => {
-            location.href = '/board/freeboard-modify?freeboardNo=${fb.freeboardNo}';
+            location.href = '/board/freeBoard/modify?freeboardNo=${fb.freeboardNo}';
         };
     }
 
@@ -402,7 +402,7 @@
             if (!confirm('정말 삭제하시겠습니까?')) {
                 return;
             }
-            location.href = '/board/freeboard-delete?freeboardNo=${fb.freeboardNo}';
+            location.href = '/board/freeBoard/delete?freeboardNo=${fb.freeboardNo}';
         };
     }
 

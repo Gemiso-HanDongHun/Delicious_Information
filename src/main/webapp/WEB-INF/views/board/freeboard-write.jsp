@@ -258,7 +258,7 @@
     $writeButton.onclick = e => {
         const $writeForm = document.querySelector("#writeForm");
         $writeForm.method = "post";
-        $writeForm.action = "/board/freeboard-write";
+        $writeForm.action = "/board/freeBoard/write";
         $writeForm.submit();
 
     };

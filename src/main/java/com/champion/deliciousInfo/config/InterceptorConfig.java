@@ -1,11 +1,8 @@
 package com.champion.deliciousInfo.config;
 
-import com.champion.deliciousInfo.intercepter.AdminInterceptor;
-import com.champion.deliciousInfo.intercepter.AfterLoginInterceptor;
-import com.champion.deliciousInfo.intercepter.BoardInterceptor;
+import com.champion.deliciousInfo.intercepter.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,7 +15,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
     private final AfterLoginInterceptor afterLoginInterceptor;
 
-    private final BoardInterceptor boardInterceptor;
+    private final SboardInterceptor sboardInterceptor;
+
+    private final InfoBoardInterceptor infoboardInterceptor;
+
+    private final FreeBoardInterceptor freeBoardInterceptor;
     // 인터셉터 설정 추가 메서드
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -31,13 +32,17 @@ public class InterceptorConfig implements WebMvcConfigurer {
         registry.addInterceptor(afterLoginInterceptor)
                 .addPathPatterns("/member/sign-in", "/member/sign-up");
         // 게시판 인터셉터 설정
-        registry.addInterceptor(boardInterceptor)
+        registry.addInterceptor(sboardInterceptor)
                 .addPathPatterns("/board/suggestionBoard/*")
                 .excludePathPatterns("/board/suggestionBoard", "/board/suggestionBoard/detail");
         // 게시판 인터셉터 설정
-        registry.addInterceptor(boardInterceptor)
-                .addPathPatterns("/board/suggestionBoard/*")
-                .excludePathPatterns("/board/suggestionBoard", "/board/suggestionBoard/detail");
+        registry.addInterceptor(infoboardInterceptor)
+                .addPathPatterns("/board/infoBoard/*")
+                .excludePathPatterns("/board/infoBoard", "/board/infoBoard/detail");
+
+        registry.addInterceptor(freeBoardInterceptor)
+                .addPathPatterns("/board/freeBoard/*")
+                .excludePathPatterns("/board/freeBoard", "/board/freeBoard/detail");
 
 
 

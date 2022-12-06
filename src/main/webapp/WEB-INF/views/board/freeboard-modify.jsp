@@ -241,7 +241,7 @@
     $modBtn.onclick = e => {
         if (confirm("정말로 수정 하시겠습니까?")) {
             const $form = document.getElementById('modifyForm');
-            $form.action = "/board/freeboard-modify";
+            $form.action = "/board/freeBoard/modify";
             $form.method = "post";
             $form.submit();
         }

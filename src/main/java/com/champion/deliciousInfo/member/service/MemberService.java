@@ -59,6 +59,11 @@ public class MemberService {
     }
 
 
+    public boolean kakaoSignUp(Member member){
+
+        return memberMapper.register(member);
+    }
+
     public MemberLoginFlag login(LoginDTO inputData, HttpSession session) {
         // 회원가입 여부 확인
         Member foundMember = memberMapper.findUser(inputData.getAccount());

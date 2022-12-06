@@ -3,6 +3,7 @@ package com.champion.deliciousInfo.member.controller;
 import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.member.dto.KaKaoUserInfoDTO;
 import com.champion.deliciousInfo.member.service.KakaoService;
+import com.champion.deliciousInfo.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FROM;
 public class KakaoContorller {
 
     private final KakaoService kakaoService;
+
+    private final MemberService memberService;
 
     @GetMapping(KAKAO_REDIRECT_URI)
     public String kakaoLogin(String code, HttpSession session, RedirectAttributes ra) throws Exception {
@@ -43,6 +46,13 @@ public class KakaoContorller {
             member.setName(userInfo.getNickName());
             member.setEmail(userInfo.getEmail());
             member.setGender(userInfo.getGender());
+            Member foundKakaoMember = memberService.getMember(member.getAccount());
+            if(foundKakaoMember==null){
+                boolean flag = memberService.kakaoSignUp(member);
+                if(!flag){
+                    return "redirect:/member/login";
+                }
+            }
             session.setAttribute(LOGIN_FLAG, member);
             session.setAttribute("profile_path", userInfo.getProfileImg());
             session.setAttribute(LOGIN_FROM, KAKAO);

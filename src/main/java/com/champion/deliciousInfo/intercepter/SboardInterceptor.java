@@ -19,7 +19,7 @@ import static com.champion.deliciousInfo.util.LoginUtils.*;
 //          일들을 정의해놓는 클래스
 @Configuration
 @Log4j2
-public class BoardInterceptor implements HandlerInterceptor {
+public class SboardInterceptor implements HandlerInterceptor {
 
     /*
         인터셉터의 전처리 메서드.

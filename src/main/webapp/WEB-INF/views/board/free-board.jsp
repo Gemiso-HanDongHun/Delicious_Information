@@ -331,7 +331,7 @@
 
     <c:if test="${!empty loginUser}">
         <div class="buttonDiv">
-            <button type="button" id="boardwriter" onclick="location.href='/board/infoBoard/write'">글쓰기</button>
+            <button type="button" id="boardwriter" onclick="location.href='/board/freeBoard/write'">글쓰기</button>
         </div>
     </c:if>
 
@@ -350,8 +350,8 @@
             <c:forEach var="fb" items="${fbList}">
                 <tr>
                     <td>${fb.freeboardNo}</td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.title}[${fb.replyCount}]</a></td>
-                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.writer}</a></td>
+                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.title}[${fb.replyCount}]</a></td>
+                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.writer}</a></td>
                         <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>

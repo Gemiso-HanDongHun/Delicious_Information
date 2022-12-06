@@ -41,14 +41,14 @@ public class FreeBoardController {
         return "board/free-board";
     }
 
-    @GetMapping("/freeboard-write")
+    @GetMapping("/freeBoard/write")
     public String getWriteForm() {
         log.info("Getmapping board/freeboard/write forwarding to freeboard-write.jsp");
 
         return "board/freeboard-write";
     }
 
-    @PostMapping("/freeboard-write")
+    @PostMapping("/freeBoard/write")
     public String write(FreeBoard freeBoard, HttpSession session, RedirectAttributes ra) {
         log.info("Postmapping board/freeboard/write -{}", freeBoard);
         Member member = (Member) session.getAttribute(LOGIN_FLAG);
@@ -60,7 +60,7 @@ public class FreeBoardController {
     }
 
     //상세보기
-    @GetMapping("freeboard-detail/{freeboardNo}")
+    @GetMapping("freeBoard/detail/{freeboardNo}")
     public String detail(@PathVariable int freeboardNo, Model model, @ModelAttribute("p") Page page
             , HttpServletResponse response, HttpServletRequest request) {
         log.info("GetMapping board/freeboard-detail/{}", freeboardNo);
@@ -71,7 +71,7 @@ public class FreeBoardController {
     }
 
     // 게시물 삭제 확인 요청
-    @GetMapping("/freeboard-delete")
+    @GetMapping("/freeBoard/delete")
     public String delete(@ModelAttribute("freeboardNo") int freeboardNo, Model model) {
 
         log.info("controller request /board/delete GET! - bno: {}", freeboardNo);
@@ -82,7 +82,7 @@ public class FreeBoardController {
     }
 
     // 게시물 삭제 확정 요청
-    @PostMapping("/freeboard-delete")
+    @PostMapping("/freeBoard/delete")
     public String delete(int freeboardNo) {
         log.info("controller request /board/delete POST! - bno: {}", freeboardNo);
 
@@ -90,7 +90,7 @@ public class FreeBoardController {
     }
 
     // 수정 화면 요청
-    @GetMapping("/freeboard-modify")
+    @GetMapping("/freeBoard/modify")
     public String modify(int freeboardNo, Model model
             , HttpServletResponse response, HttpServletRequest request) {
         log.info("controller request /freeboard-modify GET! - bno: {}", freeboardNo);
@@ -104,11 +104,11 @@ public class FreeBoardController {
     }
 
     // 수정 처리 요청
-    @PostMapping("/freeboard-modify")
+    @PostMapping("/freeBoard/modify")
     public String modify(FreeBoard freeBoard) {
         log.info("controller request /board/modify POST! - {}", freeBoard);
         boolean flag = freeBoardService.modify(freeBoard);
-        return flag ? "redirect:/board/freeboard-detail/" + freeBoard.getFreeboardNo() : "redirect:/food-main";
+        return flag ? "redirect:/board/freeBoard/detail/" + freeBoard.getFreeboardNo() : "redirect:/food-main";
     }
 
 }

@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="del-form" action="/board/freeboard-delete" method="post">
+    <form id="del-form" action="/board/freeBoard/delete" method="post">
         <input type="hidden" name="freeboardNo" value="${freeboardNo}">
     </form>
 
