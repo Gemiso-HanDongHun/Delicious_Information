@@ -177,6 +177,8 @@ lemoncoat :
 
 12.05 : aws 배포 및 오류 수정
 
+12.06 : 전반적 디자인 수정및 인터셉터 및 카카오 회원가입
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 
