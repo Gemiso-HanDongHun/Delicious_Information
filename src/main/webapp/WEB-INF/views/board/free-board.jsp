@@ -22,7 +22,7 @@
 
         .boxed-page {
             min-height: 100vh;
-            background-image: url(/resto/img/black.jpg);
+            background-image: url(/images/food-image2.jpg);
             background-size: cover;
             margin: 0px;
         }
@@ -243,7 +243,6 @@
         /*    border: 2px solid lightgray;*/
         /*}*/
 
-
     </style>
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
@@ -346,9 +345,9 @@
         <table class="free-board">
 
             <tr>
-                <th style="width:10%">No</th>
-                <th style="width:33%">제목</th>
-                <th style="width:19%">작성자</th>
+                <th style="width:5%">No</th>
+                <th style="width:22%">제목</th>
+                <th style="width:9%">작성자</th>
                 <%--                <th style="width:36%">내용</th>--%>
                 <th style="width:27%">작성일</th>
                 <th style="width:11%">조회수</th>
