@@ -10,6 +10,25 @@
 
     <style>
 
+
+
+        #navbar-header .navbar-nav .dropdown-menu{
+            border: 2px solid lightgrey;
+            box-shadow: none;
+        }
+
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div li {
+            font-family: 'MaplestoryOTFBold';
+            font-weight: 800;
+        }
+
         @font-face {
             font-family: 'Ansungtangmyun-Bold';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
@@ -79,8 +98,7 @@
         }
 
         table.free-board tr td{
-            font-family: 'ONE-Mobile-POP';
-            font-size: 14px;
+            font-family: 'MaplestoryOTFBold';
         }
 
         /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */

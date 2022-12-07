@@ -12,6 +12,25 @@
 
     <style>
 
+
+
+        #navbar-header .navbar-nav .dropdown-menu{
+            border: 2px solid lightgrey;
+            box-shadow: none;
+        }
+
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div li {
+            font-family: 'MaplestoryOTFBold';
+            font-weight: 800;
+        }
+
         div.boxed-page section.top-area div.img {
             width: 40%;
             height: 100%;

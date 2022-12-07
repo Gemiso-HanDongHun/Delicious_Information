@@ -99,12 +99,12 @@
             text-align: center;
             border-radius: 0.5em;
             font-size: 16px;
-            font-family: 'ONE-Mobile-POP';
+            font-family: 'MaplestoryOTFBold';
         }
 
         aside {
             font-size: 15px;
-            font-family: 'ONE-Mobile-POP';
+            font-family: 'MaplestoryOTFBold';
         }
 
 
@@ -152,7 +152,7 @@
         /* td 중앙 정렬 */
         div.boxed-page table.test td {
             text-align: center;
-            font-family: 'Ansungtangmyun-Bold';
+            font-family: 'MaplestoryOTFBold';
             font-size: 17px;
         }
 
@@ -293,8 +293,21 @@
             cursor: pointer;
         }
 
+        #navbar-header .navbar-nav .dropdown-menu{
+            border: 2px solid lightgrey;
+            box-shadow: none;
+        }
+
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         div li {
-            font-weight: 800;
+            font-family: 'MaplestoryOTFBold';
+            font-weight: 900;
         }
 
 
@@ -428,6 +441,7 @@
     <aside class="aside">
         <div class="side-bar-list">
             <div class="myList">내가 선택한 음식(100g)</div>
+            <div style="text-align: center;">~~~~~~~~~~~~~~~~~</div>
             <div id="mine">
 
             </div>
