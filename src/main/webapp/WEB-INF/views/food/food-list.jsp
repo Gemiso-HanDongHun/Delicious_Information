@@ -79,25 +79,47 @@
             width: 100%;
             height: 36px;
             background: #ffffff;
-            border: 1px solid whitesmoke;
+            border: 1px solid whitesmoke
+
+
         }
 
         table.side-t-main th {
             text-align: center;
         }
 
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.side-t-main tr td {
+            text-align: center;
+            border-radius: 0.5em;
+            font-size: 16px;
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        aside {
+            font-size: 15px;
+            font-family: 'ONE-Mobile-POP';
+        }
+
+
         div.boxed-page {
             min-height: 960px;
             background-image: url("/images/food-image2.jpg");
-            background-size: /*353px 390px*/100% 100%;
+            background-size: /*353px 390px*/ 100% 100%;
             background-repeat: no-repeat;
             margin: 0;
         }
 
         /* 외부 폰트 사용 */
         @font-face {
-            font-family: 'BMDOHYEON';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+            font-family: 'Ansungtangmyun-Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
@@ -124,13 +146,14 @@
         /* th 중앙 정렬 및 외부 폰트 */
         div.boxed-page table.test th {
             text-align: center;
-            /*font-family: 'BMDOHYEON'; !* th 폰트*!*/
             font-weight: 700;
         }
 
         /* td 중앙 정렬 */
         div.boxed-page table.test td {
             text-align: center;
+            font-family: 'Ansungtangmyun-Bold';
+            font-size: 17px;
         }
 
         /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
@@ -345,15 +368,15 @@
         </div>
         <table class="side-t-main">
 
-            <tr>
-                <th style="width:100%">제목</th>
-            </tr>
+            <%--            <tr>--%>
+            <%--                <th style="width:100%">제목</th>--%>
+            <%--            </tr>--%>
 
-            <c:forEach var="af" items="${AllfbList}" begin="0" end="11">
-            <tr>
-                <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                <td style="width:100%" onclick="location.href='/board/freeBoard'">${af.title}</td>
-            </tr>
+            <c:forEach var="af" items="${AllfbList}" begin="0" end="12">
+                <tr>
+                    <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
+                    <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${af.title}</td>
+                </tr>
             </c:forEach>
         </table>
     </div>
@@ -410,7 +433,7 @@
             </div>
         </div>
         <div class="aside-down d-flex justify-content-center">
-            <button type="button" class="btn btn-info" id="reset">초기화</button>
+            <button type="button" class="btn btn-info" id="reset" style="background-color: whitesmoke">초기화</button>
             <button type="button" class="btn btn-info" id="searchk">검색</button>
             <%--            <button type="button" onclick="location.href='/board/suggestionBoard'"  id="board">게시판</button>--%>
         </div>

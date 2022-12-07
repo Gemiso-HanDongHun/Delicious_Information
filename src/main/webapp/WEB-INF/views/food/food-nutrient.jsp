@@ -44,40 +44,62 @@ URL: https://gettemplates.co
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+    <style>
+        div li {
+            font-weight: 800;
+        }
+
+        li a#navbarDropdown {
+            width: 150px;
+        }
+
+        @font-face {
+            font-family: 'Ansungtangmyun-Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.reco tr#lili td {
+            font-family: 'Ansungtangmyun-Bold';
+        }
+
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.recommend-nutrients tr#lili td{
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        aside{
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        div.nt_row h4{
+            font-family: 'ONE-Mobile-POP';
+            font-size: 14px;
+        }
+
+        h4#m1, #m2, #m3, #m4{
+            font-size: 14px;
+        }
+
+        h4#p1, #excess, #excess2{
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+    </style>
+
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
-<%--<div id="side-nav" class="sidenav">
-    <a href="javascript:void(0)" id="side-nav-close">&times;</a>
 
-    <div class="sidenav-content">
-        <p>
-            Kuncen WB1, Wirobrajan 10010, DIY
-        </p>
-        <p>
-            <span class="fs-16 primary-color">(+68) 120034509</span>
-        </p>
-        <p>info@yourdomain.com</p>
-    </div>
 </div>
-<div id="side-search" class="sidenav">
-    <a href="javascript:void(0)" id="side-search-close">&times;</a>
-    <div class="sidenav-content">
-        <form action="">
-
-            <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="input-group-text red lighten-3" id="basic-text1">
-                        <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-</div>--%>
 <div id="canvas-overlay"></div>
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
@@ -142,7 +164,6 @@ URL: https://gettemplates.co
                 </div>
             </div>
         </aside>
-
 
 
         <div class="container">
@@ -212,7 +233,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀탄수화물</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.carbohydrate}g</h4>
+                                            <h4 class="text-muted menu-price" id="m1">${fn.carbohydrate}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -227,7 +248,7 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
                                             <h4 class="text-muted menu-price"
-                                                style="color: lightcoral">${fn.protein}g</h4>
+                                                style="color: lightcoral"  id="m2">${fn.protein}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -241,7 +262,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀지방</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.fat}g</h4>
+                                            <h4 class="text-muted menu-price"  id="m3">${fn.fat}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -255,7 +276,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀나트륨</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 class="text-muted menu-price">${fn.sodium}mg</h4>
+                                            <h4 class="text-muted menu-price"  id="m4">${fn.sodium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -278,12 +299,12 @@ URL: https://gettemplates.co
                                         <div class="col-4">
 
                                             <c:if test="${tn.carbohydrate > 0}">
-                                                <h4 style="color: orangered">⠀⠀${tn.carbohydrate}g</h4>
+                                                <h4 style="color: orangered" id="p1">⠀⠀${tn.carbohydrate}g</h4>
                                             </c:if>
 
                                             <c:if test="${tn.carbohydrate < 0}">
-                                                <h4 style="color: blue" id="excess">초과</h4>
-                                                <h4 style="color: blue" id="excess2">(${tn.carbohydrate}g)</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 2px;" id="excess" >초과</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 2px;" id="excess2" >(${tn.carbohydrate}g)</h4>
                                             </c:if>
 
                                         </div>

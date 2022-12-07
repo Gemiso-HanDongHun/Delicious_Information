@@ -98,6 +98,10 @@ URL: https://gettemplates.co
             color: black;
         }
 
+        div li{
+            font-weight: 800;
+        }
+
     </style>
 
 </head>

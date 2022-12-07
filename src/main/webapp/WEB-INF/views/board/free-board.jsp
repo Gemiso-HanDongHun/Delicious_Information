@@ -10,14 +10,20 @@
 
     <style>
 
+        @font-face {
+            font-family: 'Ansungtangmyun-Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         /* 서치 아이콘 */
         span.lnr-magnifier {
             font-size: 20px;
         }
 
         body {
-            background-color: whitesmoke;
-
+            /*background-color: whitesmoke;*/
         }
 
         .boxed-page {
@@ -28,9 +34,9 @@
             margin: 0;
         }
 
-        section.board {
-            margin-top: 30px;
-        }
+        /*section.board {*/
+        /*    margin-top: 30px;*/
+        /*}*/
 
         .free-board {
             width: 40%;
@@ -56,13 +62,26 @@
         div.boxed-page table td {
             text-align: center;
         }
+
         div li {
-            font-weight: 800;
+            font-weight: 700;
         }
 
 
         table.free-board th {
             /*background: #ffffff;*/
+        }
+
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.free-board tr td{
+            font-family: 'ONE-Mobile-POP';
+            font-size: 14px;
         }
 
         /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
@@ -81,6 +100,13 @@
             color: black;
         }
 
+        /* 목록 전체 영역 */
+        div.bottom_section {
+            padding-bottom: 1px;
+            margin-top: 25px;
+            /*margin-bottom: 2px;*/
+            color: black;
+        }
 
         div.buttonDiv {
             position: absolute;
@@ -217,9 +243,9 @@
         }
 
 
-        ul.pagination {
-            margin-top: 15px;
-        }
+        /*ul.pagination {*/
+        /*    margin-top: 15px;*/
+        /*}*/
 
         /*div.container {*/
         /*    z-index: 1000;*/
@@ -358,7 +384,7 @@
             <c:forEach var="fb" items="${fbList}">
                 <tr>
                     <td>${fb.freeboardNo}</td>
-                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.title}[${fb.replyCount}]</a></td>
+                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.title}⠀[${fb.replyCount}]</a></td>
                     <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.writer}</a></td>
                         <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>

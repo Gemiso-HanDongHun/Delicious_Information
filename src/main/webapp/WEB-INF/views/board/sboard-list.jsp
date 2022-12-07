@@ -186,6 +186,18 @@
            /* background: #ffffff;*/
         }
 
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.test tr td{
+            font-family: 'ONE-Mobile-POP';
+            font-size: 14px;
+        }
+
         /* th 중앙 정렬 및 외부 폰트 */
         div.boxed-page table th {
             text-align: center;
@@ -196,6 +208,10 @@
         /* td 중앙 정렬 */
         div.boxed-page table td {
             text-align: center;
+        }
+
+        div li {
+            font-weight: 700;
         }
 
         /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
@@ -209,7 +225,7 @@
         div.bottom_section {
             padding-bottom: 1px;
             margin-top: 25px;
-            margin-bottom: 2px;
+            /*margin-bottom: 2px;*/
             color: black;
         }
 
@@ -342,7 +358,7 @@
         <c:forEach var="sb" items="${sl}">
             <tr>
                 <td>${sb.boardNo}</td>
-                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}[${sb.replyCount}]</td>
+                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}⠀[${sb.replyCount}]</td>
                 <td>${sb.writer}</td>
                 <td>${sb.regdate}</td>
                 <td>${sb.hit}</td>

@@ -43,7 +43,48 @@ URL: https://gettemplates.co
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+    <style>
+        div li {
+            font-weight: 800;
+        }
 
+        li a#navbarDropdown {
+            width: 150px;
+        }
+
+        @font-face {
+            font-family: 'Ansungtangmyun-Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.reco tr#lili td {
+            font-family: 'Ansungtangmyun-Bold';
+        }
+
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.recommend-nutrients tr#lili td{
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        aside{
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        div.nt_row h4{
+            font-family: 'ONE-Mobile-POP';
+            font-size: 14px;
+        }
+
+
+    </style>
 
 </head>
 <body data-spy="scroll" data-target="#navbar">

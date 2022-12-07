@@ -36,9 +36,25 @@
             z-index: 1000;
         }
 
+        div li {
+            font-weight: 800;
+        }
+
         /* 내부 tr 배경 */
         table.test tr {
            /* background: #ffffff;*/
+        }
+
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        table.test tr td{
+            font-family: 'ONE-Mobile-POP';
+            font-size: 14px;
         }
 
         /* th 중앙 정렬 및 외부 폰트 */
@@ -107,7 +123,7 @@
         div.bottom_section {
             padding-bottom: 1px;
             margin-top: 25px;
-            margin-bottom: 2px;
+            /*margin-bottom: 2px;*/
             color: black;
         }
 
@@ -259,6 +275,9 @@
             margin-left: 63%;
         }
 
+        div li {
+            font-weight: 700;
+        }
 
     </style>
 

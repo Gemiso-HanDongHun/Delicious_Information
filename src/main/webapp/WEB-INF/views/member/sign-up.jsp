@@ -10,6 +10,10 @@
 
     <style>
 
+        div li{
+            font-weight: 800;
+        }
+
         div.flex-column p.maintext {
             margin-left: 105px;
         }
