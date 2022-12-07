@@ -296,7 +296,7 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" id="home" href="/">Home<span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active3">
@@ -389,8 +389,8 @@
         <c:forEach var="b" items="${infoList}">
             <tr>
                 <td>${b.infoNo}</td>
-                <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.foodName}[${b.replyCount}]</td>
-                <td>${b.writer}</td>
+                <td onclick="location.href='/board/infoBoard/detail/${b.infoNo}'">${b.shortName}[${b.replyCount}]</td>
+                <td>${b.shortWriter}</td>
                 <td>${b.regdate}</td>
                 <td>${b.hit}</td>
             </tr>

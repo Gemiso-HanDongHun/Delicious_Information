@@ -248,7 +248,7 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span
+                            <a class="nav-link" id="home" href="/">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
 
@@ -414,11 +414,31 @@
 </body>
 <script>
     const $regist = document.querySelector("#regist");
+    const $foodName = document.querySelector("#foodName");
+    const $foodK = document.querySelector("#foodKcal");
+
+    function isValiDate(){
+        if($foodName.value.trim()=="") {
+            alert("음식 이름을 입력해주세요");
+            return false;
+        }else if($foodK.value.trim()==""){
+            alert("칼로리를 입력해주세요");
+            return false;
+        }
+        return true;
+    }
+
+
+
+
     $regist.onclick = e => {
         const $info = document.querySelector("#mfood");
-        $info.action = "/board/infoBoard/write"
-        $info.method = "post";
-        $info.submit();
+
+        if (isValiDate()) {
+            $info.action = "/board/infoBoard/write"
+            $info.method = "post";
+            $info.submit();
+        }
     }
 
 </script>

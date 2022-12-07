@@ -17,4 +17,7 @@ public class Sboard {
     private int hit;
 
     private int replyCount;
+
+    private String shortTitle;//줄임 제목
+    private String shortWriter; //줄임 계정명
 }

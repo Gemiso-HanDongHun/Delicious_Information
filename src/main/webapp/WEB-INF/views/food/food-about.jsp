@@ -123,7 +123,7 @@ URL: https://gettemplates.co
                     <div class="d-flex flex-lg-row flex-column">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="/food-main">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item">

@@ -20,5 +20,8 @@ public class InfoBoard {
 
     private int replyCount;
 
+    private String shortName;//줄임 제목
+    private String shortWriter; //줄임 계정명
+
     private int mfoodNutrient;
 }

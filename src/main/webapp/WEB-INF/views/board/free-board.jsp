@@ -62,7 +62,6 @@
         div.boxed-page table td {
             text-align: center;
         }
-
         div li {
             font-weight: 700;
         }
@@ -283,7 +282,7 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span
+                            <a class="nav-link" id="home" href="/">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
 
@@ -384,8 +383,8 @@
             <c:forEach var="fb" items="${fbList}">
                 <tr>
                     <td>${fb.freeboardNo}</td>
-                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.title}⠀[${fb.replyCount}]</a></td>
-                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.writer}</a></td>
+                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.shortTitle}[${fb.replyCount}]</a></td>
+                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.shortWriter}</a></td>
                         <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>

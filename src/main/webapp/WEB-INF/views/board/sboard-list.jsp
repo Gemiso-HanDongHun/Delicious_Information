@@ -263,7 +263,7 @@
                 <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
                     <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
                         <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/food-main">Home<span
+                            <a class="nav-link" id="home" href="/">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
 
@@ -358,8 +358,8 @@
         <c:forEach var="sb" items="${sl}">
             <tr>
                 <td>${sb.boardNo}</td>
-                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.title}⠀[${sb.replyCount}]</td>
-                <td>${sb.writer}</td>
+                <td onclick="location.href='/board/suggestionBoard/detail/${sb.boardNo}'">${sb.shortTitle}[${sb.replyCount}]</td>
+                <td>${sb.shortWriter}</td>
                 <td>${sb.regdate}</td>
                 <td>${sb.hit}</td>
             </tr>

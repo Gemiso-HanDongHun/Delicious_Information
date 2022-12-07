@@ -107,6 +107,7 @@ public class FreeBoardService {
     private void processConverting(List<FreeBoard> freeBoardList){
         for (FreeBoard f : freeBoardList){
             setReplyCount(f);
+            substringTitle(f);
         }
     }
 
@@ -114,5 +115,23 @@ public class FreeBoardService {
         f.setReplyCount(freeReplyMapper.getReplyCount((long) f.getFreeboardNo()));
     }
 
+    private void substringTitle(FreeBoard f) {
 
+        String title = f.getTitle(); // 제목은 12글자 넘어가면 ...
+        String writer = f.getWriter();  // 작성자는 10글자 넘어가면 ...
+
+        if (title.length() > 12) {
+            String subStr = title.substring(0, 12);
+            f.setShortTitle(subStr + "...");
+        } else {
+            f.setShortTitle(title);
+        }
+
+        if (writer.length() > 10) {
+            String subWri = writer.substring(0, 10);
+            f.setShortWriter(subWri + "...");
+        } else {
+            f.setShortWriter(writer);
+        }
+    }
 }

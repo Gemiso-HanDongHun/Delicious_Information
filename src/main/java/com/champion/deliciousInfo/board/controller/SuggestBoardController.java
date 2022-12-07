@@ -86,7 +86,7 @@ public class SuggestBoardController {
     public String delete(Long boardNo) {
         log.info("controller request /board/delete POST! - bno: {}", boardNo);
 
-        return sboardService.removeService(boardNo) ? "redirect:/board/suggestionBoard" : "redirect:/food-main";
+        return sboardService.removeService(boardNo) ? "redirect:/board/suggestionBoard" : "redirect:/";
     }
 
     // 수정 화면 요청
@@ -107,7 +107,7 @@ public class SuggestBoardController {
     public String modify(Sboard board) {
         log.info("controller request /board/modify POST! - {}", board);
         boolean flag = sboardService.modifyService(board);
-        return flag ? "redirect:/board/suggestionBoard/detail/" + board.getBoardNo() : "redirect:/food-main";
+        return flag ? "redirect:/board/suggestionBoard/detail/" + board.getBoardNo() : "redirect:/";
     }
 
 }

@@ -97,7 +97,7 @@ public class InfoBoardController {
     public String delete(Long infoNo) {
         log.info("controller request /board/delete POST! - bno: {}", infoNo);
 
-        return service.removeService(infoNo) ? "redirect:/board/infoBoard" : "redirect:/food-main";
+        return service.removeService(infoNo) ? "redirect:/board/infoBoard" : "redirect:/";
     }
 
     @GetMapping("/modify")
@@ -120,6 +120,6 @@ public class InfoBoardController {
         log.info("controller request /board/modify POST! - {}", infoBoard);
         mfood.setName(infoBoard.getFoodName());
         boolean flag = service.modifyService(infoBoard,mfoodNutrient,mfood);
-        return flag ? "redirect:/board/infoBoard/detail/" + infoBoard.getInfoNo() : "redirect:/food-main";
+        return flag ? "redirect:/board/infoBoard/detail/" + infoBoard.getInfoNo() : "redirect:/";
     }
 }

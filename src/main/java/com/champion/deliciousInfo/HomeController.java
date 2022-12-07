@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
-    @GetMapping("/food-main")
+    @GetMapping("/")
     public String home() {
         return "food/food-main";
 

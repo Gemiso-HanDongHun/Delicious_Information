@@ -124,6 +124,27 @@ public class InfoBoardService {
     private void processConverting(List<InfoBoard> infoBoardList){
         for (InfoBoard f : infoBoardList){
             setReplyCount(f);
+            substringTitle(f);
+        }
+    }
+
+    private void substringTitle(InfoBoard f) {
+
+        String foodName = f.getFoodName(); // 제목은 12글자 넘어가면 ...
+        String writer = f.getWriter();  // 작성자는 10글자 넘어가면 ...
+
+        if (foodName.length() > 12) {
+            String subStr = foodName.substring(0, 12);
+            f.setShortName(subStr + "...");
+        } else {
+            f.setShortName(foodName);
+        }
+
+        if (writer.length() > 10) {
+            String subWri = writer.substring(0, 10);
+            f.setShortWriter(subWri + "...");
+        } else {
+            f.setShortWriter(writer);
         }
     }
 

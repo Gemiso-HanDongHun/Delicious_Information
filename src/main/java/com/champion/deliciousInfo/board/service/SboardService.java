@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.service;
 
+import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.SboardMapper;
@@ -102,6 +103,7 @@ public class SboardService {
     private void processConverting(List<Sboard> boardList) {
         for (Sboard b : boardList) {
             setReplyCount(b);
+            substringTitle(b);
         }
     }
 
@@ -109,5 +111,23 @@ public class SboardService {
         b.setReplyCount(replyMapper.getReplyCount(b.getBoardNo()));
     }
 
+    private void substringTitle(Sboard b) {
 
+        String title = b.getTitle(); // 제목은 12글자 넘어가면 ...
+        String writer = b.getWriter();  // 작성자는 10글자 넘어가면 ...
+
+        if (title.length() > 12) {
+            String subStr = title.substring(0, 12);
+            b.setShortTitle(subStr + "...");
+        } else {
+            b.setShortTitle(title);
+        }
+
+        if (writer.length() > 10) {
+            String subWri = writer.substring(0, 10);
+            b.setShortWriter(subWri + "...");
+        } else {
+            b.setShortWriter(writer);
+        }
+    }
 }

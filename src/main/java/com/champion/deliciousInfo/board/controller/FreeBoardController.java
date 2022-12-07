@@ -86,7 +86,7 @@ public class FreeBoardController {
     public String delete(int freeboardNo) {
         log.info("controller request /board/delete POST! - bno: {}", freeboardNo);
 
-        return freeBoardService.removeService(freeboardNo) ? "redirect:/board/freeBoard" : "redirect:/food-main";
+        return freeBoardService.removeService(freeboardNo) ? "redirect:/board/freeBoard" : "redirect:/";
     }
 
     // 수정 화면 요청
@@ -108,7 +108,7 @@ public class FreeBoardController {
     public String modify(FreeBoard freeBoard) {
         log.info("controller request /board/modify POST! - {}", freeBoard);
         boolean flag = freeBoardService.modify(freeBoard);
-        return flag ? "redirect:/board/freeBoard/detail/" + freeBoard.getFreeboardNo() : "redirect:/food-main";
+        return flag ? "redirect:/board/freeBoard/detail/" + freeBoard.getFreeboardNo() : "redirect:/";
     }
 
 }

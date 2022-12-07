@@ -126,7 +126,7 @@ URL: https://gettemplates.co
                 <ul class="navbar-nav d-flex justify-content-between">
                     <div class="d-flex flex-lg-row flex-column">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/food-main">Home<span
+                            <a class="nav-link" href="/">Home<span
                                     class="sr-only">(current)</span></a>
                         </li>
 

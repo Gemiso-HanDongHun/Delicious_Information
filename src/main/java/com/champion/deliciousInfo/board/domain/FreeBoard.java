@@ -18,4 +18,7 @@ public class FreeBoard {
     private String reg_date;
 
     private int replyCount;
+
+    private String shortTitle;//줄임 제목
+    private String shortWriter; //줄임 계정명
 }

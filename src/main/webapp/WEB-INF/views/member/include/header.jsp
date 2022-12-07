@@ -26,7 +26,7 @@
             <span class="lnr lnr-cross"></span>
         </a>
         <ul>
-            <li><a href="/food-main">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/">로그인</a></li>
 
 
