@@ -7,6 +7,7 @@ import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.common.search.Search;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
+import com.champion.deliciousInfo.inforecommend.dto.InfoRecommendDTO;
 import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.mfood.domain.Mfood;
 import com.champion.deliciousInfo.mfood.domain.MfoodNutrient;
@@ -54,8 +55,10 @@ public class InfoBoardController {
         Map<String, Object> foundMap = service.findOne(infoNo, request, response);
         InfoBoard findOne =(InfoBoard) foundMap.get("ib");
         MfoodNutrient mn = (MfoodNutrient) foundMap.get("mn");
+        InfoRecommendDTO ir = (InfoRecommendDTO) foundMap.get("ir");
         model.addAttribute("fo",findOne);
         model.addAttribute("mn",mn);
+        model.addAttribute("ir",ir);
         return "board/info-board-detail";
     }
 

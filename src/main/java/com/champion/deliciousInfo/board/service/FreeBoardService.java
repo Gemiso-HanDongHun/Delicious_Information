@@ -51,6 +51,7 @@ public class FreeBoardService {
         return findDataMap;
     }
 
+    @Transactional
     public boolean regist(FreeBoard freeBoard) {
         log.info("freeboard reigst start -{}", freeBoard);
         boolean flag = freeBoardMapper.regist(freeBoard);

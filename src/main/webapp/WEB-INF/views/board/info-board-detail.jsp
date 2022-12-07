@@ -426,11 +426,31 @@
             <label for="omega">오메가3</label>
             <input  style="background-color: white"  type="number" class="form-control" name="omega" value="${mn.omega}"  id="omega" disabled>
           </div>
+
+
         </div>
+
+
+
+
 
         <div class="area5">
           <label for="content">내용</label>
           <textarea  style="background-color: white"  type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
+
+          <c:if test="${ir.value !=1 && ir.value !=-1 }">
+            <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+            <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+          </c:if>
+          <c:if test="${ir.value == 1 }">
+            <button class="btn btn-info recbutton" type="button" id="alrecommend"><i class="fas fa-thumbs-up"></i> ${ir.reCount}</button>
+            <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+          </c:if>
+
+          <c:if test="${ir.value == -1 }">
+            <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+            <button class="btn btn-info recbutton" type="button" id="alunrecommend"><i class="fas fa-thumbs-down"></i> ${ir.ueCount}</button>
+          </c:if>
 
           <c:if test="${loginUser.account == fo.writer || loginUser.grade == 'admin'}">
             <button type="button" id="delete" >삭제</button>
@@ -898,6 +918,56 @@
 
 
   })();
+</script>
+
+<!--추천 비추천 관련-->
+<script>
+  const infoNo=${fo.infoNo};
+  const $recbtn = document.querySelectorAll(".recbutton");
+
+
+  const RURL = '/api/v1/recommend';
+  const URURL = '/api/v1/unrecommend';
+  function showRecommend(ir){
+      $recbtn[0].innerHTML='<i class="fas fa-thumbs-up">'+" "+ ir.reCount;
+      $recbtn[0].setAttribute("id",'alrecommend');
+  }
+
+  function showAlRecommend(ir){
+      $recbtn[0].innerHTML='<i class="far fa-thumbs-up">'+" "+ ir.reCount;
+      $recbtn[0].setAttribute("id",'recommend');
+  }
+
+  function recommend(infoNo) {
+    fetch(RURL + '?infoNo=' + infoNo)
+            .then(res => res.json())
+            .then(ir => {
+              showRecommend(ir);
+            });
+  }
+
+  function deleteR(infoNo){
+    fetch(RURL + '?infoNo=' + infoNo,{method:'delete'})
+            .then(res => res.json())
+            .then(ir => {
+              showAlRecommend(ir);
+            });
+  }
+
+
+
+    $recbtn[0].onclick = e => {
+      if($recbtn[0].getAttribute("id")=="recommend") {
+        recommend(infoNo);
+      }else if($recbtn[0].getAttribute("id")=="alrecommend"){
+        deleteR(infoNo);
+      }
+    }
+
+
+
+
+
 </script>
 
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.champion.deliciousInfo.inforecommend.repository.InfoRecommendMapper">
+    
+    <resultMap id="irMap" type="com.champion.deliciousInfo.inforecommend.domain.InfoRecommend">
+        <id property="irNo" column="ir_no"/>
+        <result column="info_no" property="infoNo"/>
+    </resultMap>
+    <select id="getValue" resultMap="irMap">
+        select * from info_recommend
+                 where info_no=#{infoNo} and account=#{account}
+    </select>
+
+    <insert id="regist">
+        insert into info_recommend(info_no,account) values (#{infoNo},#{account})
+    </insert>
+
+    <update id="recommend">
+        update info_recommend set value=1  where info_no=#{infoNo} and account=#{account}
+    </update>
+
+    <update id="unRecommend">
+        update info_recommend set value=-1 where info_no=#{infoNo} and account=#{account}
+    </update>
+
+    <select id="getRecommendCount" resultType="int">
+        select count(*) from info_recommend
+        where info_no=#{infoNo} and value=1;
+    </select>
+
+    <select id="getUnRecommendCount" resultType="int">
+        select count(*) from info_recommend
+        where info_no=#{infoNo} and value=-1;
+    </select>
+
+    <delete id="cancel">
+        delete from info_recommend where info_no=#{infoNo} and account=#{account}
+    </delete>
+
+</mapper>

@@ -1,56 +1,71 @@
 package com.champion.deliciousInfo.reply.api;
 
 import com.champion.deliciousInfo.common.paging.Page;
+import com.champion.deliciousInfo.inforecommend.domain.InfoRecommend;
+import com.champion.deliciousInfo.inforecommend.dto.InfoRecommendDTO;
+import com.champion.deliciousInfo.inforecommend.service.InfoRecommendService;
+import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.reply.domain.InfoReply;
 import com.champion.deliciousInfo.reply.service.InfoReplyService;
 import com.champion.deliciousInfo.util.LoginUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
+import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
+
 @RestController
 @RequiredArgsConstructor
 @Log4j2
-@RequestMapping("/api/v1/inforeplies")
+@RequestMapping("/api/v1/recommend")
 @CrossOrigin
 public class InfoReplyApiController {
 
-    private final InfoReplyService infoReplyService;
+    private final InfoRecommendService infoRecommendService;
+
+
 
     @GetMapping("")
-    public Map<String, Object> list(Long infoNo, Page page) {
-        page.setAmount(5);
-        log.info("/api/v1/replies GET! bno={}, page={}", infoNo, page);
-        Map<String, Object> replies = infoReplyService.getList(infoNo, page);
-        return replies;
+    public ResponseEntity<InfoRecommendDTO> reCount(Long infoNo, HttpSession session) {
+        log.info("/api/v1/recommend GET! info={}", infoNo);
+        InfoRecommend ir = new InfoRecommend();
+        ir.setInfoNo(infoNo);
+        Member member =(Member)session.getAttribute(LOGIN_FLAG);
+        ir.setAccount(member.getAccount());
+        boolean flag = infoRecommendService.recommend(ir);
+        InfoRecommendDTO irdto = new InfoRecommendDTO();
+        if(flag){
+            irdto.setReCount(infoRecommendService.getRecommendCount(infoNo));
+            irdto.setUeCount(infoRecommendService.getUnRecommendCount(infoNo));
+            irdto.setValue(infoRecommendService.getValue(ir).getValue());
+            return new ResponseEntity<>(irdto,HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 
-    @PostMapping("")
-    public String create(@RequestBody InfoReply infoReply, HttpSession session) {
+    @DeleteMapping("")
+    public ResponseEntity<InfoRecommendDTO> delete(Long infoNo, HttpSession session) {
+        log.info("/api/v1/recommend delete! info={}", infoNo);
+        InfoRecommend ir = new InfoRecommend();
+        ir.setInfoNo(infoNo);
+        Member member =(Member)session.getAttribute(LOGIN_FLAG);
+        ir.setAccount(member.getAccount());
+        boolean flag = infoRecommendService.cancel(ir);
+        InfoRecommendDTO irdto = new InfoRecommendDTO();
+        if(flag){
+            irdto.setReCount(infoRecommendService.getRecommendCount(infoNo));
+            irdto.setUeCount(infoRecommendService.getUnRecommendCount(infoNo));
+            return new ResponseEntity<>(irdto,HttpStatus.OK);
+        }
 
-        infoReply.setReplyWriter(LoginUtils.getCurrentMemberAccount(session));
-        log.info("/api/v1/replies POST! - {}", infoReply);
-        boolean flag = infoReplyService.write(infoReply);
-        return flag ? "insert-success" : "insert-fail";
+        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 
-    @PutMapping("/{rno}")
-    public String modify(@PathVariable Long rno, @RequestBody InfoReply infoReply) {
 
-        infoReply.setReplyNo(rno);
-        log.info("/api/v1/replies PUT! - {}", infoReply);
-        boolean flag = infoReplyService.modify(infoReply);
-        return flag ? "mod-success" : "mod-fail";
-    }
-
-    @DeleteMapping("/{rno}")
-    public String delete(@PathVariable Long rno) {
-
-        log.info("/api/v1/replies DELETE! - {}", rno);
-        boolean flag = infoReplyService.remove(rno);
-        return flag ? "del-success" : "del-fail";
-    }
 }

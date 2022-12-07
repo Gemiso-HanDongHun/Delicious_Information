@@ -6,6 +6,10 @@ import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.board.repository.InfoBoardMapper;
 import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.inforecommend.domain.InfoRecommend;
+import com.champion.deliciousInfo.inforecommend.dto.InfoRecommendDTO;
+import com.champion.deliciousInfo.inforecommend.repository.InfoRecommendMapper;
+import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.mfood.domain.Mfood;
 import com.champion.deliciousInfo.mfood.domain.MfoodNutrient;
 import com.champion.deliciousInfo.mfood.repository.MfoodMapper;
@@ -24,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
+
 @Service
 @RequiredArgsConstructor
 @Log4j2
@@ -37,11 +43,14 @@ public class InfoBoardService {
 
     private final MfoodMapper mfoodMapper;
 
+    private final InfoRecommendMapper infoRecommendMapper;
+
     public List<InfoBoard> findAllService() {
         List<InfoBoard> infoBoardList = boardMapper.findAll();
         return infoBoardList;
     }
 
+    @Transactional
     public boolean regist(InfoBoard infoBoard) {
         boolean flag = boardMapper.regist(infoBoard);
         return flag;
@@ -53,11 +62,27 @@ public class InfoBoardService {
         log.info("InfoBoard findOne service start");
         InfoBoard findOne = boardMapper.findOne(infoNo);
         MfoodNutrient one = mfoodNutrientMapper.findOne(findOne);
+        InfoRecommend ir = new InfoRecommend();
+        Member member = (Member) request.getSession().getAttribute(LOGIN_FLAG);
+        ir.setInfoNo(infoNo);
+        if(member!=null) {
+            ir.setAccount(member.getAccount());
+        }
+        InfoRecommendDTO irDTO = new InfoRecommendDTO();
+        irDTO.setReCount( infoRecommendMapper.getRecommendCount(infoNo));
+        log.info("Rcount-{}",irDTO.getReCount());
+        irDTO.setUeCount( infoRecommendMapper.getUnRecommendCount(infoNo));
+        InfoRecommend fr = infoRecommendMapper.getValue(ir);
+        if(fr!=null) {
+            irDTO.setValue(fr.getValue());
+        }
+
         log.info("mfoodNutrient-{}",one);
 
         Map<String, Object> findDataMap = new HashMap<>();
         makeViewCount(infoNo,  response, request);
 
+        findDataMap.put("ir",irDTO);
         findDataMap.put("ib",findOne);
         findDataMap.put("mn",one);
         return findDataMap;
