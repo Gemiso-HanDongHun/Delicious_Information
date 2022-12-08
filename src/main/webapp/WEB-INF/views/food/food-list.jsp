@@ -99,7 +99,7 @@
             text-align: center;
             border-radius: 0.5em;
             font-size: 16px;
-            font-family: 'Ansungtangmyun-Bold';
+            font-family: 'MaplestoryOTFBold';
         }
 
         aside {
@@ -152,7 +152,7 @@
         /* td 중앙 정렬 */
         div.boxed-page table.test td {
             text-align: center;
-            font-family: 'MaplestoryOTFBold';
+            font-family: 'Ansungtangmyun-Bold';
             font-size: 17px;
         }
 
