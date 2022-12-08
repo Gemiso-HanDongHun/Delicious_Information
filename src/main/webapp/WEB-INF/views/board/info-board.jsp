@@ -116,7 +116,8 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            margin-top: 110px;
+
+            opacity: 0.5;
         }
 
         div.div_search form {
@@ -308,6 +309,11 @@
         div li {
             font-weight: 700;
         }
+
+        .dropdown-item:active {
+            background: none;
+        }
+
 
     </style>
 

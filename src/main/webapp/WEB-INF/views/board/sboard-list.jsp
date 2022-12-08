@@ -58,7 +58,6 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            margin-top: 110px;
         }
 
         div.div_search form {
@@ -264,6 +263,14 @@
 
         p#title {
             font-weight: 16;
+        }
+
+        .dropdown-item:active {
+            background: none;
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
         }
 
 

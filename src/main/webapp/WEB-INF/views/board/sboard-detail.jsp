@@ -32,7 +32,7 @@
         }
 
         body {
-            background: whitesmoke;
+            background: #ffffff;
         }
 
         div.flex-column p.maintext {
@@ -48,7 +48,11 @@
             background-image: url("/images/food-image2.jpg");
             background-size: /*353px 390px*/100% 100%;
             background-repeat: no-repeat;
-            margin: 0;
+            margin:0 0 30px 0;
+        }
+
+        .boxed-page-bottom {
+            background: #ffffff;
         }
 
         section.wrapcontent {
@@ -84,10 +88,6 @@
             background: #FFFFFF;
         }
 
-        #replies {
-            width: 46%;
-            margin: auto;
-        }
 
         #navbar-header .dropdown .dropdown-menu {
             top: 80%;
@@ -221,12 +221,7 @@
 
         #replies {
             width: 46%;
-            margin: auto;
-        }
-
-        div#replies {
-            margin-top: 70px;
-
+            margin: 0 auto 30px;
         }
 
         p#title{
@@ -341,110 +336,112 @@
         </form>
 
     </section>
+</div>
 
-    <!-- 댓글 영역 -->
 
-    <div id="replies" class="row">
-        <div class="offset-md-1 col-md-10">
-            <!-- 댓글 쓰기 영역 -->
-            <div class="card">
-                <div class="card-body">
+<div class="boxed-page-bottom">
+        <!-- 댓글 영역 -->
 
-                    <c:if test="${empty loginUser}">
-                        <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
-                    </c:if>
+        <div id="replies" class="row">
+            <div class="offset-md-1 col-md-10">
+                <!-- 댓글 쓰기 영역 -->
+                <div class="card">
+                    <div class="card-body">
 
-                    <c:if test="${not empty loginUser}">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="newReplyText" hidden>댓글 내용</label>
-                                    <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
-                                              placeholder="댓글을 입력해주세요."></textarea>
+                        <c:if test="${empty loginUser}">
+                            <a href="/member/sign-in">댓글은 로그인 후 작성 가능합니다.</a>
+                        </c:if>
+
+                        <c:if test="${not empty loginUser}">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="newReplyText" hidden>댓글 내용</label>
+                                        <textarea rows="3" id="newReplyText" name="replyText" class="form-control"
+                                                  placeholder="댓글을 입력해주세요."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="newReplyWriter" hidden>댓글 작성자</label>
+                                        <input id="newReplyWriter" name="replyWriter" type="text"
+                                               value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
+                                               readonly style="margin-bottom: 6px;">
+                                        <button id="replyAddBtn" type="button"
+                                                class="btn btn-dark form-control"
+                                                style="background: whitesmoke; color: black">등록
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="newReplyWriter" hidden>댓글 작성자</label>
-                                    <input id="newReplyWriter" name="replyWriter" type="text"
-                                           value="${loginUser.account}" class="form-control" placeholder="작성자 이름"
-                                           readonly style="margin-bottom: 6px;">
-                                    <button id="replyAddBtn" type="button"
-                                            class="btn btn-dark form-control"
-                                            style="background: whitesmoke; color: black">등록
-                                    </button>
-                                </div>
-                            </div>
+                        </c:if>
+                    </div>
+                </div> <!-- end reply write -->
+
+
+                <!--댓글 내용 영역-->
+                <div class="card">
+                    <!-- 댓글 내용 헤더 -->
+                    <div class="card-header text-white m-0" style="background:whitesmoke;">
+                        <div class="float-left" style="color: black; font-weight: 700">댓글 (<span id="replyCnt">0</span>)
                         </div>
-                    </c:if>
-                </div>
-            </div> <!-- end reply write -->
-
-
-            <!--댓글 내용 영역-->
-            <div class="card">
-                <!-- 댓글 내용 헤더 -->
-                <div class="card-header text-white m-0" style="background:whitesmoke;">
-                    <div class="float-left" style="color: black; font-weight: 700">댓글 (<span id="replyCnt">0</span>)
-                    </div>
-                </div>
-
-                <!-- 댓글 내용 바디 -->
-                <div id="replyCollapse" class="card">
-                    <div id="replyData">
-                        <!--
-                        < JS로 댓글 정보 DIV삽입 >
-                    -->
                     </div>
 
-                    <!-- 댓글 페이징 영역 -->
-                    <ul class="pagination justify-content-center">
-                        <!--
-                        < JS로 댓글 페이징 DIV삽입 >
-                    -->
-                    </ul>
-                </div>
-            </div> <!-- end reply content -->
-        </div>
-    </div> <!-- end replies row -->
+                    <!-- 댓글 내용 바디 -->
+                    <div id="replyCollapse" class="card">
+                        <div id="replyData">
+                            <!--
+                            < JS로 댓글 정보 DIV삽입 >
+                        -->
+                        </div>
 
-
-    <!-- 댓글 수정 모달 -->
-    <div class="modal fade bd-example-modal-lg" id="replyModifyModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header" style="background: whitesmoke; color: white;">
-                    <h4 class="modal-title">댓글 수정하기</h4>
-                    <button type="button" class="close text-white" data-bs-dismiss="modal">X</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input id="modReplyId" type="hidden">
-                        <label for="modReplyText" hidden>댓글내용</label>
-                        <textarea id="modReplyText" class="form-control" placeholder="수정할 댓글 내용을 입력하세요."
-                                  rows="3"></textarea>
+                        <!-- 댓글 페이징 영역 -->
+                        <ul class="pagination justify-content-center">
+                            <!--
+                            < JS로 댓글 페이징 DIV삽입 >
+                        -->
+                        </ul>
                     </div>
-                </div>
+                </div> <!-- end reply content -->
+            </div>
+        </div> <!-- end replies row -->
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button id="replyModBtn" type="button" class="btn btn-dark">수정</button>
-                    <button id="modal-close" type="button" class="btn btn-danger"
-                            data-bs-dismiss="modal">닫기
-                    </button>
+
+        <!-- 댓글 수정 모달 -->
+        <div class="modal fade bd-example-modal-lg" id="replyModifyModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header" style="background: whitesmoke; color: white;">
+                        <h4 class="modal-title">댓글 수정하기</h4>
+                        <button type="button" class="close text-white" data-bs-dismiss="modal">X</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input id="modReplyId" type="hidden">
+                            <label for="modReplyText" hidden>댓글내용</label>
+                            <textarea id="modReplyText" class="form-control" placeholder="수정할 댓글 내용을 입력하세요."
+                                      rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button id="replyModBtn" type="button" class="btn btn-dark">수정</button>
+                        <button id="modal-close" type="button" class="btn btn-danger"
+                                data-bs-dismiss="modal">닫기
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- end replyModifyModal -->
     </div>
 
-    <!-- end replyModifyModal -->
-
-
-</div>
 </body>
 <!-- bootstrap js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>

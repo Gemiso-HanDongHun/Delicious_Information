@@ -25,7 +25,7 @@
     }
 
     body{
-      background: whitesmoke;
+      background: #ffffff;
     }
 
     .boxed-page {
@@ -33,7 +33,11 @@
       background-image: url("/images/food-image2.jpg");
       background-size: /*353px 390px*/100% 100%;
       background-repeat: no-repeat;
-      margin: 0;
+      margin: 0 0 30px 0;
+    }
+
+    .boxed-page-bottom {
+      background: #ffffff;
     }
 
     div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
@@ -211,7 +215,7 @@
 
     #replies {
         width: 46%;
-        margin: auto;
+        margin: 0 auto 30px;
     }
 
     /*div.card-body a{*/
@@ -271,197 +275,203 @@
       font-weight: 700;
     }
 
+
   </style>
 </head>
 
-<body data-spy="scroll" data-target="#navbar" class="static-layout">
-<div class="boxed-page">
-  <nav id="navbar-header" class="navbar navbar-expand-lg">
-    <div class="container">
+<div data-spy="scroll" data-target="#navbar" class="static-layout">
+  <div class="boxed-page">
+    <nav id="navbar-header" class="navbar navbar-expand-lg">
+      <div class="container">
 
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
-                        <li class="nav-item active2">
-                            <a class="nav-link" id="home" href="/">Home<span class="sr-only">(current)</span></a>
-                        </li>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                  <ul id="ulwidth" class="navbar-nav d-flex justify-content-between ">
+                      <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
+                          <li class="nav-item active2">
+                              <a class="nav-link" id="home" href="/">Home<span class="sr-only">(current)</span></a>
+                          </li>
 
-                        <li class="nav-item active3">
-                            <a class="nav-link" id="list" href="/food/list">List</a>
-                        </li>
+                          <li class="nav-item active3">
+                              <a class="nav-link" id="list" href="/food/list">List</a>
+                          </li>
 
-          </div>
-          <div class="flex-column titlewidth justify-content-center">
-            <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
-          </div>
+            </div>
+            <div class="flex-column titlewidth justify-content-center">
+              <p id="title">𝓘𝓷𝓯𝓸𝓶𝓪𝓽𝓲𝓸𝓷</p>
+            </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
-                        <li class="nav-item dropdown" id="nav-li">
-                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                정보게시판
-                            </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"
-                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
-                                <a class="dropdown-item"
-                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
-                                <a class="dropdown-item"
-                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
-                            </div>
-
-            </li>
-            <c:if test="${empty loginUser}">
-              <li class="nav-item sign active4">
-                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
-              </li>
-            </c:if>
-
-
-            <c:if test="${!empty loginUser}">
-              <%--<li class="nav-item sign active5">
-                  <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
-              </li>
-              <li class="nav-item sign">
-                  <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
-              </li>--%>
-
-                            <li class="nav-item dropdown" id="nav-li">
-                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        ${loginUser.name}님
-                                </a>
-                                <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                       href="/member/info/${loginUser.account}">마이 페이지</a>
-                                    <a class="dropdown-item"
-                                       id="sign-out" href="/member/sign-out">로그아웃</a>
-                                </div>
+                      <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop" >
+                          <li class="nav-item dropdown" id="nav-li">
+                              <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  정보게시판
+                              </a>
+                              <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item"
+                                     onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                  <a class="dropdown-item"
+                                     onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                  <a class="dropdown-item"
+                                     onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                              </div>
 
               </li>
-            </c:if>
-          </div>
-        </ul>
+              <c:if test="${empty loginUser}">
+                <li class="nav-item sign active4">
+                  <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
+                </li>
+              </c:if>
+
+
+              <c:if test="${!empty loginUser}">
+                <%--<li class="nav-item sign active5">
+                    <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                </li>
+                <li class="nav-item sign">
+                    <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                </li>--%>
+
+                              <li class="nav-item dropdown" id="nav-li">
+                                  <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          ${loginUser.name}님
+                                  </a>
+                                  <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item"
+                                         href="/member/info/${loginUser.account}">마이 페이지</a>
+                                      <a class="dropdown-item"
+                                         id="sign-out" href="/member/sign-out">로그아웃</a>
+                                  </div>
+
+                </li>
+              </c:if>
+            </div>
+          </ul>
+        </div>
       </div>
+    </nav>
+
+
+    <div class="main-board">
+      <section class="main-write">
+        <div class="h1-title">
+          <h1 id="h1-title"></h1>
+        </div>
+
+        <form>
+
+          <div class="area1">
+            <div class="form-group1 foodName">
+              <label for="foodName" >음식 이름</label>
+              <input style="background-color: white" type="text" class="form-control" name="name" id="foodName" value="${fo.foodName}" disabled>
+            </div>
+
+            <div class="form-group1 foodKcal">
+              <label for="foodKcal">칼로리</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="foodKcal" id="foodKcal" value="${mn.mfood.kcal}"placeholder="kcal" disabled>
+            </div>
+
+            <div class="form-group1 sodium">
+              <label for="sodium">나트륨</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="sodium"  value="${mn.sodium}"id="sodium" disabled>
+            </div>
+          </div>
+
+          <div class="area2">
+            <div class="form-group2 carbohydrate">
+              <label for="carbohydrate">탄수화물</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="carbohydrate"value="${mn.carbohydrate}" id="carbohydrate" disabled>
+            </div>
+
+            <div class="form-group2 protein">
+              <label for="protein">단백질</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="protein" value="${mn.protein}"id="protein" disabled>
+            </div>
+
+            <div class="form-group2 fat">
+              <label for="fat">지방</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="fat" value="${mn.fat}" id="fat" disabled>
+            </div>
+          </div>
+
+          <div class="area3">
+            <div class="form-group3 vitaminA">
+              <label for="vitaminA">비타민 A</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="vitaminA" value="${mn.vitaminA}" id="vitaminA" disabled>
+            </div>
+
+            <div class="form-group3 vitaminC">
+              <label for="vitaminC">비타민 C</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="vitaminC" value="${mn.vitaminC}" id="vitaminC" disabled>
+            </div>
+
+            <div class="form-group3 vitaminE">
+              <label for="vitaminE">비타민 E</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="vitaminE" value="${mn.vitaminE}" id="vitaminE" disabled>
+            </div>
+          </div>
+
+          <div class="area4">
+            <div class="form-group4 calcium">
+              <label for="calcium">칼슘</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="calcium" value="${mn.calcium}" id="calcium" disabled>
+            </div>
+
+            <div class="form-group4 iron">
+              <label for="iron">철분</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="iron" value="${mn.iron}" id="iron" disabled>
+            </div>
+
+            <div class="form-group4 magnesium">
+              <label for="magnesium">마그네슘</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="magnesium" value="${mn.magnesium}"  id="magnesium" disabled>
+            </div>
+
+            <div class="form-group4 omega">
+              <label for="omega">오메가3</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="omega" value="${mn.omega}"  id="omega" disabled>
+            </div>
+
+
+          </div>
+
+
+
+
+
+          <div class="area5">
+            <label for="content">내용</label>
+            <textarea  style="background-color: white"  type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
+
+            <c:if test="${ir.value !=1 && ir.value !=-1 }">
+              <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+            </c:if>
+            <c:if test="${ir.value == 1 }">
+              <button class="btn btn-info recbutton" type="button" id="alrecommend"><i class="fas fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+            </c:if>
+
+            <c:if test="${ir.value == -1 }">
+              <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn btn-info recbutton" type="button" id="alunrecommend"><i class="fas fa-thumbs-down"></i> ${ir.ueCount}</button>
+            </c:if>
+
+            <c:if test="${loginUser.account == fo.writer || loginUser.grade == 'admin'}">
+              <button type="button" id="delete" >삭제</button>
+              <button type="button" id="modify" >수정</button>
+            </c:if>
+          </div>
+
+        </form>
+      </section>
     </div>
-  </nav>
 
 
-  <div class="main-board">
-    <section class="main-write">
-      <div class="h1-title">
-        <h1 id="h1-title"></h1>
-      </div>
-
-      <form>
-
-        <div class="area1">
-          <div class="form-group1 foodName">
-            <label for="foodName" >음식 이름</label>
-            <input style="background-color: white" type="text" class="form-control" name="name" id="foodName" value="${fo.foodName}" disabled>
-          </div>
-
-          <div class="form-group1 foodKcal">
-            <label for="foodKcal">칼로리</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="foodKcal" id="foodKcal" value="${mn.mfood.kcal}"placeholder="kcal" disabled>
-          </div>
-
-          <div class="form-group1 sodium">
-            <label for="sodium">나트륨</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="sodium"  value="${mn.sodium}"id="sodium" disabled>
-          </div>
-        </div>
-
-        <div class="area2">
-          <div class="form-group2 carbohydrate">
-            <label for="carbohydrate">탄수화물</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="carbohydrate"value="${mn.carbohydrate}" id="carbohydrate" disabled>
-          </div>
-
-          <div class="form-group2 protein">
-            <label for="protein">단백질</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="protein" value="${mn.protein}"id="protein" disabled>
-          </div>
-
-          <div class="form-group2 fat">
-            <label for="fat">지방</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="fat" value="${mn.fat}" id="fat" disabled>
-          </div>
-        </div>
-
-        <div class="area3">
-          <div class="form-group3 vitaminA">
-            <label for="vitaminA">비타민 A</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="vitaminA" value="${mn.vitaminA}" id="vitaminA" disabled>
-          </div>
-
-          <div class="form-group3 vitaminC">
-            <label for="vitaminC">비타민 C</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="vitaminC" value="${mn.vitaminC}" id="vitaminC" disabled>
-          </div>
-
-          <div class="form-group3 vitaminE">
-            <label for="vitaminE">비타민 E</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="vitaminE" value="${mn.vitaminE}" id="vitaminE" disabled>
-          </div>
-        </div>
-
-        <div class="area4">
-          <div class="form-group4 calcium">
-            <label for="calcium">칼슘</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="calcium" value="${mn.calcium}" id="calcium" disabled>
-          </div>
-
-          <div class="form-group4 iron">
-            <label for="iron">철분</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="iron" value="${mn.iron}" id="iron" disabled>
-          </div>
-
-          <div class="form-group4 magnesium">
-            <label for="magnesium">마그네슘</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="magnesium" value="${mn.magnesium}"  id="magnesium" disabled>
-          </div>
-
-          <div class="form-group4 omega">
-            <label for="omega">오메가3</label>
-            <input  style="background-color: white"  type="number" class="form-control" name="omega" value="${mn.omega}"  id="omega" disabled>
-          </div>
-
-
-        </div>
-
-
-
-
-
-        <div class="area5">
-          <label for="content">내용</label>
-          <textarea  style="background-color: white"  type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
-
-          <c:if test="${ir.value !=1 && ir.value !=-1 }">
-            <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
-            <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
-          </c:if>
-          <c:if test="${ir.value == 1 }">
-            <button class="btn btn-info recbutton" type="button" id="alrecommend"><i class="fas fa-thumbs-up"></i> ${ir.reCount}</button>
-            <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
-          </c:if>
-
-          <c:if test="${ir.value == -1 }">
-            <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
-            <button class="btn btn-info recbutton" type="button" id="alunrecommend"><i class="fas fa-thumbs-down"></i> ${ir.ueCount}</button>
-          </c:if>
-
-          <c:if test="${loginUser.account == fo.writer || loginUser.grade == 'admin'}">
-            <button type="button" id="delete" >삭제</button>
-            <button type="button" id="modify" >수정</button>
-          </c:if>
-        </div>
-
-      </form>
-    </section>
   </div>
+</div>
 
+<div class="boxed-page-bottom">
   <!-- 댓글 영역 -->
 
   <div id="replies" class="row">
@@ -560,8 +570,6 @@
   <!-- end replyModifyModal -->
 
 </div>
-
-
 
 
 </body>

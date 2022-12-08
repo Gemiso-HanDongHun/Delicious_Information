@@ -8,7 +8,11 @@
 
 /* 바디 하단 패딩으로 띄우기 */
 div.boxed-page {
-    padding-bottom: 25px;
+    min-height: 100vh;
+    background-image: url("/images/food-image2.jpg");
+    background-size: /*353px 390px*/ 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0;
 }
 
 /* 네비바  전체 */

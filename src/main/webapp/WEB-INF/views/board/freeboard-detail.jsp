@@ -33,7 +33,7 @@
         }
 
         body {
-            background: whitesmoke;
+            background: #ffffff;
         }
 
         .boxed-page {
@@ -41,7 +41,11 @@
             background-image: url("/images/food-image2.jpg");
             background-size: /*353px 390px*/100% 100%;
             background-repeat: no-repeat;
-            margin: 0;
+            margin:0 0 30px 0;
+        }
+
+        .boxed-page-bottom {
+            background: #ffffff;
         }
 
         section#middle {
@@ -183,11 +187,7 @@
 
         #replies {
             width: 46%;
-            margin: auto;
-        }
-
-        div#replies {
-            margin-top: 70px;
+            margin: 0 auto 30px;
         }
 
         p#title {
@@ -301,8 +301,9 @@
         </form>
     </section>
 
-
+</div>
     <!-- 댓글 영역 -->
+<div class="boxed-page-bottom">
 
     <div id="replies" class="row">
         <div class="offset-md-1 col-md-10">
@@ -401,7 +402,6 @@
     </div>
 
     <!-- end replyModifyModal -->
-
 
 </div>
 </body>

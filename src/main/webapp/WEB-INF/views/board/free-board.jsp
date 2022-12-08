@@ -142,7 +142,7 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-            margin-top: 110px;
+
         }
 
         div.div_search form {
@@ -257,6 +257,14 @@
 
         div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
             padding-top: 0px;
+        }
+
+        .dropdown-item:active {
+            background: none;
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
         }
 
 

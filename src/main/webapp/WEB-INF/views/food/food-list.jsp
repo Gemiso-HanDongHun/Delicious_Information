@@ -109,7 +109,7 @@
 
 
         div.boxed-page {
-            min-height: 960px;
+            min-height: 100vh;
             background-image: url("/images/food-image2.jpg");
             background-size: /*353px 390px*/ 100% 100%;
             background-repeat: no-repeat;
