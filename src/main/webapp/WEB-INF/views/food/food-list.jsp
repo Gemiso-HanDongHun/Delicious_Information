@@ -152,7 +152,7 @@
         /* td 중앙 정렬 */
         div.boxed-page table.test td {
             text-align: center;
-            font-family: 'Ansungtangmyun-Bold';
+            font-family: 'MaplestoryOTFBold';
             font-size: 17px;
         }
 
