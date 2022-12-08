@@ -99,7 +99,7 @@
             text-align: center;
             border-radius: 0.5em;
             font-size: 16px;
-            font-family: 'MaplestoryOTFBold';
+            font-family: 'Ansungtangmyun-Bold';
         }
 
         aside {
