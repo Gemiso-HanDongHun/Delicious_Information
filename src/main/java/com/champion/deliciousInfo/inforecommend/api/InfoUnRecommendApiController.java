@@ -17,20 +17,22 @@ import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
 @RestController
 @RequiredArgsConstructor
 @Log4j2
-@RequestMapping("/api/v1/recommend")
+@RequestMapping("/api/v1/unrecommend")
 @CrossOrigin
-public class InfoRecommendApiController {
+public class InfoUnRecommendApiController {
 
     private final InfoRecommendService infoRecommendService;
 
+
+
     @GetMapping("")
-    public ResponseEntity<InfoRecommendDTO> reCount(Long infoNo, HttpSession session) {
-        log.info("/api/v1/recommend GET! info={}", infoNo);
+    public ResponseEntity<InfoRecommendDTO> ueCount(Long infoNo, HttpSession session) {
+        log.info("/api/v1/unrecommend GET! info={}", infoNo);
         InfoRecommend ir = new InfoRecommend();
         ir.setInfoNo(infoNo);
         Member member =(Member)session.getAttribute(LOGIN_FLAG);
         ir.setAccount(member.getAccount());
-        boolean flag = infoRecommendService.recommend(ir);
+        boolean flag = infoRecommendService.unRecommend(ir);
         InfoRecommendDTO irdto = new InfoRecommendDTO();
         if(flag){
             irdto.setReCount(infoRecommendService.getRecommendCount(infoNo));
@@ -44,7 +46,7 @@ public class InfoRecommendApiController {
 
     @DeleteMapping("")
     public ResponseEntity<InfoRecommendDTO> delete(Long infoNo, HttpSession session) {
-        log.info("/api/v1/unrecommend delete! info={}", infoNo);
+        log.info("/api/v1/recommend delete! info={}", infoNo);
         InfoRecommend ir = new InfoRecommend();
         ir.setInfoNo(infoNo);
         Member member =(Member)session.getAttribute(LOGIN_FLAG);

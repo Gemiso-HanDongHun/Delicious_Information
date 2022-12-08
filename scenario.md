@@ -181,6 +181,8 @@ lemoncoat :
 
 12.07 : 추천 비추천 생성
 
+12.08 : 비추천 완료 로그인 해야만 가능
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

@@ -930,6 +930,7 @@
 
 <!--추천 비추천 관련-->
 <script>
+  const member ='${loginUser.account}';
   const infoNo=${fo.infoNo};
   const $recbtn = document.querySelectorAll(".recbutton");
 
@@ -937,13 +938,31 @@
   const RURL = '/api/v1/recommend';
   const URURL = '/api/v1/unrecommend';
   function showRecommend(ir){
-      $recbtn[0].innerHTML='<i class="fas fa-thumbs-up">'+" "+ ir.reCount;
-      $recbtn[0].setAttribute("id",'alrecommend');
+    $recbtn[0].innerHTML='<i class="fas fa-thumbs-up">'+" "+ ir.reCount;
+    $recbtn[0].setAttribute("id",'alrecommend');
+    $recbtn[1].innerHTML='<i class="far fa-thumbs-down">'+" "+ ir.ueCount;
+    $recbtn[1].setAttribute("id",'unrecommend');
   }
 
   function showAlRecommend(ir){
-      $recbtn[0].innerHTML='<i class="far fa-thumbs-up">'+" "+ ir.reCount;
-      $recbtn[0].setAttribute("id",'recommend');
+    $recbtn[0].innerHTML='<i class="far fa-thumbs-up">'+" "+ ir.reCount;
+    $recbtn[0].setAttribute("id",'recommend');
+    $recbtn[1].innerHTML='<i class="far fa-thumbs-down">'+" "+ ir.ueCount;
+    $recbtn[1].setAttribute("id",'unrecommend');
+  }
+
+  function showURecommend(ir){
+    $recbtn[0].innerHTML='<i class="far fa-thumbs-up">'+" "+ ir.reCount;
+    $recbtn[0].setAttribute("id",'recommend');
+    $recbtn[1].innerHTML='<i class="fas fa-thumbs-down">'+" "+ ir.ueCount;
+    $recbtn[1].setAttribute("id",'alunrecommend');
+  }
+
+  function showAlURecommend(ir){
+    $recbtn[0].innerHTML='<i class="far fa-thumbs-up">'+" "+ ir.reCount;
+    $recbtn[0].setAttribute("id",'recommend');
+    $recbtn[1].innerHTML='<i class="far fa-thumbs-down">'+" "+ ir.ueCount;
+    $recbtn[1].setAttribute("id",'unrecommend');
   }
 
   function recommend(infoNo) {
@@ -952,6 +971,14 @@
             .then(ir => {
               showRecommend(ir);
             });
+  }
+
+  function unrecommend(infoNo) {
+      fetch(URURL + '?infoNo=' + infoNo)
+          .then(res => res.json())
+          .then(ir => {
+              showURecommend(ir);
+          });
   }
 
   function deleteR(infoNo){
@@ -963,14 +990,39 @@
   }
 
 
+  function deleteUR(infoNo){
+    fetch(URURL + '?infoNo=' + infoNo,{method:'delete'})
+            .then(res => res.json())
+            .then(ir => {
+              showAlURecommend(ir);
+            });
+  }
+
+
 
     $recbtn[0].onclick = e => {
-      if($recbtn[0].getAttribute("id")=="recommend") {
-        recommend(infoNo);
-      }else if($recbtn[0].getAttribute("id")=="alrecommend"){
-        deleteR(infoNo);
+    if(member!==''){
+        if($recbtn[0].getAttribute("id")=="recommend") {
+          recommend(infoNo);
+        }else if($recbtn[0].getAttribute("id")=="alrecommend"){
+          deleteR(infoNo);
+        }
+      }else{
+      alert("로그인 후 이용할 수 있습니다.")
       }
     }
+
+  $recbtn[1].onclick = e => {
+    if(member!=='') {
+      if ($recbtn[1].getAttribute("id") == "unrecommend") {
+        unrecommend(infoNo);
+      } else if ($recbtn[1].getAttribute("id") == "alunrecommend") {
+        deleteUR(infoNo);
+      }
+    }else{
+      alert("로그인 후 이용할 수 있습니다.")
+    }
+  }
 
 
 
