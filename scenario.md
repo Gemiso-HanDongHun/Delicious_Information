@@ -183,6 +183,8 @@ lemoncoat :
 
 12.08 : 비추천 완료 로그인 해야만 가능
 
+12.12 : 배포파일 카카오로그인 가능 오류 수정
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 
