@@ -67,7 +67,7 @@
 
         select * from food_nutrient
         where carbohydrate < #{carbohydrate} and protein < #{protein} and fat < #{fat}
-        ORDER BY carbohydrate,protei,fat
+
         ]]>
 
     </select>
