@@ -218,7 +218,7 @@
             </div>
 
             <div class="kakao">
-                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAppKey}&redirect_uri=http://deliciou-info.shop${kakaoRedirect}&response_type=code&prompt=login">
+                <a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakaoAppKey}&redirect_uri=http://ec2-35-79-166-220.ap-northeast-1.compute.amazonaws.com${kakaoRedirect}&response_type=code&prompt=login">
                     <img src="/images/kakao_login_large_wide.png" alt="카카오 로그인">
                 </a>
             </div>
