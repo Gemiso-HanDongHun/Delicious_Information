@@ -89,7 +89,6 @@
             height: 45px;
             border: 0;
             border-radius: 2em;
-            margin-top: 40px;
             background-color: whitesmoke;
         }
 

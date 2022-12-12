@@ -43,7 +43,8 @@
 
         .boxed-page .loginform {
             width: 25%;
-            height: 50vh;
+            height: 60%;
+            min-width: 200px;
             position: relative;
             margin: auto;
             top: 120px;
@@ -64,7 +65,7 @@
 
         .boxed-page .loginform .login .title h1 {
             text-align: center;
-            font-size: 1vw;
+            font-size: 2.5vh;
             margin-bottom: 30px;
         }
 
@@ -76,6 +77,7 @@
             border-radius: 1.5em;
             border: 1px solid #f4ede5;
             padding: 15px;
+            font-size: 1.8vh;
         }
 
         #memberps {
@@ -86,6 +88,7 @@
             border-radius: 1.5em;
             border: 1px solid #f4ede5;
             padding: 15px;
+            font-size: 1.8vh;
         }
 
         #memberid:focus, #memberps:focus {
@@ -107,6 +110,7 @@
             margin: 0 auto 15px auto;
             border: none;
             border-radius: 2em;
+            font-size: 2vh;
         }
 
         .boxed-page .loginform #login:hover, .boxed-page .loginform #regist:hover {
@@ -116,15 +120,20 @@
             color: #ffffff;
         }
 
-        .boxed-page .loginform p {
+        .boxed-page .loginform .p {
             width: 90%;
+            min-width: 100px;
+            height: 1.5vh;
             display: block;
             margin: auto;
             text-align: center;
+            font-size: 1.5vh;
         }
 
         .boxed-page .loginform .kakao a img {
             width: 90%;
+            height: 6vh;
+            min-height: 5vh;
             display: block;
             margin: 20px auto;
         }
@@ -214,7 +223,7 @@
             </div>
 
             <div class="p">
-                <p style="text-align: center">------------ or connect with ------------</p>
+                <p style="text-align: center">---------- or connect with ----------</p>
             </div>
 
             <div class="kakao">
