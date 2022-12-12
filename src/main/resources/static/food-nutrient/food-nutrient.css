@@ -10,8 +10,9 @@ div.flex-column li {
 }
 
 #nene {
-    margin-left: 280px;
+    margin-left: 220px;
     margin-bottom: 4px;
+    width: 100px;
 }
 
 #nene:hover{
@@ -20,6 +21,38 @@ div.flex-column li {
 }
 
 #nene:hover {
+    color: #f44336;
+    cursor: pointer;
+}
+
+#nene2 {
+    margin-left: 2px;
+    margin-bottom: 4px;
+    width: 100px;
+}
+
+#nene2:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+#nene2:hover {
+    color: #f44336;
+    cursor: pointer;
+}
+
+#sign-out {
+    margin-left: 2px;
+    margin-bottom: 4px;
+    width: 100px;
+}
+
+#sign-out:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+#sign-out:hover {
     color: #f44336;
     cursor: pointer;
 }
@@ -34,7 +67,6 @@ table.reco {
     padding-top: 20px;
     margin-left: 750px;
     position: absolute;
-    height: 400px;
     z-index: 1200;
 }
 table.recommend-nutrients {

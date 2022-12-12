@@ -47,7 +47,7 @@ URL: https://gettemplates.co
     <style>
 
 
-        #navbar-header .navbar-nav .dropdown-menu{
+        #navbar-header .navbar-nav .dropdown-menu {
             border: 2px solid lightgrey;
             box-shadow: none;
         }
@@ -86,46 +86,46 @@ URL: https://gettemplates.co
             font-style: normal;
         }
 
-        table.recommend-nutrients tr#lili td{
+        table.recommend-nutrients tr#lili td {
             font-family: 'MaplestoryOTFBold';
         }
 
-        div p5{
+        div p5 {
             font-family: 'MaplestoryOTFBold';
         }
 
-        aside{
+        aside {
             font-family: 'MaplestoryOTFBold';
         }
 
-        div.nt_row h4{
+        div.nt_row h4 {
             font-family: 'MaplestoryOTFBold';
             font-size: 14px;
         }
 
-        h4#m1, #m2, #m3, #m4, #m5, #m6, #m7, #m8, #m9, #m10, #m11{
+        h4#m1, #m2, #m3, #m4, #m5, #m6, #m7, #m8, #m9, #m10, #m11 {
             font-size: 14px;
             margin-top: 2px;
         }
 
-        h4#p1, #excess, #excess2{
+        h4#p1, #excess, #excess2 {
             font-size: 14px;
             margin-top: 7px;
         }
 
-        div p4{
+        div p4 {
             font-family: 'MaplestoryOTFBold';
 
             font-size: 15px;
         }
 
-        tr#li th{
+        tr#li th {
             font-family: 'MaplestoryOTFBold';
 
             font-size: 16px;
         }
 
-        div.mb-5 h2{
+        div.mb-5 h2 {
             font-family: 'MaplestoryOTFBold';
         }
 
@@ -182,6 +182,27 @@ URL: https://gettemplates.co
                         </li>
                     </div>
                 </ul>
+
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <div class="d-flex flex-lg-row flex-column">
+
+
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item">
+                                <a class="nav-link" id="nene2"
+                                   onclick="location.href='/member/sign-in'">로그인</a>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${!empty loginUser}">
+                            <li class="nav-item">
+                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                            </li>
+                        </c:if>
+
+                    </div>
+                </ul>
+
             </div>
         </div>
     </nav>
@@ -200,6 +221,14 @@ URL: https://gettemplates.co
                 </div>
             </div>
         </aside>
+
+        <script>
+            function signOut() {
+                if (confirm('로그아웃하시겠습니까?')) {
+                    location.href = '/member/sign-out';
+                }
+            }
+        </script>
 
 
         <div class="container">
@@ -226,13 +255,24 @@ URL: https://gettemplates.co
                             <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
-                        <c:forEach var="f" begin="0" end="17" items="${tl}">
+                        <c:if test="${!empty loginUser}">
+                            <c:forEach var="f" begin="0" end="17" items="${tl}">
+                                <tr id="lili">
+
+                                    <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+
+                        <c:if test="${empty loginUser}">
                             <tr id="lili">
 
-                                <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
 
                             </tr>
-                        </c:forEach>
+                        </c:if>
 
                     </table>
 
@@ -245,13 +285,23 @@ URL: https://gettemplates.co
                             <th>추천 영양제</th>
                         </tr>
 
-                        <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                        <c:if test="${!empty loginUser}">
+                            <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                                <tr id="lili">
+
+                                    <td>${sm.name}</td>
+
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty loginUser}">
                             <tr id="lili">
 
-                                <td>${sm.name}</td>
+                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
 
                             </tr>
-                        </c:forEach>
+                        </c:if>
 
                     </table>
 
@@ -284,7 +334,7 @@ URL: https://gettemplates.co
                                         </div>
                                         <div class="col-4">
                                             <h4 class="text-muted menu-price"
-                                                style="color: lightcoral"  id="m2">${fn.protein}g</h4>
+                                                style="color: lightcoral" id="m2">${fn.protein}g</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -312,7 +362,7 @@ URL: https://gettemplates.co
                                             <h4>⠀⠀나트륨</h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 class="text-muted menu-price"  id="m4">${fn.sodium}mg</h4>
+                                            <h4 class="text-muted menu-price" id="m4">${fn.sodium}mg</h4>
                                         </div>
                                     </div>
                                     <p></p>
@@ -339,8 +389,10 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.carbohydrate < 0}">
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess" >초과</h4>
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" >(${tn.carbohydrate}g)</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">
+                                                    초과</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">
+                                                    (${tn.carbohydrate}g)</h4>
                                             </c:if>
 
                                         </div>
@@ -361,8 +413,10 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.protein < 0}">
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">초과</h4>
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">(${tn.protein}g)</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">
+                                                    초과</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">
+                                                    (${tn.protein}g)</h4>
                                             </c:if>
                                         </div>
                                     </div>
@@ -383,8 +437,10 @@ URL: https://gettemplates.co
 
 
                                             <c:if test="${tn.fat<0}">
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">초과</h4>
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">(${tn.fat}g)</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">
+                                                    초과</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">
+                                                    (${tn.fat}g)</h4>
                                             </c:if>
 
                                         </div>
@@ -406,8 +462,10 @@ URL: https://gettemplates.co
 
 
                                             <c:if test="${tn.sodium<0}">
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">초과</h4>
-                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">(${tn.sodium}mg)</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess">
+                                                    초과</h4>
+                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2">
+                                                    (${tn.sodium}mg)</h4>
                                             </c:if>
 
 
@@ -504,8 +562,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.vitaminA<=0}">
-                                                <h4 style="color: blue; width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminA}µg)</h4>--%>
+                                                <h4 style="color: blue; width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminA}µg)</h4>--%>
                                             </c:if>
 
 
@@ -527,8 +586,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.vitaminC <= 0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminC}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminC}mg)</h4>--%>
                                             </c:if>
 
                                         </div>
@@ -549,8 +609,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.vitaminE <= 0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminE}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.vitaminE}mg)</h4>--%>
                                             </c:if>
 
                                         </div>
@@ -571,8 +632,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.omega <= 0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.omega}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.omega}mg)</h4>--%>
                                             </c:if>
 
                                         </div>
@@ -649,8 +711,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.calcium <= 0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.calcium}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.calcium}mg)</h4>--%>
                                             </c:if>
 
                                         </div>
@@ -671,8 +734,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.iron<=0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.iron}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.iron}mg)</h4>--%>
                                             </c:if>
 
                                         </div>
@@ -694,8 +758,9 @@ URL: https://gettemplates.co
                                             </c:if>
 
                                             <c:if test="${tn.magnesium <= 0}">
-                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;" id="excess2" id="excess">충족</h4>
-<%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.magnesium}mg)</h4>--%>
+                                                <h4 style="color: blue;  width: 40px;  font-size: 15px; margin-top: 1px;"
+                                                    id="excess2" id="excess">충족</h4>
+                                                <%--                                                <h4 style="color: blue; font-size: 14px; margin-top: 1px;" id="excess2" id="excess2">(${tn.magnesium}mg)</h4>--%>
                                             </c:if>
 
                                         </div>

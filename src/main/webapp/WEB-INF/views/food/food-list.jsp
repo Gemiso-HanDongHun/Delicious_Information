@@ -343,11 +343,11 @@
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
+
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-up" href="/member/sign-up">회원가입</a>
                             </li>
                         </c:if>
-
 
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">

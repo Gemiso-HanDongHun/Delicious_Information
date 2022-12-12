@@ -81,6 +81,23 @@ URL: https://gettemplates.co
             padding: 10px;
         }
 
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        a.btn-lg{
+            font-family: 'MaplestoryOTFBold';
+            font-size: 16px;
+            color: whitesmoke;
+        }
+
+        a.btn-lg:hover{
+            color: black;
+        }
+
     </style>
 
 
@@ -175,7 +192,7 @@ URL: https://gettemplates.co
                         <!--                            Play Video-->
                         <!--                        </a>-->
                         <a class="btn btn-primary btn-shadow btn-lg"
-                           href="/food-about" role="button" style="color: #ffffff">About</a>
+                           href="/food-about" role="button" >About</a>
                     </div>
 
                     <ul class="hero-info list-unstyled d-flex text-center mb-0">

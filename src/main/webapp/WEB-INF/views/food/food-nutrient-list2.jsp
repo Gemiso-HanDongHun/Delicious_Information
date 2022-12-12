@@ -206,6 +206,27 @@ URL: https://gettemplates.co
                         </li>
                     </div>
                 </ul>
+
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <div class="d-flex flex-lg-row flex-column">
+
+
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item">
+                                <a class="nav-link" id="nene2"
+                                   onclick="location.href='/member/sign-in'">로그인</a>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${!empty loginUser}">
+                            <li class="nav-item">
+                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                            </li>
+                        </c:if>
+
+                    </div>
+                </ul>
+
             </div>
         </div>
     </nav>
@@ -314,6 +335,13 @@ URL: https://gettemplates.co
                         showFoodData(myList);
                     });
             });
+
+            function signOut() {
+                if (confirm('로그아웃하시겠습니까?')) {
+                    location.href = '/member/sign-out';
+                }
+            }
+
         </script>
 
         <div class="container">
@@ -341,13 +369,23 @@ URL: https://gettemplates.co
                             <th>부족한 영양분을 채워줄 음식</th>
                         </tr>
 
-                        <c:forEach var="f" begin="0" end="17" items="${tl}">
+                        <c:if test="${!empty loginUser}">
+                            <c:forEach var="f" begin="0" end="17" items="${tl}">
+                                <tr id="lili">
+
+                                    <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty loginUser}">
                             <tr id="lili">
 
-                                <td onclick="location.href='/food/nutrient/${f.food.foodNo}'">${f.food.name}(${f.food.kcal}kcal)</td>
+                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
 
                             </tr>
-                        </c:forEach>
+                        </c:if>
 
                     </table>
 
@@ -373,7 +411,7 @@ URL: https://gettemplates.co
                         <c:if test="${empty loginUser}">
                             <tr id="lili">
 
-                                <td onclick="location.href='/member/login'">회원만 이용 할 수 있습니다.</td>
+                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
 
                             </tr>
                         </c:if>

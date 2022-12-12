@@ -42,6 +42,13 @@ URL: https://gettemplates.co
 
     <style>
 
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .flex-column {
             margin-top: 40px;
             /*font-size: 17px;*/
@@ -79,6 +86,7 @@ URL: https://gettemplates.co
         }
 
         div.ml-md-5 p {
+            font-family: 'MaplestoryOTFBold';
             font-size: 18px;
             margin: 25px;
             padding: 10px;
@@ -92,6 +100,7 @@ URL: https://gettemplates.co
 
         div.thumb-menu h6 {
             color: dimgray;
+
         }
 
         .thumb-menu {
@@ -103,16 +112,13 @@ URL: https://gettemplates.co
             box-shadow: none;
         }
 
-        @font-face {
-            font-family: 'MaplestoryOTFBold';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         div li {
             font-family: 'MaplestoryOTFBold';
             font-weight: 800;
+        }
+
+        h6{
+            font-family: 'MaplestoryOTFBold';
         }
 
     </style>

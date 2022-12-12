@@ -39,7 +39,6 @@
         where food.food_no=#{foodNo}
     </select>
 
-
     <insert id="save">
         insert into food_nutrient
         (carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium,
