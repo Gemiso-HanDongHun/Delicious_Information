@@ -149,7 +149,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="excelForm">
                         <div class="form-group">
                             <label for="excel">Excel File</label>
                             <div class="input-group">
@@ -204,7 +204,7 @@
 
     $excelButton.onclick = function () {
         if (isExcel()) {
-            const $form = document.querySelector("form");
+            const $form = document.querySelector("#excelForm");
             $form.method = "post";
             $form.action = "/admin/food/write/excel"
             $form.encoding = "multipart/form-data";
