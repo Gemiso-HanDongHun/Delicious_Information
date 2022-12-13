@@ -9,9 +9,15 @@
     <%@include file="./include/header_css.jsp" %>
 
     <style>
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         body {
-            /*background-color: whitesmoke;*/
+            font-family: 'MaplestoryOTFBold';
             margin: 0px;
         }
 
@@ -99,12 +105,10 @@
             text-align: center;
             border-radius: 0.5em;
             font-size: 16px;
-            font-family: 'MaplestoryOTFBold';
         }
 
         aside {
             font-size: 15px;
-            font-family: 'MaplestoryOTFBold';
         }
 
 
@@ -152,7 +156,6 @@
         /* td 중앙 정렬 */
         div.boxed-page table.test td {
             text-align: center;
-            font-family: 'MaplestoryOTFBold';
             font-size: 17px;
         }
 
@@ -179,7 +182,6 @@
         }
 
         div.div_search form {
-
             width: 100%;
             display: flex;
             justify-content: center;
@@ -279,7 +281,6 @@
         }
 
         div li {
-            font-family: 'MaplestoryOTFBold';
             font-weight: 900;
         }
 

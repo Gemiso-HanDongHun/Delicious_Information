@@ -1,9 +1,13 @@
 /* 외부 무료 폰트*/
 @font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'MaplestoryOTFBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
+}
+
+body {
+    font-family: 'MaplestoryOTFBold';
 }
 
 /* 바디 하단 패딩으로 띄우기 */
@@ -117,7 +121,6 @@ div.boxed-page section.top-area div.top-p {
 }
 
 div.boxed-page section.top-area div.top-p h1 {
-    font-family: 'LINESeedKR-Bd';
     margin-bottom: 30px;
     color: #6c6c6c;
 }
@@ -129,7 +132,6 @@ div.boxed-page section.top-area div.top-p p {
     text-indent: 1em;
     line-height: 160%;
     text-align: justify;
-    font-family: 'LINESeedKR-Bd';
 }
 
 div.boxed-page section.bottom-area  {
@@ -141,7 +143,6 @@ div.boxed-page section.bottom-area  {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
     border-radius: 1.5em;
     background:  #f4ede5;
-    font-family: 'LINESeedKR-Bd';
 }
 
 div.boxed-page section.bottom-area div.detail2 h2 {

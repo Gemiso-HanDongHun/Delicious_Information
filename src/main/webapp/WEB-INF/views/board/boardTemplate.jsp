@@ -15,8 +15,11 @@
       font-style: normal;
     }
 
-    div li {
+    body {
       font-family: 'MaplestoryOTFBold';
+    }
+
+    div li {
       font-weight: 800;
     }
 

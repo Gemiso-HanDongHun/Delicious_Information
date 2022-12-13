@@ -9,6 +9,7 @@
 
         <id column="nutrient_no" property="nutrientNo" />
         <result property="carbohydrate" column="carbohydrate"/>
+        <result property="servingSize" column="serving_size"/>
         <result property="protein" column="protein"/>
         <result property="fat" column="fat"/>
         <result property="vitaminA" column="vitamin_a"/>
@@ -29,7 +30,7 @@
     <select id="findOne" resultMap="mfoodNutrientMap">
         select nutrient_no, carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e,
                calcium, iron, magnesium, sodium, omega,
-               food_no
+               food_no, serving_size
         from m_food_nutrient
         where nutrient_no=#{mfoodNutrient}
     </select>
@@ -48,16 +49,17 @@
     <insert id="save">
         insert into m_food_nutrient
         (carbohydrate, protein, fat, vitamin_a, vitamin_c, vitamin_e, calcium,
-         iron, magnesium, sodium, omega, food_no)
+         iron, magnesium, sodium, omega, food_no,serving_size)
         values (#{carbohydrate},#{protein},#{fat},#{vitaminA},#{vitaminC},#{vitaminE},#{calcium}
-        ,#{iron},#{magnesium},#{sodium},#{omega},LAST_INSERT_ID())
+        ,#{iron},#{magnesium},#{sodium},#{omega},LAST_INSERT_ID(),#{servingSize})
     </insert>
 
     <update id="modify">
         UPDATE m_food_nutrient SET carbohydrate=#{carbohydrate},protein=#{protein}, fat=#{fat},
                                  vitamin_a=#{vitaminA},vitamin_c=#{vitaminC},
                                  vitamin_e=#{vitaminE}, calcium=#{calcium},iron=#{iron},
-                                 magnesium=#{magnesium},sodium=#{sodium},omega=#{omega}
+                                 magnesium=#{magnesium},sodium=#{sodium},omega=#{omega},
+                                   serving_size=${servingSize}
         WHERE nutrient_no=#{nutrientNo}
     </update>
 

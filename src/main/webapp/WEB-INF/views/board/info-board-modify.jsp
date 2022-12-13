@@ -20,8 +20,18 @@
             font-style: normal;
         }
 
-        div li {
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+        .dropdown-item:active {
+            background: none;
+        }
+
+        div li {
             font-weight: 800;
         }
 
@@ -149,6 +159,7 @@
             margin: auto;
         }
         div.main-board section.main-write div.h1-title #h1-title {
+            font-family: 'MaplestoryOTFBold';
             text-align: center;
             font-size: 24px;
             font-weight: 600;
@@ -193,13 +204,14 @@
         }
 
         div.main-board section.main-write div.area3 div.form-group3 {
-            width: 30%;
+            width: 22%;
             float: left;
         }
 
         div.main-board section.main-write div.area3 div.vitaminA,
-        div.main-board section.main-write div.area3 div.vitaminC{
-            margin-right: 5%;
+        div.main-board section.main-write div.area3 div.vitaminC,
+        div.main-board section.main-write div.area3 div.vitaminE {
+            margin-right: 4%;
         }
 
         div.main-board section.main-write div.area4 div.form-group4 {
@@ -347,9 +359,9 @@
                         <input type="number" class="form-control" name="kcal" id="foodKcal" value="${mn.mfood.kcal}" placeholder="kcal">
                     </div>
 
-                    <div class="form-group1 sodium">
-                        <label for="sodium">나트륨</label>
-                        <input type="number" class="form-control" name="sodium" value="${mn.sodium}" id="sodium">
+                    <div class="form-group1 servingSize">
+                        <label for="servingSize">1일 권장량</label>
+                        <input type="number" class="form-control" name="servingSize" id="servingSize" value="${mn.servingSize}" placeholder="g">
                     </div>
                 </div>
 
@@ -384,6 +396,11 @@
                     <div class="form-group3 vitaminE">
                         <label for="vitaminE">비타민 E</label>
                         <input type="number" class="form-control" name="vitaminE" value="${mn.vitaminE}" id="vitaminE">
+                    </div>
+
+                    <div class="form-group3 sodium">
+                        <label for="sodium">나트륨</label>
+                        <input type="number" class="form-control" name="sodium" id="sodium" value="${mn.sodium}">
                     </div>
                 </div>
 

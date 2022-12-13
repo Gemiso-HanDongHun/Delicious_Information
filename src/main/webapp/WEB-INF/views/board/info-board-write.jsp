@@ -20,8 +20,18 @@
             font-style: normal;
         }
 
-        div li {
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+        .dropdown-item:active {
+            background: none;
+        }
+
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        div li {
             font-weight: 800;
         }
 
@@ -131,7 +141,7 @@
         }
 
         div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
-            padding-top: 0px;
+            padding-top: 0;
         }
 
 
@@ -151,6 +161,7 @@
         }
 
         div.main-board section.main-write div.h1-title #h1-title {
+            font-family: 'MaplestoryOTFBold';
             text-align: center;
             font-size: 24px;
             font-weight: 600;
@@ -195,13 +206,14 @@
         }
 
         div.main-board section.main-write div.area3 div.form-group3 {
-            width: 30%;
+            width: 22%;
             float: left;
         }
 
         div.main-board section.main-write div.area3 div.vitaminA,
-        div.main-board section.main-write div.area3 div.vitaminC {
-            margin-right: 5%;
+        div.main-board section.main-write div.area3 div.vitaminC,
+        div.main-board section.main-write div.area3 div.vitaminE {
+            margin-right: 4%;
         }
 
         div.main-board section.main-write div.area4 div.form-group4 {
@@ -340,7 +352,7 @@
                 <div class="area1">
                     <div class="form-group1 foodName ">
                         <label for="foodName">음식 이름</label>
-                        <input type="text" class="form-control" name="name" id="foodName" value="">
+                        <input type="text" class="form-control" name="name" id="foodName" >
                     </div>
 
                     <div class="form-group1 foodKcal">
@@ -348,65 +360,71 @@
                         <input type="number" class="form-control" name="kcal" id="foodKcal" placeholder="kcal">
                     </div>
 
-                    <div class="form-group1 sodium">
-                        <label for="sodium">나트륨</label>
-                        <input type="number" class="form-control" name="sodium" id="sodium">
+                    <div class="form-group1 servingSize">
+                        <label for="servingSize">1일 권장량</label>
+                        <input type="number" class="form-control" name="servingSize" id="servingSize" placeholder="g">
                     </div>
+
                 </div>
 
                 <div class="area2">
                     <div class="form-group2 carbohydrate">
                         <label for="carbohydrate">탄수화물</label>
-                        <input type="number" class="form-control" name="carbohydrate" id="carbohydrate">
+                        <input type="number" class="form-control" name="carbohydrate" id="carbohydrate" placeholder="g">
                     </div>
 
                     <div class="form-group2 protein">
                         <label for="protein">단백질</label>
-                        <input type="number" class="form-control" name="protein" id="protein">
+                        <input type="number" class="form-control" name="protein" id="protein" placeholder="g">
                     </div>
 
                     <div class="form-group2 fat">
                         <label for="fat">지방</label>
-                        <input type="number" class="form-control" name="fat" id="fat">
+                        <input type="number" class="form-control" name="fat" id="fat" placeholder="g">
                     </div>
                 </div>
 
                 <div class="area3">
                     <div class="form-group3 vitaminA">
                         <label for="vitaminA">비타민 A</label>
-                        <input type="number" class="form-control" name="vitaminA" id="vitaminA">
+                        <input type="number" class="form-control" name="vitaminA" id="vitaminA" placeholder="㎍">
                     </div>
 
                     <div class="form-group3 vitaminC">
                         <label for="vitaminC">비타민 C</label>
-                        <input type="number" class="form-control" name="vitaminC" id="vitaminC">
+                        <input type="number" class="form-control" name="vitaminC" id="vitaminC" placeholder="mg">
                     </div>
 
                     <div class="form-group3 vitaminE">
                         <label for="vitaminE">비타민 E</label>
-                        <input type="number" class="form-control" name="vitaminE" id="vitaminE">
+                        <input type="number" class="form-control" name="vitaminE" id="vitaminE" placeholder="mg">
+                    </div>
+
+                    <div class="form-group3 sodium">
+                        <label for="sodium">나트륨</label>
+                        <input type="number" class="form-control" name="sodium" id="sodium" placeholder="mg">
                     </div>
                 </div>
 
                 <div class="area4">
                     <div class="form-group4 calcium">
                         <label for="calcium">칼슘</label>
-                        <input type="number" class="form-control" name="calcium" id="calcium">
+                        <input type="number" class="form-control" name="calcium" id="calcium" placeholder="mg">
                     </div>
 
                     <div class="form-group4 iron">
                         <label for="iron">철분</label>
-                        <input type="number" class="form-control" name="iron" id="iron">
+                        <input type="number" class="form-control" name="iron" id="iron" placeholder="㎍">
                     </div>
 
                     <div class="form-group4 magnesium">
                         <label for="magnesium">마그네슘</label>
-                        <input type="number" class="form-control" name="magnesium" id="magnesium">
+                        <input type="number" class="form-control" name="magnesium" id="magnesium" placeholder="mg">
                     </div>
 
                     <div class="form-group4 omega">
                         <label for="omega">오메가3</label>
-                        <input type="number" class="form-control" name="omega" id="omega">
+                        <input type="number" class="form-control" name="omega" id="omega" placeholder="g">
                     </div>
                 </div>
 
@@ -433,6 +451,7 @@
     const $regist = document.querySelector("#regist");
     const $foodName = document.querySelector("#foodName");
     const $foodK = document.querySelector("#foodKcal");
+    const $servingSize = document.querySelector("#servingSize");
 
     function isValiDate(){
         if($foodName.value.trim()=="") {
@@ -440,6 +459,9 @@
             return false;
         }else if($foodK.value.trim()==""){
             alert("칼로리를 입력해주세요");
+            return false;
+        }else if($servingSize.value.trim()==""){
+            alert("1일 권장량을 입력해주세요");
             return false;
         }
         return true;

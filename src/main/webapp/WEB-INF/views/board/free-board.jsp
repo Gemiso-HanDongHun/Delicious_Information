@@ -11,7 +11,6 @@
     <style>
 
 
-
         #navbar-header .navbar-nav .dropdown-menu{
             border: 2px solid lightgrey;
             box-shadow: none;
@@ -24,8 +23,11 @@
             font-style: normal;
         }
 
-        div li {
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        div li {
             font-weight: 800;
         }
 

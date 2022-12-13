@@ -19,8 +19,11 @@
       font-style: normal;
     }
 
-    div li {
+    body {
       font-family: 'MaplestoryOTFBold';
+    }
+
+    div li {
       font-weight: 800;
     }
 
@@ -90,8 +93,14 @@
       width: 50%;
       margin: auto;
     }
+
     div.main-board section.main-write div.h1-title #h1-title {
+      font-family: 'MaplestoryOTFBold';
       text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      margin-top: 15px;
     }
 
     div.main-board section.main-write div input:focus {
@@ -131,13 +140,14 @@
     }
 
     div.main-board section.main-write div.area3 div.form-group3 {
-      width: 30%;
+      width: 22%;
       float: left;
     }
 
     div.main-board section.main-write div.area3 div.vitaminA,
-    div.main-board section.main-write div.area3 div.vitaminC{
-      margin-right: 5%;
+    div.main-board section.main-write div.area3 div.vitaminC,
+    div.main-board section.main-write div.area3 div.vitaminE {
+      margin-right: 4%;
     }
 
     div.main-board section.main-write div.area4 div.form-group4 {
@@ -185,6 +195,11 @@
     #navbar-header .dropdown {
       top: 65%;
       height: 1px;
+    }
+
+    #navbar-header .navbar-nav .dropdown-menu{
+      border: 2px solid lightgrey;
+      box-shadow: none;
     }
 
     div.flex-column li a.dropdown-item{ /*drop a태그 height 크기*/
@@ -275,6 +290,10 @@
       font-weight: 700;
     }
 
+    .dropdown-item:active {
+      background: none;
+    }
+
 
   </style>
 </head>
@@ -355,7 +374,7 @@
     <div class="main-board">
       <section class="main-write">
         <div class="h1-title">
-          <h1 id="h1-title"></h1>
+          <h1 id="h1-title">정보게시판</h1>
         </div>
 
         <form>
@@ -368,12 +387,12 @@
 
             <div class="form-group1 foodKcal">
               <label for="foodKcal">칼로리</label>
-              <input  style="background-color: white"  type="number" class="form-control" name="foodKcal" id="foodKcal" value="${mn.mfood.kcal}"placeholder="kcal" disabled>
+              <input  style="background-color: white"  type="number" class="form-control" name="foodKcal" id="foodKcal" value="${mn.mfood.kcal}" disabled>
             </div>
 
-            <div class="form-group1 sodium">
-              <label for="sodium">나트륨</label>
-              <input  style="background-color: white"  type="number" class="form-control" name="sodium"  value="${mn.sodium}"id="sodium" disabled>
+            <div class="form-group1 servingSize">
+              <label for="servingSize">1일 권장량</label>
+              <input style="background-color: white" type="number" class="form-control" name="servingSize" id="servingSize" value="${mn.servingSize}" disabled>
             </div>
           </div>
 
@@ -408,6 +427,11 @@
             <div class="form-group3 vitaminE">
               <label for="vitaminE">비타민 E</label>
               <input  style="background-color: white"  type="number" class="form-control" name="vitaminE" value="${mn.vitaminE}" id="vitaminE" disabled>
+            </div>
+
+            <div class="form-group3 sodium">
+              <label for="sodium">나트륨</label>
+              <input  style="background-color: white"  type="number" class="form-control" name="sodium"  value="${mn.sodium}"id="sodium" disabled>
             </div>
           </div>
 

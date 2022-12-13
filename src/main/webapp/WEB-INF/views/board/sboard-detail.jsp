@@ -26,8 +26,18 @@
             font-style: normal;
         }
 
-        div li {
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+        .dropdown-item:active {
+            background: none;
+        }
+
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        div li {
             font-weight: 800;
         }
 

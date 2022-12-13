@@ -20,13 +20,23 @@
             font-style: normal;
         }
 
-        div li {
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        div li {
             font-weight: 800;
         }
 
         body {
             background: whitesmoke;
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+        .dropdown-item:active {
+            background: none;
         }
 
         .boxed-page {

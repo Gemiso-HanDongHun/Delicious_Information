@@ -21,8 +21,11 @@
             font-style: normal;
         }
 
-        div li {
+        body {
             font-family: 'MaplestoryOTFBold';
+        }
+
+        div li {
             font-weight: 800;
         }
 
@@ -68,6 +71,13 @@
         #navbar-header .dropdown {
             top: 65%;
             height: 1px;
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+        .dropdown-item:active {
+            background: none;
         }
 
         .boxed-page {
@@ -148,8 +158,10 @@
         }
 
         h1 {
+            font-family: 'MaplestoryOTFBold';
             font-weight: 600;
             font-size: 24px;
+
         }
 
         div.liParent li {

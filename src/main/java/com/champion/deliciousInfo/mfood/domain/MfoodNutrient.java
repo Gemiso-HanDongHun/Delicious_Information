@@ -14,6 +14,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class MfoodNutrient {
     private Integer nutrientNo;
+
+    private int servingSize;
     private Float carbohydrate;
     private Float protein;
     private Float fat;
