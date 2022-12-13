@@ -76,4 +76,9 @@
         WHERE freeboardNo=#{freeboardNo}
     </update>
 
+    <select id="findByAccount" resultMap="freeboardMap">
+        select * from freeboard
+        where writer = #{writer}
+    </select>
+
 </mapper>

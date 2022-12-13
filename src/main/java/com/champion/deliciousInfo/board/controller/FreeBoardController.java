@@ -64,7 +64,7 @@ public class FreeBoardController {
     public String detail(@PathVariable int freeboardNo, Model model, @ModelAttribute("p") Page page
             , HttpServletResponse response, HttpServletRequest request) {
         log.info("GetMapping board/freeboard-detail/{}", freeboardNo);
-        FreeBoard freeBoard = freeBoardService.findone(freeboardNo,request,response);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo, request, response);
         model.addAttribute("fb", freeBoard);
 
         return "board/freeboard-detail";
@@ -94,7 +94,7 @@ public class FreeBoardController {
     public String modify(int freeboardNo, Model model
             , HttpServletResponse response, HttpServletRequest request) {
         log.info("controller request /freeboard-modify GET! - bno: {}", freeboardNo);
-        FreeBoard freeBoard = freeBoardService.findone(freeboardNo,request,response);
+        FreeBoard freeBoard = freeBoardService.findone(freeboardNo, request, response);
         log.info("find article: {}", freeBoard);
 
         model.addAttribute("fb", freeBoard);
@@ -110,5 +110,4 @@ public class FreeBoardController {
         boolean flag = freeBoardService.modify(freeBoard);
         return flag ? "redirect:/board/freeBoard/detail/" + freeBoard.getFreeboardNo() : "redirect:/";
     }
-
 }

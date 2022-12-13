@@ -32,4 +32,6 @@ public interface FreeBoardMapper {
     // 게시물 번호로 게시글 작성자의 계정명과 권한 가져오기
     ValidateMemberDTO findMemberByfreeBoardNo(int freeboardNo);
 
+    List<FreeBoard> findByAccount (String writer);
+
 }

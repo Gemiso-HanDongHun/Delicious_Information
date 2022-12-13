@@ -261,15 +261,6 @@
             text-align: center;
         }
 
-        /*#loginAccount {*/
-        /*    width:100px;*/
-        /*    display: block;*/
-        /*    font-size: 15px;*/
-        /*    padding: 0;*/
-        /*    margin:45px auto;*/
-        /*    right: 100px;*/
-        /*}*/
-
         #loginAccount:hover {
             color: #f44336;
             cursor: pointer;
@@ -278,24 +269,6 @@
         #sign-out:hover {
             color: #f44336;
             cursor: pointer;
-        }
-
-        #board {
-            border: 1px solid whitesmoke;
-            background-color: whitesmoke;
-            border-radius: 12%;
-            padding: 5px;
-            margin: 10px;
-            font-weight: 600;
-        }
-
-        #board:hover {
-            cursor: pointer;
-        }
-
-        #navbar-header .navbar-nav .dropdown-menu{
-            border: 2px solid lightgrey;
-            box-shadow: none;
         }
 
         @font-face {
@@ -352,7 +325,7 @@
                         <c:if test="${!empty loginUser}">
                             <li class="nav-item sign">
                                 <a class="nav-link" id="loginAccount"
-                                   onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                                   onclick="location.href='/member/mypage'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>

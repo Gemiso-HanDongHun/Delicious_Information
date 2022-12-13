@@ -72,5 +72,10 @@
         WHERE board_no=#{boardNo}
     </update>
 
+    <select id="findByAccount" resultMap="sboardMap">
+        select * from s_board
+        where writer = #{writer}
+    </select>
+
 
 </mapper>

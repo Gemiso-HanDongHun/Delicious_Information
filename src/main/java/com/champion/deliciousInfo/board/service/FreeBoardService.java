@@ -135,4 +135,16 @@ public class FreeBoardService {
             f.setShortWriter(writer);
         }
     }
+
+    public List<FreeBoard> findByAccount(String writer) {
+//        log.info("search service start");
+
+//        Map<String, Object> findDataMap = new HashMap<>();
+
+        List<FreeBoard> freeBoardList = freeBoardMapper.findByAccount(writer);
+        processConverting(freeBoardList);
+
+        return freeBoardList;
+    }
+
 }

@@ -117,6 +117,14 @@ public class InfoBoardService {
         return findDataMap;
     }
 
+
+    public List<InfoBoard> findByAccount(String writer){
+        List<InfoBoard> infoBoardList = boardMapper.findByAccount(writer);
+        processConverting(infoBoardList);
+
+        return infoBoardList;
+    }
+
     @Transactional
     public boolean modifyService(InfoBoard infoBoard, MfoodNutrient mfoodNutrient, Mfood mfood) {
         log.info("modify service start - {}", infoBoard);

@@ -1,7 +1,11 @@
 package com.champion.deliciousInfo.food.controller;
 
 import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.board.domain.InfoBoard;
+import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.service.FreeBoardService;
+import com.champion.deliciousInfo.board.service.InfoBoardService;
+import com.champion.deliciousInfo.board.service.SboardService;
 import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.common.search.Search;
@@ -32,6 +36,10 @@ public class FoodController {
 
     private final FreeBoardService freeBoardService;
 
+    private final InfoBoardService infoBoardService;
+
+    private final SboardService sboardService;
+
     // 전체 목록 가져오기
     @GetMapping("/list")
     public String list(Model model, @ModelAttribute ("s")Search search) {
@@ -39,6 +47,7 @@ public class FoodController {
         Map<String, Object> foodMap = service.search(search);
         PageMaker pm = new PageMaker(new Page(search.getPageNum(),search.getAmount()), (Integer) foodMap.get("tc"));
         List<FreeBoard> freeBoardList = freeBoardService.findAllService();
+
         model.addAttribute("fList",foodMap.get("fList") );
         model.addAttribute("AllfbList", freeBoardList);
         model.addAttribute("pm", pm);

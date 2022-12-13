@@ -48,6 +48,13 @@ public class SboardService {
         return findDataMap;
     }
 
+    public List<Sboard> findByAccount(String writer){
+        List<Sboard> sboardList = sboardMapper.findByAccount(writer);
+        processConverting(sboardList);
+
+        return sboardList;
+    }
+
     public Sboard findOne(Long boardNo, HttpServletResponse response, HttpServletRequest request){
         log.info("sboard findOne service start");
         Sboard foundOne = sboardMapper.findOne(boardNo);

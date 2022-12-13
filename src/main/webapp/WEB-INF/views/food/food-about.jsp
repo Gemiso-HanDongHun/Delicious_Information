@@ -121,10 +121,11 @@ URL: https://gettemplates.co
             font-family: 'MaplestoryOTFBold';
         }
 
+
     </style>
 
 </head>
-<body data-spy="scroll" data-target="#navbar">
+<div data-spy="scroll" data-target="#navbar">
 
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
@@ -213,6 +214,7 @@ URL: https://gettemplates.co
         </div>
     </section>
 </div>
+
 
 </div>
 <!-- External JS -->

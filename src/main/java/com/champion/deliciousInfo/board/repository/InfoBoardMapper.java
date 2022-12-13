@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.repository;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
 import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
@@ -30,4 +31,7 @@ public interface InfoBoardMapper {
     boolean modify(InfoBoard infoBoard);
 
     ValidateMemberDTO findMemberByBoardNo(Long infoNo);
+
+    List<InfoBoard> findByAccount (String writer);
+
 }

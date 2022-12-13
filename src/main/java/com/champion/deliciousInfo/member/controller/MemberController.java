@@ -1,5 +1,13 @@
 package com.champion.deliciousInfo.member.controller;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
+import com.champion.deliciousInfo.board.domain.InfoBoard;
+import com.champion.deliciousInfo.board.domain.Sboard;
+import com.champion.deliciousInfo.board.service.FreeBoardService;
+import com.champion.deliciousInfo.board.service.InfoBoardService;
+import com.champion.deliciousInfo.board.service.SboardService;
+import com.champion.deliciousInfo.common.paging.Page;
+import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.member.domain.Member;
 import com.champion.deliciousInfo.member.domain.SNSLogin;
 import com.champion.deliciousInfo.member.service.KakaoService;
@@ -18,6 +26,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.util.List;
+import java.util.Map;
+
 import static com.champion.deliciousInfo.member.domain.OAuthValue.*;
 import static com.champion.deliciousInfo.util.LoginUtils.*;
 
@@ -31,6 +42,30 @@ public class MemberController {
 
     private final KakaoService kakaoService;
 
+    private final FreeBoardService freeBoardService;
+
+    private final SboardService sboardService;
+
+    private final InfoBoardService infoBoardService;
+
+    // 마이페이지
+    @GetMapping("/mypage")
+    public String mypage(Model model, HttpSession session){
+
+        Member member = (Member)session.getAttribute(LOGIN_FLAG);
+
+        List<FreeBoard> freeBoardList = freeBoardService.findByAccount(member.getAccount());
+        List<InfoBoard> infoBoardList = infoBoardService.findByAccount(member.getAccount());
+        List<Sboard> sboardList = sboardService.findByAccount(member.getAccount());
+
+        model.addAttribute("AllfbList", freeBoardList);
+        model.addAttribute("userinfo", infoBoardList);
+        model.addAttribute("usersuggest", sboardList);
+
+        return "/member/mypage";
+    }
+
+    
     // 로그인 폼 요청
     @GetMapping("/sign-in")
     public String home(Model model, HttpSession session, HttpServletRequest request) {
@@ -70,7 +105,6 @@ public class MemberController {
         }
         model.addAttribute("loginMsg", flag);
         return "member/sign-in";
-
     }
 
     // 회원가입 양식 띄우기 요청

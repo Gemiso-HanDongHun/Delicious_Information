@@ -301,7 +301,7 @@
 
                         <c:if test="${!empty loginUser}">
                             <%--<li class="nav-item sign active5">
-                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/info/${loginUser.account}'">${loginUser.name}님</a>
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/mypage'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
                                 <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
@@ -314,7 +314,7 @@
                                 </a>
                                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                       href="/member/info/${loginUser.account}">마이 페이지</a>
+                                       href="/member/mypage">마이 페이지</a>
                                     <a class="dropdown-item"
                                        id="sign-out" href="/member/sign-out">로그아웃</a>
                                 </div>

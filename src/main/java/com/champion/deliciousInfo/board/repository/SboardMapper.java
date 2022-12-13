@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.repository;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
 import com.champion.deliciousInfo.common.search.Search;
@@ -28,4 +29,6 @@ public interface SboardMapper {
 
     // 조회수 상승 처리
     void upViewCount(Long boardNo);
+
+    List<Sboard> findByAccount (String writer);
 }

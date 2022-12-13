@@ -80,5 +80,10 @@
         WHERE info_no=#{infoNo}
     </update>
 
+    <select id="findByAccount" resultMap="infoBoardMap">
+        select * from infoboard
+        where writer = #{writer}
+    </select>
+
 
 </mapper>
