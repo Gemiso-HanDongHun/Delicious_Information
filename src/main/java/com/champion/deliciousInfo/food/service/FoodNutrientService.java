@@ -38,6 +38,27 @@ public class FoodNutrientService {
         FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
 
         TodayNutrient tn = getManTn(foodNutrient);
+        if (tn.getCarbohydrate() <= 0) {
+            tn.setType("c");
+        }
+        if (tn.getProtein() <= 0) {
+            tn.setType("p");
+        }
+        if (tn.getFat() <= 0) {
+            tn.setType("f");
+        }
+        if (tn.getProtein() <= 0 && tn.getCarbohydrate() <= 0) {
+            tn.setType("cp");
+        }
+        if (tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("pf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cpf");
+        }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
@@ -50,6 +71,27 @@ public class FoodNutrientService {
         FoodNutrient foodNutrient = foodNutrientMapper.findOne(foodNo);
 
         TodayNutrient tn = getWomanTn(foodNutrient);
+        if (tn.getCarbohydrate() <= 0) {
+            tn.setType("c");
+        }
+        if (tn.getProtein() <= 0) {
+            tn.setType("p");
+        }
+        if (tn.getFat() <= 0) {
+            tn.setType("f");
+        }
+        if (tn.getProtein() <= 0 && tn.getCarbohydrate() <= 0) {
+            tn.setType("cp");
+        }
+        if (tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("pf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cpf");
+        }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
@@ -69,6 +111,27 @@ public class FoodNutrientService {
             }
         }
         tn = getManTn(foodNutrient);
+        if (tn.getCarbohydrate() <= 0) {
+            tn.setType("c");
+        }
+        if (tn.getProtein() <= 0) {
+            tn.setType("p");
+        }
+        if (tn.getFat() <= 0) {
+            tn.setType("f");
+        }
+        if (tn.getProtein() <= 0 && tn.getCarbohydrate() <= 0) {
+            tn.setType("cp");
+        }
+        if (tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("pf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cpf");
+        }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
@@ -87,6 +150,27 @@ public class FoodNutrientService {
             }
         }
         tn = getWomanTn(foodNutrient);
+        if (tn.getCarbohydrate() <= 0) {
+            tn.setType("c");
+        }
+        if (tn.getProtein() <= 0) {
+            tn.setType("p");
+        }
+        if (tn.getFat() <= 0) {
+            tn.setType("f");
+        }
+        if (tn.getProtein() <= 0 && tn.getCarbohydrate() <= 0) {
+            tn.setType("cp");
+        }
+        if (tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("pf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cf");
+        }
+        if (tn.getCarbohydrate() <= 0 && tn.getProtein() <= 0 && tn.getFat() <= 0) {
+            tn.setType("cpf");
+        }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);

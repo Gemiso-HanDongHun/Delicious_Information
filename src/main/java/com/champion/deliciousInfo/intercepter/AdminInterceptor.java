@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static com.champion.deliciousInfo.util.LoginUtils.isLogin;
+import static com.champion.deliciousInfo.util.LoginUtils.isAdmin;
 
 // 인터셉터: 컨트롤러에 요청이 들어가기 전, 후에 공통처리할
 //          일들을 정의해놓는 클래스
@@ -30,7 +30,7 @@ public class AdminInterceptor implements HandlerInterceptor {
 //                = request.getRequestDispatcher("/WEB-INF/views/member/sign-in.jsp");
 
         log.info("admin interceptor preHandle()");
-        if (!isLogin(session)) {
+        if (!isAdmin(session)) {
             log.info("로그인이 필요한 서비스");
             // dispatcher.forward(request, response);
 

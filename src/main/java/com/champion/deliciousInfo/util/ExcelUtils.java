@@ -39,7 +39,7 @@ public class ExcelUtils {
 					XSSFCell cell = row.getCell(i);
 					log.info("현재 case는 -{},{}",a,i);
 					switch(i) {
-					case 0: ;food.setName(cell.getStringCellValue());break;
+					case 0: food.setName(cell.getStringCellValue());break;
 					case 1:	food.setKcal((int)cell.getNumericCellValue());break;
 					case 2:	foodNutrient.setCarbohydrate((float)(cell.getNumericCellValue()));break;
 					case 3:	foodNutrient.setProtein((float)cell.getNumericCellValue());break;
@@ -52,7 +52,8 @@ public class ExcelUtils {
 					case 10: foodNutrient.setMagnesium((float)cell.getNumericCellValue());break;
 					case 11: foodNutrient.setSodium((float)cell.getNumericCellValue());break;
 					case 12: foodNutrient.setOmega((float)cell.getNumericCellValue());break;
-					case 13: food.setImg(cell.getStringCellValue());
+					case 13: foodNutrient.setServingSize((int)cell.getNumericCellValue());break;
+					case 14: food.setImg(cell.getStringCellValue());
 					}
 					log.info("{}. {}case종료 ",a,i);
 				}

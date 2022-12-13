@@ -23,6 +23,7 @@ public class TodayNutrient { // 한 사람이 하루동안 필요한 영양소�
     private Float sodium;
     private Float omega;
     private Food food;
+    private String type="";
 
 
 }

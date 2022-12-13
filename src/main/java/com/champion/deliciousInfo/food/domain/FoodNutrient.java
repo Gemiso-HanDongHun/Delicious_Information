@@ -26,6 +26,7 @@ public class FoodNutrient {
     private Float omega;
 
 
+
     private Food food;
 
     public FoodNutrient() {
@@ -46,6 +47,7 @@ public class FoodNutrient {
     public void addTotal(FoodNutrient fn){
         this.carbohydrate =(Float)(Math.round((this.carbohydrate+fn.getCarbohydrate())*100)/100.0f);
         this.protein =(Float)(Math.round((this.protein+fn.getProtein())*100)/100.0f);
+        this.fat =(Float)(Math.round((this.fat+fn.getProtein())*100)/100.0f);
         this.vitaminA =(Float)(Math.round((this.vitaminA+fn.getVitaminA())*100)/100.0f);
         this.vitaminC =(Float)(Math.round((this.vitaminC+fn.getVitaminC())*100)/100.0f);
         this.vitaminE =(Float)(Math.round((this.vitaminE+fn.getVitaminE())*100)/100.0f);

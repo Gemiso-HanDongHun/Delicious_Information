@@ -185,6 +185,8 @@ lemoncoat :
 
 12.12 : 배포파일 카카오로그인 가능 오류 수정
 
+12.13 : interceptor 수정 및 엑셀 util수정 추천 알고리즘 적용
+
 goill : 
 
 11.08 : index.jsp, food-list.jsp, include, 

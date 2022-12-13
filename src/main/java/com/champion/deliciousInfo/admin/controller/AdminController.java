@@ -62,6 +62,7 @@ public class AdminController {
             log.info("login success!!");
             ra.addFlashAttribute("msg","로그인성공");
             return "redirect:/admin";
+
         }
         model.addAttribute("loginMsg", flag);
         return "admin/login-form";
