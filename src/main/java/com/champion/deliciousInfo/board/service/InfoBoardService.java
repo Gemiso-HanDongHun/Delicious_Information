@@ -120,7 +120,7 @@ public class InfoBoardService {
 
     public List<InfoBoard> findByAccount(String writer){
         List<InfoBoard> infoBoardList = boardMapper.findByAccount(writer);
-        processConverting(infoBoardList);
+        processConverting2(infoBoardList);
 
         return infoBoardList;
     }
@@ -161,6 +161,12 @@ public class InfoBoardService {
         }
     }
 
+    private void processConverting2(List<InfoBoard> infoBoardList){
+        for (InfoBoard f : infoBoardList){
+            substringTitle2(f);
+        }
+    }
+
     private void substringTitle(InfoBoard f) {
 
         String foodName = f.getFoodName(); // 제목은 12글자 넘어가면 ...
@@ -179,6 +185,20 @@ public class InfoBoardService {
         } else {
             f.setShortWriter(writer);
         }
+    }
+
+    private void substringTitle2(InfoBoard f) {
+
+        String foodName = f.getFoodName(); // 제목은 12글자 넘어가면 ...
+        String writer = f.getWriter();  // 작성자는 10글자 넘어가면 ...
+
+        if (foodName.length() > 20) {
+            String subStr = foodName.substring(0, 20);
+            f.setShortName(subStr + "...");
+        } else {
+            f.setShortName(foodName);
+        }
+
     }
 
     private void setReplyCount(InfoBoard f){

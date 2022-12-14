@@ -362,7 +362,7 @@
             <c:forEach var="af" items="${AllfbList}" begin="0" end="12">
                 <tr>
                     <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                    <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${af.title}</td>
+                    <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${af.shortTitle}</td>
                 </tr>
             </c:forEach>
         </table>

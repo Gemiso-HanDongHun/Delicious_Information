@@ -20,6 +20,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
     private final InfoBoardInterceptor infoboardInterceptor;
 
     private final FreeBoardInterceptor freeBoardInterceptor;
+
+    private final MypageInterceptor mypageInterceptor;
     // 인터셉터 설정 추가 메서드
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -44,8 +46,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .addPathPatterns("/board/freeBoard/*")
                 .excludePathPatterns("/board/freeBoard", "/board/freeBoard/detail");
 
-
-
-
+        registry.addInterceptor(mypageInterceptor)
+                .addPathPatterns("/member/mypage");
     }
 }

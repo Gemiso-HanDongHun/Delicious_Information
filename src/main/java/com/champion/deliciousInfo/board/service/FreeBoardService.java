@@ -33,6 +33,7 @@ public class FreeBoardService {
 
     public List<FreeBoard> findAllService() {
         List<FreeBoard> freeBoardList = freeBoardMapper.findAll();
+        processConverting(freeBoardList);
         return freeBoardList;
     }
 
@@ -112,6 +113,12 @@ public class FreeBoardService {
         }
     }
 
+    private void processConverting2(List<FreeBoard> freeBoardList){
+        for (FreeBoard f : freeBoardList){
+            substringTitle2(f);
+        }
+    }
+
     private void setReplyCount(FreeBoard f){
         f.setReplyCount(freeReplyMapper.getReplyCount((long) f.getFreeboardNo()));
     }
@@ -136,13 +143,25 @@ public class FreeBoardService {
         }
     }
 
+    private void substringTitle2(FreeBoard f) {
+        String title = f.getTitle(); //
+
+        if (title.length() > 20) {
+            String subStr = title.substring(0, 20);
+            f.setShortTitle(subStr + "...");
+        } else {
+            f.setShortTitle(title);
+        }
+    }
+
+
     public List<FreeBoard> findByAccount(String writer) {
 //        log.info("search service start");
 
 //        Map<String, Object> findDataMap = new HashMap<>();
 
         List<FreeBoard> freeBoardList = freeBoardMapper.findByAccount(writer);
-        processConverting(freeBoardList);
+        processConverting2(freeBoardList);
 
         return freeBoardList;
     }

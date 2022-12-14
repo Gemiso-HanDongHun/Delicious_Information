@@ -351,8 +351,8 @@
 
                 <div class="area1">
                     <div class="form-group1 foodName ">
-                        <label for="foodName">음식 이름</label>
-                        <input type="text" class="form-control" name="name" id="foodName" >
+                        <label for="foodName">음식 이름 (최대 60글자)</label>
+                        <input type="text" class="form-control" name="name" id="foodName" maxlength='60'>
                     </div>
 
                     <div class="form-group1 foodKcal">

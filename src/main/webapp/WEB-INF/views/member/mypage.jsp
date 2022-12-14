@@ -337,7 +337,7 @@
                         <c:forEach var="af" items="${AllfbList}" begin="0" end="3">
                             <tr>
                                 <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${af.title}</td>
+                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${af.shortTitle}</td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -355,7 +355,7 @@
                         <c:forEach var="uf" items="${userinfo}" begin="0" end="3">
                             <tr>
                                 <input type="hidden" name="info_no" value="${uf.infoNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${uf.foodName}</td>
+                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${uf.shortName}</td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -375,7 +375,7 @@
                         <c:forEach var="us" items="${usersuggest}" begin="0" end="3">
                             <tr>
                                 <input type="hidden" name="board_no" value="${us.boardNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${us.title}</td>
+                                <td style="width:100%;   " onclick="location.href='/board/freeBoard'">${us.shortTitle}</td>
                             </tr>
                         </c:forEach>
                     </table>

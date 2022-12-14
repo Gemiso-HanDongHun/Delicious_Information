@@ -71,15 +71,18 @@ public class MemberController {
         log.info("controller request /member/mypage/delete GET! - infoNo: {}", session);
         Member member = (Member)session.getAttribute(LOGIN_FLAG);
         model.addAttribute("validate", memberService.getMember(member.getAccount()));
-
         return "member/mypage-process-delete";
     }
 
     @PostMapping("/mypage/delete")
-    public String delete(Member member, HttpSession session) {
+    public String delete(Member member, HttpSession session, RedirectAttributes ra) {
         log.info("controller request /member/mypage/delete POST! - bno: {}", member);
         session.invalidate();
-        return memberService.remove(member) ? "redirect:/food/list" : "redirect:/";
+        boolean flag = memberService.remove(member);
+        ra = flag ?
+                ra.addFlashAttribute("msg", "회원탈퇴성공")
+            : ra.addFlashAttribute("msg", "회원탈퇴실패");
+        return "redirect:/food/list";
     }
 
 

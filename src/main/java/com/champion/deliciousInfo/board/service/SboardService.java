@@ -1,5 +1,6 @@
 package com.champion.deliciousInfo.board.service;
 
+import com.champion.deliciousInfo.board.domain.FreeBoard;
 import com.champion.deliciousInfo.board.domain.InfoBoard;
 import com.champion.deliciousInfo.board.domain.Sboard;
 import com.champion.deliciousInfo.board.dto.ValidateMemberDTO;
@@ -50,7 +51,7 @@ public class SboardService {
 
     public List<Sboard> findByAccount(String writer){
         List<Sboard> sboardList = sboardMapper.findByAccount(writer);
-        processConverting(sboardList);
+        processConverting2(sboardList);
 
         return sboardList;
     }
@@ -114,6 +115,12 @@ public class SboardService {
         }
     }
 
+    private void processConverting2(List<Sboard> boardList){
+        for (Sboard b : boardList){
+            substringTitle2(b);
+        }
+    }
+
     private void setReplyCount(Sboard b) {
         b.setReplyCount(replyMapper.getReplyCount(b.getBoardNo()));
     }
@@ -135,6 +142,17 @@ public class SboardService {
             b.setShortWriter(subWri + "...");
         } else {
             b.setShortWriter(writer);
+        }
+    }
+
+    private void substringTitle2(Sboard b) {
+        String title = b.getTitle(); //
+
+        if (title.length() > 20) {
+            String subStr = title.substring(0, 20);
+            b.setShortTitle(subStr + "...");
+        } else {
+            b.setShortTitle(title);
         }
     }
 }
