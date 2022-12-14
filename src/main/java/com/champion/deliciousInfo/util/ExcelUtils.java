@@ -64,9 +64,11 @@ public class ExcelUtils {
 			log.info("엑셀 분석 결과 -{}" ,foodNutrientList);
 		} catch (InvalidFormatException e) {
 			e.printStackTrace();
-			throw new ExcelException("엑셀 타입 실패");
+
 		} catch (IOException e) {
 			e.printStackTrace();
+		}catch(IllegalStateException e){
+			throw new ExcelException("엑셀 타입 실패");
 		}
 		return foodNutrientList;
 	}
