@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -60,6 +61,7 @@ public class FoodNutrientService {
             tn.setType("cpf");
         }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         return findRecommendData;
@@ -93,6 +95,7 @@ public class FoodNutrientService {
             tn.setType("cpf");
         }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         return findRecommendData;
@@ -133,6 +136,7 @@ public class FoodNutrientService {
             tn.setType("cpf");
         }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         findRecommendData.put("fn",foodNutrient);
@@ -172,6 +176,7 @@ public class FoodNutrientService {
             tn.setType("cpf");
         }
         List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         findRecommendData.put("fn",foodNutrient);
