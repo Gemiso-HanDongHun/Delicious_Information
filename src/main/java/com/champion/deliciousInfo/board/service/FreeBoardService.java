@@ -68,14 +68,14 @@ public class FreeBoardService {
 
     private void makeViewCount(int boardNo, HttpServletResponse response, HttpServletRequest request) {
         // 쿠키를 조회 - 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
-        Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
+        Cookie foundCookie = WebUtils.getCookie(request, "f" + boardNo);
 
         if (foundCookie == null) {
             freeBoardMapper.upViewCount(boardNo);
 
-            Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));// 쿠키 생성
+            Cookie cookie = new Cookie("f" + boardNo, String.valueOf(boardNo));// 쿠키 생성
             cookie.setMaxAge(60); // 쿠키 수명 설정
-            cookie.setPath("/board/freeboard-detail"); // 쿠키 작동 범위
+            cookie.setPath("/board/freeBoard/detail"); // 쿠키 작동 범위
 
             response.addCookie(cookie); // 클라이언트에 쿠키 전송
         }

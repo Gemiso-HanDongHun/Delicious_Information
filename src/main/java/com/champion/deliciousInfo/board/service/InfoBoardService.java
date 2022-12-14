@@ -90,12 +90,12 @@ public class InfoBoardService {
 
     private void makeViewCount(Long infoNo, HttpServletResponse response, HttpServletRequest request) {
         // 쿠키를 조회 - 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
-        Cookie foundCookie = WebUtils.getCookie(request, "b" + infoNo);
+        Cookie foundCookie = WebUtils.getCookie(request, "i" + infoNo);
 
         if (foundCookie == null) {
             boardMapper.upViewCount(infoNo);
 
-            Cookie cookie = new Cookie("b" + infoNo, String.valueOf(infoNo));// 쿠키 생성
+            Cookie cookie = new Cookie("i" + infoNo, String.valueOf(infoNo));// 쿠키 생성
             cookie.setMaxAge(60); // 쿠키 수명 설정
             cookie.setPath("/board/infoBoard/detail"); // 쿠키 작동 범위
 
