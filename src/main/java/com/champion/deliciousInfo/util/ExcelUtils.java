@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.champion.deliciousInfo.exception.ExcelException;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import lombok.extern.log4j.Log4j2;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Log4j2
 public class ExcelUtils {
 	
-	public static List getParseResult(File file) {
+	public static List getParseResult(File file) throws ExcelException {
 		List<FoodNutrient> foodNutrientList = new  ArrayList<>(); //product Dto를 담기위함
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -63,6 +64,7 @@ public class ExcelUtils {
 			log.info("엑셀 분석 결과 -{}" ,foodNutrientList);
 		} catch (InvalidFormatException e) {
 			e.printStackTrace();
+			throw new ExcelException("엑셀 타입 실패");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
