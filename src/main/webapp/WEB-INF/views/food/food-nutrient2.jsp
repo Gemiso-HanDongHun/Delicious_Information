@@ -384,7 +384,6 @@ URL: https://gettemplates.co
                             </tr>
                         </c:if>
 
-
                     </table>
                 </div>
                 <div class="recomend">
@@ -394,7 +393,6 @@ URL: https://gettemplates.co
                         <tr id="li">
                             <th>추천 영양제</th>
                         </tr>
-
 
                         <c:if test="${!empty loginUser}">
                             <c:forEach var="sm" begin="0" end="17" items="${sl}">

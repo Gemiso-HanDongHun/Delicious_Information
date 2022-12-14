@@ -349,7 +349,6 @@ URL: https://gettemplates.co
 
                 <div>
                     <p4>⠀${total.food.kcal}kcal⠀</p4>
-
                 </div>
 
                 <div>
@@ -379,6 +378,13 @@ URL: https://gettemplates.co
 
                                 <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
 
+                            </tr>
+                        </c:if>
+
+
+                        <c:if test="${empty tl}">
+                            <tr id="lili">
+                                <td>추천음식이 없습니다.</td>
                             </tr>
                         </c:if>
 
