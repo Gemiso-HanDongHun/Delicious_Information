@@ -289,7 +289,7 @@ URL: https://gettemplates.co
                             <c:forEach var="sm" begin="0" end="17" items="${sl}">
                                 <tr id="lili">
 
-                                    <td>${sm.name}</td>
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCA&channel=user'">${sm.name}</td>
 
                                 </tr>
                             </c:forEach>

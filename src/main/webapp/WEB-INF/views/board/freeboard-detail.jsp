@@ -266,7 +266,7 @@
                                 <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
                             </li>--%>
 
-                            <li class="nav-item dropdown" id="nav-li">a
+                            <li class="nav-item dropdown" id="nav-li">
                                 <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ${loginUser.name}님
