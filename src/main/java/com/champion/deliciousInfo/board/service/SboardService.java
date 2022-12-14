@@ -41,7 +41,9 @@ public class SboardService {
         Map<String, Object> findDataMap = new HashMap<>();
 
         List<Sboard> sboardList = sboardMapper.search(search);
-        processConverting(sboardList);
+        if(sboardList!=null) {
+            processConverting(sboardList);
+        }
 
         findDataMap.put("sl", sboardList);
         findDataMap.put("tc", sboardMapper.getTotalCount(search));
@@ -51,7 +53,9 @@ public class SboardService {
 
     public List<Sboard> findByAccount(String writer){
         List<Sboard> sboardList = sboardMapper.findByAccount(writer);
-        processConverting2(sboardList);
+        if(sboardList!=null) {
+            processConverting2(sboardList);
+        }
 
         return sboardList;
     }

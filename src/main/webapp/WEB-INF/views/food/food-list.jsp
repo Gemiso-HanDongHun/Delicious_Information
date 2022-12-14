@@ -284,6 +284,16 @@
             font-weight: 900;
         }
 
+        span.xbutton{
+            position:absolute;
+            left:80%;
+
+        }
+        span.xbutton:hover{
+            cursor:pointer;
+            color:red;
+        }
+
 
     </style>
 
@@ -414,7 +424,7 @@
 
     <aside class="aside">
         <div class="side-bar-list">
-            <div class="myList">내가 선택한 음식(100g)</div>
+            <div class="myList">내가 선택한 음식</div>
             <div style="text-align: center;">~~~~~~~~~~~~~~~~~</div>
             <div id="mine">
 
@@ -439,12 +449,14 @@
     function Food(props) { //반복될 구간
         return (
             <div className="my-food">
-                <p>{props.name}<br/>
+                <p>{props.name} <span className="xbutton" data-num={props.no} onClick= {remove}>x</span><br/>
                     칼로리 : {props.kcal}kcal
                 </p>
             </div>
         );
     }
+
+
 
     function Getbr() { //띄어쓰기
         return (
@@ -461,7 +473,7 @@
             let fn = myList[i];
             if (i < 8) {
                 tag.push(<Food carbohydrate={fn.carbohydrate} fat={fn.fat} protein={fn.protein}
-                               name={fn.food.name} kcal={fn.food.kcal}/>); //10
+                               name={fn.food.name} kcal={fn.food.kcal} no={fn.food.foodNo}/>) ; //10
                 total += fn.food.kcal;
             }
             if (i == myList.length - 1) {
@@ -499,7 +511,21 @@
     if (msg !== '') {
         alert(msg);
     }
-
+    const remove=(e)=>{
+        if (checkTotal < 9) { //지울때
+            fetch('/api/foods/' + e.target.dataset.num, {method: 'delete'})
+                .then(res => res.json())
+                .then(myList => {
+                    showFoodData(myList);
+                    let $inputBox = document.getElementById(e.target.dataset.num);
+                    console.log($inputBox);
+                    if ($inputBox !== null) {
+                        $inputBox.checked=false;
+                    }
+                });
+            checkTotal--;
+        }
+    }
 
     function signOut() {
         if (confirm('로그아웃하시겠습니까?')) {

@@ -257,7 +257,7 @@
                 <div class="form-group">
                     <p id="p1">제목</p>
                     <input type="text" id="title-input" class="form-control col-12" name="title"
-                           placeholder="제목을 입력해주세요">
+                           placeholder="제목을 입력해주세요" maxlength="40">
                     <br/>
                     <p id="p2">내용</p>
                     <textarea class="form-control col-12" name="content" placeholder="문의사항을 입력해주세요"

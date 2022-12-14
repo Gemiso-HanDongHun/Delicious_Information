@@ -136,9 +136,9 @@ board.freeboardController
  food-list.jsp ->제목 글자 제한수 준하
  mypage.jsp >제목 글자 제한수 준하
  ~~board 제목 글자수 제한 60글자~~ 각자 보드 validate .jsp 안쳐지게 하고 각자
- db 갈아없기 foreign_key on delete cascade 모두다 성수
+ db 갈아없기 foreign_key on delete cascade 모두다 성수 - 완료
  ~~mypage jsp order by desc~~ 동훈  
- food-list.jsp 100g지우기 성수
+ food-list.jsp 100g지우기 성수 - 완료
  food-list.jsp 회원탈퇴 메세지 띄우기 준하
  mypageinterceptor 널포인터 동훈 남이삭제 준하 
  food-list session 성수
@@ -203,6 +203,8 @@ lemoncoat :
 12.12 : 배포파일 카카오로그인 가능 오류 수정
 
 12.13 : interceptor 수정 및 엑셀 util수정 추천 알고리즘 적용
+
+12.14 : 엑셀 완료 food-list.jsp x버튼 생성
 
 goill : 
 
