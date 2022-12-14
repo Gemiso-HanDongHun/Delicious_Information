@@ -247,8 +247,8 @@
             <form id="modifyForm" class="col-12">
                 <div class="form-group">
                     <p id="p1">제목(수정)</p>
-                    <input type="hidden" name="freeboardNo" value="${fb.freeboardNo}">
-                    <input type="text" id="title-input" class="form-control col-12" name="title"
+                    <input type="hidden"  name="freeboardNo" value="${fb.freeboardNo}">
+                    <input type="text" id="title-input" maxlength="40" class="form-control col-12" name="title"
                            value="${fb.title}"><br/>
                     <p id="p2">내용(수정)</p>
                     <textarea class="form-control col-12" rows="15" name="content">${fb.content}</textarea>

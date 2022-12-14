@@ -66,7 +66,7 @@
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: rgb(246, 245, 243, 0.5);
+            background: rgba(255, 255, 255, 0.5);
             /*background: lightgrey;*/
             line-height: 202%;
             z-index: 1000;

@@ -78,7 +78,7 @@
 
     <select id="findByAccount" resultMap="freeboardMap">
         select * from freeboard
-        where writer = #{writer}
+        where writer = #{writer} order by freeboardNo desc
     </select>
 
 </mapper>

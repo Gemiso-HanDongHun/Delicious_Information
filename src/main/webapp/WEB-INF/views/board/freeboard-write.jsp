@@ -268,7 +268,7 @@
             <form id="writeForm" class="col-12" method="post">
                 <div class="form-group">
                     <p id="p1">제목</p>
-                    <input type="text" id="title-input" class="form-control col-12" name="title"
+                    <input type="text" id="title-input" maxlength="40" class="form-control col-12" name="title"
                            placeholder="제목을 입력해주세요">
                     <br/>
                     <p id="p2">내용</p>

@@ -151,7 +151,7 @@
         }
 
         section#middle2{
-            width: 550px;
+            width: 520px;
         }
 
         section#middle, section#middle2 {
@@ -191,6 +191,7 @@
         input.col-12{
             border-radius: 1.5em;
             font-family: 'MaplestoryOTFBold';
+            padding: 15px;
         }
 
         div h1{
