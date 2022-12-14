@@ -2,6 +2,7 @@ package com.champion.deliciousInfo.food.service;
 
 
 import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.exception.ExcelException;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.repository.FoodMapper;
@@ -77,7 +78,7 @@ public class FoodService {
     }
 
     @Transactional
-    public boolean insertByExcel(MultipartFile excel) {
+    public boolean insertByExcel(MultipartFile excel) throws ExcelException {
         boolean flag1 = false;
         boolean flag2 = false;
         File file = new File(FileUtils.UPLOAD_EXCEL_PATH, excel.getOriginalFilename());

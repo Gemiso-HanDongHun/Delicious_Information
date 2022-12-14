@@ -10,8 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @Configuration
-//@PropertySource("classpath:aws_info_goill1524.properties")
-@PropertySource("classpath:data_info.properties")
+@PropertySource("classpath:aws_info_goill1524.properties")
+//@PropertySource("classpath:data_info.properties")
 public class DataBaseConfig {
     @Value("${aws.rds_user_name}")
     private String userName;

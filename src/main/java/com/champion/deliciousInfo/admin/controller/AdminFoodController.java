@@ -3,6 +3,7 @@ package com.champion.deliciousInfo.admin.controller;
 import com.champion.deliciousInfo.common.paging.Page;
 import com.champion.deliciousInfo.common.paging.PageMaker;
 import com.champion.deliciousInfo.common.search.Search;
+import com.champion.deliciousInfo.exception.ExcelException;
 import com.champion.deliciousInfo.food.domain.Food;
 import com.champion.deliciousInfo.food.domain.FoodNutrient;
 import com.champion.deliciousInfo.food.service.FoodNutrientService;
@@ -109,6 +110,12 @@ public class AdminFoodController {
         ra = flag ? ra.addFlashAttribute("msg", "삭제성공")
                 : ra.addFlashAttribute("msg", "삭제실패");
         return "redirect:/admin/food/list";
+    }
+
+    @ExceptionHandler(ExcelException.class)
+    public String getExcelExeption(Exception e,Model model){
+        model.addAttribute("msg",e.getMessage());
+        return "error/excel-error";
     }
 
 }
