@@ -184,8 +184,17 @@
             font-family: 'MaplestoryOTFBold';
         }
 
+        table.side-t-main tr td:hover {
+            cursor: pointer;
+            background: lightgray;
+            color:;
+        }
+
+
+
         input.col-12{
             border-radius: 1.5em;
+            font-family: 'MaplestoryOTFBold';
         }
 
         div h1{
@@ -301,7 +310,6 @@
                     <input type="text" id="sboard-input" class="form-control col-12" name="writer" value="이메일이 없습니다."
                            disabled><br/>
                 </c:if>
-
 
             </div>
         </form>

@@ -66,7 +66,7 @@
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: whitesmoke;
+            background: rgb(246, 245, 243, 0.5);
             /*background: lightgrey;*/
             line-height: 202%;
             z-index: 1000;
@@ -268,6 +268,19 @@
 
         #navbar-header .dropdown:hover {
             cursor: pointer;
+        }
+
+        /* 목록 마우스 오버시 (현재 마우스 위치를 알기 위해서) */
+        div.bottom_section nav.bottom_nav ul li a.page-link:hover {
+            background: lightgray;
+            color: #ffff;
+        }
+
+        /* 전체 리스트에서 음식명 마우스 오버시 마우스 포인터*/
+        div.boxed-page table td:nth-child(2):hover {
+            cursor: pointer;
+            background: lightgray;
+            color: #ffff;
         }
 
 

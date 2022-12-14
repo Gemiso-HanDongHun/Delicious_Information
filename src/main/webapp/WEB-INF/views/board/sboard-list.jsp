@@ -201,7 +201,7 @@
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: whitesmoke;
+            background: rgb(246, 245, 243, 0.5);
             line-height: 202%;
             z-index: 1000;
         }
