@@ -348,7 +348,7 @@ URL: https://gettemplates.co
             <div class="section-content">
                 <div class="row mb-5">
                     <h2>
-                        나만의 식단 영양 정보(100g)
+                        나만의 식단 영양 정보(g)
                     </h2>
                 </div>
 

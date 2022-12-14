@@ -235,7 +235,7 @@ URL: https://gettemplates.co
             <div class="section-content">
                 <div class="row mb-5">
                     <h2>
-                        ${fn.food.name} 영양 정보(100g)
+                        ${fn.food.name} 영양 정보(${fn.servingSize}g)
                     </h2>
                 </div>
 
