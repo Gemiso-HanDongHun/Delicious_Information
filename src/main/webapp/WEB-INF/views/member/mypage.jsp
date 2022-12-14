@@ -28,11 +28,11 @@
         }
 
         div li {
-            font-family: 'MaplestoryOTFBold';
             font-weight: 800;
         }
 
         body {
+            font-family: 'MaplestoryOTFBold';
             background: #ffffff;
         }
 
@@ -128,7 +128,6 @@
         div p#p1, p#p2, p#p3, p#p4 {
             font-weight: 800;
             margin-left: 8px;
-            font-family: 'MaplestoryOTFBold';
         }
 
         p#title {
@@ -165,7 +164,6 @@
             border-radius: 1.5em;
             border-collapse: separate;
             line-height: 202%;
-            font-family: 'MaplestoryOTFBold';
         }
 
         table.side-t-main td, table.side-t-main th {
@@ -176,12 +174,10 @@
             border-radius: 1.5em;
             padding-left: 20px;
             border: 1px solid whitesmoke;
-            font-family: 'MaplestoryOTFBold';
         }
 
         table.side-t-main th {
             text-align: center;
-            font-family: 'MaplestoryOTFBold';
         }
 
         table.side-t-main tr td:hover {
@@ -199,6 +195,17 @@
 
         div h1{
             font-family: 'MaplestoryOTFBold';
+        }
+
+        #delete {
+            border-radius: 1.5em;
+            position: absolute;
+            right: 2px;
+        }
+
+        #delete:hover {
+            background: lightgrey;
+            cursor: pointer;
         }
 
     </style>
@@ -311,6 +318,7 @@
                            disabled><br/>
                 </c:if>
 
+                <button type="button" id="delete">회원탈퇴</button>
             </div>
         </form>
     </section>
@@ -399,10 +407,23 @@
     // 로그인한 회원 계정명
     const currentAccount = '${loginUser.account}';
     const grade = '${loginUser.grade}';
+    const $delete = document.getElementById('delete');
+
 
     //원본 글 번호
     const bno = '${fb.freeboardNo}';
     console.log('bno:', bno);
+
+    if ($delete !== null) {
+        //삭제버튼
+        $delete.onclick = e => {
+            if (!confirm('정말 삭제하시겠습니까?')) {
+                return;
+            }
+            location.href = '/member/mypage/delete';
+        };
+    }
+
 
 </script>
 

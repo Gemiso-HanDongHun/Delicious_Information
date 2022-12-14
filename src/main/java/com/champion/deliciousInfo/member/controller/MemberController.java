@@ -16,6 +16,7 @@ import com.champion.deliciousInfo.member.service.MemberLoginFlag;
 import com.champion.deliciousInfo.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -64,6 +65,23 @@ public class MemberController {
 
         return "/member/mypage";
     }
+
+    @GetMapping("/mypage/delete")
+    public String delete(HttpSession session, Model model) {
+        log.info("controller request /member/mypage/delete GET! - infoNo: {}", session);
+        Member member = (Member)session.getAttribute(LOGIN_FLAG);
+        model.addAttribute("validate", memberService.getMember(member.getAccount()));
+
+        return "member/mypage-process-delete";
+    }
+
+    @PostMapping("/mypage/delete")
+    public String delete(Member member, HttpSession session) {
+        log.info("controller request /member/mypage/delete POST! - bno: {}", member);
+        session.invalidate();
+        return memberService.remove(member) ? "redirect:/food/list" : "redirect:/";
+    }
+
 
     
     // 로그인 폼 요청

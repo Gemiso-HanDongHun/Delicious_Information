@@ -116,7 +116,7 @@ public class MemberService {
 
     public boolean remove(Member member){
         log.info("memberService remove start");
-        boolean flag=memberMapper.remove(member);
+        boolean flag = memberMapper.remove(member);
         return flag;
     }
 

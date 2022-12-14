@@ -64,6 +64,7 @@
         }
 
         .boxed-page .loginform .login .title h1 {
+            font-family: 'MaplestoryOTFBold';
             text-align: center;
             font-size: 2.5vh;
             margin-bottom: 30px;
