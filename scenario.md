@@ -143,12 +143,15 @@ board.freeboardController
  ~~food-list.jsp 회원탈퇴 메세지 띄우기 준하~~
  ~~mypageinterceptor 널포인터 동훈 남이삭제 준하~~ 
  ~~food-list session 성수~~
- admin page home화면 , g 추가 삭제, 성수
+ ~~admin page home화면 , g 추가 삭제, 성수~~
 
  //이번주내  
  ~~회원가입 id 는 영어 숫자만~~
  ~~이름은 한글만~~
 
+준하 내일 할꺼
+게시판 3개 리스트 투명도 다름 백그라운드 rgb값 다름
+검색창도 마찬가지
 
 lemoncoat : 
 11.08 - index.jsp login-form.jsp  food-list.jsp 작성
@@ -201,6 +204,8 @@ lemoncoat :
 12.13 : interceptor 수정 및 엑셀 util수정 추천 알고리즘 적용
 
 12.14 : 엑셀 완료 food-list.jsp x버튼 생성
+
+12.15 : admin page g추가 
 
 goill : 
 

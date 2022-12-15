@@ -424,8 +424,8 @@
             <c:forEach var="fb" items="${fbList}">
                 <tr>
                     <td>${fb.freeboardNo}</td>
-                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.shortTitle}[${fb.replyCount}]</a></td>
-                    <td><a href="/board/freeBoard/detail/${fb.freeboardNo}">${fb.shortWriter}</a></td>
+                    <td onclick="location.href='/board/freeBoard/detail/${fb.freeboardNo}'">${fb.shortTitle}[${fb.replyCount}]</td>
+                    <td onclick="location.href='/board/freeBoard/detail/${fb.freeboardNo}'">${fb.shortWriter}</td>
                         <%--                    <td><a href="/board/freeboard-detail/${fb.freeboardNo}">${fb.content}</a></td>--%>
                     <td>${fb.reg_date}</td>
                     <td>${fb.view_cnt}</td>
