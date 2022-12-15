@@ -254,6 +254,7 @@
             color: black;
             font-weight: 700;
             font-size: 18px;
+
         }
 
         div.main-board section.main-write div.area6 button:hover {

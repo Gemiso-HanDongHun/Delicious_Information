@@ -91,6 +91,21 @@
 
         button.btn-warning {
             border: 1px solid whitesmoke;
+            width: 120px;
+            height: 45px;
+            border: 0;
+            margin-top: 45px;
+            margin-bottom: 10px;
+            margin-right : 620px;
+            background-color: whitesmoke;
+            border-radius: 2em;
+            /*border: 1px solid black;*/
+            font-weight: 800;
+            float: right;
+            z-index: 2000;
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         button.btn-warning:hover {
@@ -255,15 +270,16 @@
                 </div>
             </form>
 
-            <div class=btn-modify >
-                <button id="mod-btn" type="button" class="btn btn-warning"
-                        style="background-color: whitesmoke; font-weight: 600">수정완료
-                </button>
-            </div>
-
         </section>
 
     </div>
+
+    <div class=btn-modify >
+        <button id="mod-btn" type="button" class="btn btn-warning"
+                style="background-color: whitesmoke; font-weight: 600">수정완료
+        </button>
+    </div>
+
 
 </div>
 </body>

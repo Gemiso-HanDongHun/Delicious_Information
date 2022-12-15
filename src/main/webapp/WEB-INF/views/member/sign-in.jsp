@@ -214,8 +214,8 @@
                 <div class="title">
                     <h1>로그인</h1>
                 </div>
-                <input type="text" id="memberid" name="account"  placeholder="아이디를 입력해주세요">
-                <input type="password" id="memberps" name="password"  placeholder="비밀번호를 입력해주세요">
+                <input type="text" id="memberid" name="account"  style="font-size: 16px; padding-left: 15px" placeholder="아이디를 입력해주세요">
+                <input type="password" id="memberps" name="password" style="font-size: 16px; padding-left: 15px"  placeholder="비밀번호를 입력해주세요">
             </div>
 
             <div class="loginbt">

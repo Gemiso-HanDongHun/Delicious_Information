@@ -138,15 +138,15 @@ board.freeboardController
  mypage.jsp >제목 글자 제한수 준하~~
  ~~board 제목 글자수 제한 60글자~~ ~~각자 보드 validate .jsp 안쳐지게 하고 각자~~
  ~~db 갈아없기 foreign_key on delete cascade 모두다 성수 - 완료~~
- ~~mypage jsp order by desc~~ 동훈  
+ ~~mypage jsp order by ~~desc~~ 동훈~~  
  ~~food-list.jsp 100g지우기 성수 - 완료~~
  ~~food-list.jsp 회원탈퇴 메세지 띄우기 준하~~
- mypageinterceptor 널포인터 동훈 남이삭제 준하 
+ ~~mypageinterceptor 널포인터 동훈 남이삭제 준하~~ 
  ~~food-list session 성수~~
  admin page home화면 , g 추가 삭제, 성수
 
  //이번주내  
- 회원가입 id 는 영어 숫자만
+ ~~회원가입 id 는 영어 숫자만~~
  ~~이름은 한글만~~
 
 
@@ -304,3 +304,5 @@ luycin
 12.13 : 마이페이지 구현
 
 12.14 : 마이페이지, 게시판 등 유지보수
+
+12.15 : Mypage 인터셉터처리, 게시판 수정페이지 버튼 조정

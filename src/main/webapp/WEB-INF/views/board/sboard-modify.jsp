@@ -74,6 +74,7 @@
 
         button.btn-warning {
             border: 1px solid whitesmoke;
+
         }
 
         button.btn-warning:hover {
@@ -145,6 +146,18 @@
         p#title{
             font-weight: 16;
         }
+
+        button#mod-btn
+        {
+            border-radius: 2em;
+            width: 120px;
+            height: 45px;
+            font-weight: 800;
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 25px;
+        }
+
 
     </style>
 
