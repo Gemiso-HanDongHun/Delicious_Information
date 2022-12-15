@@ -32,25 +32,25 @@ public class MypageInterceptor implements HandlerInterceptor {
 
 
 
-    /*public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
-         postHandle이 작동해야 하는 URI 목록
+        // postHandle이 작동해야 하는 URI 목록
         List<String> uriList = List.of("/member/mypage");
 
-         현재 요청 URI 정보 알아내기
+       //  현재 요청 URI 정보 알아내기
         String requestURI = request.getRequestURI();
         log.info("requestURI - {}", requestURI);
 
-         현재 요청 메서드 정보 확인
+        // 현재 요청 메서드 정보 확인
         String method = request.getMethod();
 
-         postHandle은 uriList 목록에 있는 URI에서만 작동하게 함
+       //  postHandle은 uriList 목록에 있는 URI에서만 작동하게 함
         if (uriList.contains(requestURI) && method.equalsIgnoreCase("GET")) {
             log.info("board interceptor postHandle() ! ");
 
             HttpSession session = request.getSession();
 
-             컨트롤러의 메서드를 처리한 후 모델에 담긴 데이터의 맵
+           //  컨트롤러의 메서드를 처리한 후 모델에 담긴 데이터의 맵
             Map<String, Object> modelMap = modelAndView.getModel();
 
         log.info("modelMap.size() - {}", modelMap.size());
@@ -60,7 +60,7 @@ public class MypageInterceptor implements HandlerInterceptor {
 
 
             if (!isMine(session, dto.getAccount())) {
-                response.sendRedirect("/board/infoBoard");
+                response.sendRedirect("/food/list");
             }
         }
     }
@@ -71,5 +71,5 @@ public class MypageInterceptor implements HandlerInterceptor {
 
     private static boolean isMine(HttpSession session, String account) {
         return account.equals(getCurrentMemberAccount(session));
-    }*/
+    }
 }

@@ -351,7 +351,7 @@
                     <div class="form-group1 foodName">
                         <input type="hidden" name="infoNo" value="${fo.infoNo}">
                         <label for="foodName" >음식 이름</label>
-                        <input type="text" class="form-control" name="foodName" id="foodName" value="${fo.foodName}">
+                        <input type="text" class="form-control" name="foodName" id="foodName" value="${fo.foodName}"  maxlength='40'>
                     </div>
 
                     <div class="form-group1 foodKcal">

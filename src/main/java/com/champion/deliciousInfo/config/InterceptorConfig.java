@@ -47,6 +47,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/board/freeBoard", "/board/freeBoard/detail");
 
         registry.addInterceptor(mypageInterceptor)
-                .addPathPatterns("/member/mypage");
+                .addPathPatterns("/member/mypage/*");
     }
 }
