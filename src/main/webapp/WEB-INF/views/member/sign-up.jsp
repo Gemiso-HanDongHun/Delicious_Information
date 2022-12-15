@@ -10,7 +10,7 @@
 
     <style>
 
-       #navbar-header .navbar-nav .dropdown-menu{
+        #navbar-header .navbar-nav .dropdown-menu {
             border: 2px solid lightgrey;
             box-shadow: none;
         }
@@ -145,6 +145,10 @@
             color: orangered;
         }
 
+        h1 {
+            font-family: 'MaplestoryOTFBold';
+        }
+
 
     </style>
 </head>
@@ -204,18 +208,19 @@
                     <h1>회원가입</h1>
                 </div>
                 <p style="text-align: left; "><strong>이름<span class="import" id="nameChk"></span></strong></p>
-                <input type="text" id="user_name" name="name" value="" placeholder="이름을 입력해주세요">
+                <input type="text" id="user_name" name="name" maxlength="10" value=""
+                       placeholder="이름을 입력해주세요">
 
                 <p style="text-align: left; "><strong>아이디<span class="import" id="idChk"></span></strong></p>
                 <input type="text" id="user_id" name="account" placeholder="아이디를 입력해주세요">
 
                 <p style="text-align: left; "><strong>비밀번호<span class="import" id="pwChk"></span></strong></p>
-                <input type="password" id="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
+                <input type="password" minlength="10" id="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
 
                 <p style="text-align: left; "><strong>비밀번호 확인<span class="import" id="pwChk2"></span></strong></p>
                 <input type="password" id="password_check" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
 
-                <p style="text-align: left;"><strong>이메일(선택)</strong></p>
+                <p style="text-align: left;"><strong>이메일(선택)<span class="import" id="emailChk"></span></strong></p>
                 <input type="email" id="email" name="email" value="" placeholder="이메일을 입력해주세요">
 
                 <p style="text-align: left; "><strong>성별<span class="import" id="genderChk"></span></strong></p>
@@ -243,14 +248,16 @@
         //입력값 검증 정규표현식
         // const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
         const getIdCheck = RegExp(/^[a-zA-Z0-9]{1,15}$/);
+        const getIdCheck2 = RegExp(/[^0-9]/);
         const getPwCheck = RegExp(
             /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
-        const getName = RegExp(/^[가-힣]+$/);
+        const getName = RegExp(/^[가-힣a-zA-Z]+$/);
         const getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+
 
         // 입력값 검증 배열
         // 1: 이름, 4: 아이디, 2: 비번, 3: 비번확인, 5: 이메일
-        const checkArr = [false, false, false, false];
+        const checkArr = [false, false, false, false, false];
 
         // 1. 아이디 검증
         const $idInput = $('#user_id');
@@ -269,7 +276,13 @@
             // 일치하면 true, 일치하지 않으면 false를 리턴
             else if (!getIdCheck.test($idInput.val())) {
                 $idInput.css('border-color', 'red');
-                $('#idChk').html('<b class="c-red">(영문, 숫자로 작성)</b>');
+                $('#idChk').html('<b class="c-red">(영문+숫자로 작성)</b>');
+                checkArr[0] = false;
+            }
+
+            else if (!getIdCheck2.test($idInput.val())) {
+                $idInput.css('border-color', 'red');
+                $('#idChk').html('<b class="c-red">(영문+숫자로 작성)</b>');
                 checkArr[0] = false;
             }
 
@@ -357,15 +370,15 @@
                 $('#nameChk').html('<b class="c-red">(필수 정보)</b>');
                 checkArr[3] = false;
             }
-                //이름값 유효성검사
-                // else if (!getName.test($("#user_name").val())) {
-                //     $('#user_name').css('border-color', 'red');
-                //     $('#nameChk').html('<b class="c-red"></b>');
-                //     checkArr[3] = false;
-            // }
 
-            else {
-                $('#user_name').css('border-color', 'skyblue');
+            // 이름값 유효성검사
+            else if (!getName.test($("#user_name").val())) {
+                $('#user_name').css('border-color', 'red');
+                $('#nameChk').html('<b class="c-red">(한글과 영문 대소문자)</b>');
+
+                checkArr[3] = false;
+            } else {
+                $('#user_name').css('border-color', 'black');
                 $('#nameChk').html('<b class="c-blue"></b>');
                 checkArr[3] = true;
 
@@ -376,56 +389,54 @@
         });
 
         //이메일 입력값 검증.
-        // const $emailInput = $('#user_email');
-        // $emailInput.on('keyup', function () {
-        //     //이메일값 공백 확인
-        //     if ($emailInput.val() == "") {
-        //         $emailInput.css('border-color', 'red');
-        //         $('#emailChk').html('<b class="c-red"></b>');
-        //         checkArr[3] = true;
-        //     }
-        //     //이메일값 유효성검사
-        //     else if (!getMail.test($emailInput.val())) {
-        //         $emailInput.css('border-color', 'red');
-        //         $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
-        //         checkArr[3] = false;
-        //     } else {
-        //
-        //         //이메일 중복확인 비동기 통신
-        //         fetch('/member/check?type=email&value=' + $emailInput.val())
-        //             .then(res => res.text())
-        //             .then(flag => {
-        //                 //console.log(flag);
-        //                 if (flag === 'true') {
-        //                     $emailInput.css('border-color', 'orangered');
-        //                     $('#emailChk').html(
-        //                         '<b class="c-red">(이메일이 중복)</b>');
-        //                     checkArr[3] = false;
-        //                 } else {
-        //                     $emailInput.css('border-color', 'black');
-        //                     $('#emailChk').html(
-        //                         '<b class="c-blue"></b>'
-        //                     );
-        //                     checkArr[3] = true;
-        //                 }
-        //             });
-        //     }
-        // });
+        const $emailInput = $('#email');
+        // 이메일값 공백 확인
+        if ($emailInput.val() == "") {
+            $emailInput.css('border-color', 'black');
+            $('#emailChk').html('<b class="c-red"></b>');
+            checkArr[4] = true;
+        }
+        $emailInput.on('keyup', function () {
 
 
-        //
-        //
-        // if($("input[name=gender]:radio:checked").length < 1){
-        //
-        //     $('#genderChk').html('<b class="c-red">(필수 정보)</b>');
-        //
-        //     checkArr[4]=false;
-        //
-        // } else{
-        //     $('#genderChk').html('<b class="c-red"></b>');
-        //     checkArr[4]=true;
-        // }
-        //
+
+
+                //이메일값 유효성검사
+                if (!getMail.test($("#email").val())) {
+                    $emailInput.css('border-color', 'red');
+                    $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
+                    checkArr[4] = false;
+                }  else {
+                    // 정상적으로 입력한 경우
+                    $idInput.css('border-color', 'black');
+                    $('#emailChk').html('<b class="c-blue"></b>');
+                    checkArr[4] = true;
+
+                }
+
+
+            // else {
+            //
+            //     //이메일 중복확인 비동기 통신
+            //     fetch('/member/check?type=email&value=' + $emailInput.val())
+            //         .then(res => res.text())
+            //         .then(flag => {
+            //             //console.log(flag);
+            //             if (flag === 'true') {
+            //                 $emailInput.css('border-color', 'orangered');
+            //                 $('#emailChk').html(
+            //                     '<b class="c-red">(이메일이 중복)</b>');
+            //                 checkArr[3] = false;
+            //             } else {
+            //                 $emailInput.css('border-color', 'black');
+            //                 $('#emailChk').html(
+            //                     '<b class="c-blue"></b>'
+            //                 );
+            //                 checkArr[3] = true;
+            //             }
+            //         });
+            // }
+        });
 
 
         // 회원가입 양식 서버로 전송하는 클릭 이벤트

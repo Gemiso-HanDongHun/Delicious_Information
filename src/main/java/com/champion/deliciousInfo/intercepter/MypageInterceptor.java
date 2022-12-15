@@ -13,29 +13,32 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static com.champion.deliciousInfo.util.LoginUtils.getCurrentMemberAccount;
-import static com.champion.deliciousInfo.util.LoginUtils.getCurrentMemberGrade;
+import static com.champion.deliciousInfo.util.LoginUtils.*;
 
 
 @Configuration
 @Log4j2
 public class MypageInterceptor implements HandlerInterceptor {
 
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        HttpSession session = request.getSession();
 
+        log.info("member interceptor preHandle()");
+        if (!isLogin(session)) {
+            log.info("this request deny!! 집에 가");
+            // dispatcher.forward(request, response);
 
-
-
-
-
-
-
-
-
+            response.sendRedirect("/member/sign-in?message=no-login");
+            return false;
+        }
+        return true;
+    }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
         // postHandle이 작동해야 하는 URI 목록
-        List<String> uriList = List.of("/member/mypage");
+        List<String> uriList = List.of("/member/mypage/delete");
 
        //  현재 요청 URI 정보 알아내기
         String requestURI = request.getRequestURI();

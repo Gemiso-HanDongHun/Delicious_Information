@@ -294,6 +294,45 @@
       background: none;
     }
 
+    button.recbutton{
+      background-color: whitesmoke;
+      color: black;
+      border: 1px solid black;
+      font-weight:400;
+
+    }
+
+    button.recbutton:hover{
+      background-color: lightgray;
+      border: 1px solid black;
+    }
+
+    button#recommend:active{
+
+      background-color: lightgray;
+      border: 1px solid black;
+    }
+
+    button#alrecommend:active{
+      background-color: lightgray;
+      border: 1px solid black;
+    }
+
+    button#unrecommend:active{
+      background-color: lightgray;
+      border: 1px solid black;
+    }
+
+    button#alunrecommend:active{
+      background-color: lightgray;
+      border: 1px solid black;
+    }
+
+    button.btn:focus{
+      box-shadow: none;
+    }
+
+
 
   </style>
 </head>
@@ -468,17 +507,17 @@
             <textarea  style="background-color: white"  type="text" class="form-control" name="content" id="content" disabled>${fo.content}</textarea>
 
             <c:if test="${ir.value !=1 && ir.value !=-1 }">
-              <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
-              <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+              <button class="btn  recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn  recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
             </c:if>
             <c:if test="${ir.value == 1 }">
-              <button class="btn btn-info recbutton" type="button" id="alrecommend"><i class="fas fa-thumbs-up"></i> ${ir.reCount}</button>
-              <button class="btn btn-info recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
+              <button class="btn recbutton" type="button" id="alrecommend"><i class="fas fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn recbutton" type="button" id="unrecommend"><i class="far fa-thumbs-down"></i> ${ir.ueCount}</button>
             </c:if>
 
             <c:if test="${ir.value == -1 }">
-              <button class="btn btn-info recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
-              <button class="btn btn-info recbutton" type="button" id="alunrecommend"><i class="fas fa-thumbs-down"></i> ${ir.ueCount}</button>
+              <button class="btn recbutton" type="button" id="recommend"><i class="far fa-thumbs-up"></i> ${ir.reCount}</button>
+              <button class="btn recbutton" type="button" id="alunrecommend"><i class="fas fa-thumbs-down"></i> ${ir.ueCount}</button>
             </c:if>
 
             <c:if test="${loginUser.account == fo.writer || loginUser.grade == 'admin'}">
