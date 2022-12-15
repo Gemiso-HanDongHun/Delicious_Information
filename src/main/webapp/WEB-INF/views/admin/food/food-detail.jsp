@@ -70,7 +70,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label id="foodNo">Food No : ${fn.food.foodNo}</label>
-                                                <input type="number" class="form-control" name="nutrientNo"
+                                                <input type="hidden" class="form-control" name="nutrientNo"
                                                        value="${fn.nutrientNo}">
                                             </div>
                                         </div>
@@ -78,12 +78,17 @@
                                             <div class="form-group">
                                                 <label for="foodName">Food Name</label>
                                                 <input type="text" class="form-control" name="name" id="foodName"
-                                                       value="${fn.food.name}">
+                                                       value="${fn.food.name}" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="servingSize">1회 제공량</label>
+                                                <input type="text" class="form-control" name="servingSize" id="servingSize"
+                                                       value="${fn.servingSize}" >
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="foodKcal">Food Kcal</label>

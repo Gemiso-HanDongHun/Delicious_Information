@@ -67,10 +67,7 @@
                                                 <label for="foodName">Food Name</label>
                                                 <input type="text" class="form-control" name="name" id="foodName">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="foodKcal">Food Kcal</label>
-                                                <input type="number" class="form-control" name="kcal" id="foodKcal">
-                                            </div>
+
                                             <div class="form-group">
                                                 <label for="carbohydrate">탄수화물</label>
                                                 <input type="number" class="form-control" name="carbohydrate" id="carbohydrate">
@@ -83,14 +80,26 @@
                                                 <label for="fat">지방</label>
                                                 <input type="number" class="form-control" name="fat" id="fat">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="omega">omega</label>
+                                                <input type="number" class="form-control" name="omega" id="omega">
+                                            </div>
+
+
 
                                         </div>
 
                                         <div class="col-4">
+
+                                            <div class="form-group">
+                                                <label for="foodKcal">Food Kcal</label>
+                                                <input type="number" class="form-control" name="kcal" id="foodKcal">
+                                            </div>
                                             <div class="form-group">
                                                 <label for="vitaminA">vitaminA</label>
                                                 <input type="number" class="form-control" name="vitaminA" id="vitaminA">
                                             </div>
+
                                             <div class="form-group">
                                                 <label for="vitaminC">vitaminC</label>
                                                 <input type="number" class="form-control" name="vitaminC" id="vitaminC">
@@ -108,6 +117,11 @@
 
                                         <div class="col-4">
                                             <div class="form-group">
+                                                <label for="omega">1회 제공량</label>
+                                                <input type="number" class="form-control" name="servingSize" id="servingSize">
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="iron">iron</label>
                                                 <input type="number" class="form-control" name="iron" id="iron">
                                             </div>
@@ -119,10 +133,9 @@
                                                 <label for="sodium">sodium</label>
                                                 <input type="number" class="form-control" name="sodium" id="sodium">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="omega">omega</label>
-                                                <input type="number" class="form-control" name="omega" id="omega">
-                                            </div>
+
+
+
 
                                         </div>
 
@@ -179,13 +192,16 @@
     const $button = document.querySelector("button");
     const $file  = document.querySelector("#file")
     const $input = document.querySelectorAll("input");
+    const $servingSize = document.querySelector("#servingSize");
+    const $foodName = document.querySelector("#foodName");
+    const $foodKcal = document.querySelector("#foodKcal");
     const img = document.createElement("img");
     let check = true;
 
 
     function isValidate() {
-        if ($input[0].value.trim() === '' || $input[1].value.trim() === '') {
-            alert("foodName과 kcal는 필수값입니다")
+        if ($foodName.value.trim() === '' ||  $foodKcal.value.trim() === ''|| $servingSize.value.trim() === '') {
+            alert("foodName과 kcal,1회제공량은 필수값입니다")
             return false;
         }
         return true;

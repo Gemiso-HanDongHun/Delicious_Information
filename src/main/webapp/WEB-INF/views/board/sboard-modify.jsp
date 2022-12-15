@@ -233,7 +233,7 @@
                     <p id="p1">제목(수정)</p>
                     <input type="hidden" name="boardNo" value="${sb.boardNo}">
                     <input type="text" id="title-input" class="form-control col-12" name="title"
-                           value="${sb.title}"><br/>
+                           value="${sb.title}" maxlength="40"><br/>
                     <p id="p2">문의내용(수정)</p>
                     <textarea class="form-control col-12" rows="15" name="content">${sb.content}</textarea>
                 </div>
