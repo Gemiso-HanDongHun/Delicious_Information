@@ -61,12 +61,12 @@
 
         .free-board {
             width: 40%;
-            border: 2px solid whitesmoke;
+            border: 2px solid rgb(246, 245, 243);
             border-radius: 1.5em;
             border-collapse: separate;
             margin: auto;
             padding: 24px;
-            background: rgba(255, 255, 255, 0.5);
+            background:  rgb(246, 245, 243, 0.5);
             /*background: lightgrey;*/
             line-height: 202%;
             z-index: 1000;

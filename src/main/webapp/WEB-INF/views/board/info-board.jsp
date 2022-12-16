@@ -120,7 +120,7 @@
             line-height: 180%;
             padding-left: 10px;
 
-            opacity: 0.5;
+
         }
 
         div.div_search form {
@@ -198,7 +198,7 @@
 
         input#inputName {
             padding: 10px;
-            opacity: 0.5;
+            opacity: 0.2;
         }
 
         #navbar-header .dropdown .dropdown-menu {

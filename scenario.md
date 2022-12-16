@@ -150,8 +150,8 @@ board.freeboardController
  ~~이름은 한글만~~
 
 준하 내일 할꺼
-게시판 3개 리스트 투명도 다름 백그라운드 rgb값 다름
-검색창도 마찬가지
+~~게시판 3개 리스트 투명도 다름 백그라운드 rgb값 다름~~
+~~검색창도 마찬가지~~
 
 lemoncoat : 
 11.08 - index.jsp login-form.jsp  food-list.jsp 작성
@@ -252,6 +252,10 @@ goill :
 12.13 : 게시판 전체 드랍버튼 디자인 수정, 일괄 폰트 적용, 1일 권장량 추가
 
 12.14 : 회원탈퇴 기능 및 alert 출력, foodlist, mypage 글자수제한, 보드 입력 글자수 제한
+
+12.15 : 회원탈퇴 Interceptor 작성
+
+12.16 : 게시판 백그라운드 동일화, 검색바 opercity 동일화
 
 luycin
 

@@ -116,8 +116,7 @@
 
         input#inputName {
             padding: 10px;
-            padding: 10px;
-            opacity: 0.5;
+            opacity: 0.2;
         }
 
         #navbar-header .dropdown .dropdown-menu {
