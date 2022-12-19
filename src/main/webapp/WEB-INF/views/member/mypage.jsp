@@ -372,7 +372,7 @@
 
                         <c:if test="${empty AllfbList}">
                             <tr>
-                                <td style="color: orangered">등록된 글이 없습니다.</td>
+                                <td style="color: orangered" onclick="location.href='/board/freeBoard'">등록된 글이 없습니다.</td>
                             </tr>
                         </c:if>
 
@@ -402,7 +402,7 @@
 
                         <c:if test="${empty userinfo}">
                             <tr>
-                                <td style="color: orangered">등록된 글이 없습니다.</td>
+                                <td style="color: orangered" onclick="location.href='/board/infoBoard'">등록된 글이 없습니다.</td>
                             </tr>
                         </c:if>
                     </table>
@@ -430,7 +430,7 @@
 
                         <c:if test="${empty usersuggest}">
                             <tr>
-                                <td style="color: orangered">등록된 글이 없습니다.</td>
+                                <td style="color: orangered" onclick="location.href='/board/suggestionBoard'">등록된 글이 없습니다.</td>
                             </tr>
                         </c:if>
                     </table>
