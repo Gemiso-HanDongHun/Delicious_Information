@@ -150,7 +150,7 @@
             width: 450px;
         }
 
-        section#middle2{
+        section#middle2 {
             width: 520px;
         }
 
@@ -187,29 +187,28 @@
         }
 
 
-
-        input.col-12{
+        input.col-12 {
             border-radius: 1.5em;
             font-family: 'MaplestoryOTFBold';
             padding: 15px;
         }
 
-        div h1{
+        div h1 {
             font-family: 'MaplestoryOTFBold';
         }
 
         #delete {
             border-radius: 1.5em;
             position: absolute;
-            right : 1px;
-            bottom : -6px;
+            right: 1px;
+            bottom: -6px;
         }
 
         #modify {
             border-radius: 1.5em;
             position: absolute;
-            right : 80px;
-            bottom : -6px;
+            right: 80px;
+            bottom: -6px;
         }
 
         #delete:hover {
@@ -225,7 +224,7 @@
             background: none;
         }
 
-        #modify:hover{
+        #modify:hover {
             background: lightgrey;
             cursor: pointer;
         }
@@ -320,19 +319,22 @@
 
                 <p id="p1">아이디</p>
 
-                <input type="text" id="freeboard-input" class="form-control col-12" name="title" value=" ${loginUser.account}"
+                <input type="text" id="freeboard-input" class="form-control col-12" name="title"
+                       value=" ${loginUser.account}"
                        disabled><br/>
 
                 <p id="p2">등급</p>
 
-                <input type="text" id="infoboard-input" class="form-control col-12" name="writer" value="${loginUser.grade}"
+                <input type="text" id="infoboard-input" class="form-control col-12" name="writer"
+                       value="${loginUser.grade}"
                        disabled><br/>
 
                 <p id="p3">이메일</p>
 
                 <c:if test="${!empty loginUser.email}">
-                <input type="text" id="sboard-input" class="form-control col-12" name="writer" value="${loginUser.email}"
-                       disabled><br/>
+                    <input type="text" id="sboard-input" class="form-control col-12" name="writer"
+                           value="${loginUser.email}"
+                           disabled><br/>
                 </c:if>
 
                 <c:if test="${empty loginUser.email}">
@@ -341,7 +343,7 @@
                 </c:if>
 
                 <button type="button" id="delete">회원탈퇴</button>
-<%--                <button type="button" id="modify">정보수정</button>--%>
+                <%--                <button type="button" id="modify">정보수정</button>--%>
             </div>
         </form>
     </section>
@@ -355,14 +357,27 @@
                 <p id="p4" style="font-size:20px; ">자유게시판</p>
 
                 <div class="side-t"> <%-- 이미지요소 --%>
+
                     <table class="side-t-main">
-                        <c:forEach var="af" items="${AllfbList}" begin="0" end="3">
+
+                        <c:if test="${!empty AllfbList}">
+                            <c:forEach var="af" items="${AllfbList}" begin="0" end="3">
+                                <tr>
+                                    <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
+                                    <td style="width:100%;   "
+                                        onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.shortTitle}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty AllfbList}">
                             <tr>
-                                <input type="hidden" name="freeboardNo" value="${af.freeboardNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/freeBoard/detail/${af.freeboardNo}'">${af.shortTitle}</td>
+                                <td style="color: orangered">등록된 글이 없습니다.</td>
                             </tr>
-                        </c:forEach>
+                        </c:if>
+
                     </table>
+
                 </div>
 
             </div>
@@ -374,15 +389,24 @@
 
                 <div class="side-t"> <%-- 이미지요소 --%>
                     <table class="side-t-main">
-                        <c:forEach var="uf" items="${userinfo}" begin="0" end="3">
+
+                        <c:if test="${!empty userinfo}">
+                            <c:forEach var="uf" items="${userinfo}" begin="0" end="3">
+                                <tr>
+                                    <input type="hidden" name="info_no" value="${uf.infoNo}">
+                                    <td style="width:100%;   "
+                                        onclick="location.href='/board/infoBoard/detail/${uf.infoNo}'">${uf.shortName}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty userinfo}">
                             <tr>
-                                <input type="hidden" name="info_no" value="${uf.infoNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/infoBoard/detail/${uf.infoNo}'">${uf.shortName}</td>
+                                <td style="color: orangered">등록된 글이 없습니다.</td>
                             </tr>
-                        </c:forEach>
+                        </c:if>
                     </table>
                 </div>
-
 
 
             </div>
@@ -394,21 +418,26 @@
 
                 <div class="side-t"> <%-- 이미지요소 --%>
                     <table class="side-t-main">
-                        <c:forEach var="us" items="${usersuggest}" begin="0" end="3">
+                        <c:if test="${!empty usersuggest}">
+                            <c:forEach var="us" items="${usersuggest}" begin="0" end="3">
+                                <tr>
+                                    <input type="hidden" name="board_no" value="${us.boardNo}">
+                                    <td style="width:100%;   "
+                                        onclick="location.href='/board/suggestionBoard/detail/${us.boardNo}'">${us.shortTitle}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty usersuggest}">
                             <tr>
-                                <input type="hidden" name="board_no" value="${us.boardNo}">
-                                <td style="width:100%;   " onclick="location.href='/board/suggestionBoard/detail/${us.boardNo}'">${us.shortTitle}</td>
+                                <td style="color: orangered">등록된 글이 없습니다.</td>
                             </tr>
-                        </c:forEach>
+                        </c:if>
                     </table>
                 </div>
 
-
-
             </div>
         </form>
-
-
 
 
     </section>
@@ -448,15 +477,14 @@
         };
     }
 
-    if($modify !==null){
-        $modify.onclick = e =>{
-            if(!confirm('그런거 없어용~')){
+    if ($modify !== null) {
+        $modify.onclick = e => {
+            if (!confirm('그런거 없어용~')) {
                 return;
             }
         };
 
     }
-
 
 
 </script>
