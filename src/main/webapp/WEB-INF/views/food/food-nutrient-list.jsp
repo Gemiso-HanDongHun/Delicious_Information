@@ -389,8 +389,6 @@ URL: https://gettemplates.co
                         </c:if>
 
 
-
-
                     </table>
 
                 </div>
@@ -404,11 +402,45 @@ URL: https://gettemplates.co
                         </tr>
 
                         <c:if test="${!empty loginUser}">
-                            <c:forEach var="sm" begin="0" end="17" items="${sl}">
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
                                 <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCA&channel=user'">비타민 A</td>
+                                </tr>
+                            </c:forEach>
 
-                                    <td>${sm.name}</td>
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCC&channel=user'">비타민 C</td>
+                                </tr>
+                            </c:forEach>
 
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCE&channel=user'">비타민 E</td>
+                                </tr>
+                            </c:forEach>
+
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EC%98%A4%EB%A9%94%EA%B0%803&channel=auto'">오메가3</td>
+                                </tr>
+                            </c:forEach>
+
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EC%B9%BC%EC%8A%98&channel=auto'">칼슘</td>
+                                </tr>
+                            </c:forEach>
+
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EC%B2%A0%EB%B6%84&channel=auto'">철분</td>
+                                </tr>
+                            </c:forEach>
+
+                            <c:forEach var="sm" begin="1" end="1" items="${sl}">
+                                <tr id="lili">
+                                    <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%A7%88%EA%B7%B8%EB%84%A4%EC%8A%98&channel=auto'">마그네슘</td>
                                 </tr>
                             </c:forEach>
                         </c:if>

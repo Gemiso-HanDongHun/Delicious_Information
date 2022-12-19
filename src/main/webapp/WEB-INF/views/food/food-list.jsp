@@ -178,7 +178,7 @@
             padding-left: 10px;
             background-color: white;
             margin-bottom: 30px;
-            opacity: 0.5;
+            /*opacity: 0.5;*/
         }
 
         div.div_search form {
@@ -294,6 +294,10 @@
             color:red;
         }
 
+        div.div_search{
+            background-color: white;
+        }
+
 
     </style>
 
@@ -350,7 +354,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 음식을 적어주세요" style="opacity: 1" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>

@@ -121,7 +121,6 @@ URL: https://gettemplates.co
             font-family: 'MaplestoryOTFBold';
         }
 
-
     </style>
 
 </head>
@@ -189,19 +188,19 @@ URL: https://gettemplates.co
                             <h3 class="mt-5">𝓢𝓹𝓮𝓬𝓲𝓪𝓵</h3>
                             <div class="row">
                                 <div class="col-4">
-                                    <a href="#" class="thumb-menu">
+                                    <a  class="thumb-menu">
                                         <img class="img-fluid img-cover" src="/resto/img/list.jpg"/>
                                         <h6>리스트에서 음식 검색</h6>
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="#" class="thumb-menu">
+                                    <a  class="thumb-menu">
                                         <img class="img-fluid img-cover" src="/resto/img/information.jpg"/>
                                         <h6>영양분 정보 제공</h6>
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="#" class="thumb-menu">
+                                    <a class="thumb-menu">
                                         <img class="img-fluid img-cover" src="/resto/img/analysis.jpg"/>
                                         <h6>영양분 권장량 분석</h6>
                                     </a>

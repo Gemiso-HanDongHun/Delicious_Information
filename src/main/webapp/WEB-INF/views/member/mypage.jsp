@@ -183,7 +183,7 @@
         table.side-t-main tr td:hover {
             cursor: pointer;
             background: lightgray;
-            color:;
+            /*color:;*/
         }
 
 
@@ -201,7 +201,15 @@
         #delete {
             border-radius: 1.5em;
             position: absolute;
-            right: 2px;
+            right : 1px;
+            bottom : -6px;
+        }
+
+        #modify {
+            border-radius: 1.5em;
+            position: absolute;
+            right : 80px;
+            bottom : -6px;
         }
 
         #delete:hover {
@@ -215,6 +223,11 @@
 
         .dropdown-item:active {
             background: none;
+        }
+
+        #modify:hover{
+            background: lightgrey;
+            cursor: pointer;
         }
 
     </style>
@@ -328,6 +341,7 @@
                 </c:if>
 
                 <button type="button" id="delete">회원탈퇴</button>
+<%--                <button type="button" id="modify">정보수정</button>--%>
             </div>
         </form>
     </section>
@@ -417,6 +431,7 @@
     const currentAccount = '${loginUser.account}';
     const grade = '${loginUser.grade}';
     const $delete = document.getElementById('delete');
+    const $modify = document.getElementById('modify');
 
 
     //원본 글 번호
@@ -426,12 +441,22 @@
     if ($delete !== null) {
         //삭제버튼
         $delete.onclick = e => {
-            if (!confirm('정말 삭제하시겠습니까?')) {
+            if (!confirm('정말 탈퇴하시겠습니까?')) {
                 return;
             }
             location.href = '/member/mypage/delete';
         };
     }
+
+    if($modify !==null){
+        $modify.onclick = e =>{
+            if(!confirm('그런거 없어용~')){
+                return;
+            }
+        };
+
+    }
+
 
 
 </script>

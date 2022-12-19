@@ -281,6 +281,10 @@
             cursor: pointer;
         }
 
+        div.div_search{
+            background-color: white;
+        }
+
 
     </style>
 </head>
@@ -361,7 +365,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="검색하고 싶은 제목을 입력하세요" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 제목을 입력하세요" style="opacity: 1" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>

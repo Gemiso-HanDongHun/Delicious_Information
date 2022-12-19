@@ -119,8 +119,7 @@
             border: 2px solid #000000;
             line-height: 180%;
             padding-left: 10px;
-
-
+            background-color: #FFFFFF;
         }
 
         div.div_search form {
@@ -399,7 +398,7 @@
 
     <div class="div_search">
         <form id="searchForm">
-            <input type="text" placeholder="검색하고 싶은 음식을 입력하세요" name="keyword" id="inputName"
+            <input type="text" placeholder="검색하고 싶은 음식을 입력하세요" style="opacity: 1" name="keyword" id="inputName"
                    value="${s.keyword}">
             <a id="side-search-open" class="nav-link" href="#">
                 <span class="lnr lnr-magnifier"></span>
