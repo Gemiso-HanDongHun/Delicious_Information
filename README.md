@@ -27,6 +27,7 @@ Mapper - select
 DB 설계
 음식ID, 음식명, Kcal, 사진명
 
+
 영양소( 탄수화물, 단백질, 지방, 비타민 A, D, E, K, C), 
 
 

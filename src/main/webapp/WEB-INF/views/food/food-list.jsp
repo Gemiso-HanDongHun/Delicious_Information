@@ -53,7 +53,7 @@
             width: 17%;
             height: 600px;
             position: absolute;
-            left: 130px;
+            left: 150px;
             margin: 11px 0 0 0;
             border: 2px solid whitesmoke;
             border-radius: 1.5em;
