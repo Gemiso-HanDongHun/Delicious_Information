@@ -5,13 +5,13 @@
 Resto by GetTemplates.co
 URL: https://gettemplates.co
 -->
-<html lang="en">
+<html lang="ko">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
+    <title>Delicious-Info</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,7 +39,7 @@ URL: https://gettemplates.co
 
     <style>
         div.boxed-page {
-            height: 975px;
+            min-height: 975px;
         }
 
         div.container {
