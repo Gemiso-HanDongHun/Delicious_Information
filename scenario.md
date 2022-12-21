@@ -8,9 +8,9 @@ Application Scenario
 
 
 ## Admin 
-1. 식품 정보를 등록 할 수 있다.
+1. 록 할 수 있다.
 2. 회원정보 관리 페이지
-
+![img.png](img.png)
 ## Member 
 1. 자신의 검색목록 
 2. 즐겨 찾기
