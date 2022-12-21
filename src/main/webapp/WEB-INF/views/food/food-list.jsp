@@ -70,6 +70,7 @@
         }
 
         div.side-t div.fBaordTitle h1 {
+            font-size: 2vw;
             text-align: center;
         }
 
