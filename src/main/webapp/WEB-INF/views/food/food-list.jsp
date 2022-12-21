@@ -18,7 +18,8 @@
 
         body {
             font-family: 'MaplestoryOTFBold';
-            margin: 0px;
+            margin: 0;
+            line-height: 1.5;
         }
 
         button#reset {
@@ -193,8 +194,7 @@
         div.div_search input[type=text] {
             width: 100%;
             height: 40px;
-            border: 0px;
-
+            border: 0;
         }
 
         div.div_search input[type=text]:focus {
@@ -299,6 +299,30 @@
             background-color: white;
         }
 
+        div.flex-column li a.dropdown-item { /*drop a태그 height 크기*/
+            padding-top: 0;
+        }
+
+        .dropdown-item:active {
+            background: none;
+        }
+
+        #navbar-header .dropdown:hover {
+            cursor: pointer;
+        }
+
+        #navbar-header .dropdown .dropdown-menu {
+            top: 90%;
+            left : -15px;
+            display: none;
+        }
+
+        #navbar-header .navbar-nav .dropdown-menu{
+            border: 2px solid lightgrey;
+            box-shadow: none;
+        }
+
+
 
     </style>
 
@@ -327,24 +351,49 @@
                         <p id="title">𝓕𝓸𝓸𝓭 𝓛𝓲𝓼𝓽</p>
                     </div>
 
-                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx">
-                        <c:if test="${empty loginUser}">
-                            <li class="nav-item sign">
-                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
-                            </li>
+                    <div class="d-flex flex-lg-row flex-column justify-content-around widthpx " id="board-drop">
+                        <li class="nav-item dropdown" id="nav-li">
+                            <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                자유게시판
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/freeBoard'">자유게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/infoBoard'">정보게시판</a>
+                                <a class="dropdown-item"
+                                   onclick="location.href='/board/suggestionBoard'">문의게시판</a>
+                            </div>
 
-                            <li class="nav-item sign">
-                                <a class="nav-link" id="sign-up" href="/member/sign-up">회원가입</a>
+                        </li>
+                        <c:if test="${empty loginUser}">
+                            <li class="nav-item sign active4">
+                                <a class="nav-link" id="sign-in" href="/member/sign-in">로그인</a>
                             </li>
                         </c:if>
 
+
                         <c:if test="${!empty loginUser}">
-                            <li class="nav-item sign">
-                                <a class="nav-link" id="loginAccount"
-                                   onclick="location.href='/member/mypage'">${loginUser.name}님</a>
+                            <%--<li class="nav-item sign active5">
+                                <a class="nav-link" id="loginAccount" onclick="location.href='/member/mypage'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
+                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                            </li>--%>
+
+                            <li class="nav-item dropdown" id="nav-li">
+                                <a class="nav-link dropdown-toggle" id="navibarDropdown2" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${loginUser.name}님
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="/member/mypage">마이 페이지</a>
+                                    <a class="dropdown-item"
+                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                </div>
+
                             </li>
                         </c:if>
                     </div>
