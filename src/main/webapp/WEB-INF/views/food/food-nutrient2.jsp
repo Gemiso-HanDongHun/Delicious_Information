@@ -394,7 +394,7 @@ URL: https://gettemplates.co
                             <th>추천 영양제</th>
                         </tr>
 
-                        <c:if test="${!empty loginUser}">
+<%--                        <c:if test="${!empty loginUser}">--%>
                             <c:forEach var="sm" begin="1" end="1" items="${sl}">
                                 <tr id="lili">
                                     <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCA&channel=user'">비타민 A</td>
@@ -436,16 +436,15 @@ URL: https://gettemplates.co
                                     <td onclick="location.href='https://www.coupang.com/np/search?component=&q=%EB%A7%88%EA%B7%B8%EB%84%A4%EC%8A%98&channel=auto'">마그네슘</td>
                                 </tr>
                             </c:forEach>
-                        </c:if>
+<%--                        </c:if>--%>
 
-                        <c:if test="${empty loginUser}">
-                            <tr id="lili">
+<%--                        <c:if test="${empty loginUser}">--%>
+<%--                            <tr id="lili">--%>
 
-                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>
+<%--                                <td onclick="location.href='/member/sign-in'">회원만 이용할 수 있습니다.</td>--%>
 
-                            </tr>
-                        </c:if>
-
+<%--                            </tr>--%>
+<%--                        </c:if>--%>
 
                     </table>
 
