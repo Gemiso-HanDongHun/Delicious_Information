@@ -220,8 +220,8 @@
                 <p style="text-align: left; "><strong>비밀번호 확인<span class="import" id="pwChk2"></span></strong></p>
                 <input type="password" id="password_check" name="phone" value="" placeholder="핸드폰 번호를 입력해주세요">
 
-                <p style="text-align: left;"><strong>이메일(선택)<span class="import" id="emailChk"></span></strong></p>
-                <input type="email" id="email" name="email" value="" placeholder="이메일을 입력해주세요">
+                <p style="text-align: left;"><strong>이메일<span class="import" id="emailChk"></span></strong></p>
+                <input type="email" id="email" maxlength="20" name="email" value="" placeholder="이메일을 입력해주세요">
 
                 <p style="text-align: left; "><strong>성별<span class="import" id="genderChk"></span></strong></p>
                 <input type="radio" id="man" name="gender" value="남" checked>남
@@ -278,9 +278,7 @@
                 $idInput.css('border-color', 'red');
                 $('#idChk').html('<b class="c-red">(영문+숫자로 작성)</b>');
                 checkArr[0] = false;
-            }
-
-            else if (!getIdCheck2.test($idInput.val())) {
+            } else if (!getIdCheck2.test($idInput.val())) {
                 $idInput.css('border-color', 'red');
                 $('#idChk').html('<b class="c-red">(영문+숫자로 작성)</b>');
                 checkArr[0] = false;
@@ -390,29 +388,30 @@
 
         //이메일 입력값 검증.
         const $emailInput = $('#email');
-        // 이메일값 공백 확인
-        if ($emailInput.val() == "") {
-            $emailInput.css('border-color', 'black');
-            $('#emailChk').html('<b class="c-red"></b>');
-            checkArr[4] = true;
-        }
         $emailInput.on('keyup', function () {
 
+            // 이메일값 공백 확인
+            if ($emailInput.val() == "") {
+                $emailInput.css('border-color', 'red');
+                // $('#emailChk').html('<b class="c-red"></b>');
+                $('#emailChk').html('<b class="c-red">(필수 정보)</b>');
+                checkArr[4] = false;
+            }
 
 
 
-                //이메일값 유효성검사
-                if (!getMail.test($("#email").val())) {
-                    $emailInput.css('border-color', 'red');
-                    $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
-                    checkArr[4] = false;
-                }  else {
-                    // 정상적으로 입력한 경우
-                    $idInput.css('border-color', 'black');
-                    $('#emailChk').html('<b class="c-blue"></b>');
-                    checkArr[4] = true;
+            //이메일값 유효성검사
+            else if (!getMail.test($("#email").val())) {
+                $emailInput.css('border-color', 'red');
+                $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
+                checkArr[4] = false;
+            } else {
+                // 정상적으로 입력한 경우
+                $idInput.css('border-color', 'black');
+                $('#emailChk').html('<b class="c-blue"></b>');
+                checkArr[4] = true;
 
-                }
+            }
 
 
             // else {

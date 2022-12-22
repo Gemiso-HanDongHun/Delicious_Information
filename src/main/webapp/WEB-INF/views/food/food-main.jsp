@@ -98,6 +98,11 @@ URL: https://gettemplates.co
             color: black;
         }
 
+        h5{
+            font-family: 'MaplestoryOTFBold';
+        }
+
+
     </style>
 
 
