@@ -134,6 +134,16 @@ board.freeboardController
     + 마이페이지
 
 # Version 6.0
+food-list.jsp, mypage.jsp -> 제목 글자수 제한
+board 제목 글자수 제한(60글자) 
+DB 초기화 
+mypage.jsp 정렬(DESC)
+food-list.jsp 100g 제거
+food-list.jsp 회원탈퇴 확인 메시지 
+mypageinterceptor 널포인터, 타인 삭제 방지
+food-list session
+admin page HOME 화면 g 추가, 삭제
+
  ~~food-list.jsp ->제목 글자 제한수 준하
  mypage.jsp >제목 글자 제한수 준하~~
  ~~board 제목 글자수 제한 60글자~~ ~~각자 보드 validate .jsp 안쳐지게 하고 각자~~
