@@ -403,6 +403,7 @@
             //이메일값 유효성검사
             else if (!getMail.test($("#email").val())) {
                 $emailInput.css('border-color', 'red');
+
                 $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
                 checkArr[4] = false;
             } else {
