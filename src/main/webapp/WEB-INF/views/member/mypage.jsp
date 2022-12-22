@@ -262,7 +262,7 @@
 
                             <a class="nav-link dropdown-toggle" id="navibarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                자유게시판
+                                게시판
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
