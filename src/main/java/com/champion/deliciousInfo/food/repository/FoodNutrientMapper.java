@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface FoodNutrientMapper {
+public interface wFoodNutrientMapper {
 
     List<FoodNutrient> findAll();
     FoodNutrient findOne(int foodNo);

@@ -3,14 +3,14 @@ Application Scenario
 
 ## 사업방향
 1. 영양제 회사와 협업을 통해 사용자가 부족한 영양성분과 제품 추천 및 광고
-2. 
-
+2. food-nutrient, food-nutrient2, food-nutrient-list, food-nutrient-list2의 추천 영양제 부분에 광고배너를 삽입한다
 
 
 ## Admin 
 1. 록 할 수 있다.
 2. 회원정보 관리 페이지
-![img.png](img.png)
+
+
 ## Member 
 1. 자신의 검색목록 
 2. 즐겨 찾기
