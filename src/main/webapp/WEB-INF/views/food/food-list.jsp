@@ -305,6 +305,7 @@
 
         .dropdown-item:active {
             background: none;
+            color: black;
         }
 
         #navbar-header .dropdown:hover {
