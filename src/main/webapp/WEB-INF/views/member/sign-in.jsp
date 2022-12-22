@@ -240,7 +240,7 @@
 
                 <c:if test="${loginUser != null}">
                     <li><a href="#">My Page</a></li>
-                    <li><a href="/member/sign-out">Sign Out</a></li>
+                    <li><a onclick="signOut()">Sign Out</a></li>
                 </c:if>
             </ul>
         </section>

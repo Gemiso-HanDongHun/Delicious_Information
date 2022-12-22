@@ -381,7 +381,7 @@
                                 <a class="nav-link" id="loginAccount" onclick="location.href='/member/mypage'">${loginUser.name}님</a>
                             </li>
                             <li class="nav-item sign">
-                                <a class="nav-link" id="sign-out" href="/member/sign-out">로그아웃</a>
+                                <a class="nav-link" id="sign-out" onclick="signOut()">로그아웃</a>
                             </li>--%>
 
                             <li class="nav-item dropdown" id="nav-li">
@@ -393,7 +393,7 @@
                                     <a class="dropdown-item"
                                        href="/member/mypage">마이 페이지</a>
                                     <a class="dropdown-item"
-                                       id="sign-out" href="/member/sign-out">로그아웃</a>
+                                       id="sign-out" onclick="signOut()">로그아웃</a>
                                 </div>
 
                             </li>
@@ -560,6 +560,7 @@
     const $table = document.querySelector("#foodtable");
     const $reset = document.querySelector("#reset");
     const $searchk = document.querySelector("#searchk");
+
     let checkTotal = 0;
 
     const msg = '${msg}';
@@ -567,6 +568,13 @@
     if (msg !== '') {
         alert(msg);
     }
+
+    function signOut() {
+        if (confirm('로그아웃하시겠습니까?')) {
+            location.href = '/member/sign-out';
+        }
+    }
+
     const remove=(e)=>{
         if (checkTotal < 9) { //지울때
             fetch('/api/foods/' + e.target.dataset.num, {method: 'delete'})
@@ -583,11 +591,7 @@
         }
     }
 
-    function signOut() {
-        if (confirm('로그아웃하시겠습니까?')) {
-            location.href = '/member/sign-out';
-        }
-    }
+
 
 
     function appendPageActive() {
