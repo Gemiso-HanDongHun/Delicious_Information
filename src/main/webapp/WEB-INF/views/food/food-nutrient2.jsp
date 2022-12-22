@@ -374,6 +374,11 @@ URL: https://gettemplates.co
 
                                 </tr>
                             </c:forEach>
+                            <c:if test="${empty tl}">
+                                <tr id="lili">
+                                    <td>추천음식이 없습니다.</td>
+                                </tr>
+                            </c:if>
                         </c:if>
 
                         <c:if test="${empty loginUser}">
