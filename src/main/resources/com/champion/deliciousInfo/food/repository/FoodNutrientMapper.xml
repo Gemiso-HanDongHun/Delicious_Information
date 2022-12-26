@@ -7,35 +7,35 @@
 
     <resultMap id="foodNutrientMap" type="com.champion.deliciousInfo.food.domain.FoodNutrient">
 
-        <id column="nutrient_no" property="nutrientNo" />
-        <result property="carbohydrate" column="carbohydrate"/>
-        <result property="servingSize" column="serving_size"/>
-        <result property="protein" column="protein"/>
-        <result property="fat" column="fat"/>
-        <result property="vitaminA" column="vitamin_a"/>
-        <result property="vitaminC" column="vitamin_c"/>
-        <result property="vitaminE" column="vitamin_e"/>
-        <result property="calcium" column="calcium"/>
-        <result property="iron" column="iron"/>
-        <result property="magnesium" column="magnesium"/>
-        <result property="sodium" column="sodium"/>
-        <result property="omega" column="omega"/>
+        <id     property="nutrientNo"    column="nutrient_no" />
+        <result property="carbohydrate"  column="carbohydrate"/>
+        <result property="servingSize"   column="serving_size"/>
+        <result property="protein"       column="protein"/>
+        <result property="fat"           column="fat"/>
+        <result property="vitaminA"      column="vitamin_a"/>
+        <result property="vitaminC"      column="vitamin_c"/>
+        <result property="vitaminE"      column="vitamin_e"/>
+        <result property="calcium"       column="calcium"/>
+        <result property="iron"          column="iron"/>
+        <result property="magnesium"     column="magnesium"/>
+        <result property="sodium"        column="sodium"/>
+        <result property="omega"         column="omega"/>
         <association property="food"
                      column="food_no" javaType="com.champion.deliciousInfo.food.domain.Food"
                      select="com.champion.deliciousInfo.food.repository.FoodMapper.findOne" />
 
     </resultMap>
 
-
     <sql id="recommend">
-        <if test='type=="c"'> <![CDATA[ WHERE protein<= #{protein} and  fat <= #{fat} and carbohydrate <= 0]]></if>
-        <if test='type == "p"'><![CDATA[ WHERE carbohydrate<= #{carbohydrate} and  fat <= #{fat} and protein<=0 ]]> </if>
-        <if test='type == "f"'> <![CDATA[WHERE carbohydrate<= #{carbohydrate} and  protein <= #{protein} and fat<=0 ]]> </if>
-        <if test='type == "cp"'><![CDATA[ WHERE carbohydrate<= 0 and  protein <= 0 and fat<=#{fat}]]></if>
-        <if test='type == "cf"'><![CDATA[ WHERE carbohydrate<= 0 and  protein <= #{protein} and fat<=0]]></if>
-        <if test='type == "pf"'><![CDATA[ WHERE carbohydrate<= #{carbohydrate} and  protein <= 0 and fat<=0]]></if>
+        <if test='type=="c"'>    <![CDATA[ WHERE protein<= #{protein} and fat <= #{fat} and carbohydrate <= 0]]></if>
+        <if test='type == "p"'>  <![CDATA[ WHERE carbohydrate<= #{carbohydrate} and  fat <= #{fat} and protein<=0 ]]> </if>
+        <if test='type == "f"'>  <![CDATA[ WHERE carbohydrate<= #{carbohydrate} and  protein <= #{protein} and fat<=0 ]]> </if>
+        <if test='type == "cp"'> <![CDATA[ WHERE carbohydrate<= 0 and  protein <= 0 and fat<=#{fat}]]></if>
+        <if test='type == "cf"'> <![CDATA[ WHERE carbohydrate<= 0 and  protein <= #{protein} and fat<=0]]></if>
+        <if test='type == "pf"'> <![CDATA[ WHERE carbohydrate<= #{carbohydrate} and  protein <= 0 and fat<=0]]></if>
         <if test='type == "cpf"'><![CDATA[ WHERE carbohydrate<= 0 and  fat <= 0 and protein<=0]]></if>
     </sql>
+
     <!-- 회원 조회 기능   -->
     <select id="findAll" resultMap="foodNutrientMap">
         select * from food_nutrient
@@ -75,11 +75,8 @@
 
     <select id="recommend" resultMap="foodNutrientMap">
 
-
         select * from food_nutrient
         <include refid="recommend" />
-
-
 
     </select>
 

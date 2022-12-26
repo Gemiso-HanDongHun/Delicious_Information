@@ -11,7 +11,7 @@ import lombok.*;
 public class TodayNutrient { // 한 사람이 하루동안 필요한 영양소의 양을 나타내는 dto
 
 
-    private Float carbohydrate ;
+    private Float carbohydrate;
     private Float protein;
     private Float fat;
     private Float vitaminA;
@@ -24,6 +24,5 @@ public class TodayNutrient { // 한 사람이 하루동안 필요한 영양소�
     private Float omega;
     private Food food;
     private String type="";
-
 
 }

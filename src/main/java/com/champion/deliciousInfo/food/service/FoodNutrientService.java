@@ -104,8 +104,6 @@ public class FoodNutrientService {
         return findRecommendData;
     }
 
-   
-
     public Map<String, Object> manTotal(List<FoodNutrient> myList){
         Map<String, Object> findRecommendData = new HashedMap<>();
         FoodNutrient foodNutrient = new FoodNutrient();
@@ -158,6 +156,7 @@ public class FoodNutrientService {
                 foodNutrient.addTotal(fn);
             }
         }
+
         tn = getWomanTn(foodNutrient);
 //        if (tn.getCarbohydrate() <= 0) {
 //            tn.setType("c");
@@ -192,7 +191,7 @@ public class FoodNutrientService {
     }
 
     private static TodayNutrient getManTn(FoodNutrient foodNutrient) {
-        double todayCarbo = (2700 * 0.5 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0);
+        double todayCarbo = 150 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0;
         double todayProtein = 55 - Math.round(foodNutrient.getProtein() * 100) / 100.0;
         double todayFat = 53 - Math.round(foodNutrient.getFat() * 100) / 100.0;
         double todaySodium = 2000 - Math.round(foodNutrient.getSodium() * 100) / 100.0;
@@ -221,7 +220,7 @@ public class FoodNutrientService {
         return tn;
     }
     private static TodayNutrient getWomanTn(FoodNutrient foodNutrient) {
-        double todayCarbo = 2100 * 0.5 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0;
+        double todayCarbo = 130 - Math.round(foodNutrient.getCarbohydrate() * 100) / 100.0;
         double todayProtein = 50 - Math.round(foodNutrient.getProtein() * 100) / 100.0;
         double todayFat = 42 - Math.round(foodNutrient.getFat() * 100) / 100.0;
         double todaySodium = 2000 - Math.round(foodNutrient.getSodium() * 100) / 100.0;
@@ -248,7 +247,6 @@ public class FoodNutrientService {
                 .build();
         return tn;
     }
-
 
 }
 

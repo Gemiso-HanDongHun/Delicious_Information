@@ -38,7 +38,6 @@ public class KakaoService implements OAuthService, OAuthValue {
         conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
         conn.setDoOutput(true); // 응답 결과를 받겠다.
 
-
         sendAccessTokenRequest(authCode, conn);
 
         // 3. 응답 데이터 받기
@@ -68,7 +67,6 @@ public class KakaoService implements OAuthService, OAuthValue {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         return null;
     }
