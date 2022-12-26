@@ -273,7 +273,6 @@ URL: https://gettemplates.co
 
                         </c:if>
 
-
                         <c:if test="${empty loginUser}">
                             <tr id="lili">
 

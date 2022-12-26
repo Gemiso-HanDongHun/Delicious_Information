@@ -29,9 +29,6 @@ public class FoodNutrient {
     private double length;// 추천 알고리즘에 적용하는 두점 사이의 거리를 측정 변수
     // 여기서 두점 사이의 거리는 오늘 내가 필요한 영양분과 음식의 영양분 사이의 거리
 
-
-
-
     public FoodNutrient() {
         this.carbohydrate = 0f;
         this.protein = 0f;

@@ -399,7 +399,6 @@
             }
 
 
-
             //이메일값 유효성검사
             else if (!getMail.test($("#email").val())) {
                 $emailInput.css('border-color', 'red');
