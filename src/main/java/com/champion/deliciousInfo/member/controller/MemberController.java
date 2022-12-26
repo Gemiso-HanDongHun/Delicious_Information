@@ -86,7 +86,7 @@ public class MemberController {
     }
 
 
-    
+
     // 로그인 폼 요청
     @GetMapping("/sign-in")
     public String home(Model model, HttpSession session, HttpServletRequest request) {
@@ -155,6 +155,8 @@ public class MemberController {
     public ResponseEntity<Boolean> check(String type, String value) {
         log.info("/member/check?type={}&value={} GET!! ASYNC", type, value);
         boolean flag = memberService.checkSignUpValue(type, value);
+
+        log.info("flag - {}", flag);
 
         return new ResponseEntity<>(flag, HttpStatus.OK);
     }

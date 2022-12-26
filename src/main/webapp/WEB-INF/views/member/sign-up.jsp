@@ -290,7 +290,7 @@
                 fetch('/member/check?type=account&value=' + $idInput.val())   // 비동기로 type과 value를 받는다
                     .then(res => res.text())
                     .then(flag => {
-                        console.log('flag:', flag);
+
                         if (flag === 'true') {
                             $idInput.css('border-color', 'orangered');
                             $('#idChk').html('<b class="c-red">(사용중인 아이디)</b>');
@@ -308,6 +308,7 @@
             }
 
         }); //end id check event
+
 
         //2. 패스워드 입력값 검증.
         $('#password').on('keyup', function () {
@@ -398,45 +399,35 @@
                 checkArr[4] = false;
             }
 
-
             //이메일값 유효성검사
             else if (!getMail.test($("#email").val())) {
                 $emailInput.css('border-color', 'red');
 
                 $('#emailChk').html('<b class="c-red">(이메일 형식 오류)</b>');
                 checkArr[4] = false;
-            } else {
-                // 정상적으로 입력한 경우
-                $idInput.css('border-color', 'black');
-                $('#emailChk').html('<b class="c-blue"></b>');
-                checkArr[4] = true;
 
+            } else {
+
+                //이메일 중복확인 비동기 통신
+                fetch('/member/check?type=email&value=' + $emailInput.val())
+                    .then(res => res.text())
+                    .then(flag => {
+
+                        if (flag === 'true') {
+                            $emailInput.css('border-color', 'orangered');
+                            $('#emailChk').html(
+                                '<b class="c-red">(사용중인 이메일)</b>');
+                            checkArr[4] = false;
+                        } else {
+                            // 정상적으로 입력한 경우
+                            $idInput.css('border-color', 'black');
+                            $('#emailChk').html('<b class="c-blue">(사용가능)</b>');
+                            checkArr[4] = true;
+                        }
+                    });
             }
 
-
-            // else {
-            //
-            //     //이메일 중복확인 비동기 통신
-            //     fetch('/member/check?type=email&value=' + $emailInput.val())
-            //         .then(res => res.text())
-            //         .then(flag => {
-            //             //console.log(flag);
-            //             if (flag === 'true') {
-            //                 $emailInput.css('border-color', 'orangered');
-            //                 $('#emailChk').html(
-            //                     '<b class="c-red">(이메일이 중복)</b>');
-            //                 checkArr[3] = false;
-            //             } else {
-            //                 $emailInput.css('border-color', 'black');
-            //                 $('#emailChk').html(
-            //                     '<b class="c-blue"></b>'
-            //                 );
-            //                 checkArr[3] = true;
-            //             }
-            //         });
-            // }
         });
-
 
         // 회원가입 양식 서버로 전송하는 클릭 이벤트
         const $regForm = document.querySelector("#signupForm")

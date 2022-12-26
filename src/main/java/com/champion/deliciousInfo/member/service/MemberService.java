@@ -24,7 +24,6 @@ import static com.champion.deliciousInfo.util.LoginUtils.LOGIN_FLAG;
 @RequiredArgsConstructor
 public class MemberService {
 
-
     private final MemberMapper memberMapper;
     private final BCryptPasswordEncoder encoder;
 
@@ -50,7 +49,7 @@ public class MemberService {
         checkMap.put("type", type);
         checkMap.put("value", value);
 
-        return memberMapper.isDuplicate(checkMap) == 1;
+        return memberMapper.isDuplicate(checkMap) != 0;
     }
 
     // 회원 정보 조회 중간 처리
