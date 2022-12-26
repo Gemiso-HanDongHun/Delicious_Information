@@ -62,8 +62,8 @@ public class FoodNutrientService {
 //            tn.setType("cpf");
 //        }
         List<FoodNutrient> list = foodNutrientMapper.findAll();
-//        Collections.shuffle(recommend);
         List<FoodNutrient> recommend = RecommendUtils.recommend(list,tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         return findRecommendData;
@@ -97,8 +97,8 @@ public class FoodNutrientService {
 //            tn.setType("cpf");
 //        }
         List<FoodNutrient> list = foodNutrientMapper.findAll();
-//        Collections.shuffle(recommend);
         List<FoodNutrient> recommend = RecommendUtils.recommend(list,tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         return findRecommendData;
@@ -140,8 +140,8 @@ public class FoodNutrientService {
 //        }
         List<FoodNutrient> list = foodNutrientMapper.findAll();
 
-//        Collections.shuffle(recommend);
         List<FoodNutrient> recommend = RecommendUtils.recommend(list,tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         findRecommendData.put("fn",foodNutrient);
@@ -183,8 +183,8 @@ public class FoodNutrientService {
 //        List<FoodNutrient> recommend = foodNutrientMapper.recommend(tn);
         List<FoodNutrient> list = foodNutrientMapper.findAll();
 
-//        Collections.shuffle(recommend);
         List<FoodNutrient> recommend = RecommendUtils.recommend(list,tn);
+        Collections.shuffle(recommend);
         findRecommendData.put("tl",recommend);
         findRecommendData.put("tn",tn);
         findRecommendData.put("fn",foodNutrient);
