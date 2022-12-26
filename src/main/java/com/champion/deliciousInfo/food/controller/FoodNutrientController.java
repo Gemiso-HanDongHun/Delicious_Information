@@ -44,6 +44,7 @@ public class FoodNutrientController {
         model.addAttribute("sl",sl);
 
         log.info("foodnutrient - {}", foodNutrient);
+        log.info("recommendList - {}", todayNutrientList);
         return "food/food-nutrient";
 
     }
