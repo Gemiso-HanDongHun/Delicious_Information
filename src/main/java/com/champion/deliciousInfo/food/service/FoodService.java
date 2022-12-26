@@ -102,6 +102,7 @@ public class FoodService {
             //db에 저장
             flag1 = foodMapper.save(foodnutrient.getFood());
             flag2 = foodNutrientMapper.save(foodnutrient);
+
         }
 
         return flag1 && flag2;
