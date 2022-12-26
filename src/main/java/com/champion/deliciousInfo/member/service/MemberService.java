@@ -111,6 +111,7 @@ public class MemberService {
         log.info("modifyGrade start");
         boolean flag = memberMapper.modifyGrade(member);
         return flag;
+
     }
 
     public boolean remove(Member member){
